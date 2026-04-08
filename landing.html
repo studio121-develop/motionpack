@@ -166,12 +166,12 @@
     <span style="font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--arancio);font-weight:600">Hero Variant</span>
     <button onclick="document.getElementById('variant-widget').style.display='none'" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1rem;padding:0;line-height:1">&times;</button>
   </div>
-  <button class="vbtn active" data-v="0">A &mdash; Riempi il locale</button>
+  <button class="vbtn" data-v="0">A &mdash; Riempi il locale</button>
   <button class="vbtn" data-v="1">B &mdash; Competitor</button>
   <button class="vbtn" data-v="2">C &mdash; Video, non like</button>
   <button class="vbtn" data-v="3">D &mdash; 3 mesi / 1 giornata</button>
   <button class="vbtn" data-v="4">E &mdash; Non sta vendendo</button>
-  <button class="vbtn" data-v="5">F &mdash; Dato 73%</button>
+  <button class="vbtn active" data-v="5">F &mdash; Dato 73%</button>
 </div>
 <style>
   .vbtn{background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);padding:.45rem .75rem;border-radius:8px;font-size:.72rem;cursor:pointer;text-align:left;transition:all .25s;font-family:'DM Sans',sans-serif}
@@ -184,8 +184,8 @@
   <div class="c">
     <div class="hero-content">
 
-      <!-- Variant A: Risultato (default) -->
-      <div class="hero-v" data-variant="0">
+      <!-- Variant A: Risultato -->
+      <div class="hero-v" data-variant="0" style="display:none">
         <p class="label">Pack Reel Trimestrali</p>
         <h1>Riempi il locale.<br/><span class="ac">Non il calendario.</span></h1>
         <p class="hero-d">
@@ -239,8 +239,8 @@
         </p>
       </div>
 
-      <!-- Variant F: Dato 73% -->
-      <div class="hero-v" data-variant="5" style="display:none">
+      <!-- Variant F: Dato 73% (default) -->
+      <div class="hero-v" data-variant="5">
         <p class="label">Pack Reel Trimestrali</p>
         <h1>Il 73% dei clienti<br/>ti cerca in video.<br/><span class="ac">Ti trova?</span></h1>
         <p class="hero-d">
