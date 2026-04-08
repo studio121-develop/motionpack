@@ -160,17 +160,97 @@
   </div>
 </nav>
 
+<!-- ═══ VARIANT SELECTOR ═══ -->
+<div id="variant-widget" style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:100;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--border);border-radius:14px;padding:.85rem 1.1rem;display:flex;flex-direction:column;gap:.5rem;max-width:260px;box-shadow:0 8px 32px rgba(0,0,0,.5)">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.25rem">
+    <span style="font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--arancio);font-weight:600">Hero Variant</span>
+    <button onclick="document.getElementById('variant-widget').style.display='none'" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1rem;padding:0;line-height:1">&times;</button>
+  </div>
+  <button class="vbtn active" data-v="0">A &mdash; Riempi il locale</button>
+  <button class="vbtn" data-v="1">B &mdash; Competitor</button>
+  <button class="vbtn" data-v="2">C &mdash; Video, non like</button>
+  <button class="vbtn" data-v="3">D &mdash; 3 mesi / 1 giornata</button>
+  <button class="vbtn" data-v="4">E &mdash; Non sta vendendo</button>
+  <button class="vbtn" data-v="5">F &mdash; Dato 73%</button>
+</div>
+<style>
+  .vbtn{background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);padding:.45rem .75rem;border-radius:8px;font-size:.72rem;cursor:pointer;text-align:left;transition:all .25s;font-family:'DM Sans',sans-serif}
+  .vbtn:hover{border-color:var(--border-hover);color:var(--text)}
+  .vbtn.active{border-color:var(--arancio);color:var(--arancio);background:rgba(254,112,7,.08)}
+</style>
+
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="c">
     <div class="hero-content">
-      <p class="label">Pack Reel Trimestrali</p>
-      <h1>3 mesi di video.<br/>1 giornata.<br/><span class="ac">0 stress.</span></h1>
-      <p class="hero-d">
-        Ti costruiamo <strong>un trimestre di contenuti video</strong> con un obiettivo chiaro,
-        li giriamo tutti in una sessione, e li pubblichiamo con strategia.
-        Dopo 3 mesi <strong>misuriamo i risultati</strong> e decidi tu se continuare.
-      </p>
+
+      <!-- Variant A: Risultato (default) -->
+      <div class="hero-v" data-variant="0">
+        <p class="label">Pack Reel Trimestrali</p>
+        <h1>Riempi il locale.<br/><span class="ac">Non il calendario.</span></h1>
+        <p class="hero-d">
+          <strong>3 mesi di contenuti video</strong> con un obiettivo: portarti clienti.
+          Li giriamo tutti in una giornata, li pubblichiamo con strategia,
+          e dopo 3 mesi <strong>misuriamo i risultati insieme</strong>.
+        </p>
+      </div>
+
+      <!-- Variant B: Competitor / FOMO -->
+      <div class="hero-v" data-variant="1" style="display:none">
+        <p class="label">Pack Reel Trimestrali</p>
+        <h1>I tuoi competitor<br/>postano ogni giorno.<br/><span class="ac">Tu?</span></h1>
+        <p class="hero-d">
+          Mentre tu ci pensi, loro crescono. Ti costruiamo <strong>un trimestre di video</strong>
+          con strategia, shooting e pubblicazione. Una giornata per girare tutto.
+          <strong>Poi i numeri parlano.</strong>
+        </p>
+      </div>
+
+      <!-- Variant C: Video non like -->
+      <div class="hero-v" data-variant="2" style="display:none">
+        <p class="label">Pack Reel Trimestrali</p>
+        <h1>Video che portano clienti.<br/><span class="ac">Non like.</span></h1>
+        <p class="hero-d">
+          I like non pagano l'affitto. I clienti si. Ti costruiamo
+          <strong>3 mesi di reel con un obiettivo di business</strong>,
+          li giriamo in una giornata, e misuriamo cosa funziona.
+        </p>
+      </div>
+
+      <!-- Variant D: 3 mesi / 1 giornata (originale) -->
+      <div class="hero-v" data-variant="3" style="display:none">
+        <p class="label">Pack Reel Trimestrali</p>
+        <h1>3 mesi di video.<br/>1 giornata.<br/><span class="ac">0 stress.</span></h1>
+        <p class="hero-d">
+          Ti costruiamo <strong>un trimestre di contenuti video</strong> con un obiettivo chiaro,
+          li giriamo tutti in una sessione, e li pubblichiamo con strategia.
+          Dopo 3 mesi <strong>misuriamo i risultati</strong> e decidi tu se continuare.
+        </p>
+      </div>
+
+      <!-- Variant E: Non sta vendendo -->
+      <div class="hero-v" data-variant="4" style="display:none">
+        <p class="label">Pack Reel Trimestrali</p>
+        <h1>Il tuo Instagram<br/>non sta vendendo.<br/><span class="ac">Cambiamo?</span></h1>
+        <p class="hero-d">
+          Grafiche e post non bastano piu. Il video e il formato che converte.
+          Ti costruiamo <strong>3 mesi di reel strategici</strong>, girati in una giornata,
+          pubblicati con un obiettivo. <strong>Zero improvvisazione.</strong>
+        </p>
+      </div>
+
+      <!-- Variant F: Dato 73% -->
+      <div class="hero-v" data-variant="5" style="display:none">
+        <p class="label">Pack Reel Trimestrali</p>
+        <h1>Il 73% dei clienti<br/>ti cerca in video.<br/><span class="ac">Ti trova?</span></h1>
+        <p class="hero-d">
+          7 persone su 10 preferiscono i video brevi per scoprire un'attivita.
+          Se non hai reel, <strong>non esisti</strong>. Ti costruiamo 3 mesi di video
+          con strategia e obiettivi. Giriamo tutto in una giornata.
+        </p>
+      </div>
+
+      <!-- Shared CTA + Stats -->
       <div style="display:flex;gap:1rem;flex-wrap:wrap">
         <a href="https://wa.me/393XXXXXXXXX?text=Ciao%2C%20vorrei%20informazioni%20sui%20pack%20reel" class="btn btn-wa">Scrivici su WhatsApp</a>
         <a href="#pacchetti" class="btn btn-ghost">Vedi i pacchetti</a>
@@ -306,7 +386,7 @@
         <div class="step-n">3</div>
         <div class="step-b">
           <h3>Post-produzione</h3>
-          <p>Montiamo, aggiungiamo sottotitoli, musica e effetti. I reel "bestiali" ricevono un trattamento cinematico. Ti mandiamo tutto per approvazione.</p>
+          <p>Montiamo, aggiungiamo sottotitoli, musica e effetti. Alcuni reel ricevono un trattamento cinematico premium. Ti mandiamo tutto per approvazione.</p>
         </div>
       </div>
       <div class="step">
@@ -361,7 +441,7 @@
   <div class="c reveal">
     <p class="label">I Pacchetti</p>
     <h2 class="title">Scegli il tuo ritmo.</h2>
-    <p class="desc">Tutti includono strategia trimestrale, reel "bestiali" con post-produzione cinematica, calendario editoriale e copy. Prezzi IVA esclusa.</p>
+    <p class="desc">Tutti includono strategia trimestrale, reel con post-produzione professionale, calendario editoriale e copy. Prezzi IVA esclusa.</p>
 
     <div class="g3" style="margin-top:1rem">
       <!-- Starter -->
@@ -373,7 +453,7 @@
         <ul class="ft">
           <li>12 reel in 3 mesi</li>
           <li>Shooting mezza giornata</li>
-          <li>3 reel "bestiali" cinematici</li>
+          <li>3 reel premium con effetti cinematici</li>
           <li>2 reel pronti per sponsorizzate</li>
           <li>Strategia + calendario + copy</li>
           <li>Revisione inclusa</li>
@@ -393,7 +473,7 @@
         <ul class="ft">
           <li>18 reel in 3 mesi</li>
           <li>Shooting mezza giornata+</li>
-          <li>4 reel "bestiali" cinematici</li>
+          <li>4 reel premium con effetti cinematici</li>
           <li>3 reel pronti per sponsorizzate</li>
           <li>Strategia + calendario + copy</li>
           <li>Revisione inclusa</li>
@@ -414,7 +494,7 @@
         <ul class="ft">
           <li>24 reel in 3 mesi</li>
           <li>Shooting giornata intera</li>
-          <li>5 reel "bestiali" cinematici</li>
+          <li>5 reel premium con effetti cinematici</li>
           <li>4 reel pronti per sponsorizzate</li>
           <li>Strategia + calendario + copy</li>
           <li>2 revisioni incluse</li>
@@ -445,7 +525,7 @@
     <p class="label">Non Sei Sicuro?</p>
     <h2 class="title">Prova con un singolo reel.</h2>
     <p style="font-size:1rem;color:var(--text-mid);max-width:550px;margin:0 auto 2rem;line-height:1.7">
-      Un reel "bestiale" a <strong style="color:var(--arancio)">&euro;150</strong> per vedere come lavoriamo.
+      Un reel professionale a <strong style="color:var(--arancio)">&euro;150</strong> per vedere come lavoriamo.
       Nessun impegno. Se ti piace, parliamo del trimestre.
     </p>
     <a href="https://wa.me/393XXXXXXXXX?text=Ciao%2C%20vorrei%20provare%20il%20reel%20singolo%20da%20150%E2%82%AC" class="btn btn-wa">Voglio il reel di prova</a>
@@ -546,6 +626,30 @@ document.querySelectorAll('.faq-q').forEach(function(q){
     this.parentElement.classList.toggle('open');
   });
 });
+</script>
+<!-- Variant switcher -->
+<script>
+(function(){
+  var btns=document.querySelectorAll('.vbtn');
+  var variants=document.querySelectorAll('.hero-v');
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var v=this.getAttribute('data-v');
+      btns.forEach(function(b){b.classList.remove('active')});
+      this.classList.add('active');
+      variants.forEach(function(el){
+        el.style.display=el.getAttribute('data-variant')===v?'block':'none';
+        if(el.getAttribute('data-variant')===v){
+          el.style.opacity='0';el.style.transform='translateY(12px)';
+          requestAnimationFrame(function(){
+            el.style.transition='opacity .4s ease, transform .4s ease';
+            el.style.opacity='1';el.style.transform='translateY(0)';
+          });
+        }
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>
