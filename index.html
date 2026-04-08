@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pack Reel Trimestrali | Studio121</title>
+  <meta name="description" content="Pacchetti video reel trimestrali: strategia, shooting in una sessione, pubblicazione calendarizzata. Strategia, non tappabuchi."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --arancio: #fe7007;
+      --arancio-glow: rgba(254, 112, 7, 0.4);
+      --viola: rgb(100, 50, 255);
+      --blu: rgb(30, 70, 255);
+      --bg: #0a0a0a;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --bg-card-hover: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.15);
+      --text: #f5f5f5;
+      --text-muted: rgba(245, 245, 245, 0.55);
+      --text-mid: rgba(245, 245, 245, 0.75);
+      --glass-bg: rgba(10, 10, 10, 0.7);
+      --glass-blur: blur(20px) saturate(1.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Aurora Canvas */
+    #aurora-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.55;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      padding: 1rem 1.5rem;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.3rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .nav-brand span { color: var(--arancio); }
+    .nav-links { display: flex; gap: 0.5rem; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+
+    /* Sections */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 1.5rem;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 8rem;
+    }
+    .hero-content { max-width: 800px; }
+    .hero-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+    .hero h1 .accent { color: var(--arancio); }
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-mid);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 600; }
+
+    /* CTA Button */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Anton', sans-serif;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      padding: 15px 35px;
+      background: rgba(255, 224, 0, 0.15);
+      border: 2.5px solid var(--arancio);
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-shadow: 0 0 18px rgba(255,255,255,0.3);
+      box-shadow: 0 0 30px var(--arancio-glow);
+      letter-spacing: 0.5px;
+    }
+    .cta-btn:hover {
+      box-shadow: 0 0 50px var(--arancio-glow);
+      background: rgba(255, 224, 0, 0.25);
+    }
+    .cta-ghost {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--text-muted);
+      box-shadow: none;
+      text-shadow: none;
+    }
+    .cta-ghost:hover {
+      border-color: var(--border-hover);
+      color: var(--text);
+      box-shadow: none;
+    }
+
+    /* Section Headers */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--arancio);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* Problem Section */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .problem-card {
+      padding: 2rem;
+      background: var(--bg);
+    }
+    .problem-card.old { opacity: 0.5; }
+    .problem-card.new { }
+    .problem-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .problem-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .problem-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Comparison Table */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    .compare-table th,
+    .compare-table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .compare-table th {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+    .compare-table .old-col { color: var(--text-muted); opacity: 0.6; }
+    .compare-table .new-col { color: var(--arancio); font-weight: 500; }
+
+    /* Pack Cards */
+    .packs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .pack-card {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      background: var(--bg-card);
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .pack-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+    }
+    .pack-card.featured {
+      border-color: rgba(254, 112, 7, 0.3);
+    }
+    .pack-card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--arancio), var(--viola));
+    }
+    .pack-name {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.25rem;
+      font-weight: 400;
+    }
+    .pack-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--arancio);
+      margin-bottom: 1.5rem;
+    }
+    .pack-price {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
+    .pack-price-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .pack-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .pack-features li {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .pack-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--arancio);
+    }
+
+    /* Process / Steps */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 2rem;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--arancio), var(--viola), transparent);
+    }
+    .step {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem 0;
+      position: relative;
+    }
+    .step-number {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 50%;
+      border: 1.5px solid var(--arancio);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Anton', sans-serif;
+      font-size: 1.1rem;
+      color: var(--arancio);
+      background: var(--bg);
+      z-index: 1;
+    }
+    .step-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .step-content p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .step-content .step-detail {
+      margin-top: 0.75rem;
+      padding: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* Numbers / Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .stat-card {
+      text-align: center;
+      padding: 2rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--bg-card);
+    }
+    .stat-number {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.5rem;
+      color: var(--arancio);
+      font-weight: 400;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* Risks Table */
+    .risk-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .risk-row {
+      display: grid;
+      grid-template-columns: 1fr auto 2fr;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg-card);
+    }
+    .risk-name { font-size: 0.9rem; font-weight: 500; }
+    .risk-prob {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .risk-prob.media { background: rgba(254, 112, 7, 0.15); color: var(--arancio); }
+    .risk-prob.bassa { background: rgba(100, 200, 100, 0.15); color: #6cc66c; }
+    .risk-prob.alta { background: rgba(255, 60, 60, 0.15); color: #ff6b6b; }
+    .risk-solution { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* Upsell Section */
+    .upsell-card {
+      border: 1px solid rgba(100, 50, 255, 0.3);
+      border-radius: 20px;
+      padding: 2.5rem;
+      background: rgba(100, 50, 255, 0.05);
+      margin-top: 2rem;
+    }
+    .upsell-card h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .upsell-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .upsell-features li {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .upsell-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--viola);
+    }
+
+    /* Metrics */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .metric-card {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--bg-card);
+    }
+    .metric-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .metric-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Revenue Table */
+    .revenue-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    .revenue-table th,
+    .revenue-table td {
+      padding: 0.9rem 1.2rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+    .revenue-table th {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .revenue-table td { color: var(--text-mid); }
+    .revenue-table tr:last-child td { border-bottom: none; }
+    .revenue-table .highlight { color: var(--arancio); font-weight: 600; }
+
+    /* Pitch Section */
+    .pitch-section {
+      text-align: center;
+      padding: 8rem 1.5rem;
+    }
+    .pitch-quote {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      line-height: 1.3;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      font-weight: 400;
+    }
+    .pitch-quote .accent { color: var(--arancio); }
+
+    /* Pillar cards */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .pillar-card {
+      padding: 2rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--bg-card);
+      text-align: center;
+    }
+    .pillar-num {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.5rem;
+      color: var(--arancio);
+      opacity: 0.3;
+      margin-bottom: 0.5rem;
+    }
+    .pillar-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .pillar-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* Not-for section */
+    .not-for {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .not-for-item {
+      flex: 1;
+      padding: 1.25rem;
+      border: 1px solid rgba(255, 60, 60, 0.15);
+      border-radius: 12px;
+      background: rgba(255, 60, 60, 0.03);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .packs-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .metrics-grid { grid-template-columns: 1fr; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .risk-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .not-for { flex-direction: column; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.25rem; }
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="aurora-canvas"></canvas>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">PACK <span>REEL</span></a>
+    <div class="nav-links">
+      <a href="#problema">Il Problema</a>
+      <a href="#pacchetti">Pacchetti</a>
+      <a href="#processo">Processo</a>
+      <a href="#numeri">Numeri</a>
+      <a href="#rischi">Rischi</a>
+      <a href="#marketing">Marketing</a>
+      <a href="#next-steps">Next Steps</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-label">Pack Reel Trimestrali &mdash; Documento Strategico</p>
+      <h1>Strategia,<br/><span class="accent">non tappabuchi.</span></h1>
+      <p class="hero-desc">
+        Pacchetti video reel trimestrali con <strong>sessione di shooting unica</strong>,
+        strategia orientata a obiettivi di business, e posizionamento anti-gestione-mensile.
+        Tutto quello che serve per smettere di riempire buchi e iniziare a <strong>costruire risultati</strong>.
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="#pacchetti" class="cta-btn">Vedi i pacchetti</a>
+        <a href="#processo" class="cta-btn cta-ghost">Come funziona</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Problema -->
+<section id="problema">
+  <div class="container reveal">
+    <p class="section-label">Il Problema</p>
+    <h2 class="section-title">Chi ti gestisce i social settimana<br/>per settimana sta riempiendo buchi.</h2>
+    <p class="section-desc">
+      Il modello tradizionale di gestione social mensile ha problemi strutturali.
+      Tempi lunghi, risultati invisibili, approccio reattivo. Noi facciamo il contrario.
+    </p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="old-col">Gestioni mensili tradizionali</th>
+          <th class="new-col">Il nostro modello</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="old-col">Pensa settimana per settimana</td>
+          <td class="new-col">Pensa a 3 mesi</td>
+        </tr>
+        <tr>
+          <td class="old-col">Riempie il calendario</td>
+          <td class="new-col">Persegue un obiettivo</td>
+        </tr>
+        <tr>
+          <td class="old-col">Crea contenuti generici</td>
+          <td class="new-col">Crea una narrativa</td>
+        </tr>
+        <tr>
+          <td class="old-col">Non sa dove sta andando</td>
+          <td class="new-col">Misura e corregge</td>
+        </tr>
+        <tr>
+          <td class="old-col">Ti tiene legato mese per mese</td>
+          <td class="new-col">Ti da un trimestre completo, poi decidi tu</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Target -->
+<section>
+  <div class="container reveal">
+    <p class="section-label">Per Chi</p>
+    <h2 class="section-title">Due target, un metodo.</h2>
+
+    <div class="stats-grid" style="grid-template-columns: 1fr 1fr; margin-top: 2rem;">
+      <div class="stat-card" style="text-align: left; padding: 2rem;">
+        <div class="stat-number" style="font-size: 1.8rem; margin-bottom: 0.75rem;">Attivita locali</div>
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+          Ristoranti, palestre, negozi, studi professionali.
+          Chi ha bisogno di visibilita locale e contenuti costanti ma non ha tempo di pensarci.
+        </p>
+      </div>
+      <div class="stat-card" style="text-align: left; padding: 2rem;">
+        <div class="stat-number" style="font-size: 1.8rem; margin-bottom: 0.75rem;">PMI</div>
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+          Aziende con un minimo di struttura marketing interna.
+          Chi vuole una strategia video seria senza assumere un team dedicato.
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem;">
+      <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-muted);">A chi NON ci rivolgiamo</h3>
+      <div class="not-for">
+        <div class="not-for-item">Chi vuole "essere sui social" senza sapere perche</div>
+        <div class="not-for-item">Chi vuole controllare ogni singolo post prima di pubblicare</div>
+        <div class="not-for-item">Chi cerca un community manager che risponde ai commenti</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Pacchetti -->
+<section id="pacchetti">
+  <div class="container reveal">
+    <p class="section-label">L'Offerta</p>
+    <h2 class="section-title">Due pacchetti. Zero sorprese.</h2>
+    <p class="section-desc">
+      Entrambi includono strategia trimestrale, 3 reel "bestiali" con post-produzione alta,
+      e calendario editoriale completo. Tutti i prezzi EUR, IVA esclusa.
+    </p>
+
+    <div style="margin-bottom: 2rem; padding: 1rem 1.5rem; border-left: 3px solid var(--arancio); background: var(--bg-card); border-radius: 0 8px 8px 0;">
+      <p style="font-size: 0.9rem; color: var(--text-mid); line-height: 1.6;">
+        <strong style="color: var(--text);">Contesto:</strong> Oggi vendiamo gestioni social a ~650/mese (strategia, PED, calendario, grafiche).
+        I pack reel aggiungono un delta video significativo (shooting, post-produzione, reel bestiali).
+        Non sono un'alternativa piu economica &mdash; sono un <strong style="color: var(--arancio);">salto di livello</strong>.
+      </p>
+    </div>
+
+    <div class="packs-grid">
+      <!-- Pack 12 -->
+      <div class="pack-card">
+        <div class="pack-name">Pack 12</div>
+        <div class="pack-tag">Starter</div>
+        <div class="pack-price">&euro;2.800 - 3.000</div>
+        <div class="pack-price-sub">trimestre &middot; ~930-1.000/mese &middot; 4 reel/mese x 3 mesi</div>
+        <ul class="pack-features">
+          <li>Sessione mezza giornata (~3-4h)</li>
+          <li>1 videomaker</li>
+          <li>9 reel post-produzione leggera</li>
+          <li>3 reel "bestiali" post-produzione alta</li>
+          <li>Strategia trimestrale con obiettivo di business</li>
+          <li>Calendario editoriale + copy suggerita</li>
+          <li>1 giro di revisione incluso per reel</li>
+          <li>Formato primario: Instagram Reels</li>
+          <li>Consegna al cliente &mdash; pubblica in autonomia</li>
+        </ul>
+      </div>
+
+      <!-- Pack 24 -->
+      <div class="pack-card featured">
+        <div class="pack-name">Pack 24</div>
+        <div class="pack-tag">Full</div>
+        <div class="pack-price">&euro;4.500 - 5.500</div>
+        <div class="pack-price-sub">&euro;1.500 - 1.833/mese x 3 mesi &middot; 8 reel/mese</div>
+        <ul class="pack-features">
+          <li>Sessione giornata intera (~6-8h)</li>
+          <li>1 videomaker (+ content director se necessario)</li>
+          <li>21 reel post-produzione leggera</li>
+          <li>3 reel "bestiali" post-produzione alta</li>
+          <li>Strategia trimestrale con obiettivo di business</li>
+          <li>Calendario editoriale + copy suggerita</li>
+          <li>1 giro di revisione incluso per reel</li>
+          <li>Formato primario: Instagram Reels</li>
+          <li><strong style="color: var(--arancio);">Gestione pubblicazione inclusa per 3 mesi</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Cosa NON e incluso -->
+    <div style="margin-top: 2rem; padding: 1.5rem; border: 1px solid rgba(255, 60, 60, 0.15); border-radius: 12px; background: rgba(255, 60, 60, 0.03);">
+      <h4 style="font-size: 0.85rem; color: #ff6b6b; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem;">Cosa NON e incluso (esplicito nel contratto)</h4>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+        <p style="font-size: 0.82rem; color: var(--text-muted); padding-left: 1rem; border-left: 2px solid rgba(255, 60, 60, 0.2);">Contenuti statici (grafiche, post, caroselli)</p>
+        <p style="font-size: 0.82rem; color: var(--text-muted); padding-left: 1rem; border-left: 2px solid rgba(255, 60, 60, 0.2);">Community management (risposte commenti/DM)</p>
+        <p style="font-size: 0.82rem; color: var(--text-muted); padding-left: 1rem; border-left: 2px solid rgba(255, 60, 60, 0.2);">Adattamento TikTok/YouTube Shorts (+20% se richiesto)</p>
+        <p style="font-size: 0.82rem; color: var(--text-muted); padding-left: 1rem; border-left: 2px solid rgba(255, 60, 60, 0.2);">Revisioni extra oltre la prima (50&euro;/h)</p>
+        <p style="font-size: 0.82rem; color: var(--text-muted); padding-left: 1rem; border-left: 2px solid rgba(255, 60, 60, 0.2);">Musica premium con licenza commerciale</p>
+        <p style="font-size: 0.82rem; color: var(--text-muted); padding-left: 1rem; border-left: 2px solid rgba(255, 60, 60, 0.2);">Talent/figuranti esterni e liberatorie</p>
+      </div>
+    </div>
+
+    <!-- Pricing logic -->
+    <div style="margin-top: 2.5rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card);">
+      <h4 style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem;">Criteri di posizionamento nella fascia prezzo</h4>
+      <table class="revenue-table" style="margin-top: 0;">
+        <thead>
+          <tr>
+            <th>Fattore</th>
+            <th>Fascia bassa</th>
+            <th>Fascia alta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Complessita setup</td>
+            <td>Semplice (1-2 ambienti)</td>
+            <td>Complesso (3+ ambienti, prodotti)</td>
+          </tr>
+          <tr>
+            <td>Persone on camera</td>
+            <td>Solo titolare</td>
+            <td>Titolare + staff/clienti</td>
+          </tr>
+          <tr>
+            <td>Distanza</td>
+            <td>Entro 30 min</td>
+            <td>Oltre 30 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Upsell -->
+    <div class="upsell-card">
+      <h3>Upsell &mdash; Campagna Ads</h3>
+      <p style="font-size: 0.9rem; color: var(--text-mid); margin-bottom: 1rem;">
+        I reel migliori diventano sponsorizzate. Obiettivo specifico, budget del cliente, risultati misurabili.
+      </p>
+      <ul class="upsell-features">
+        <li>Setup campagna: &euro;300 - 500 (una tantum)</li>
+        <li>Gestione mensile: &euro;200 - 400/mese oppure 15-20% del budget ads</li>
+        <li>Budget ads minimo consigliato: &euro;300/mese</li>
+        <li>Report mensile sull'andamento</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Processo -->
+<section id="processo">
+  <div class="container reveal">
+    <p class="section-label">Il Processo</p>
+    <h2 class="section-title">Dalla firma ai risultati.<br/>6 fasi, zero improvvisazione.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Vendita e Onboarding</h3>
+          <p>Settimana 1</p>
+          <div class="step-detail">
+            <strong>Call di qualifica</strong> (~15 min) per capire se siamo il match giusto.
+            Poi <strong>incontro strategico</strong> (~1h) per capire il business, l'obiettivo reale, il tono di voce.
+            Proposta commerciale con obiettivo dichiarato e metriche di successo.
+            <br/><br/>
+            Pagamento: 50/50 per Pack 12 (firma + consegna). Mensile per Pack 24.
+            Acconto entro 7 giorni dalla firma. Shooting schedulato solo dopo ricezione acconto.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Pre-produzione</h3>
+          <p>Settimana 2 &mdash; La fase che fa funzionare tutto.</p>
+          <div class="step-detail">
+            <strong>Piano editoriale completo:</strong> tutti i reel definiti prima di girare.
+            Titolo, concetto, quali sono i 3 bestiali, mix parlati/prodotto/trending, ordine di pubblicazione, copy e gancio.
+            <br/><br/>
+            <strong>Shooting list:</strong> scaletta per efficienza di set, non per ordine di pubblicazione.
+            Raggruppiamo per setup (stessa location/luce = di fila).
+            <br/><br/>
+            <strong>Brief al cliente:</strong> cosa preparare, orario, cosa ci aspettiamo.
+            Il cliente approva tutto PRIMA dello shooting.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Shooting</h3>
+          <p>Settimana 3 &mdash; Una sessione, tutti i contenuti.</p>
+          <div class="step-detail">
+            <strong>Pack 12:</strong> ~12 reel in 3-4 ore = ~15-20 min per reel.
+            <br/>
+            <strong>Pack 24:</strong> ~24 reel in 6-8 ore = ~15-20 min per reel.
+            Shooting list rigida, pausa pranzo strategica, reel parlati veloci, reel prodotto piu setup.
+            <br/><br/>
+            <strong>Regola d'oro:</strong> girare materiale in piu, mai in meno. Varianti e B-roll extra se avanza tempo.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Post-produzione</h3>
+          <p>Settimane 4-5</p>
+          <div class="step-detail">
+            Montaggio leggero sui reel standard: taglio, sottotitoli, musica, color.
+            <br/>
+            Montaggio bestiale sui 3 reel hero: motion graphics, sound design, effetti.
+            <br/><br/>
+            Revisione interna + approvazione cliente prima della pubblicazione.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Pubblicazione</h3>
+          <p>Mesi 1-2-3</p>
+          <div class="step-detail">
+            <strong>Pack 12:</strong> consegna reel + calendario + copy. Il cliente pubblica.
+            <br/>
+            <strong>Pack 24:</strong> pubblicazione gestita da noi secondo calendario.
+            Copy, hashtag, programmazione. Monitoraggio base (no community management).
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <h3>Misurazione e Rinnovo</h3>
+          <p>Fine mese 3</p>
+          <div class="step-detail">
+            <strong>Report trimestrale</strong> con KPI: views, engagement rate, crescita follower, click, lead generati.
+            <br/>
+            <strong>Incontro di review</strong> (~30 min): cosa ha funzionato, cosa no.
+            <br/>
+            <strong>Proposta rinnovo:</strong> nuovo trimestre con strategia aggiornata, oppure il cliente prosegue da solo.
+            Nessun vincolo. I dati parlano.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Numeri -->
+<section id="numeri">
+  <div class="container reveal">
+    <p class="section-label">I Numeri</p>
+    <h2 class="section-title">Struttura costi e margini.</h2>
+    <p class="section-desc">Stime da validare con fornitori reali. Costi interni (tempo titolare/account) non inclusi.</p>
+
+    <div class="packs-grid">
+      <div class="pack-card">
+        <div class="pack-name" style="font-size: 1.3rem;">Costi Pack 12</div>
+        <table class="revenue-table" style="margin-top: 1rem;">
+          <tbody>
+            <tr><td>Videomaker (mezza giornata)</td><td class="highlight">&euro;250-350</td></tr>
+            <tr><td>Post-prod leggera (9 reel)</td><td class="highlight">&euro;300-400</td></tr>
+            <tr><td>Post-prod bestiale (3 reel)</td><td class="highlight">&euro;300-450</td></tr>
+            <tr><td>Strategia + piano + calendario</td><td class="highlight">&euro;200-300</td></tr>
+            <tr><td>Musica royalty-free</td><td class="highlight">&euro;50-100</td></tr>
+            <tr><td><strong>Totale costi</strong></td><td class="highlight"><strong>&euro;1.100-1.600</strong></td></tr>
+            <tr><td><strong>Ricavo</strong></td><td class="highlight"><strong>&euro;2.800-3.000</strong></td></tr>
+            <tr><td><strong>Margine lordo</strong></td><td style="color: #6cc66c; font-weight: 600;">~43-63%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pack-card featured">
+        <div class="pack-name" style="font-size: 1.3rem;">Costi Pack 24</div>
+        <table class="revenue-table" style="margin-top: 1rem;">
+          <tbody>
+            <tr><td>Videomaker (giornata intera)</td><td class="highlight">&euro;400-600</td></tr>
+            <tr><td>Content director (se necessario)</td><td class="highlight">&euro;0-300</td></tr>
+            <tr><td>Post-prod leggera (21 reel)</td><td class="highlight">&euro;600-800</td></tr>
+            <tr><td>Post-prod bestiale (3 reel)</td><td class="highlight">&euro;300-450</td></tr>
+            <tr><td>Strategia + piano + calendario</td><td class="highlight">&euro;350-500</td></tr>
+            <tr><td>Gestione pubblicazione (3 mesi)</td><td class="highlight">&euro;200-300</td></tr>
+            <tr><td>Musica royalty-free</td><td class="highlight">&euro;50-100</td></tr>
+            <tr><td><strong>Totale costi</strong></td><td class="highlight"><strong>&euro;1.900-3.050</strong></td></tr>
+            <tr><td><strong>Ricavo</strong></td><td class="highlight"><strong>&euro;4.500-5.500</strong></td></tr>
+            <tr><td><strong>Margine lordo</strong></td><td style="color: #6cc66c; font-weight: 600;">~32-65%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Revenue Scenarios -->
+    <div style="margin-top: 3rem;">
+      <h3 style="font-family: 'Anton', sans-serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem;">Scenari di ricavo trimestrali</h3>
+      <table class="revenue-table">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Clienti</th>
+            <th>Editor</th>
+            <th>Ricavo</th>
+            <th>Margine</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Minimo sostenibile</td>
+            <td>3 Pack 12 + 2 Pack 24</td>
+            <td>1</td>
+            <td class="highlight">&euro;17.400-20.000</td>
+            <td>&euro;7.800-12.000</td>
+          </tr>
+          <tr>
+            <td><strong>Obiettivo anno 1</strong></td>
+            <td>5 Pack 12 + 4 Pack 24</td>
+            <td>1 (al limite)</td>
+            <td class="highlight">&euro;32.000-37.000</td>
+            <td>&euro;14.400-22.200</td>
+          </tr>
+          <tr>
+            <td>A regime</td>
+            <td>8 Pack 12 + 6 Pack 24</td>
+            <td>2</td>
+            <td class="highlight">&euro;49.400-57.000</td>
+            <td>&euro;22.200-34.200</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem;">
+        + circa &euro;1.500-3.000/trimestre con upsell ads (stima su ~30% attach rate)
+      </p>
+    </div>
+
+    <!-- Capacity -->
+    <div style="margin-top: 3rem;">
+      <h3 style="font-family: 'Anton', sans-serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem;">Trigger per scaling</h3>
+      <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="stat-card">
+          <div class="stat-number" style="font-size: 1.8rem;">13+</div>
+          <div class="stat-label">editor-settimane/trimestre<br/>= serve un 2&deg; editor</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" style="font-size: 1.8rem;">4+</div>
+          <div class="stat-label">shooting/settimana<br/>= serve un 2&deg; videomaker</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" style="font-size: 1.8rem;">8+</div>
+          <div class="stat-label">clienti Pack 24 attivi<br/>= serve account dedicato</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Rischi -->
+<section id="rischi">
+  <div class="container reveal">
+    <p class="section-label">Rischi e Mitigazioni</p>
+    <h2 class="section-title">Occhi aperti.</h2>
+
+    <div class="risk-grid">
+      <div class="risk-row">
+        <div class="risk-name">Sessione troppo ambiziosa per 24 reel</div>
+        <div class="risk-prob media">Media</div>
+        <div class="risk-solution">Pre-produzione rigida con shooting list per setup. Testare e aggiustare dopo i primi clienti.</div>
+      </div>
+      <div class="risk-row">
+        <div class="risk-name">Contenuti invecchiano dopo 2 mesi</div>
+        <div class="risk-prob bassa">Bassa</div>
+        <div class="risk-solution">Mix: reel evergreen nei mesi 2-3, trending nel mese 1. Il piano editoriale tiene conto della shelf-life.</div>
+      </div>
+      <div class="risk-row">
+        <div class="risk-name">Cliente non rinnova</div>
+        <div class="risk-prob media">Media</div>
+        <div class="risk-solution">Il modello regge con flusso clienti nuovi. I reel bestiali attirano i prossimi. KPI positivi = rinnovo naturale.</div>
+      </div>
+      <div class="risk-row">
+        <div class="risk-name">Prezzo difficile da digerire upfront</div>
+        <div class="risk-prob media">Media</div>
+        <div class="risk-solution">Pagamento 50/50 per Pack 12, mensile per Pack 24. Il costo mensile del Pack 24 e comparabile alle gestioni tradizionali.</div>
+      </div>
+      <div class="risk-row">
+        <div class="risk-name">Cliente cambia idea a meta trimestre</div>
+        <div class="risk-prob bassa">Bassa</div>
+        <div class="risk-solution">Contratto chiaro: piano approvato prima dello shooting. Modifiche post a costo extra. Kill fee 30% se cancella prima.</div>
+      </div>
+      <div class="risk-row">
+        <div class="risk-name">Nessun reel bestiale da mostrare (inizio)</div>
+        <div class="risk-prob alta">Alta</div>
+        <div class="risk-solution">Primo cliente a prezzo scontato o case study su proprio brand. Investimento iniziale sul portfolio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Pilastri del messaggio -->
+<section>
+  <div class="container reveal">
+    <p class="section-label">Il Posizionamento</p>
+    <h2 class="section-title">4 pilastri del messaggio.</h2>
+
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">01</div>
+        <h4>Obiettivo prima, contenuti dopo</h4>
+        <p>Non partiamo dai reel. Partiamo da dove vuoi arrivare.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">02</div>
+        <h4>Tutto in una sessione</h4>
+        <p>Una giornata e hai 3 mesi di contenuti. Zero disruption alla tua attivita.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">03</div>
+        <h4>Trasparenza totale</h4>
+        <p>Sai cosa ricevi, quando, e quanto costa. Niente vincoli mensili.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">04</div>
+        <h4>Risultati misurabili</h4>
+        <p>Dopo 3 mesi guardi i numeri, non le promesse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pitch finale -->
+<section class="pitch-section">
+  <div class="container reveal">
+    <p class="section-label">Il Pitch</p>
+    <p class="pitch-quote">
+      "Ti costruiamo <span class="accent">3 mesi di contenuti video</span> con un obiettivo chiaro,
+      li giriamo tutti in una giornata, e li pubblichiamo con una strategia.
+      Dopo 3 mesi <span class="accent">misuriamo insieme i risultati</span> e decidi tu se continuare."
+    </p>
+    <a href="#pacchetti" class="cta-btn">Torna ai pacchetti</a>
+  </div>
+</section>
+
+<!-- Marketing Strategy -->
+<section id="marketing">
+  <div class="container reveal">
+    <p class="section-label">Acquisizione Clienti</p>
+    <h2 class="section-title">Come li troviamo.</h2>
+    <p class="section-desc">5 canali di acquisizione concreti, dal piu economico al piu strutturato.</p>
+
+    <!-- Idea 1 -->
+    <div style="margin-bottom: 2rem; padding: 2rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-card);">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+        <span style="font-family: 'Anton', sans-serif; font-size: 1.5rem; color: var(--arancio); opacity: 0.5;">01</span>
+        <h3 style="font-size: 1.1rem; font-weight: 600;">"Mangia il tuo cibo" &mdash; Short Form Video</h3>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 1rem;">
+        Vendete reel. I vostri reel devono essere incredibili. Girate un pack sul vostro brand come primo case study.
+        I 3 reel bestiali di ogni cliente diventano il vostro portfolio che si autoalimenta.
+      </p>
+      <div style="display: flex; gap: 2rem; font-size: 0.8rem; color: var(--text-muted);">
+        <span><strong style="color: var(--arancio);">Costo:</strong> 1 giornata pro-bono</span>
+        <span><strong style="color: var(--arancio);">Risultato:</strong> Portfolio che cresce a ogni cliente</span>
+      </div>
+    </div>
+
+    <!-- Idea 2 -->
+    <div style="margin-bottom: 2rem; padding: 2rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-card);">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+        <span style="font-family: 'Anton', sans-serif; font-size: 1.5rem; color: var(--arancio); opacity: 0.5;">02</span>
+        <h3 style="font-size: 1.1rem; font-weight: 600;">Marketing Jiu-Jitsu &mdash; Attacca il modello, non i competitor</h3>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 1rem;">
+        "Strategia, non tappabuchi" e un attacco diretto al modello mensile senza nominare nessuno.
+        Serie di post LinkedIn/Instagram: "5 segnali che la tua agenzia sta riempiendo buchi".
+        Contenuto educativo sul perche il modello mensile non funziona.
+        Confronto numerico: 12 mesi di gestione mensile vs. 4 trimestri strategici.
+      </p>
+      <div style="display: flex; gap: 2rem; font-size: 0.8rem; color: var(--text-muted);">
+        <span><strong style="color: var(--arancio);">Costo:</strong> 2-3h/settimana, zero budget</span>
+        <span><strong style="color: var(--arancio);">Risultato:</strong> Lead che arrivano gia convinti</span>
+      </div>
+    </div>
+
+    <!-- Idea 3 -->
+    <div style="margin-bottom: 2rem; padding: 2rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-card);">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+        <span style="font-family: 'Anton', sans-serif; font-size: 1.5rem; color: var(--arancio); opacity: 0.5;">03</span>
+        <h3 style="font-size: 1.1rem; font-weight: 600;">Pranzi Strategici &mdash; Roadshows Locali</h3>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 1rem;">
+        Il target sono attivita locali e PMI. Non cercano "pack reel" su Google. Vanno presi di persona.
+        Organizziamo "pranzi strategici" da 8-10 titolari: presentazione 20 min, reel bestiali sul proiettore,
+        call di qualifica a chi e interessato. 1 al mese.
+      </p>
+      <div style="display: flex; gap: 2rem; font-size: 0.8rem; color: var(--text-muted);">
+        <span><strong style="color: var(--arancio);">Costo:</strong> ~300/evento + 1 giornata</span>
+        <span><strong style="color: var(--arancio);">Risultato:</strong> 1-2 clienti per evento</span>
+      </div>
+    </div>
+
+    <!-- Idea 4 -->
+    <div style="margin-bottom: 2rem; padding: 2rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-card);">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+        <span style="font-family: 'Anton', sans-serif; font-size: 1.5rem; color: var(--arancio); opacity: 0.5;">04</span>
+        <h3 style="font-size: 1.1rem; font-weight: 600;">Instagram Ads + Retargeting &mdash; I reel che vendono reel</h3>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 1rem;">
+        Vendete video. I vostri ads SONO il prodotto. Un reel bestiale come ad mostra esattamente cosa comprano.
+        Targeting locale 20-30 km, titolari di attivita e PMI. Retargeting su chi ha visitato la landing.
+        Budget iniziale 300-500/mese.
+      </p>
+      <div style="display: flex; gap: 2rem; font-size: 0.8rem; color: var(--text-muted);">
+        <span><strong style="color: var(--arancio);">Costo:</strong> 300-500/mese ads</span>
+        <span><strong style="color: var(--arancio);">Risultato:</strong> 5-10 call qualificate/mese</span>
+      </div>
+    </div>
+
+    <!-- Idea 5 -->
+    <div style="margin-bottom: 2rem; padding: 2rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-card);">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+        <span style="font-family: 'Anton', sans-serif; font-size: 1.5rem; color: var(--arancio); opacity: 0.5;">05</span>
+        <h3 style="font-size: 1.1rem; font-weight: 600;">Referral Informale &mdash; Passaparola strutturato</h3>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 1rem;">
+        Un ristoratore con reel che funzionano ne parla con altri ristoratori.
+        A fine trimestre: "Conosci qualcuno?" Sconto 10-15% sul rinnovo per ogni referral che firma,
+        oppure 1 reel bestiale extra nel trimestre successivo.
+      </p>
+      <div style="display: flex; gap: 2rem; font-size: 0.8rem; color: var(--text-muted);">
+        <span><strong style="color: var(--arancio);">Costo:</strong> Zero</span>
+        <span><strong style="color: var(--arancio);">Risultato:</strong> 20-30% clienti porta 1+ referral</span>
+      </div>
+    </div>
+
+    <!-- Roadmap Marketing -->
+    <div style="margin-top: 3rem;">
+      <h3 style="font-family: 'Anton', sans-serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem;">Roadmap Marketing</h3>
+      <table class="revenue-table">
+        <thead>
+          <tr>
+            <th>Quando</th>
+            <th>Azione</th>
+            <th>Budget</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Settimana 1-2</td>
+            <td>Girare pack su proprio brand (portfolio iniziale)</td>
+            <td>~1 giornata</td>
+          </tr>
+          <tr>
+            <td>Settimana 3</td>
+            <td>Landing page live + proposta commerciale pronta</td>
+            <td class="highlight">Gia su Vercel</td>
+          </tr>
+          <tr>
+            <td>Settimana 4</td>
+            <td>Primi post "jiu-jitsu" su LinkedIn/Instagram</td>
+            <td>&euro;0</td>
+          </tr>
+          <tr>
+            <td>Settimana 5+</td>
+            <td>Primo pranzo strategico + Instagram ads local</td>
+            <td>&euro;500-600</td>
+          </tr>
+          <tr>
+            <td>Post primo cliente</td>
+            <td>Attivare referral program informale</td>
+            <td>&euro;0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Next Steps per il Partner -->
+<div class="divider"></div>
+<section id="next-steps">
+  <div class="container reveal">
+    <p class="section-label">Prossimi Passi</p>
+    <h2 class="section-title">Cosa dobbiamo fare adesso.</h2>
+    <p class="section-desc">
+      Questa e la strategia. Ora serve allinearci su come metterla a terra insieme.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number" style="border-color: var(--viola); color: var(--viola);">A</div>
+        <div class="step-content">
+          <h3>Validare i numeri</h3>
+          <p>I costi di produzione sono stime. Dobbiamo mettere nero su bianco: tariffa videomaker, costi post-produzione reali (leggera vs bestiale), tempo effettivo per la strategia. Solo cosi i margini diventano concreti.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number" style="border-color: var(--viola); color: var(--viola);">B</div>
+        <div class="step-content">
+          <h3>Definire i ruoli</h3>
+          <p>Chi fa la strategia? Chi gira? Chi monta? Chi gestisce la pubblicazione per i Pack 24? Dobbiamo capire chi copre cosa tra noi, e dove servono collaboratori esterni.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number" style="border-color: var(--viola); color: var(--viola);">C</div>
+        <div class="step-content">
+          <h3>Test con il primo cliente</h3>
+          <p>Troviamo un primo cliente (anche a prezzo scontato) per validare tutto il processo: dalla vendita allo shooting ai tempi di post-produzione. Il primo progetto ci dira se i 24 reel in una sessione reggono davvero.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number" style="border-color: var(--viola); color: var(--viola);">D</div>
+        <div class="step-content">
+          <h3>Materiali di vendita</h3>
+          <p>Landing page pubblica + proposta commerciale PDF. Servono per iniziare a vendere. La landing genera lead, la proposta chiude.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number" style="border-color: var(--viola); color: var(--viola);">E</div>
+        <div class="step-content">
+          <h3>Portfolio iniziale</h3>
+          <p>Per vendere servono i 3 reel bestiali da mostrare. Opzioni: case study sul nostro brand, primo cliente scontato, progetto fittizio ma realistico. Senza portfolio non si parte.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Pack Reel Trimestrali &mdash; Documento strategico &mdash; Studio121 / 2Nerd &mdash; 2026</p>
+  <p style="margin-top: 0.5rem; font-size: 0.7rem; opacity: 0.5;">Documento di lavoro interno per allineamento con partner</p>
+</footer>
+
+<!-- Aurora Animation -->
+<script>
+(function() {
+  var canvas, ctx, w, h, time = 0;
+  function init() {
+    canvas = document.getElementById("aurora-canvas");
+    if (!canvas) return;
+    ctx = canvas.getContext("2d");
+    resize();
+    window.addEventListener("resize", resize);
+    animate();
+  }
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  function drawArc(cx, cy, radius, startAngle, endAngle, color, lineWidth, blur) {
+    ctx.save();
+    ctx.filter = "blur(" + blur + "px)";
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, startAngle, endAngle);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
+    ctx.lineCap = "round";
+    ctx.stroke();
+    ctx.restore();
+  }
+  function animate() {
+    time += 0.002;
+    ctx.clearRect(0, 0, w, h);
+    var cx1 = w * 0.25 + Math.sin(time * 0.7) * 100;
+    var cy1 = h * 0.1 + Math.cos(time * 0.5) * 80;
+    drawArc(cx1, cy1, 500 + Math.sin(time) * 60,
+      -0.6 + Math.sin(time * 0.3) * 0.3,
+      1.8 + Math.cos(time * 0.4) * 0.3,
+      "rgba(254,112,7,0.55)", 160, 50);
+    var cx2 = w * 0.75 + Math.cos(time * 0.6) * 90;
+    var cy2 = h * 0.05 + Math.sin(time * 0.4) * 60;
+    drawArc(cx2, cy2, 450 + Math.cos(time * 0.8) * 50,
+      0.3 + Math.cos(time * 0.35) * 0.4,
+      2.5 + Math.sin(time * 0.45) * 0.3,
+      "rgba(100,50,255,0.45)", 140, 45);
+    var cx3 = w * 0.5 + Math.sin(time * 0.5) * 120;
+    var cy3 = h * 0.25 + Math.cos(time * 0.6) * 50;
+    drawArc(cx3, cy3, 380 + Math.sin(time * 1.1) * 40,
+      -1.8 + Math.sin(time * 0.25) * 0.5,
+      -0.5 + Math.cos(time * 0.35) * 0.3,
+      "rgba(30,70,255,0.35)", 120, 40);
+    requestAnimationFrame(animate);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<!-- Scroll Reveal -->
+<script>
+(function() {
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>
