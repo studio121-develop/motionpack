@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pack Reel Trimestrali | 3 mesi di video, 1 giornata di shooting</title>
+  <meta name="description" content="Pacchetti video reel trimestrali per la tua attivita. Strategia, shooting in un giorno, pubblicazione calendarizzata. Risultati misurabili."/>
+  <meta property="og:title" content="Pack Reel Trimestrali — MotionPack"/>
+  <meta property="og:description" content="3 mesi di contenuti video. 1 giornata di shooting. 0 stress."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --arancio:#fe7007;
+      --arancio-glow:rgba(254,112,7,.35);
+      --viola:rgb(100,50,255);
+      --bg:#09090b;
+      --bg-card:rgba(255,255,255,.03);
+      --bg-card-hover:rgba(255,255,255,.06);
+      --border:rgba(255,255,255,.07);
+      --border-hover:rgba(255,255,255,.14);
+      --text:#f5f5f5;
+      --text-muted:rgba(245,245,245,.5);
+      --text-mid:rgba(245,245,245,.72);
+      --glass-bg:rgba(9,9,11,.75);
+      --glass-blur:blur(20px) saturate(1.2);
+      --r:16px;
+      --rs:10px;
+      --verde:#4ade80;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    #aurora{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:0;pointer-events:none;mix-blend-mode:screen;opacity:.4}
+
+    /* Nav */
+    nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:.85rem 1.5rem}
+    .nav-i{max-width:1100px;margin:0 auto;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border-radius:14px;border:1px solid var(--border);padding:.6rem 1.25rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-b{font-family:'Anton',sans-serif;font-size:1.15rem;color:var(--text);text-decoration:none;letter-spacing:.5px}
+    .nav-b span{color:var(--arancio)}
+    .nav-cta{font-family:'Anton',sans-serif;font-size:.85rem;text-transform:uppercase;padding:.5rem 1.2rem;background:var(--arancio);color:#fff;text-decoration:none;border-radius:8px;letter-spacing:.5px;transition:all .3s}
+    .nav-cta:hover{box-shadow:0 0 25px var(--arancio-glow)}
+
+    /* Layout */
+    section{position:relative;z-index:1;padding:5rem 1.5rem}
+    .c{max-width:1050px;margin:0 auto}
+
+    /* Typo */
+    .label{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:3px;color:var(--arancio);margin-bottom:.8rem}
+    .title{font-family:'Anton',sans-serif;font-size:clamp(1.8rem,4.5vw,2.8rem);line-height:1.1;margin-bottom:.8rem;font-weight:400}
+    .desc{font-size:1rem;color:var(--text-muted);max-width:620px;line-height:1.7;margin-bottom:2.5rem}
+
+    /* Hero */
+    .hero{min-height:100vh;display:flex;align-items:center;padding-top:7rem}
+    .hero-content{max-width:750px}
+    .hero h1{font-family:'Anton',sans-serif;font-size:clamp(2.8rem,7vw,5rem);line-height:1.05;margin-bottom:1.2rem;font-weight:400}
+    .hero h1 .ac{color:var(--arancio)}
+    .hero-d{font-size:1.15rem;color:var(--text-mid);max-width:580px;line-height:1.7;margin-bottom:2.2rem}
+    .hero-d strong{color:var(--text);font-weight:600}
+    .hero-stats{display:flex;gap:2rem;margin-top:2.5rem;flex-wrap:wrap}
+    .hero-stat{text-align:left}
+    .hero-stat-n{font-family:'Anton',sans-serif;font-size:1.6rem;color:var(--arancio)}
+    .hero-stat-l{font-size:.72rem;color:var(--text-muted);margin-top:.15rem}
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Anton',sans-serif;font-size:1.2rem;text-transform:uppercase;padding:14px 32px;background:var(--arancio);border:none;color:#fff;text-decoration:none;cursor:pointer;transition:all .3s;box-shadow:0 0 30px var(--arancio-glow);letter-spacing:.5px;border-radius:4px}
+    .btn:hover{box-shadow:0 0 50px var(--arancio-glow);transform:translateY(-1px)}
+    .btn-ghost{background:transparent;border:1.5px solid var(--border);color:var(--text-muted);box-shadow:none;border-radius:4px}
+    .btn-ghost:hover{border-color:var(--border-hover);color:var(--text);box-shadow:none;transform:none}
+    .btn-wa{background:#25d366;box-shadow:0 0 30px rgba(37,211,102,.3)}
+    .btn-wa:hover{box-shadow:0 0 50px rgba(37,211,102,.4)}
+
+    /* Cards */
+    .card{border:1px solid var(--border);border-radius:var(--r);padding:2rem;background:var(--bg-card);transition:all .4s}
+    .card:hover{border-color:var(--border-hover);background:var(--bg-card-hover)}
+    .card.feat{border-color:rgba(254,112,7,.25);position:relative}
+    .card.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--arancio),var(--viola));border-radius:var(--r) var(--r) 0 0}
+    .card-t{font-family:'Anton',sans-serif;font-size:1.5rem;font-weight:400;margin-bottom:.2rem}
+    .card-tag{display:inline-block;font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--arancio);margin-bottom:1.2rem}
+
+    /* Grids */
+    .g2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+    .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+
+    /* Features */
+    .ft{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+    .ft li{font-size:.85rem;color:var(--text-mid);padding-left:1.4rem;position:relative}
+    .ft li::before{content:'';position:absolute;left:0;top:.45rem;width:5px;height:5px;border-radius:50%;background:var(--arancio)}
+
+    /* Pack price */
+    .pack-p{font-family:'Anton',sans-serif;font-size:2.5rem;font-weight:400;margin-bottom:.2rem}
+    .pack-s{font-size:.8rem;color:var(--text-muted);margin-bottom:1.5rem}
+
+    /* Stats */
+    .stat{text-align:center;padding:1.5rem 1rem;border:1px solid var(--border);border-radius:var(--r);background:var(--bg-card)}
+    .stat-n{font-family:'Anton',sans-serif;font-size:2rem;color:var(--arancio);font-weight:400}
+    .stat-l{font-size:.72rem;color:var(--text-muted);margin-top:.35rem;line-height:1.4}
+
+    /* Compare */
+    .cmp{width:100%;border-collapse:collapse}
+    .cmp th,.cmp td{padding:.85rem 1.2rem;text-align:left;border-bottom:1px solid var(--border);font-size:.88rem}
+    .cmp th{font-family:'Anton',sans-serif;font-weight:400;font-size:.85rem;text-transform:uppercase;letter-spacing:1px}
+    .cmp .old{color:var(--text-muted);opacity:.5}
+    .cmp .new{color:var(--arancio);font-weight:500}
+
+    /* Steps */
+    .steps{display:flex;flex-direction:column;position:relative;margin-top:1.5rem}
+    .steps::before{content:'';position:absolute;left:22px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--arancio),var(--viola),transparent)}
+    .step{display:flex;gap:1.75rem;padding:1.5rem 0}
+    .step-n{width:44px;height:44px;min-width:44px;border-radius:50%;border:1.5px solid var(--arancio);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:1rem;color:var(--arancio);background:var(--bg);z-index:1}
+    .step-b h3{font-size:1rem;font-weight:600;margin-bottom:.3rem}
+    .step-b p{font-size:.85rem;color:var(--text-muted);line-height:1.6}
+
+    /* Category mini */
+    .cat-m{padding:1.5rem;border:1px solid var(--border);border-radius:var(--r);background:var(--bg-card);text-align:center}
+    .cat-m .icon{font-size:1.8rem;margin-bottom:.5rem}
+    .cat-m h4{font-family:'Anton',sans-serif;font-size:1.1rem;font-weight:400;margin-bottom:.25rem}
+    .cat-m p{font-size:.78rem;color:var(--text-muted);line-height:1.4}
+
+    /* FAQ */
+    .faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0}
+    .faq-q{font-size:1rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+    .faq-q::after{content:'+';font-family:'Anton',sans-serif;font-size:1.3rem;color:var(--arancio);transition:transform .3s}
+    .faq-item.open .faq-q::after{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:.88rem;color:var(--text-muted);line-height:1.7}
+    .faq-item.open .faq-a{max-height:300px;padding-top:.85rem}
+
+    /* Divider */
+    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 auto;max-width:500px}
+
+    /* CTA section */
+    .cta-section{text-align:center;padding:6rem 1.5rem}
+
+    /* Footer */
+    footer{position:relative;z-index:1;padding:2.5rem 1.5rem;text-align:center;color:var(--text-muted);font-size:.72rem}
+
+    /* Responsive */
+    @media(max-width:768px){
+      .g2,.g3,.g4{grid-template-columns:1fr}
+      .hero-stats{gap:1.5rem}
+      .nav-cta{display:none}
+      section{padding:3.5rem 1.15rem}
+    }
+
+    .reveal{opacity:0;transform:translateY(25px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+
+<canvas id="aurora"></canvas>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-i">
+    <a href="#" class="nav-b">MOTION<span>PACK</span></a>
+    <a href="https://wa.me/393XXXXXXXXX?text=Ciao%2C%20vorrei%20informazioni%20sui%20pack%20reel" class="nav-cta">Parliamone &rarr;</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="c">
+    <div class="hero-content">
+      <p class="label">Pack Reel Trimestrali</p>
+      <h1>3 mesi di video.<br/>1 giornata.<br/><span class="ac">0 stress.</span></h1>
+      <p class="hero-d">
+        Ti costruiamo <strong>un trimestre di contenuti video</strong> con un obiettivo chiaro,
+        li giriamo tutti in una sessione, e li pubblichiamo con strategia.
+        Dopo 3 mesi <strong>misuriamo i risultati</strong> e decidi tu se continuare.
+      </p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="https://wa.me/393XXXXXXXXX?text=Ciao%2C%20vorrei%20informazioni%20sui%20pack%20reel" class="btn btn-wa">Scrivici su WhatsApp</a>
+        <a href="#pacchetti" class="btn btn-ghost">Vedi i pacchetti</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-n">+125%</div>
+          <div class="hero-stat-l">di copertura dei Reels<br/>vs le foto su Instagram</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-n">82%</div>
+          <div class="hero-stat-l">dei consumatori ha comprato<br/>dopo aver visto un video</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-n">91%</div>
+          <div class="hero-stat-l">delle aziende usa il video<br/>nel 2026 (massimo storico)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROBLEMA ═══ -->
+<section>
+  <div class="c reveal">
+    <p class="label">Il Problema</p>
+    <h2 class="title">Il tuo social media manager<br/>sta riempiendo buchi.</h2>
+    <p class="desc">Il modello tradizionale di gestione social e nato per un'epoca di foto e grafiche. Oggi il video e il re.</p>
+
+    <table class="cmp">
+      <thead><tr><th class="old">Il vecchio modo</th><th class="new">Il nostro modo</th></tr></thead>
+      <tbody>
+        <tr><td class="old">Pensa settimana per settimana</td><td class="new">Pensa a 3 mesi</td></tr>
+        <tr><td class="old">Riempie il calendario di grafiche</td><td class="new">Crea video con un obiettivo</td></tr>
+        <tr><td class="old">Non sa dove sta andando</td><td class="new">Misura e corregge ogni mese</td></tr>
+        <tr><td class="old">Ti tiene legato mese per mese</td><td class="new">Un trimestre, poi decidi tu</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PERCHÉ VIDEO ═══ -->
+<section>
+  <div class="c reveal">
+    <p class="label">I Numeri Parlano Chiaro</p>
+    <h2 class="title">Il video non e piu opzionale.</h2>
+
+    <div class="g3" style="margin-top:1.5rem">
+      <div class="stat">
+        <div class="stat-n">1.200%</div>
+        <div class="stat-l">in piu di condivisioni<br/>per i video vs foto+testo<br/><small style="opacity:.4">Sprout Social</small></div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">83%</div>
+        <div class="stat-l">dei marketer dice che il video<br/>ha aumentato le vendite<br/><small style="opacity:.4">Wyzowl 2026</small></div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">73%</div>
+        <div class="stat-l">dei consumatori preferisce<br/>video brevi per informarsi<br/><small style="opacity:.4">Marketing LTB</small></div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-top:1.25rem">
+      <div class="stat">
+        <div class="stat-n">32,9M</div>
+        <div class="stat-l">italiani su Instagram (+2,7%/anno)<br/><small style="opacity:.4">We Are Social 2025</small></div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">22,4M</div>
+        <div class="stat-l">italiani su TikTok (+3,6%/anno)<br/><small style="opacity:.4">We Are Social 2025</small></div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;padding:1.25rem;border-left:3px solid var(--arancio);background:var(--bg-card);border-radius:0 8px 8px 0">
+      <p style="font-size:.9rem;color:var(--text-mid);line-height:1.6">
+        <strong style="color:var(--text)">Il dato che conta:</strong> per gli account sotto 50.000 follower &mdash; cioe la maggior parte delle attivita locali &mdash;
+        i Reels sono il formato con la <strong style="color:var(--arancio)">copertura piu alta in assoluto</strong>. Chi non fa video, non viene visto.
+        <span style="font-size:.72rem;color:var(--text-muted)"> &mdash; Social Insider</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ COME FUNZIONA ═══ -->
+<section id="processo">
+  <div class="c reveal">
+    <p class="label">Come Funziona</p>
+    <h2 class="title">4 passaggi. Zero pensieri.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-b">
+          <h3>Strategia</h3>
+          <p>Definiamo l'obiettivo del trimestre (piu clienti? piu prenotazioni? piu visibilita?) e costruiamo il piano editoriale. Tu approvi tutto prima di iniziare.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-b">
+          <h3>Shooting</h3>
+          <p>Una sessione: mezza giornata o giornata intera. Giriamo tutti i reel del trimestre in un colpo. Tu ci dedichi poche ore, noi portiamo tutto il resto.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-b">
+          <h3>Post-produzione</h3>
+          <p>Montiamo, aggiungiamo sottotitoli, musica e effetti. I reel "bestiali" ricevono un trattamento cinematico. Ti mandiamo tutto per approvazione.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div class="step-b">
+          <h3>Pubblicazione e Risultati</h3>
+          <p>I reel vengono pubblicati secondo il calendario. A fine trimestre ti mostriamo i numeri: views, engagement, crescita. Poi decidi tu se continuare.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CONTENUTI ═══ -->
+<section>
+  <div class="c reveal">
+    <p class="label">Non Reel a Caso</p>
+    <h2 class="title">Ogni video ha una funzione precisa.</h2>
+    <p class="desc">Non riempiamo il calendario. Ogni reel ha un ruolo nella strategia.</p>
+
+    <div class="g4" style="margin-top:1rem">
+      <div class="cat-m">
+        <div class="icon">&#9889;</div>
+        <h4>Hook</h4>
+        <p>Reel di tendenza per farti scoprire da gente nuova</p>
+      </div>
+      <div class="cat-m">
+        <div class="icon">&#127908;</div>
+        <h4>Prodotto</h4>
+        <p>Il tuo prodotto nel suo momento migliore. Fa venire voglia.</p>
+      </div>
+      <div class="cat-m">
+        <div class="icon">&#129309;</div>
+        <h4>Fiducia</h4>
+        <p>La tua faccia, la tua storia, i tuoi clienti soddisfatti</p>
+      </div>
+      <div class="cat-m">
+        <div class="icon">&#127919;</div>
+        <h4>Conversione</h4>
+        <p>Video pensati per diventare sponsorizzate e portare clienti</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PACCHETTI ═══ -->
+<section id="pacchetti">
+  <div class="c reveal">
+    <p class="label">I Pacchetti</p>
+    <h2 class="title">Scegli il tuo ritmo.</h2>
+    <p class="desc">Tutti includono strategia trimestrale, reel "bestiali" con post-produzione cinematica, calendario editoriale e copy. Prezzi IVA esclusa.</p>
+
+    <div class="g3" style="margin-top:1rem">
+      <!-- Starter -->
+      <div class="card" style="position:relative">
+        <div class="card-t">Starter</div>
+        <div class="card-tag">4 reel / mese</div>
+        <div class="pack-p">&euro;2.800</div>
+        <div class="pack-s">a trimestre &middot; &euro;933/mese</div>
+        <ul class="ft">
+          <li>12 reel in 3 mesi</li>
+          <li>Shooting mezza giornata</li>
+          <li>3 reel "bestiali" cinematici</li>
+          <li>2 reel pronti per sponsorizzate</li>
+          <li>Strategia + calendario + copy</li>
+          <li>Revisione inclusa</li>
+          <li>Tu pubblichi in autonomia</li>
+        </ul>
+        <div style="margin-top:1.5rem">
+          <a href="https://wa.me/393XXXXXXXXX?text=Ciao%2C%20mi%20interessa%20il%20pack%20Starter" class="btn btn-ghost" style="font-size:.85rem;padding:10px 20px;width:100%;justify-content:center">Info sul Pack Starter</a>
+        </div>
+      </div>
+
+      <!-- Pro -->
+      <div class="card feat" style="position:relative">
+        <div class="card-t">Pro</div>
+        <div class="card-tag">6 reel / mese &mdash; Il piu scelto</div>
+        <div class="pack-p">&euro;3.800</div>
+        <div class="pack-s">a trimestre &middot; &euro;1.267/mese</div>
+        <ul class="ft">
+          <li>18 reel in 3 mesi</li>
+          <li>Shooting mezza giornata+</li>
+          <li>4 reel "bestiali" cinematici</li>
+          <li>3 reel pronti per sponsorizzate</li>
+          <li>Strategia + calendario + copy</li>
+          <li>Revisione inclusa</li>
+          <li>Tu pubblichi in autonomia</li>
+          <li><strong style="color:var(--arancio)">Miglior rapporto qualita-prezzo</strong></li>
+        </ul>
+        <div style="margin-top:1.5rem">
+          <a href="https://wa.me/393XXXXXXXXX?text=Ciao%2C%20mi%20interessa%20il%20pack%20Pro" class="btn" style="font-size:.85rem;padding:10px 20px;width:100%;justify-content:center">Info sul Pack Pro</a>
+        </div>
+      </div>
+
+      <!-- Full -->
+      <div class="card" style="position:relative">
+        <div class="card-t">Full</div>
+        <div class="card-tag">8 reel / mese</div>
+        <div class="pack-p">&euro;5.200</div>
+        <div class="pack-s">a trimestre &middot; &euro;1.733/mese</div>
+        <ul class="ft">
+          <li>24 reel in 3 mesi</li>
+          <li>Shooting giornata intera</li>
+          <li>5 reel "bestiali" cinematici</li>
+          <li>4 reel pronti per sponsorizzate</li>
+          <li>Strategia + calendario + copy</li>
+          <li>2 revisioni incluse</li>
+          <li><strong style="color:var(--arancio)">Pubblicazione gestita da noi</strong></li>
+          <li><strong style="color:var(--arancio)">Report mensile</strong></li>
+        </ul>
+        <div style="margin-top:1.5rem">
+          <a href="https://wa.me/393XXXXXXXXX?text=Ciao%2C%20mi%20interessa%20il%20pack%20Full" class="btn btn-ghost" style="font-size:.85rem;padding:10px 20px;width:100%;justify-content:center">Info sul Pack Full</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upsell teaser -->
+    <div style="margin-top:2rem;padding:1.25rem;border:1px solid rgba(100,50,255,.2);border-radius:var(--r);background:rgba(100,50,255,.04);text-align:center">
+      <p style="font-size:.9rem;color:var(--text-mid)">
+        <strong>Vuoi anche le sponsorizzate?</strong> I tuoi reel migliori possono diventare campagne Meta Ads con budget e risultati misurabili.
+        <span style="color:var(--arancio)">Chiedici come.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ REEL DI PROVA ═══ -->
+<section>
+  <div class="c reveal" style="text-align:center">
+    <p class="label">Non Sei Sicuro?</p>
+    <h2 class="title">Prova con un singolo reel.</h2>
+    <p style="font-size:1rem;color:var(--text-mid);max-width:550px;margin:0 auto 2rem;line-height:1.7">
+      Un reel "bestiale" a <strong style="color:var(--arancio)">&euro;150</strong> per vedere come lavoriamo.
+      Nessun impegno. Se ti piace, parliamo del trimestre.
+    </p>
+    <a href="https://wa.me/393XXXXXXXXX?text=Ciao%2C%20vorrei%20provare%20il%20reel%20singolo%20da%20150%E2%82%AC" class="btn btn-wa">Voglio il reel di prova</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq">
+  <div class="c reveal">
+    <p class="label">Domande Frequenti</p>
+    <h2 class="title" style="margin-bottom:2rem">Le risposte che cerchi.</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Ma in una giornata riuscite a girare 24 reel?</div>
+      <div class="faq-a">Si. Prepariamo tutto prima: shooting list, setup per location, script per ogni reel. Con una pianificazione rigida, 15-20 minuti per reel sono sufficienti. Giriamo in ordine di efficienza (stessa luce = di fila), non in ordine di pubblicazione.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Cosa succede se dopo un mese i reel non funzionano?</div>
+      <div class="faq-a">Ti mostriamo i numeri e correggiamo. Il piano editoriale e fatto per adattarsi: i reel dei mesi 2 e 3 possono essere riprogrammati in base ai risultati del mese 1. E nel report finale vediamo insieme cosa ha funzionato e perche.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Devo metterci la faccia?</div>
+      <div class="faq-a">Non per forza. Pero i reel con una persona funzionano meglio &mdash; i dati lo confermano. Possiamo mescolare: alcuni reel parlati (tu o un membro del team), altri solo prodotto, altri di tendenza. Troviamo il mix giusto per te.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Cosa devo preparare per lo shooting?</div>
+      <div class="faq-a">Ti mandiamo un brief completo: cosa preparare, come deve essere il locale, come vestirti, a che ora. Ci pensiamo noi a tutto il resto: attrezzatura, luci, audio. Tu devi solo esserci.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">E se dopo il trimestre non voglio continuare?</div>
+      <div class="faq-a">Nessun vincolo. I reel sono tuoi, i dati sono tuoi, il report e tuo. Se non vuoi continuare, ci stringiamo la mano e ognuno per la sua strada. I dati parlano: chi vede i risultati, rinnova.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Posso usare i reel anche su TikTok e YouTube Shorts?</div>
+      <div class="faq-a">I reel sono ottimizzati per Instagram. L'adattamento per TikTok e YouTube Shorts e disponibile come extra (+20% sul pack). Se ti interessa, ne parliamo nella fase di strategia.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Quanto tempo ci vuole dalla firma al primo reel pubblicato?</div>
+      <div class="faq-a">Circa 4-5 settimane. Settimana 1: strategia. Settimana 2: pre-produzione. Settimana 3: shooting. Settimana 4-5: montaggio e approvazione. Poi si parte con la pubblicazione.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CTA FINALE ═══ -->
+<section class="cta-section">
+  <div class="c reveal">
+    <p class="label">Pronto?</p>
+    <h2 style="font-family:'Anton',sans-serif;font-size:clamp(1.8rem,4.5vw,2.8rem);line-height:1.2;max-width:700px;margin:0 auto 1rem;font-weight:400">
+      Tra 5 settimane potresti avere<br/><span style="color:var(--arancio)">3 mesi di contenuti video pronti.</span>
+    </h2>
+    <p style="font-size:1rem;color:var(--text-muted);margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6">
+      Nessun impegno per la prima call. Capiamo insieme se e il momento giusto.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/393XXXXXXXXX?text=Ciao%2C%20vorrei%20informazioni%20sui%20pack%20reel" class="btn btn-wa" style="font-size:1.3rem;padding:16px 36px">Scrivici su WhatsApp</a>
+    </div>
+    <p style="font-size:.78rem;color:var(--text-muted);margin-top:1.5rem">O chiamaci: +39 3XX XXX XXXX</p>
+  </div>
+</section>
+
+<footer>
+  <p>MotionPack &mdash; Pack Reel Trimestrali &mdash; Un progetto Studio121 &times; MotionLab</p>
+  <p style="margin-top:.35rem;opacity:.4">P.IVA XXXXXXXXXXX &mdash; Sicilia</p>
+</footer>
+
+<!-- Aurora -->
+<script>
+(function(){
+  var c,x,w,h,t=0;
+  function init(){c=document.getElementById("aurora");if(!c)return;x=c.getContext("2d");resize();window.addEventListener("resize",resize);anim()}
+  function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}
+  function arc(cx,cy,r,s,e,col,lw,b){x.save();x.filter="blur("+b+"px)";x.beginPath();x.arc(cx,cy,r,s,e);x.strokeStyle=col;x.lineWidth=lw;x.lineCap="round";x.stroke();x.restore()}
+  function anim(){
+    t+=.002;x.clearRect(0,0,w,h);
+    arc(w*.25+Math.sin(t*.7)*100,h*.1+Math.cos(t*.5)*80,500+Math.sin(t)*60,-.6+Math.sin(t*.3)*.3,1.8+Math.cos(t*.4)*.3,"rgba(254,112,7,.5)",150,48);
+    arc(w*.75+Math.cos(t*.6)*90,h*.05+Math.sin(t*.4)*60,450+Math.cos(t*.8)*50,.3+Math.cos(t*.35)*.4,2.5+Math.sin(t*.45)*.3,"rgba(100,50,255,.4)",130,42);
+    requestAnimationFrame(anim)
+  }
+  document.readyState==="loading"?document.addEventListener("DOMContentLoaded",init):init()
+})();
+</script>
+<!-- Reveal -->
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08});
+  els.forEach(function(el){obs.observe(el)})
+})();
+</script>
+<!-- FAQ toggle -->
+<script>
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    this.parentElement.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>
