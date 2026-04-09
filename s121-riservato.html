@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Studio121 — Conteggi Riservati MotionPack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--accent:#fe7007;--verde:#16a34a;--rosso:#dc2626;--bg:#111;--card:#1a1a1a;--border:#2a2a2a;--text:#e5e5e5;--muted:#888;--mid:#bbb}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px;padding:2rem}
+    .page{max-width:900px;margin:0 auto}
+    h1{font-size:1.5rem;font-weight:700;margin-bottom:.25rem}
+    h2{font-size:1.15rem;font-weight:600;margin-top:2.5rem;margin-bottom:.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-size:.75rem}
+    h3{font-size:.9rem;font-weight:600;margin-top:1.5rem;margin-bottom:.5rem}
+    p{color:var(--mid);font-size:.88rem;line-height:1.6}
+    table{width:100%;border-collapse:collapse;margin-top:.75rem;font-family:'DM Mono',monospace;font-size:.78rem}
+    th,td{padding:.5rem .65rem;text-align:left;border-bottom:1px solid var(--border)}
+    th{color:var(--muted);font-size:.65rem;text-transform:uppercase;letter-spacing:1px;font-family:'DM Sans',sans-serif}
+    .hi{color:var(--accent);font-weight:600}
+    .ok{color:var(--verde);font-weight:600}
+    .no{color:var(--rosso);font-weight:600}
+    .card{border:1px solid var(--border);border-radius:8px;padding:1.25rem;background:var(--card);margin-top:1rem}
+    .g2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .stat{text-align:center;padding:1rem;border:1px solid var(--border);border-radius:8px;background:var(--card)}
+    .stat-n{font-family:'DM Mono',monospace;font-size:1.5rem;color:var(--accent);font-weight:700}
+    .stat-l{font-size:.68rem;color:var(--muted);margin-top:.2rem}
+    .warn{padding:.75rem 1rem;border-left:3px solid var(--rosso);background:rgba(220,38,38,.08);border-radius:0 6px 6px 0;margin-top:1rem;font-size:.82rem;color:var(--mid)}
+    .good{padding:.75rem 1rem;border-left:3px solid var(--verde);background:rgba(22,163,74,.08);border-radius:0 6px 6px 0;margin-top:1rem;font-size:.82rem;color:var(--mid)}
+    .note{padding:.75rem 1rem;border-left:3px solid var(--accent);background:rgba(254,112,7,.08);border-radius:0 6px 6px 0;margin-top:1rem;font-size:.82rem;color:var(--mid)}
+    hr{border:none;height:1px;background:var(--border);margin:2rem 0}
+    @media(max-width:768px){.g2,.g3{grid-template-columns:1fr}.page{padding:0}}
+    @media print{body{background:#fff;color:#111}.card{background:#f5f5f5}th{color:#666}.stat-n,.hi{color:#c55a00}.ok{color:#0a7c2e}.no{color:#b91c1c}}
+  </style>
+</head>
+<body>
+<div class="page">
+
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--border)">
+  <div>
+    <h1>Studio121 &mdash; Conteggi Riservati</h1>
+    <p style="font-size:.78rem;color:var(--muted)">MotionPack &mdash; Aprile 2026 &mdash; NON condividere col partner</p>
+  </div>
+  <span style="font-size:.65rem;padding:.3rem .6rem;border:1px solid var(--rosso);border-radius:4px;color:var(--rosso);text-transform:uppercase;letter-spacing:1px">Riservato</span>
+</div>
+
+<!-- ═══ ORE REALI ═══ -->
+<h2>Ore reali Studio121 per pack (con sfrido)</h2>
+<p>Lo shooting e 100% del partner. Queste sono SOLO le tue ore.</p>
+
+<table>
+  <thead><tr><th>Attivita</th><th>Starter (12)</th><th>Pro (18)</th><th>Full (24)</th><th>Note</th></tr></thead>
+  <tbody>
+    <tr><td>Vendita (qualifica + incontro + proposta)</td><td>3h</td><td>3h</td><td>3.5h</td><td>Include follow-up, email, call non preventivate</td></tr>
+    <tr><td>Onboarding (review form + setup)</td><td>1h</td><td>1h</td><td>1.5h</td><td>Il cliente compila il form, tu rivedi</td></tr>
+    <tr><td>Strategia + piano editoriale</td><td>2h</td><td>2.5h</td><td>3h</td><td>Template per settore. Primo cliente: +1h</td></tr>
+    <tr><td>Copywriting (concept + brief + script + caption)</td><td>3h</td><td>4h</td><td>5.5h</td><td>~15min/reel standard, ~25min/reel Ads. Con AI</td></tr>
+    <tr><td>Pre-produzione (shooting list + brief partner)</td><td>1.5h</td><td>2h</td><td>2.5h</td><td>Template + call approvazione cliente</td></tr>
+    <tr><td>Quality check reel finiti</td><td>1.5h</td><td>2h</td><td>2.5h</td><td>Guardare ogni reel, controllare sub, brand</td></tr>
+    <tr><td>Comunicazione col cliente (3 mesi)</td><td>3h</td><td>3.5h</td><td>4h</td><td>~1h/mese. Email + WhatsApp inevitabile</td></tr>
+    <tr><td>Consegna + spiegazione</td><td>1h</td><td>1h</td><td>1h</td><td>Call/email + cartella strutturata</td></tr>
+    <tr><td>Gestione pubblicazione (solo Full)</td><td>&mdash;</td><td>&mdash;</td><td>6h</td><td>2h/mese: scheduling, copy, hashtag, monitoring</td></tr>
+    <tr><td>Report trimestrale + call rinnovo</td><td>1.5h</td><td>1.5h</td><td>2h</td><td>Template + raccolta dati + presentazione</td></tr>
+    <tr><td>Admin (fattura, solleciti, coordinamento)</td><td>0.5h</td><td>0.5h</td><td>1h</td><td></td></tr>
+    <tr style="background:rgba(254,112,7,.06)"><td><strong>TOTALE</strong></td><td><strong>18h</strong></td><td><strong>21h</strong></td><td><strong>32.5h</strong></td><td></td></tr>
+  </tbody>
+</table>
+
+<div class="warn">
+  <strong>Attenzione Full:</strong> la gestione pubblicazione (6h/trim) e la voce piu insidiosa.
+  Se il cliente e "high maintenance" puo salire a 10-15h. Considera seriamente se offrire la gestione
+  pubblicazione o consegnare i file anche per il Full.
+</div>
+
+<!-- ═══ MARGINI REALI ═══ -->
+<h2>Margini reali Studio121</h2>
+
+<table>
+  <thead><tr><th></th><th>Starter (12)</th><th>Pro (18)</th><th>Full (24)</th></tr></thead>
+  <tbody>
+    <tr><td>Prezzo cliente</td><td>&euro;2.800</td><td>&euro;3.800</td><td>&euro;5.200</td></tr>
+    <tr><td>Fee MotionLab</td><td>-&euro;900</td><td>-&euro;1.300</td><td>-&euro;1.800</td></tr>
+    <tr><td>Tool pro-rata</td><td>-&euro;100</td><td>-&euro;100</td><td>-&euro;100</td></tr>
+    <tr><td><strong>Resta a te (lordo)</strong></td><td><strong>&euro;1.800</strong></td><td><strong>&euro;2.400</strong></td><td><strong>&euro;3.300</strong></td></tr>
+    <tr><td>Tue ore</td><td>18h</td><td>21h</td><td>32.5h</td></tr>
+    <tr style="background:rgba(254,112,7,.06)"><td><strong>Tariffa effettiva</strong></td><td class="hi"><strong>&euro;100/h</strong></td><td class="hi"><strong>&euro;114/h</strong></td><td class="hi"><strong>&euro;101/h</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="g3" style="margin-top:1rem">
+  <div class="stat"><div class="stat-n">&euro;100/h</div><div class="stat-l">Starter<br/>18h tue</div></div>
+  <div class="stat"><div class="stat-n">&euro;114/h</div><div class="stat-l">Pro<br/>21h tue</div></div>
+  <div class="stat"><div class="stat-n">&euro;101/h</div><div class="stat-l">Full<br/>32.5h tue</div></div>
+</div>
+
+<div class="good">
+  <strong>Confronto: la tua tariffa attuale e &euro;60/h.</strong>
+  Con MotionPack guadagni &euro;100-114/h: il 67-90% in piu.
+  E il Pro e il pack con la tariffa piu alta &mdash; spingilo.
+</div>
+
+<!-- ═══ SCENARIO WORST/BEST ═══ -->
+<h2>Scenari: cosa succede se le ore salgono</h2>
+
+<h3>Se un cliente diventa difficile (+50% ore)</h3>
+<table>
+  <thead><tr><th></th><th>Starter</th><th>Pro</th><th>Full</th></tr></thead>
+  <tbody>
+    <tr><td>Ore worst case</td><td>27h</td><td>31.5h</td><td>48.5h</td></tr>
+    <tr><td>Tariffa effettiva</td><td class="hi">&euro;67/h</td><td class="hi">&euro;76/h</td><td class="no">&euro;68/h</td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  Anche nel worst case guadagni piu di &euro;60/h. Ma il Full con cliente difficile
+  scende troppo &mdash; conferma che la gestione pubblicazione e il punto debole.
+</div>
+
+<h3>Se ottimizzi con template + AI (-25% ore dal trimestre 3)</h3>
+<table>
+  <thead><tr><th></th><th>Starter</th><th>Pro</th><th>Full</th></tr></thead>
+  <tbody>
+    <tr><td>Ore ottimizzate</td><td>13.5h</td><td>16h</td><td>24.5h</td></tr>
+    <tr><td>Tariffa effettiva</td><td class="ok">&euro;133/h</td><td class="ok">&euro;150/h</td><td class="ok">&euro;135/h</td></tr>
+  </tbody>
+</table>
+
+<div class="good">
+  Con template per settore, libreria concept e AI per le bozze copy, le ore calano significativamente
+  dopo i primi 3-5 clienti. Target realistico: &euro;130-150/h a regime.
+</div>
+
+<!-- ═══ PROIEZIONI STUDIO121 ═══ -->
+<h2>Quanto guadagni davvero (proiezioni 3 anni)</h2>
+
+<table>
+  <thead><tr><th></th><th>Anno 1</th><th>Anno 2</th><th>Anno 3</th></tr></thead>
+  <tbody>
+    <tr><td>Clienti/trim</td><td>7 (3S+2P+2F)</td><td>11 (4S+3P+4F)</td><td>16 (5S+5P+6F)</td></tr>
+    <tr><td>Fatturato totale</td><td>&euro;105.600</td><td>&euro;173.600</td><td>&euro;256.800</td></tr>
+    <tr><td>Paghi al partner</td><td>-&euro;38.000</td><td>-&euro;58.000</td><td>-&euro;87.200</td></tr>
+    <tr><td>Tool + overhead</td><td>-&euro;2.400</td><td>-&euro;3.600</td><td>-&euro;5.400</td></tr>
+    <tr><td><strong>Lordo Studio121</strong></td><td class="hi"><strong>&euro;65.200</strong></td><td class="hi"><strong>&euro;112.000</strong></td><td class="hi"><strong>&euro;164.200</strong></td></tr>
+    <tr><td>+ Upsell Ads (100% tuo)</td><td>+&euro;7.200</td><td>+&euro;14.400</td><td>+&euro;21.600</td></tr>
+    <tr><td><strong>Lordo totale</strong></td><td class="ok"><strong>&euro;72.400</strong></td><td class="ok"><strong>&euro;126.400</strong></td><td class="ok"><strong>&euro;185.800</strong></td></tr>
+    <tr><td>Ore tue/anno</td><td>~560h</td><td>~860h</td><td>~1.250h</td></tr>
+    <tr><td>Tariffa media effettiva</td><td class="hi">&euro;129/h *</td><td class="hi">&euro;147/h *</td><td class="hi">&euro;149/h *</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.7rem;color:var(--muted);margin-top:.4rem">* La tariffa sale negli anni perche i template e la libreria concept riducono le ore per pack</p>
+
+<div class="good">
+  <strong>Anno 3: &euro;185.800 lordo con ~1.250h di lavoro = &euro;149/h.</strong>
+  Piu del doppio della tua tariffa attuale. E gli upsell Ads sono puro margine senza ore significative.
+</div>
+
+<!-- ═══ UPSELL: IL TUO MARGINE NASCOSTO ═══ -->
+<h2>Upsell: dove guadagni senza il partner</h2>
+<p>Questi ricavi sono 100% tuoi. Il partner non e coinvolto.</p>
+
+<table>
+  <thead><tr><th>Upsell</th><th>Prezzo</th><th>Tuo costo</th><th>Margine</th></tr></thead>
+  <tbody>
+    <tr><td>Campagna Meta Ads (setup)</td><td>&euro;400</td><td>~3h = &euro;180</td><td class="ok">&euro;220</td></tr>
+    <tr><td>Gestione Ads mensile</td><td>&euro;300/mese</td><td>~2h/mese = &euro;120</td><td class="ok">&euro;180/mese</td></tr>
+    <tr><td>Adattamento TikTok/Shorts (+20%)</td><td>&euro;560-1.040</td><td>Fee extra partner ~60%</td><td class="ok">~40%</td></tr>
+    <tr><td>Reel extra singolo</td><td>&euro;180-350</td><td>Fee partner ~50%</td><td class="ok">~50%</td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <strong>Con 30% di attach rate Ads su 7 clienti/trim</strong>: ~2 clienti con Ads attive.
+  Setup &euro;400 &times; 2 + gestione &euro;300/mese &times; 2 &times; 3 mesi = &euro;2.600/trim extra.
+  Ore tue: ~15h/trim. Tariffa: &euro;173/h. Il margine piu alto di tutto il business.
+</div>
+
+<!-- ═══ COSA FARE PER MASSIMIZZARE ═══ -->
+<h2>Come massimizzare il tuo guadagno</h2>
+
+<div class="card">
+  <h3 style="margin-top:0">1. Non andare MAI allo shooting</h3>
+  <p>Ogni shooting a cui partecipi ti costa 5h. A &euro;100/h sono &euro;500 di mancato guadagno.
+  Il partner ha il protocollo e la shooting list. Fai una call di 15min post-shooting per debrief.</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">2. Spingi il Pro (non lo Starter)</h3>
+  <p>Pro: &euro;114/h vs Starter: &euro;100/h. Il Pro e il pack piu redditizio per te.
+  Nella vendita, fai sembrare lo Starter "poco" e il Full "troppo" &mdash; il Pro e la scelta naturale.</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">3. Valuta se togliere la gestione dal Full</h3>
+  <p>Le 6h di gestione pubblicazione abbassano la tariffa del Full a &euro;101/h.
+  Senza: 26.5h a &euro;124/h. Offri la gestione come add-on a &euro;350/mese separato.</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">4. Costruisci la libreria concept nei primi 3 mesi</h3>
+  <p>Dopo 3 clienti ristorazione, il copywriting scende da 3h a 1.5h.
+  Dopo 3 palestre, idem. La libreria e il tuo asset che scala.</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">5. Upsell Ads su OGNI cliente</h3>
+  <p>Le Ads sono il margine piu alto (&euro;173/h). Ogni cliente che non ha Ads attive e soldi che lasci sul tavolo.
+  I reel Ads-Native sono gia pronti nel pack &mdash; proponi sempre.</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">6. Comunicazione: email only, 24h di risposta</h3>
+  <p>Ogni ora di WhatsApp non pianificata ti costa &euro;100. Metti le regole nel contratto.
+  Rispondi 1 volta al giorno, in blocco. Non in tempo reale.</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">7. Non cedere MAI su scope creep</h3>
+  <p>"Solo una piccola modifica" &times; 12 reel = 3-6h gratis.
+  1 revisione e inclusa. La seconda costa. Scritto nel contratto, comunicato all'onboarding.
+  Sii gentile ma fermo. Ogni eccezione diventa precedente.</p>
+</div>
+
+<!-- ═══ IL NUMERO CHE CONTA ═══ -->
+<hr/>
+<div style="text-align:center;padding:2rem 0">
+  <p style="font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted)">Il numero che conta</p>
+  <div style="font-family:'DM Mono',monospace;font-size:3rem;color:var(--accent);font-weight:700;margin:.5rem 0">&euro;114/h</div>
+  <p style="font-size:.85rem;color:var(--mid)">Tariffa effettiva Pack Pro con ore oneste e sfrido incluso.</p>
+  <p style="font-size:.85rem;color:var(--mid)">Quasi il doppio dei tuoi &euro;60/h attuali.</p>
+  <p style="font-size:.85rem;color:var(--mid);margin-top:.5rem">A regime con template + AI: <strong style="color:var(--verde)">&euro;150/h</strong></p>
+</div>
+
+<footer style="padding:2rem 0;text-align:center;border-top:1px solid var(--border)">
+  <p style="font-size:.68rem;color:var(--muted)">Documento riservato Studio121 &mdash; Non condividere &mdash; Aprile 2026</p>
+</footer>
+
+</div>
+</body>
+</html>
