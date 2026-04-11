@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MotionPack — Indice Pagine | Studio121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --arancio: #fe7007;
+      --arancio-glow: rgba(254, 112, 7, 0.4);
+      --viola: rgb(100, 50, 255);
+      --bg: #0a0a0a;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --bg-card-hover: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.15);
+      --text: #f5f5f5;
+      --text-muted: rgba(245, 245, 245, 0.55);
+      --text-mid: rgba(245, 245, 245, 0.75);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .container { max-width: 700px; width: 100%; }
+
+    .brand {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.25rem;
+      letter-spacing: 1px;
+    }
+    .brand span { color: var(--arancio); }
+
+    .subtitle {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .pages { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .page-link {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      text-decoration: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      transition: all 0.3s;
+    }
+    .page-link:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+      transform: translateX(4px);
+    }
+
+    .page-num {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.8rem;
+      color: rgba(255,255,255,0.06);
+      min-width: 40px;
+      line-height: 1;
+    }
+
+    .page-info { flex: 1; }
+    .page-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .page-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .page-tag {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .tag-public { background: rgba(34, 197, 94, 0.12); color: #22c55e; }
+    .tag-internal { background: rgba(254, 112, 7, 0.12); color: var(--arancio); }
+    .tag-reserved { background: rgba(100, 50, 255, 0.12); color: rgb(160, 130, 255); }
+    .tag-new {
+      background: rgba(254, 112, 7, 0.2);
+      color: var(--arancio);
+      border: 1px solid rgba(254, 112, 7, 0.3);
+    }
+
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0.5rem 0;
+    }
+    .section-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      padding-left: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="brand">MOTION<span>PACK</span></div>
+  <div class="subtitle">Studio121 &mdash; Indice Documenti</div>
+
+  <div class="pages">
+
+    <div class="section-label">Prodotto &amp; Strategia</div>
+
+    <a href="prodotto-motionpack.html" class="page-link">
+      <div class="page-num">01</div>
+      <div class="page-info">
+        <div class="page-title">Prodotto MotionPack</div>
+        <div class="page-desc">2 tier (Pack 12 + Pack 24), conteggio ore, margini, upsell e cross-sell. Documento operativo interno.</div>
+      </div>
+      <div class="page-tag tag-new">Nuovo</div>
+    </a>
+
+    <a href="businessplan.html" class="page-link">
+      <div class="page-num">02</div>
+      <div class="page-info">
+        <div class="page-title">Business Plan</div>
+        <div class="page-desc">Analisi di mercato, costi reali Catania, scenari di ricavo, capacita operativa, playbook esecuzione.</div>
+      </div>
+      <div class="page-tag tag-internal">Interno</div>
+    </a>
+
+    <a href="piano.html" class="page-link">
+      <div class="page-num">03</div>
+      <div class="page-info">
+        <div class="page-title">Piano Strategico Partner</div>
+        <div class="page-desc">Piano operativo per il partner/socio: fasi, timeline, ruoli, milestone, KPI.</div>
+      </div>
+      <div class="page-tag tag-internal">Interno</div>
+    </a>
+
+    <a href="s121-riservato.html" class="page-link">
+      <div class="page-num">04</div>
+      <div class="page-info">
+        <div class="page-title">Conteggi Riservati</div>
+        <div class="page-desc">Costi dettagliati, margini per scenario, analisi 50/50 con il socio, numeri sensibili.</div>
+      </div>
+      <div class="page-tag tag-reserved">Riservato</div>
+    </a>
+
+    <div class="divider" style="margin-top: 0.75rem;"></div>
+    <div class="section-label">Landing &amp; Commerciale</div>
+
+    <a href="index.html" class="page-link">
+      <div class="page-num">05</div>
+      <div class="page-info">
+        <div class="page-title">Landing Page (v1 — Pack Reel Trimestrali)</div>
+        <div class="page-desc">Prima versione della landing pubblica. Design dark theme, aurora animation, pacchetti e processo.</div>
+      </div>
+      <div class="page-tag tag-public">Pubblico</div>
+    </a>
+
+    <a href="landing.html" class="page-link">
+      <div class="page-num">06</div>
+      <div class="page-info">
+        <div class="page-title">Landing Page (v2 — Commerciale)</div>
+        <div class="page-desc">Versione commerciale ottimizzata per conversione. "3 mesi di video, 1 giornata di shooting".</div>
+      </div>
+      <div class="page-tag tag-public">Pubblico</div>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    Studio121 / 2Nerd &mdash; Catania &mdash; Aprile 2026<br>
+    Repo: motions121 &mdash; Deploy: demo-studio121.vercel.app
+  </div>
+</div>
+
+</body>
+</html>

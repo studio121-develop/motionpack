@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MotionPack — Prodotto Interno | Studio121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --arancio: #fe7007;
+      --arancio-glow: rgba(254, 112, 7, 0.4);
+      --viola: rgb(100, 50, 255);
+      --verde: #22c55e;
+      --verde-dim: rgba(34, 197, 94, 0.15);
+      --blu: rgb(30, 70, 255);
+      --bg: #0a0a0a;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --bg-card-hover: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.15);
+      --text: #f5f5f5;
+      --text-muted: rgba(245, 245, 245, 0.55);
+      --text-mid: rgba(245, 245, 245, 0.75);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Header */
+    header {
+      padding: 3rem 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    header .container { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
+    .brand { font-family: 'Anton', sans-serif; font-size: 1.5rem; }
+    .brand span { color: var(--arancio); }
+    .doc-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+    }
+
+    /* Section */
+    section { padding: 4rem 1.5rem; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--arancio);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Tier Cards */
+    .tiers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 768px) { .tiers { grid-template-columns: 1fr; } }
+
+    .tier {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .tier:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .tier.featured {
+      border-color: var(--arancio);
+      box-shadow: 0 0 40px rgba(254, 112, 7, 0.08);
+    }
+    .tier-badge {
+      position: absolute;
+      top: -12px;
+      right: 1.5rem;
+      background: var(--arancio);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+    }
+    .tier-name {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 0.25rem;
+    }
+    .tier-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .tier-price {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.8rem;
+      color: var(--arancio);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .tier-price-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .tier-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 1.5rem 0;
+    }
+    .tier-features { list-style: none; }
+    .tier-features li {
+      font-size: 0.9rem;
+      padding: 0.5rem 0;
+      color: var(--text-mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+    .tier-features li::before {
+      content: '';
+      width: 6px; height: 6px;
+      min-width: 6px;
+      border-radius: 50%;
+      background: var(--arancio);
+      margin-top: 0.45rem;
+    }
+    .tier-features li.highlight { color: var(--text); font-weight: 500; }
+    .tier-features li.muted { color: var(--text-muted); }
+    .tier-features li.muted::before { background: rgba(255,255,255,0.15); }
+
+    /* Comparison table */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    .compare-table th, .compare-table td {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .compare-table th {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .compare-table td:nth-child(2), .compare-table td:nth-child(3),
+    .compare-table th:nth-child(2), .compare-table th:nth-child(3) { text-align: center; }
+    .compare-table td { color: var(--text-mid); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .check { color: var(--verde); font-weight: 600; }
+    .no { color: var(--text-muted); }
+    .val { color: var(--text); font-weight: 500; }
+
+    /* Hours grid */
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 768px) { .hours-grid { grid-template-columns: 1fr; } }
+
+    .hours-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    .hours-card-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+    .hours-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .hour-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.85rem;
+    }
+    .hour-row:last-child { border-bottom: none; }
+    .hour-row .label { color: var(--text-mid); }
+    .hour-row .value { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .hour-row.total {
+      border-top: 1px solid var(--border);
+      border-bottom: none;
+      margin-top: 0.5rem;
+      padding-top: 0.75rem;
+    }
+    .hour-row.total .label { color: var(--text); font-weight: 600; }
+    .hour-row.total .value { color: var(--arancio); font-size: 1rem; }
+
+    .hour-bar-wrap { margin-top: 1rem; }
+    .hour-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .hour-bar {
+      width: 100%;
+      height: 8px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .hour-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--arancio), var(--viola));
+    }
+    .hour-bar-sections {
+      display: flex;
+      height: 100%;
+    }
+    .hour-bar-sections > div { height: 100%; }
+    .bar-intensive { background: var(--arancio); }
+    .bar-passive { background: var(--viola); opacity: 0.6; }
+
+    /* Upsell grid */
+    .upsell-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .upsell-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.3s;
+    }
+    .upsell-card:hover { border-color: var(--border-hover); }
+    .upsell-type {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .upsell-type.up { color: var(--arancio); }
+    .upsell-type.cross { color: var(--viola); }
+    .upsell-name {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .upsell-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+    .upsell-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .upsell-price {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.1rem;
+      color: var(--arancio);
+    }
+    .upsell-hours {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Pillar structure */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 900px) { .pillars { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 550px) { .pillars { grid-template-columns: 1fr; } }
+
+    .pillar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .pillar-num {
+      font-family: 'Anton', sans-serif;
+      font-size: 2rem;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .pillar-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+    .pillar-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .pillar-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      font-weight: 600;
+    }
+    .tag-organic { background: rgba(100, 50, 255, 0.15); color: rgb(160, 130, 255); }
+    .tag-ads { background: rgba(254, 112, 7, 0.15); color: var(--arancio); }
+
+    /* Margin calculator */
+    .margin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 768px) { .margin-grid { grid-template-columns: 1fr; } }
+    .margin-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    .margin-card-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .margin-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+    }
+    .margin-row .label { color: var(--text-muted); }
+    .margin-row .value { color: var(--text-mid); font-variant-numeric: tabular-nums; }
+    .margin-row.revenue .value { color: var(--verde); font-weight: 600; }
+    .margin-row.cost .value { color: #ef4444; }
+    .margin-row.result {
+      border-top: 1px solid var(--border);
+      margin-top: 0.5rem;
+      padding-top: 0.75rem;
+    }
+    .margin-row.result .label { color: var(--text); font-weight: 600; }
+    .margin-row.result .value { color: var(--arancio); font-weight: 700; font-size: 1rem; }
+
+    /* Footer */
+    footer {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* TOC */
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .toc a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    .toc a:hover { color: var(--text); border-color: var(--border-hover); }
+
+    /* Data callout */
+    .callout {
+      background: rgba(254, 112, 7, 0.05);
+      border: 1px solid rgba(254, 112, 7, 0.15);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .callout-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--arancio);
+      margin-bottom: 0.5rem;
+    }
+    .callout-text {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="brand">MOTION<span>PACK</span></div>
+    <div class="doc-label">Documento Interno &mdash; Aprile 2026</div>
+  </div>
+</header>
+
+<!-- TOC -->
+<section style="padding: 2rem 1.5rem; border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="toc">
+      <a href="#tiers">Pacchetti</a>
+      <a href="#confronto">Confronto</a>
+      <a href="#pilastri">6 Video / Mese</a>
+      <a href="#ore">Conteggio Ore</a>
+      <a href="#margini">Margini</a>
+      <a href="#upsell">Upsell &amp; Cross-sell</a>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section id="tiers">
+  <div class="container">
+    <div class="section-label">Pacchetti</div>
+    <div class="section-title">DUE LIVELLI, UN METODO</div>
+    <div class="section-desc">Entrambi i pack includono strategia, shooting, post-produzione, pubblicazione e gestione ads. Il cliente sceglie in base al volume e alla copertura piattaforme.</div>
+
+    <div class="tiers">
+      <!-- STARTER -->
+      <div class="tier">
+        <div class="tier-name">MOTIONPACK 12</div>
+        <div class="tier-sub">Starter &mdash; 4 mesi, 1 piattaforma</div>
+        <div class="tier-price">&euro;3.000</div>
+        <div class="tier-price-note">&euro;750/mese &middot; IVA esclusa</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li class="highlight">12 video (3/mese &times; 4 mesi)</li>
+          <li>1 sessione shooting (mezza giornata ~3-4h)</li>
+          <li>2 video hero (ads-ready, post-produzione alta)</li>
+          <li>10 video leggeri (sottotitoli, musica, color)</li>
+          <li>1 piattaforma: Instagram Reels</li>
+          <li>Strategia + piano editoriale quadrimestrale</li>
+          <li>Gestione ads Meta (1 campagna Advantage+)</li>
+          <li>Lead Form nativo con domande qualificanti</li>
+          <li>Report mensile</li>
+          <li>2 meeting (onboarding + chiusura)</li>
+          <li>1 giro revisioni incluso</li>
+          <li class="muted">TikTok: non incluso (upsell)</li>
+          <li class="muted">YouTube Shorts: non incluso</li>
+        </ul>
+      </div>
+
+      <!-- PRO -->
+      <div class="tier featured">
+        <div class="tier-badge">Consigliato</div>
+        <div class="tier-name">MOTIONPACK 24</div>
+        <div class="tier-sub">Pro &mdash; 4 mesi, 2 piattaforme</div>
+        <div class="tier-price">&euro;5.000</div>
+        <div class="tier-price-note">&euro;1.250/mese &middot; IVA esclusa</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li class="highlight">24 video (6/mese &times; 4 mesi)</li>
+          <li>1 sessione shooting (giornata intera ~6-8h)</li>
+          <li>4 video hero (ads-ready, post-produzione alta)</li>
+          <li>20 video leggeri (sottotitoli, musica, color)</li>
+          <li class="highlight">2 piattaforme: Instagram Reels + TikTok</li>
+          <li class="highlight">YouTube Shorts incluso come bonus</li>
+          <li>Strategia + piano editoriale quadrimestrale</li>
+          <li>Gestione ads Meta (Advantage+ Leads)</li>
+          <li>Lead Form nativo + automazione WhatsApp</li>
+          <li>Report mensile + report quadrimestrale</li>
+          <li>3 meeting (onboarding + meta periodo + chiusura)</li>
+          <li>1 giro revisioni incluso</li>
+          <li class="highlight">Sistema di test: mesi 1-2 esplorano, mesi 3-4 consolidano</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Budget Ads: a carico del cliente, separato dal prezzo del pack</div>
+      <div class="callout-text">
+        Minimo obbligatorio: &euro;10/giorno (&euro;300/mese). Consigliato: &euro;20-30/giorno. Il cliente paga Meta direttamente dal suo account.<br>
+        Con &euro;10/giorno in Italia (CPM &euro;6.50): ~1.000-1.400 persone raggiunte al giorno nella zona. CPL stimato: &euro;2-18 per settore.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFRONTO -->
+<section id="confronto">
+  <div class="container">
+    <div class="section-label">Confronto</div>
+    <div class="section-title">COSA INCLUDE OGNI PACK</div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Voce</th>
+          <th>Pack 12</th>
+          <th>Pack 24</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Video totali</td><td class="val">12</td><td class="val">24</td></tr>
+        <tr><td>Video al mese</td><td class="val">3</td><td class="val">6</td></tr>
+        <tr><td>Video hero (ads-ready)</td><td class="val">2</td><td class="val">4</td></tr>
+        <tr><td>Video leggeri (organici)</td><td class="val">10</td><td class="val">20</td></tr>
+        <tr><td>Shooting</td><td>Mezza giornata</td><td>Giornata intera</td></tr>
+        <tr><td>Instagram Reels</td><td class="check">Incluso</td><td class="check">Incluso</td></tr>
+        <tr><td>TikTok (mirroring)</td><td class="no">Upsell +&euro;500</td><td class="check">Incluso</td></tr>
+        <tr><td>YouTube Shorts</td><td class="no">Non incluso</td><td class="check">Bonus</td></tr>
+        <tr><td>Strategia + piano editoriale</td><td class="check">Incluso</td><td class="check">Incluso</td></tr>
+        <tr><td>Gestione ads Meta</td><td class="check">1 campagna</td><td class="check">Advantage+ Leads</td></tr>
+        <tr><td>Lead Form nativo</td><td class="check">Incluso</td><td class="check">Incluso</td></tr>
+        <tr><td>Automazione WhatsApp (Zapier)</td><td class="no">Non incluso</td><td class="check">Incluso</td></tr>
+        <tr><td>Report</td><td>Mensile</td><td>Mensile + Quadrimestrale</td></tr>
+        <tr><td>Meeting cliente</td><td class="val">2</td><td class="val">3</td></tr>
+        <tr><td>Sistema test A/B direzionale</td><td class="no">No (3 video/mese troppo pochi)</td><td class="check">Si (2 educativi a confronto)</td></tr>
+        <tr><td>Creativita ads in 4 mesi</td><td class="val">2 nuove + boost</td><td class="val">8 nuove + boost</td></tr>
+        <tr><td>Pubblicazioni totali (multi-piattaforma)</td><td class="val">12</td><td class="val">~54 (24&times;2 + Shorts)</td></tr>
+        <tr><td style="font-weight:600;color:var(--text)">Prezzo</td><td style="font-family:'Anton';font-size:1.3rem;color:var(--arancio)">&euro;3.000</td><td style="font-family:'Anton';font-size:1.3rem;color:var(--arancio)">&euro;5.000</td></tr>
+        <tr><td style="color:var(--text-muted)">Prezzo per video</td><td class="val">&euro;250</td><td class="val">&euro;208</td></tr>
+        <tr><td style="color:var(--text-muted)">Prezzo per pubblicazione</td><td class="val">&euro;250</td><td class="val">&euro;93</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PILASTRI -->
+<section id="pilastri">
+  <div class="container">
+    <div class="section-label">Struttura Contenuti</div>
+    <div class="section-title">6 VIDEO AL MESE &mdash; OGNI VIDEO HA UN LAVORO</div>
+    <div class="section-desc">Struttura per il Pack 24 (6/mese). Il Pack 12 (3/mese) usa i pilastri 1, 4 e 6: educativo + testimonianza + promozionale.</div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-name">Educativo / Tips</div>
+        <div class="pillar-role">Tutorial, "3 cose da sapere", mito sfatato. Genera salvataggi e condivisioni &mdash; i segnali piu forti su Instagram 2025.</div>
+        <div class="pillar-tag tag-organic">Organico</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-name">Dietro le Quinte</div>
+        <div class="pillar-role">Giornata tipo, preparazione, team. Contenuto originale riceve +40-60% distribuzione vs reposts (IG 2025).</div>
+        <div class="pillar-tag tag-organic">Organico</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-name">Educativo (Variante)</div>
+        <div class="pillar-role">Stesso pilastro del Video 1, hook diverso. Confronto diretto per capire cosa funziona (test direzionale).</div>
+        <div class="pillar-tag tag-organic">Organico + Test</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <div class="pillar-name">Testimonianza / Social Proof</div>
+        <div class="pillar-role">Cliente soddisfatto, prima/dopo, risultato. UGC-style converte 2.8x meglio come ad. Include CTA anche nella versione organica.</div>
+        <div class="pillar-tag tag-ads">Candidato Ads</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">05</div>
+        <div class="pillar-name">Prodotto / Servizio</div>
+        <div class="pillar-role">Demo, risultato concreto, servizio in azione. Video con face nei primi 3 sec: +35% retention.</div>
+        <div class="pillar-tag tag-organic">Organico</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">06</div>
+        <div class="pillar-name">Promozionale / CTA</div>
+        <div class="pillar-role">Offerta, "prenota ora", prova gratuita. Questo video NASCE come ad. Hook 3s + offerta + CTA unico. Collegato a Lead Form.</div>
+        <div class="pillar-tag tag-ads">Ads Principale</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Sistema di test integrato (solo Pack 24)</div>
+      <div class="callout-text">
+        Mesi 1-2: diversifica su tutti i pilastri, testa ipotesi (hook, persone, formato). &bull;
+        Mese 3: 70% su cio che funziona, 30% test. &bull;
+        Mese 4: consolida per il report finale. &bull;
+        Metriche: DM shares > salvataggi > condivisioni > visite profilo > watch time.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORE -->
+<section id="ore">
+  <div class="container">
+    <div class="section-label">Conteggio Ore</div>
+    <div class="section-title">TEMPO REALE PER CLIENTE</div>
+    <div class="section-desc">Ore effettive per completare un quadrimestre. Calcolo basato su workflow con AI (CapCut + AutoCut) e Advantage+ per ads.</div>
+
+    <div class="hours-grid">
+      <!-- PACK 12 -->
+      <div class="hours-card">
+        <div class="hours-card-title">MOTIONPACK 12</div>
+        <div class="hours-card-sub">&euro;3.000 &middot; 4 mesi</div>
+
+        <div class="hour-row"><span class="label">Onboarding + strategia</span><span class="value">3h</span></div>
+        <div class="hour-row"><span class="label">Pre-produzione (shooting list, brief)</span><span class="value">2h</span></div>
+        <div class="hour-row"><span class="label">Shooting (mezza giornata)</span><span class="value">3-4h</span></div>
+        <div class="hour-row"><span class="label">Post-prod hero (2 &times; 2h)</span><span class="value">4h</span></div>
+        <div class="hour-row"><span class="label">Post-prod leggeri (10 &times; 15 min)</span><span class="value">2.5h</span></div>
+        <div class="hour-row"><span class="label">Setup ads + Lead Form</span><span class="value">1.5h</span></div>
+        <div class="hour-row"><span class="label">Ads check (16 sett. &times; 15 min)</span><span class="value">4h</span></div>
+        <div class="hour-row"><span class="label">Pubblicazione + scheduling</span><span class="value">1.5h</span></div>
+        <div class="hour-row"><span class="label">Report mensili (4 &times; 20 min)</span><span class="value">1.5h</span></div>
+        <div class="hour-row"><span class="label">Meeting cliente (2 &times; 30 min)</span><span class="value">1h</span></div>
+        <div class="hour-row total"><span class="label">Totale</span><span class="value">~24-28h</span></div>
+
+        <div class="hour-bar-wrap">
+          <div class="hour-bar-label"><span>Intensive (sett. 1-3)</span><span>Passive (sett. 4-16)</span></div>
+          <div class="hour-bar">
+            <div class="hour-bar-sections">
+              <div class="bar-intensive" style="width:60%"></div>
+              <div class="bar-passive" style="width:40%"></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-muted)">
+          ~15h nelle 3 settimane intensive &bull; ~1h/settimana nelle 13 settimane passive
+        </div>
+        <div style="margin-top:0.5rem; font-size:0.8rem; color:var(--text-mid)">
+          Costo orario effettivo: <strong style="color:var(--arancio)">&euro;107-125/h</strong>
+        </div>
+      </div>
+
+      <!-- PACK 24 -->
+      <div class="hours-card" style="border-color: rgba(254,112,7,0.3);">
+        <div class="hours-card-title">MOTIONPACK 24</div>
+        <div class="hours-card-sub">&euro;5.000 &middot; 4 mesi</div>
+
+        <div class="hour-row"><span class="label">Onboarding + strategia</span><span class="value">4-5h</span></div>
+        <div class="hour-row"><span class="label">Pre-produzione (shooting list, brief)</span><span class="value">3-4h</span></div>
+        <div class="hour-row"><span class="label">Shooting (giornata intera)</span><span class="value">6-8h</span></div>
+        <div class="hour-row"><span class="label">Post-prod hero (4 &times; 2h)</span><span class="value">8h</span></div>
+        <div class="hour-row"><span class="label">Post-prod leggeri (20 &times; 15 min)</span><span class="value">5h</span></div>
+        <div class="hour-row"><span class="label">Adattamento TikTok + YT Shorts</span><span class="value">2-3h</span></div>
+        <div class="hour-row"><span class="label">Setup ads + Lead Form + Zapier</span><span class="value">2-3h</span></div>
+        <div class="hour-row"><span class="label">Ads check (16 sett. &times; 20 min)</span><span class="value">5-6h</span></div>
+        <div class="hour-row"><span class="label">Pubblicazione + scheduling (2 piattaforme)</span><span class="value">3-4h</span></div>
+        <div class="hour-row"><span class="label">Report mensili + quadrimestrale</span><span class="value">2.5h</span></div>
+        <div class="hour-row"><span class="label">Meeting cliente (3 &times; 30 min)</span><span class="value">1.5h</span></div>
+        <div class="hour-row total"><span class="label">Totale</span><span class="value">~42-50h</span></div>
+
+        <div class="hour-bar-wrap">
+          <div class="hour-bar-label"><span>Intensive (sett. 1-4)</span><span>Passive (sett. 5-16)</span></div>
+          <div class="hour-bar">
+            <div class="hour-bar-sections">
+              <div class="bar-intensive" style="width:55%"></div>
+              <div class="bar-passive" style="width:45%"></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-muted)">
+          ~28h nelle 4 settimane intensive &bull; ~2h/settimana nelle 12 settimane passive
+        </div>
+        <div style="margin-top:0.5rem; font-size:0.8rem; color:var(--text-mid)">
+          Costo orario effettivo: <strong style="color:var(--arancio)">&euro;100-119/h</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARGINI -->
+<section id="margini">
+  <div class="container">
+    <div class="section-label">Margini</div>
+    <div class="section-title">QUANTO RESTA IN TASCA</div>
+    <div class="section-desc">Scenario ibrido: voi girate e gestite strategia/ads, freelance Catania monta. I costi interni sono calcolati come costo-opportunita a &euro;40/h.</div>
+
+    <div class="margin-grid">
+      <!-- Pack 12 -->
+      <div class="margin-card">
+        <div class="margin-card-title">MOTIONPACK 12</div>
+        <div class="margin-row revenue"><span class="label">Ricavo</span><span class="value">&euro;3.000</span></div>
+        <div class="margin-row cost"><span class="label">Trasporto + attrezzatura</span><span class="value">-&euro;80</span></div>
+        <div class="margin-row cost"><span class="label">Editing leggero (10 &times; &euro;25)</span><span class="value">-&euro;250</span></div>
+        <div class="margin-row cost"><span class="label">Editing hero (2 &times; &euro;80)</span><span class="value">-&euro;160</span></div>
+        <div class="margin-row cost"><span class="label">Tools (4 mesi)</span><span class="value">-&euro;170</span></div>
+        <div class="margin-row" style="border-top:1px solid var(--border); margin-top:0.5rem; padding-top:0.5rem">
+          <span class="label" style="color:var(--text-muted)">Totale out-of-pocket</span>
+          <span class="value" style="color:#ef4444">-&euro;660</span>
+        </div>
+        <div class="margin-row cost"><span class="label">Tempo interno (~26h &times; &euro;40)</span><span class="value">-&euro;1.040</span></div>
+        <div class="margin-row result"><span class="label">Margine netto</span><span class="value">&euro;1.300 (43%)</span></div>
+        <div style="margin-top:0.5rem; font-size:0.8rem; color:var(--text-muted)">
+          Out-of-pocket reale: solo &euro;660. Il resto e tempo vostro.
+        </div>
+      </div>
+
+      <!-- Pack 24 -->
+      <div class="margin-card" style="border-color: rgba(254,112,7,0.3);">
+        <div class="margin-card-title">MOTIONPACK 24</div>
+        <div class="margin-row revenue"><span class="label">Ricavo</span><span class="value">&euro;5.000</span></div>
+        <div class="margin-row cost"><span class="label">Trasporto + attrezzatura</span><span class="value">-&euro;100</span></div>
+        <div class="margin-row cost"><span class="label">Editing leggero (20 &times; &euro;25)</span><span class="value">-&euro;500</span></div>
+        <div class="margin-row cost"><span class="label">Editing hero (4 &times; &euro;80)</span><span class="value">-&euro;320</span></div>
+        <div class="margin-row cost"><span class="label">Adattamento TikTok/YT</span><span class="value">-&euro;150</span></div>
+        <div class="margin-row cost"><span class="label">Tools (4 mesi)</span><span class="value">-&euro;170</span></div>
+        <div class="margin-row" style="border-top:1px solid var(--border); margin-top:0.5rem; padding-top:0.5rem">
+          <span class="label" style="color:var(--text-muted)">Totale out-of-pocket</span>
+          <span class="value" style="color:#ef4444">-&euro;1.240</span>
+        </div>
+        <div class="margin-row cost"><span class="label">Tempo interno (~30h &times; &euro;40)</span><span class="value">-&euro;1.200</span></div>
+        <div class="margin-row result"><span class="label">Margine netto</span><span class="value">&euro;2.560 (51%)</span></div>
+        <div style="margin-top:0.5rem; font-size:0.8rem; color:var(--text-muted)">
+          Out-of-pocket reale: solo &euro;1.240. Il resto e tempo vostro.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPSELL & CROSS-SELL -->
+<section id="upsell">
+  <div class="container">
+    <div class="section-label">Revenue Extra</div>
+    <div class="section-title">UPSELL &amp; CROSS-SELL</div>
+    <div class="section-desc">Venduti al momento della firma o durante il quadrimestre. Ogni voce e indipendente dal pack base.</div>
+
+    <div class="upsell-grid">
+      <!-- UPSELL -->
+      <div class="upsell-card">
+        <div class="upsell-type up">Upsell</div>
+        <div class="upsell-name">TikTok Mirroring</div>
+        <div class="upsell-desc">Adattamento dei 12 video per TikTok (hook, audio, caption). Solo per Pack 12 (gia incluso nel Pack 24).</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">+&euro;500</div>
+          <div class="upsell-hours">~3h lavoro</div>
+        </div>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-type up">Upsell</div>
+        <div class="upsell-name">Sessione Refresh (meta periodo)</div>
+        <div class="upsell-desc">Seconda mezza giornata di shooting al mese 3: 6-8 video freschi basati sui dati dei mesi 1-2. Rinnova le creativita ads.</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">+&euro;800</div>
+          <div class="upsell-hours">~8h lavoro</div>
+        </div>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-type up">Upsell</div>
+        <div class="upsell-name">Video Hero Extra</div>
+        <div class="upsell-desc">Video aggiuntivo con post-produzione alta (motion graphics, sound design). Per campagne speciali o eventi.</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">+&euro;200/video</div>
+          <div class="upsell-hours">~2.5h lavoro</div>
+        </div>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-type up">Upsell</div>
+        <div class="upsell-name">Gestione Ads TikTok</div>
+        <div class="upsell-desc">Campagna TikTok Ads separata con targeting per codice postale. CPM 25-40% sotto Meta. Budget cliente: min &euro;15/giorno.</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">+&euro;300/mese</div>
+          <div class="upsell-hours">~3h/mese</div>
+        </div>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-type up">Upsell</div>
+        <div class="upsell-name">Rinnovo Scontato</div>
+        <div class="upsell-desc">Secondo quadrimestre con sconto 10%. Proposto al meeting di chiusura (mese 4) con dati alla mano.</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">&euro;2.700 / &euro;4.500</div>
+          <div class="upsell-hours">Stesso effort</div>
+        </div>
+      </div>
+
+      <!-- CROSS-SELL -->
+      <div class="upsell-card">
+        <div class="upsell-type cross">Cross-sell</div>
+        <div class="upsell-name">Shooting Foto Prodotto</div>
+        <div class="upsell-desc">Sessione fotografica aggiuntiva durante il giorno di shooting video. Foto per menu, catalogo, Google Business, social.</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">+&euro;300-500</div>
+          <div class="upsell-hours">+1-2h shooting</div>
+        </div>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-type cross">Cross-sell</div>
+        <div class="upsell-name">Google Business Profile</div>
+        <div class="upsell-desc">Ottimizzazione profilo: foto, descrizione, post, risposte recensioni. Critico per ricerche locali "near me".</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">+&euro;200</div>
+          <div class="upsell-hours">~3h una tantum</div>
+        </div>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-type cross">Cross-sell</div>
+        <div class="upsell-name">Landing Page Dedicata</div>
+        <div class="upsell-desc">One-page ottimizzata per conversione: form contatto, testimonianze, CTA. Per clienti che vogliono un punto di atterraggio oltre il Lead Form.</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">+&euro;500-800</div>
+          <div class="upsell-hours">~8-12h</div>
+        </div>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-type cross">Cross-sell</div>
+        <div class="upsell-name">Email Marketing Setup</div>
+        <div class="upsell-desc">Setup Mailchimp/Brevo: template, sequenza benvenuto (3 email), integrazione con Lead Form. I lead raccolti diventano una lista.</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">+&euro;400</div>
+          <div class="upsell-hours">~5h</div>
+        </div>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-type cross">Cross-sell</div>
+        <div class="upsell-name">Brand Identity Refresh</div>
+        <div class="upsell-desc">Logo, palette colori, font, template social. Per clienti che non hanno un'identita visiva coerente.</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">+&euro;800-1.500</div>
+          <div class="upsell-hours">~15-25h</div>
+        </div>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-type cross">Cross-sell</div>
+        <div class="upsell-name">Referral Bonus</div>
+        <div class="upsell-desc">Cliente soddisfatto porta un amico: sconto 10% sul rinnovo per ogni referral che firma. Oppure 1 hero video extra gratuito.</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">Costo: &euro;0</div>
+          <div class="upsell-hours">Strutturare in Fase 6</div>
+        </div>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-type cross">Cross-sell</div>
+        <div class="upsell-name">Contenuti Statici (Grafiche)</div>
+        <div class="upsell-desc">Caroselli, post immagine, stories grafiche. Per clienti che vogliono integrare il calendario con contenuti non-video.</div>
+        <div class="upsell-price-row">
+          <div class="upsell-price">+&euro;300/mese</div>
+          <div class="upsell-hours">~4h/mese</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:2rem">
+      <div class="callout-title">Revenue potenziale per cliente con upsell</div>
+      <div class="callout-text">
+        <strong>Pack 24 base:</strong> &euro;5.000<br>
+        <strong>+ TikTok Ads + foto + Google Business + email:</strong> +&euro;2.100<br>
+        <strong>+ Rinnovo scontato:</strong> +&euro;4.500<br>
+        <strong>Lifetime value primo anno:</strong> &euro;11.600 per cliente
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Studio121 / 2Nerd &mdash; Documento interno, aprile 2026 &mdash; Tutti i prezzi IVA esclusa &mdash; Dati basati su fonti 2025-2026
+  </div>
+</footer>
+
+</body>
+</html>
