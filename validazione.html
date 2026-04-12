@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MotionPack — Validazione Critica dell'Idea | Studio121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --arancio: #fe7007;
+      --arancio-glow: rgba(254, 112, 7, 0.15);
+      --viola: rgb(100, 50, 255);
+      --viola-dim: rgba(100, 50, 255, 0.12);
+      --verde: #22c55e;
+      --verde-dim: rgba(34, 197, 94, 0.1);
+      --rosso: #ef4444;
+      --rosso-dim: rgba(239, 68, 68, 0.1);
+      --giallo: #eab308;
+      --giallo-dim: rgba(234, 179, 8, 0.1);
+      --bg: #0a0a0a;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.15);
+      --text: #f5f5f5;
+      --text-muted: rgba(245, 245, 245, 0.5);
+      --text-mid: rgba(245, 245, 245, 0.72);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    header { padding: 3rem 1.5rem 2rem; border-bottom: 1px solid var(--border); }
+    header .container { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
+    .brand { font-family: 'Anton', sans-serif; font-size: 1.5rem; }
+    .brand span { color: var(--arancio); }
+    .doc-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-muted); background: var(--bg-card); padding: 0.35rem 0.9rem; border-radius: 100px; border: 1px solid var(--border); }
+    section { padding: 3.5rem 1.5rem; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .section-label { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--arancio); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Anton', sans-serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.1; margin-bottom: 0.5rem; }
+    p { font-size: 0.92rem; color: var(--text-mid); margin-bottom: 1rem; max-width: 750px; }
+    p strong { color: var(--text); font-weight: 600; }
+    h3 { font-family: 'Anton', sans-serif; font-size: 1.15rem; margin-top: 2rem; margin-bottom: 0.75rem; font-weight: 400; }
+
+    /* Verdict badges */
+    .verdict { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 0.3rem 0.8rem; border-radius: 100px; margin-bottom: 1rem; }
+    .v-green { background: var(--verde-dim); color: var(--verde); border: 1px solid rgba(34,197,94,0.2); }
+    .v-yellow { background: var(--giallo-dim); color: var(--giallo); border: 1px solid rgba(234,179,8,0.2); }
+    .v-red { background: var(--rosso-dim); color: var(--rosso); border: 1px solid rgba(239,68,68,0.2); }
+
+    /* Validation card */
+    .vcard { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; }
+    .vcard-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .vcard-title { font-weight: 700; font-size: 1rem; }
+    .vcard-num { font-family: 'Anton', sans-serif; font-size: 1.5rem; color: rgba(255,255,255,0.06); margin-right: 0.75rem; }
+    .vcard p { font-size: 0.85rem; margin-bottom: 0.75rem; }
+
+    /* Callout */
+    .callout { border-radius: 10px; padding: 1.15rem 1.25rem; margin: 1.25rem 0; }
+    .callout-arancio { background: var(--arancio-glow); border: 1px solid rgba(254,112,7,0.2); }
+    .callout-verde { background: var(--verde-dim); border: 1px solid rgba(34,197,94,0.2); }
+    .callout-rosso { background: var(--rosso-dim); border: 1px solid rgba(239,68,68,0.2); }
+    .callout-title { font-weight: 700; font-size: 0.8rem; margin-bottom: 0.4rem; }
+    .callout-arancio .callout-title { color: var(--arancio); }
+    .callout-verde .callout-title { color: var(--verde); }
+    .callout-rosso .callout-title { color: var(--rosso); }
+    .callout-text { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
+    .callout-text strong { color: var(--text); }
+
+    /* Consideration */
+    .consideration { background: rgba(255,255,255,0.02); border-left: 3px solid var(--arancio); padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+    .consideration-title { font-weight: 700; font-size: 0.85rem; color: var(--arancio); margin-bottom: 0.4rem; }
+    .consideration p { font-size: 0.85rem; margin-bottom: 0.5rem; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.85rem; }
+    th, td { text-align: left; padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--border); }
+    th { color: var(--text-muted); font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+    td { color: var(--text-mid); }
+    tr:last-child td { border-bottom: none; }
+    .val { color: var(--text); font-weight: 600; }
+    .green { color: var(--verde); font-weight: 600; }
+    .yellow { color: var(--giallo); font-weight: 600; }
+    .red { color: var(--rosso); font-weight: 600; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+    .stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1rem; }
+    .stat-value { font-family: 'Anton', sans-serif; font-size: 1.6rem; line-height: 1.1; }
+    .stat-label { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.3; }
+    .stat-source { font-size: 0.58rem; color: rgba(255,255,255,0.2); margin-top: 0.3rem; }
+
+    /* Scenario cards */
+    .scenario { background: var(--rosso-dim); border: 1px solid rgba(239,68,68,0.15); border-radius: 10px; padding: 1.15rem; margin-bottom: 0.75rem; }
+    .scenario-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--rosso); font-weight: 700; margin-bottom: 0.3rem; }
+    .scenario-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .scenario p { font-size: 0.82rem; }
+
+    /* Fix card */
+    .fix { background: var(--verde-dim); border: 1px solid rgba(34,197,94,0.15); border-radius: 10px; padding: 1.15rem; margin-bottom: 0.75rem; }
+    .fix-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--verde); font-weight: 700; margin-bottom: 0.3rem; }
+    .fix-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .fix p { font-size: 0.82rem; }
+
+    footer { padding: 2rem 1.5rem; text-align: center; font-size: 0.7rem; color: var(--text-muted); }
+    footer a { color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">MOTION<span>PACK</span></div>
+    <div class="doc-label">Validazione Critica &mdash; Aprile 2026</div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section>
+  <div class="container">
+    <div class="section-label">Premessa</div>
+    <div class="section-title">QUESTA PAGINA NON E QUI PER VENDERTI L'IDEA. E QUI PER TESTARLA.</div>
+    <p>Ho preso le 10 assunzioni principali del MotionPack e le ho validate con dati di mercato 2025-2026. Per ogni assunzione: verdetto onesto, dati a supporto, e cosa fare se il verdetto non e positivo.</p>
+
+    <table>
+      <thead><tr><th>#</th><th>Assunzione</th><th>Verdetto</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>C'e domanda reale di video da PMI italiane</td><td class="yellow">Parzialmente validata</td></tr>
+        <tr><td>2</td><td>&euro;5.000 per 4 mesi e realistico a Catania</td><td class="yellow">Parzialmente validata</td></tr>
+        <tr><td>3</td><td>24 video in 1 giornata e fattibile</td><td class="green">Validata</td></tr>
+        <tr><td>4</td><td>CPL &euro;2-18 per attivita locali Italia</td><td class="yellow">Parzialmente validata (ottimistico)</td></tr>
+        <tr><td>5</td><td>Modello sostenibile per 2 persone</td><td class="yellow">Parzialmente validata</td></tr>
+        <tr><td>6</td><td>Rischi strutturali gestibili</td><td class="red">Rischi reali confermati</td></tr>
+        <tr><td>7</td><td>Concorrenza scarsa nel Sud Italia</td><td class="red">Non validata</td></tr>
+        <tr><td>8</td><td>Tasso di rinnovo elevato</td><td class="red">Non validata (churn 30-45%)</td></tr>
+        <tr><td>9</td><td>AI taglia i costi senza penalizzare la qualita</td><td class="yellow">Parzialmente validata</td></tr>
+        <tr><td>10</td><td>Nessuno scenario di fallimento plausibile</td><td class="red">Non validata</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Risultato complessivo: 1 validata, 5 parzialmente validate, 4 non validate.</strong> Non e un semaforo rosso &mdash; ma non e nemmeno tutto verde. Significa che l'idea ha fondamenta solide ma punti deboli che vanno affrontati prima di scalare.</p>
+  </div>
+</section>
+
+<!-- 10 VALIDAZIONI -->
+<section>
+  <div class="container">
+    <div class="section-label">Le 10 Validazioni</div>
+    <div class="section-title">OGNI ASSUNZIONE AL MICROSCOPIO</div>
+
+    <!-- 1 -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center"><span class="vcard-num">01</span><span class="vcard-title">C'e domanda reale di video da PMI italiane?</span></div>
+        <div class="verdict v-yellow">Parziale</div>
+      </div>
+      <p><strong>Cosa dicono i dati:</strong> Il 60% delle aziende globali investe su video brevi (HubSpot 2026). Il 77% delle PMI italiane usa Instagram Reels. Il 30% dei team marketing aumentera il budget video nel 2026.</p>
+      <p><strong>Il problema:</strong> "Usare i video" non significa "comprare un pacchetto da un'agenzia". La maggior parte delle PMI italiane produce video col telefono del titolare. Il passaggio a pagare &euro;5.000 a un'agenzia e un salto culturale &mdash; specialmente a Catania rispetto al Nord.</p>
+      <p><strong>Non esistono dati specifici</strong> su quante PMI del Sud abbiano acquistato pacchetti video da agenzie nel 2025-2026. La domanda latente esiste; la domanda attiva va costruita.</p>
+      <div class="callout callout-arancio">
+        <div class="callout-title">Come mitigare</div>
+        <div class="callout-text">Il primo case study locale e tutto. Un ristorante catanese che mostra risultati concreti (lead, prenotazioni) vale piu di qualsiasi dato di mercato nazionale. <strong>Non scalare prima di avere 2-3 prove sociali locali.</strong></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center"><span class="vcard-num">02</span><span class="vcard-title">&euro;5.000 per 4 mesi e realistico a Catania?</span></div>
+        <div class="verdict v-yellow">Parziale</div>
+      </div>
+      <p><strong>I numeri:</strong> Budget marketing mensile tipico ristorante italiano: ~&euro;2.000/mese totali. Agenzie italiane: &euro;800-2.500/mese per social. &euro;1.250/mese rientra nel range basso nazionale.</p>
+      <p><strong>I segnali di allarme:</strong></p>
+      <p>1. <strong>Catania non e Milano.</strong> Un ristorante catanese con fatturato &euro;400.000/anno non ha lo stesso budget marketing di uno milanese.</p>
+      <p>2. <strong>Il cliente deve pagare anche il budget ads</strong> (&euro;300-1.500/mese) SOPRA i &euro;5.000. Totale reale primo quadrimestre: &euro;6.200-11.000.</p>
+      <p>3. <strong>&euro;5.000 upfront</strong> e psicologicamente diverso da &euro;1.250/mese. La formula mensile riduce la barriera.</p>
+      <div class="callout callout-arancio">
+        <div class="callout-title">Come mitigare</div>
+        <div class="callout-text">Offrire <strong>sempre l'opzione 4 rate mensili da &euro;1.250</strong>. Non proporre mai &euro;5.000 come cifra unica nella conversazione iniziale. Dire: "sono &euro;1.250 al mese per 4 mesi". E diverso psicologicamente. Se il mercato resiste, il Pack 12 a &euro;3.000 (&euro;750/mese) e la porta d'ingresso.</div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center"><span class="vcard-num">03</span><span class="vcard-title">24 video in 1 giornata e fattibile?</span></div>
+        <div class="verdict v-green">Validata</div>
+      </div>
+      <p><strong>Confermato:</strong> Il batch filming e pratica consolidata. 20+ contenuti in 4 ore documentato (Social Media Examiner). Sistemi per 30-52 reel in 1-4 giorni esistono (YT Era, Duo Collective). Riduzione tempo 60-70% vs produzione singola.</p>
+      <p><strong>I rischi reali (gestibili):</strong></p>
+      <p>&bull; Burnout del creator nella seconda meta della giornata (contenuto meno energico)</p>
+      <p>&bull; Omogeneita estetica: 24 video stessa location = sembrano tutti uguali</p>
+      <p>&bull; Richiede pre-produzione impeccabile (senza script preparati, la giornata fallisce)</p>
+      <div class="callout callout-verde">
+        <div class="callout-title">Gia mitigato nel modello</div>
+        <div class="callout-text">La shooting list per setup (non per ordine di pubblicazione), i cambi outfit, la pausa pranzo reale, e i hero per ultimi sono gia nel workflow MotionPack. Il rischio principale e la mancata pre-produzione &mdash; <strong>mai saltare la settimana 1</strong>.</div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center"><span class="vcard-num">04</span><span class="vcard-title">CPL &euro;2-18 per attivita locali Italia?</span></div>
+        <div class="verdict v-yellow">Parziale (ottimistico)</div>
+      </div>
+      <p><strong>La realta:</strong> Il CPL medio GLOBALE su Meta e <strong>&dollar;27,66</strong> (~&euro;25), in crescita del 20% YoY (WordStream 2025). L'Italia ha CPM piu bassi, ma non abbastanza da compensare.</p>
+
+      <table>
+        <thead><tr><th>Settore</th><th>CPL range dichiarato</th><th>CPL realistico Italia</th></tr></thead>
+        <tbody>
+          <tr><td>Ristoranti / Food</td><td class="green">&euro;2-8</td><td class="green">&euro;3-10 (confermato)</td></tr>
+          <tr><td>Palestre / Fitness</td><td>&euro;3-15</td><td class="yellow">&euro;15-35 (benchmark globale &dollar;53)</td></tr>
+          <tr><td>Beauty / Estetica</td><td>&euro;5-18</td><td class="yellow">&euro;15-40 (benchmark globale &dollar;51)</td></tr>
+          <tr><td>Servizi professionali</td><td>&euro;8-30</td><td class="yellow">&euro;20-50</td></tr>
+        </tbody>
+      </table>
+
+      <p>Il range &euro;2-18 <strong>vale solo per ristoranti/food</strong>. Per gli altri settori target, il CPL realistico e &euro;15-40. Questo cambia il pitch: con &euro;300/mese di budget ads, una palestra genera 7-20 lead/mese (non 15-37).</p>
+
+      <div class="callout callout-arancio">
+        <div class="callout-title">Come mitigare</div>
+        <div class="callout-text"><strong>Non promettere numeri di lead al cliente.</strong> Promettere il processo: "video professionali + distribuzione pagata + report trasparente". I numeri di lead variano troppo per settore. Mostra range realistici per settore, non medie generiche. E nei primi 2 mesi, misura il CPL reale per quel cliente specifico prima di fare previsioni.</div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center"><span class="vcard-num">05</span><span class="vcard-title">Sostenibile per un team di 2 persone?</span></div>
+        <div class="verdict v-yellow">Parziale</div>
+      </div>
+      <p><strong>Il calcolo:</strong> Con 4 clienti attivi: ~160-200h di lavoro su 4 mesi = ~10-12h/settimana a testa in media. Fattibile.</p>
+      <p><strong>Il problema reale:</strong> La media nasconde i picchi. Nelle settimane di shooting + post-produzione (3-4 settimane per cliente), il carico sale a 15-18h/settimana per persona. Con 2-3 clienti che si sovrappongono, puoi avere settimane da 40-50h.</p>
+      <p><strong>La variabile critica</strong> non e la capacita tecnica ma la gestione delle eccezioni: il cliente che cambia idea, la giornata di riprese andata male, l'account Meta bloccato, le revisioni infinite via WhatsApp.</p>
+      <div class="callout callout-arancio">
+        <div class="callout-title">Come mitigare</div>
+        <div class="callout-text"><strong>Mai sovrapporre piu di 2 onboarding nello stesso mese.</strong> Sfalsare i quadrimestri. E appena superate i 4 clienti: freelance editor obbligatorio. Il collo di bottiglia e sempre l'editing, non lo shooting.</div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center"><span class="vcard-num">06</span><span class="vcard-title">Rischi strutturali</span></div>
+        <div class="verdict v-red">Rischi confermati</div>
+      </div>
+
+      <div class="scenario">
+        <div class="scenario-label">Rischio 1 &mdash; Concentrazione clienti</div>
+        <div class="scenario-title">Con 5 clienti, ognuno vale il 20% del fatturato</div>
+        <p>Perdere 1-2 clienti e una crisi. Le agenzie sane trattano ogni cliente sopra il 20% come rischio alto.</p>
+      </div>
+      <div class="scenario">
+        <div class="scenario-label">Rischio 2 &mdash; Scope creep</div>
+        <div class="scenario-title">"Fammi anche questo video veloce"</div>
+        <p>I pacchetti a prezzo fisso con clienti locali generano costantemente richieste extra. Senza contratti fermi, il margine si erode.</p>
+      </div>
+      <div class="scenario">
+        <div class="scenario-label">Rischio 3 &mdash; Attribuzione ROI</div>
+        <div class="scenario-title">Il cliente non vede i risultati (anche se ci sono)</div>
+        <p>Le PMI locali non hanno Analytics, pixel o CRM. Dimostrare che i video+ads hanno generato X clienti e spesso impossibile. Quando non vede ROI, non rinnova.</p>
+      </div>
+      <div class="scenario">
+        <div class="scenario-label">Rischio 4 &mdash; Dipendenza algoritmica</div>
+        <div class="scenario-title">Meta cambia le regole</div>
+        <p>Una modifica all'algoritmo puo azzerare le performance delle ads. Il pacchetto diventa "non funzionante" senza colpa vostra.</p>
+      </div>
+      <div class="scenario">
+        <div class="scenario-label">Rischio 5 &mdash; Stagionalita</div>
+        <div class="scenario-title">Il ristorante a gennaio non rinnova</div>
+        <p>Le attivita locali a Catania hanno picchi e buchi stagionali. Un cliente che fatica a novembre non rinnova anche se il servizio ha funzionato ad agosto.</p>
+      </div>
+      <div class="scenario">
+        <div class="scenario-label">Rischio 6 &mdash; Commoditizzazione</div>
+        <div class="scenario-title">Se funziona, lo copiano in 6-12 mesi</div>
+        <p>La barriera all'ingresso e bassa. Qualsiasi videomaker con CapCut puo replicare il formato. Il vantaggio competitivo non e il prodotto &mdash; e l'esecuzione e le relazioni locali.</p>
+      </div>
+
+      <div class="consideration">
+        <div class="consideration-title">La mia considerazione</div>
+        <p>Questi rischi non sono motivo per non partire. Sono motivo per <strong>partire con gli occhi aperti</strong>. Il rischio #3 (attribuzione) e il piu pericoloso perche e invisibile: il servizio funziona ma il cliente non lo sa. La soluzione e semplice e va implementata dal giorno 1: <strong>chiedere al cliente quante chiamate/prenotazioni riceve PRIMA di iniziare</strong>, poi confrontare al mese 4. Anche una metrica grezza ("prima ricevevo 10 chiamate a settimana, ora 18") vale piu di nessun dato.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center"><span class="vcard-num">07</span><span class="vcard-title">La concorrenza e davvero scarsa nel Sud?</span></div>
+        <div class="verdict v-red">Non validata</div>
+      </div>
+      <p><strong>La realta:</strong> A Catania esistono agenzie attive nella produzione video e nel digital marketing:</p>
+      <p>&bull; <strong>Visualazer</strong> &mdash; comunicazione + produzione video<br>
+      &bull; <strong>BOOM S.r.l.</strong> &mdash; web agency + contenuti + advertising<br>
+      &bull; <strong>Thirty Seconds</strong> &mdash; agenzia video, 20 anni di esperienza<br>
+      &bull; <strong>Carlo Mameli Video Agency</strong> &mdash; video + social + drone in Sicilia<br>
+      &bull; <strong>Tiltup</strong> &mdash; produzione video broadcast</p>
+      <p>Su Sortlist esistono classifiche delle "10 migliori agenzie social a Catania 2026". Il mercato non e vergine.</p>
+      <p><strong>Pero:</strong> nessuna di queste offre il <strong>formato specifico</strong> del pack video quadrimestrale con ads obbligatorie e lead form. La concorrenza esiste per il budget del cliente, non per il formato del prodotto.</p>
+      <div class="callout callout-arancio">
+        <div class="callout-title">Come mitigare</div>
+        <div class="callout-text">Non posizionarsi come "agenzia video" (ce ne sono gia). Posizionarsi come <strong>"sistema di acquisizione clienti con video + ads"</strong>. Il formato (pack quadrimestrale, risultati misurabili, budget ads obbligatorio) e il differenziatore, non la produzione video in se.</div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center"><span class="vcard-num">08</span><span class="vcard-title">Tasso di rinnovo realistico?</span></div>
+        <div class="verdict v-red">Non validata</div>
+      </div>
+      <p><strong>I dati sono sobri:</strong></p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value" style="color:var(--verde)">18%</div>
+          <div class="stat-label">churn annuo agenzie retainer-based (best case)</div>
+          <div class="stat-source">Focus Digital, 2026</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" style="color:var(--giallo)">28%</div>
+          <div class="stat-label">churn annuo modelli ibridi</div>
+          <div class="stat-source">Focus Digital, 2026</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" style="color:var(--rosso)">49%</div>
+          <div class="stat-label">churn annuo PPC/ads agencies (worst case)</div>
+          <div class="stat-source">Focus Digital, 2026</div>
+        </div>
+      </div>
+
+      <p>Il MotionPack e un ibrido tra retainer e PPC. Churn realistico: <strong>30-45% dopo il primo pacchetto</strong>. Su 5 clienti, ne rinnovano 2-3. Questo significa che dovete acquisire costantemente nuovi clienti per mantenere il volume.</p>
+
+      <div class="callout callout-arancio">
+        <div class="callout-title">Come mitigare</div>
+        <div class="callout-text">
+          <strong>1. Report mensile dal mese 1</strong> (non aspettare il mese 4 per mostrare risultati)<br>
+          <strong>2. Sconto 10% sul rinnovo</strong> proposto al mese 3, non al mese 4<br>
+          <strong>3. Misurare il baseline PRIMA di iniziare</strong> ("quante chiamate ricevi oggi?")<br>
+          <strong>4. Onboarding personale</strong> (call umana, non email) &mdash; aumenta retention del 30%<br>
+          <strong>5. Budget commerciale continuo:</strong> i pranzi strategici e il referral program non sono opzionali, sono il motore di sostituzione del churn
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center"><span class="vcard-num">09</span><span class="vcard-title">AI taglia i costi senza problemi?</span></div>
+        <div class="verdict v-yellow">Parziale</div>
+      </div>
+      <p><strong>Benefici confermati:</strong> CapCut riduce i tempi editing. AI adoption nel video +342% YoY. Mercato AI video &dollar;4.2B (2025).</p>
+      <p><strong>Rischi ignorati:</strong></p>
+      <p>&bull; <strong>CapCut (ByteDance) ha licenza perpetua sui contenuti caricati.</strong> Per video commerciali di clienti, questo e un potenziale problema di IP e privacy.</p>
+      <p>&bull; Qualita inconsistente su dispositivi meno recenti e file grandi</p>
+      <p>&bull; Video con template CapCut riconoscibili possono sembrare "low-budget" a clienti esigenti</p>
+      <p>&bull; <strong>Rischio piattaforma:</strong> CapCut e di ByteDance (stessa azienda di TikTok). Gia bandita in India, sotto scrutinio USA. Rischio di discontinuita.</p>
+      <div class="callout callout-arancio">
+        <div class="callout-title">Come mitigare</div>
+        <div class="callout-text"><strong>Usare CapCut per i 20 video leggeri. Usare DaVinci Resolve (gratuito, nessun rischio IP) per i 4 hero.</strong> Non caricare mai materiale sensibile del cliente su piattaforme cloud cinesi senza consenso esplicito. E avere sempre un piano B (DaVinci + AutoCut) se CapCut dovesse avere problemi.</div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center"><span class="vcard-num">10</span><span class="vcard-title">Perche potrebbe NON funzionare</span></div>
+        <div class="verdict v-red">5 scenari di fallimento</div>
+      </div>
+
+      <div class="scenario">
+        <div class="scenario-label">Scenario A</div>
+        <div class="scenario-title">Il problema dell'attribuzione uccide il rinnovo</div>
+        <p>Il titolare dice "gli incassi sono uguali a prima". Non c'e dato per controbattere perche non ha Analytics, pixel o CRM. Non rinnova.</p>
+      </div>
+
+      <div class="scenario">
+        <div class="scenario-label">Scenario B</div>
+        <div class="scenario-title">Il cliente non ha budget per le ads</div>
+        <p>&euro;5.000 + &euro;300-1.500/mese di ads = troppo per un'attivita locale con margini stretti. Le "ads obbligatorie" diventano il motivo per non comprare.</p>
+      </div>
+
+      <div class="scenario">
+        <div class="scenario-label">Scenario C</div>
+        <div class="scenario-title">24 video mediocri</div>
+        <p>Il titolare non si prepara al shooting. I contenuti escono molli, senza hook. 24 video mediocri non portano risultati. Il cliente incolpa l'agenzia.</p>
+      </div>
+
+      <div class="scenario">
+        <div class="scenario-label">Scenario D</div>
+        <div class="scenario-title">Il mercato catanese non e pronto</div>
+        <p>La cultura digitale locale e piu bassa rispetto a Milano/Roma. Il ciclo di vendita si allunga, il costo acquisizione cliente erode i margini.</p>
+      </div>
+
+      <div class="scenario">
+        <div class="scenario-label">Scenario E</div>
+        <div class="scenario-title">Il primo cliente difficile mangia tutto il tempo</div>
+        <p>Revisioni infinite, shooting da rifare, account ads bloccato, WhatsApp H24. Consuma tutta la riserva, la qualita degli altri clienti cala, effetto domino.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COME DERISCHIARLA -->
+<section>
+  <div class="container">
+    <div class="section-label">Piano di mitigazione</div>
+    <div class="section-title">LE 8 AZIONI PER DERISCHIARE IL MOTIONPACK</div>
+    <p>Per ogni punto debole trovato dalla validazione, un'azione concreta.</p>
+
+    <div class="fix">
+      <div class="fix-label">Azione 1</div>
+      <div class="fix-title">Primo case study locale PRIMA di vendere</div>
+      <p>Fate il MotionPack su voi stessi o su un'attivita amica a prezzo scontato. Raccogliete numeri reali catanesi: impression, lead, costo per contatto. Senza proof locale, state vendendo una teoria.</p>
+    </div>
+
+    <div class="fix">
+      <div class="fix-label">Azione 2</div>
+      <div class="fix-title">Misurare il baseline PRIMA di partire con ogni cliente</div>
+      <p>"Quante chiamate/prenotazioni ricevi a settimana oggi?" Scrivetelo nel contratto. Al mese 4 confrontate. Anche una metrica grezza vale piu di nessun dato.</p>
+    </div>
+
+    <div class="fix">
+      <div class="fix-label">Azione 3</div>
+      <div class="fix-title">Sempre 4 rate mensili, mai &euro;5.000 upfront nel pitch</div>
+      <p>Dire "&euro;1.250 al mese per 4 mesi" e psicologicamente diverso da "&euro;5.000". Per il Pack 12: "&euro;750 al mese". La barriera d'ingresso si dimezza.</p>
+    </div>
+
+    <div class="fix">
+      <div class="fix-label">Azione 4</div>
+      <div class="fix-title">CPL realistici per settore, non medie generiche</div>
+      <p>Non promettere "15-37 lead al mese". Dire al ristorante: "con &euro;300/mese stimiamo 30-75 contatti". Dire alla palestra: "con &euro;300/mese stimiamo 8-20 contatti". Trasparenza = fiducia = rinnovo.</p>
+    </div>
+
+    <div class="fix">
+      <div class="fix-label">Azione 5</div>
+      <div class="fix-title">Contratto anti-scope-creep</div>
+      <p>1 giro di revisioni incluso. Modifiche dopo approvazione: &euro;50/h. Feedback solo via Frame.io. Niente WhatsApp per revisioni. Scritto nel contratto, ripetuto all'onboarding.</p>
+    </div>
+
+    <div class="fix">
+      <div class="fix-label">Azione 6</div>
+      <div class="fix-title">Report mensile dal mese 1</div>
+      <p>Non aspettare il mese 4 per mostrare risultati. Ogni mese: 1 pagina con reach, impression, lead, spesa. Il cliente vede progressi continui. Al mese 3 proponi gia il rinnovo scontato.</p>
+    </div>
+
+    <div class="fix">
+      <div class="fix-label">Azione 7</div>
+      <div class="fix-title">Posizionamento: sistema di acquisizione, non "agenzia video"</div>
+      <p>La concorrenza esiste nel video. Non esiste nel "pack quadrimestrale con ads obbligatorie e lead form". Vendete il risultato (contatti, prenotazioni), non il mezzo (video).</p>
+    </div>
+
+    <div class="fix">
+      <div class="fix-label">Azione 8</div>
+      <div class="fix-title">Budget commerciale continuo per compensare il churn</div>
+      <p>Con churn al 30-45%, dovete acquisire 2-3 nuovi clienti ogni quadrimestre solo per mantenere il volume. I pranzi strategici mensili e il referral program non sono opzionali &mdash; sono il motore di sopravvivenza.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VERDETTO FINALE -->
+<section>
+  <div class="container">
+    <div class="section-label">Verdetto finale</div>
+    <div class="section-title">L'IDEA REGGE. MA NON E BULLETPROOF.</div>
+
+    <div class="consideration">
+      <div class="consideration-title">La mia valutazione complessiva</div>
+      <p>Il MotionPack intercetta un trend reale (video brevi = ROI piu alto), in un mercato in crescita (Catania +1.84%, 4a in Italia), con un formato differenziante (pack quadrimestrale + ads obbligatorie) che quasi nessuno offre nel Sud Italia.</p>
+      <p>Ma ha <strong>tre punti deboli strutturali</strong> che vanno risolti:</p>
+      <p><strong>1. Senza proof locale non vendi.</strong> Il primo case study catanese e il prerequisito per tutto il resto.</p>
+      <p><strong>2. Senza misurazione non rinnovi.</strong> Il baseline pre-contratto + report mensile sono la differenza tra churn 45% e churn 25%.</p>
+      <p><strong>3. Senza acquisizione continua non sopravvivi.</strong> Il churn e fisiologico. Il referral program e i pranzi strategici sono il piano di sopravvivenza, non un extra.</p>
+    </div>
+
+    <div class="callout callout-verde" style="margin-top:2rem">
+      <div class="callout-title">Il percorso consigliato</div>
+      <div class="callout-text">
+        <strong>Mese 1:</strong> Fate il MotionPack su voi stessi. 24 video, ads attive, misurate tutto.<br>
+        <strong>Mese 2:</strong> Chiudete il primo cliente reale (Pack 12 a &euro;3.000, non il 24). Preferibilmente un ristorante (CPL piu basso, risultati piu facili da dimostrare).<br>
+        <strong>Mese 3:</strong> Primo pranzo strategico. Usate i dati del vostro account + quelli del primo cliente come proof.<br>
+        <strong>Mese 4-5:</strong> Chiudete il secondo e terzo cliente. Mescolate Pack 12 e Pack 24.<br>
+        <strong>Mese 6:</strong> Report del primo cliente. Se i numeri reggono, scalate. Se non reggono, aggiustate prima di prendere altri clienti.<br><br>
+        <strong>Non scalare prima di validare localmente.</strong> L'idea e forte. L'esecuzione a Catania va dimostrata, non assunta.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Studio121 / 2Nerd &mdash; Catania &mdash; Aprile 2026<br>
+    Dati esclusivamente 2025-2026: WordStream, HubSpot, ISTAT, Focus Digital, Sortlist, Meta, Wyzowl, Zebracat<br>
+    <a href="sitemap.html">Indice pagine</a> &middot; <a href="riepilogo.html">Riepilogo prodotto</a>
+  </div>
+</footer>
+
+</body>
+</html>
