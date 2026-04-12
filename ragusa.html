@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MotionPack — Mercato Ragusa | Studio121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--arancio:#fe7007;--arancio-glow:rgba(254,112,7,.15);--viola:rgb(100,50,255);--viola-dim:rgba(100,50,255,.12);--verde:#22c55e;--verde-dim:rgba(34,197,94,.1);--rosso:#ef4444;--rosso-dim:rgba(239,68,68,.1);--giallo:#eab308;--giallo-dim:rgba(234,179,8,.1);--bg:#0a0a0a;--bg-card:rgba(255,255,255,.03);--border:rgba(255,255,255,.08);--text:#f5f5f5;--text-muted:rgba(245,245,245,.5);--text-mid:rgba(245,245,245,.72)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}.container{max-width:920px;margin:0 auto;padding:0 1.5rem}header{padding:3rem 1.5rem 2rem;border-bottom:1px solid var(--border)}header .container{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem}.brand{font-family:'Anton',sans-serif;font-size:1.5rem}.brand span{color:var(--arancio)}.doc-label{font-size:.65rem;text-transform:uppercase;letter-spacing:3px;color:var(--text-muted);background:var(--bg-card);padding:.35rem .9rem;border-radius:100px;border:1px solid var(--border)}section{padding:3rem 1.5rem;border-bottom:1px solid var(--border)}section:last-of-type{border-bottom:none}.section-label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--arancio);margin-bottom:.5rem}.section-title{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.1;margin-bottom:.5rem}p{font-size:.9rem;color:var(--text-mid);margin-bottom:1rem;max-width:800px}p strong{color:var(--text)}h3{font-family:'Anton',sans-serif;font-size:1.1rem;margin-top:1.5rem;margin-bottom:.6rem;font-weight:400}table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.82rem}th,td{text-align:left;padding:.55rem .6rem;border-bottom:1px solid var(--border)}th{color:var(--text-muted);font-weight:500;font-size:.65rem;text-transform:uppercase;letter-spacing:.5px}td{color:var(--text-mid)}tr:last-child td{border-bottom:none}.val{color:var(--text);font-weight:600}.green{color:var(--verde);font-weight:600}.yellow{color:var(--giallo);font-weight:600}.red{color:var(--rosso);font-weight:600}
+    .callout{border-radius:10px;padding:1rem 1.15rem;margin:1.25rem 0}.callout-arancio{background:var(--arancio-glow);border:1px solid rgba(254,112,7,.2)}.callout-verde{background:var(--verde-dim);border:1px solid rgba(34,197,94,.2)}.callout-rosso{background:var(--rosso-dim);border:1px solid rgba(239,68,68,.2)}.callout-title{font-weight:700;font-size:.78rem;margin-bottom:.35rem}.callout-arancio .callout-title{color:var(--arancio)}.callout-verde .callout-title{color:var(--verde)}.callout-rosso .callout-title{color:var(--rosso)}.callout-text{font-size:.8rem;color:var(--text-mid);line-height:1.6}.callout-text strong{color:var(--text)}
+    .consideration{background:rgba(255,255,255,.02);border-left:3px solid var(--arancio);padding:.9rem 1.1rem;margin:1.25rem 0;border-radius:0 8px 8px 0}.consideration-title{font-weight:700;font-size:.82rem;color:var(--arancio);margin-bottom:.35rem}.consideration p{font-size:.82rem;margin-bottom:.4rem}
+    .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.6rem;margin:1rem 0}.stat{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:.7rem .8rem}.stat-value{font-family:'Anton',sans-serif;font-size:1.5rem;line-height:1.1}.stat-label{font-size:.68rem;color:var(--text-muted);margin-top:.15rem;line-height:1.3}.stat-source{font-size:.55rem;color:rgba(255,255,255,.2);margin-top:.25rem}
+    .vcard{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:1rem}.vcard-header{display:flex;justify-content:space-between;align-items:center;gap:.75rem;margin-bottom:.6rem;flex-wrap:wrap}.vcard-rank{font-family:'Anton',sans-serif;font-size:1.6rem;color:rgba(255,255,255,.06);min-width:35px}.vcard-title{font-weight:700;font-size:.95rem;flex:1}.vcard-score{font-family:'Anton',sans-serif;font-size:1.1rem;white-space:nowrap}.score-green{color:var(--verde)}.score-yellow{color:var(--giallo)}.vcard p{font-size:.8rem;margin-bottom:.4rem}
+    .tag{display:inline-block;font-size:.58rem;text-transform:uppercase;letter-spacing:1px;padding:.12rem .45rem;border-radius:100px;font-weight:600;margin-right:.25rem}.tag-si{background:var(--verde-dim);color:var(--verde)}.tag-no{background:var(--rosso-dim);color:var(--rosso)}.tag-parz{background:var(--giallo-dim);color:var(--giallo)}.tag-special{background:var(--viola-dim);color:rgb(160,130,255)}
+    footer{padding:2rem 1.5rem;text-align:center;font-size:.7rem;color:var(--text-muted)}footer a{color:var(--text-muted)}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">MOTION<span>PACK</span></div>
+    <div class="doc-label">Mercato Ragusa &mdash; Aprile 2026</div>
+  </div>
+</header>
+
+<!-- IL MERCATO -->
+<section>
+  <div class="container">
+    <div class="section-label">Il mercato</div>
+    <div class="section-title">RAGUSA: PICCOLA, DINAMICA, ZERO CONCORRENZA</div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">37.283</div><div class="stat-label">imprese attive in provincia</div><div class="stat-source">Camera Commercio Sud Est, 2025</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--arancio)">#1 Italia</div><div class="stat-label">per crescita nuove imprese Q3 2025 (+0.67%)</div><div class="stat-source">Quotidiano di Ragusa, ott 2025</div></div>
+      <div class="stat"><div class="stat-value">+8.1%</div><div class="stat-label">crescita PIL 2019-2025 (17a in Italia)</div><div class="stat-source">Ragusa Oggi, 2025</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--rosso)">-17.3%</div><div class="stat-label">arrivi turistici 2025 (crisi Ryanair/Comiso)</div><div class="stat-source">Osservatorio Turismo, 2025</div></div>
+      <div class="stat"><div class="stat-value">5-6</div><div class="stat-label">agenzie digitali a Ragusa (nessuna video-first)</div><div class="stat-source">Sortlist + Addlance, 2026</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">&euro;9.6M</div><div class="stat-label">fondi regionali per digitalizzazione PMI (DIGIT IMPRESE)</div><div class="stat-source">Regione Siciliana, 2025</div></div>
+    </div>
+
+    <h3>RAGUSA NON E CATANIA — E MEGLIO (PER VOI)</h3>
+
+    <table>
+      <thead><tr><th>Dimensione</th><th>Ragusa</th><th>Catania</th></tr></thead>
+      <tbody>
+        <tr><td>Imprese</td><td>37.283</td><td>~80.000</td></tr>
+        <tr><td>Concorrenza agenzie video</td><td class="green">Quasi zero</td><td class="yellow">Saturata</td></tr>
+        <tr><td>Crescita imprese</td><td class="green">#1 Italia</td><td>#4 Italia</td></tr>
+        <tr><td>Maturita digitale</td><td class="green">Bassissima = mercato vergine</td><td>Piu alta</td></tr>
+        <tr><td>Verticalita uniche</td><td class="green">Agriturismi, DOP/IGP, UNESCO, Montalbano</td><td>Generiche</td></tr>
+        <tr><td>Urgenza marketing</td><td class="green">Altissima (crisi turismo -17%)</td><td>Moderata</td></tr>
+        <tr><td>WTP (willingness to pay)</td><td class="red">Piu bassa (reddito medio &euro;15.590)</td><td>Piu alta</td></tr>
+        <tr><td>Early mover advantage</td><td class="green">Massimo</td><td>Basso</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-arancio">
+      <div class="callout-title">La crisi turismo = la vostra opportunita</div>
+      <div class="callout-text">Gli arrivi turistici a Ragusa sono crollati del 17.3% nel 2025 (Ryanair ha abbandonato Comiso). Allo stesso tempo, le strutture ricettive sono AUMENTATE del 15.6% (da 2.970 a 3.680). Risultato: <strong>piu strutture competono per meno turisti</strong>. Questi operatori DEVONO investire in marketing per sopravvivere. E il momento perfetto per vendere MotionPack a hotel, B&amp;B e agriturismi.</div>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICALITA RAGUSA -->
+<section>
+  <div class="container">
+    <div class="section-label">Verticalita specifiche Ragusa</div>
+    <div class="section-title">I SETTORI CHE FUNZIONANO QUI (DIVERSI DA CATANIA)</div>
+
+    <p>Ragusa ha verticalita che a Catania non esistono o sono marginali. L'analisi e calibrata sul mercato locale.</p>
+
+    <!-- #1 HOTEL/B&B -->
+    <div class="vcard" style="border-color:rgba(34,197,94,.3)">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center;gap:.6rem"><span class="vcard-rank">01</span><span class="vcard-title">HOTEL / B&amp;B / STRUTTURE RICETTIVE</span></div>
+        <div class="vcard-score score-green">9/10</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.5rem">
+        <span class="tag tag-si">Urgenza: crisi -17%</span>
+        <span class="tag tag-si">1.719 strutture</span>
+        <span class="tag tag-si">Contenuto UNESCO</span>
+        <span class="tag tag-special">Verticale #1 per Ragusa</span>
+      </div>
+      <table class="mini-table">
+        <tr><td>Mercato</td><td class="val">1.719 strutture (130 hotel, 215 B&amp;B, 1.427 affitti brevi)</td></tr>
+        <tr><td>Crisi in corso</td><td class="red">Arrivi -17.3%, Scicli -30%, ristorante Montalbano -40% ricavi</td></tr>
+        <tr><td>Contenuto video</td><td class="green">10/10 — Ragusa Ibla, barocco UNESCO, mare, Etna in lontananza</td></tr>
+        <tr><td>ROI per il cliente</td><td class="green">1 prenotazione diretta (no OTA) = &euro;150-400 risparmiati in commissioni</td></tr>
+        <tr><td>Pitch</td><td>"Stai perdendo il 17% dei turisti. Con video professionali + ads puoi attrarre prenotazioni dirette e non dipendere piu da Ryanair."</td></tr>
+      </table>
+      <div class="consideration">
+        <div class="consideration-title">Perche e il #1 a Ragusa</div>
+        <p>A Catania le strutture ricettive hanno flussi stabili (aeroporto grande). A Ragusa la crisi Comiso ha creato <strong>urgenza esistenziale</strong>. Chi non investe in marketing diretto perde. 1.719 strutture in competizione per meno turisti = mercato pronto ad ascoltare. E il contenuto (barocco, mare, cibo) e tra il piu bello d'Italia. Ogni reel girato a Ragusa Ibla e gia portfolio.</p>
+      </div>
+    </div>
+
+    <!-- #2 AGRITURISMI -->
+    <div class="vcard" style="border-color:rgba(34,197,94,.3)">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center;gap:.6rem"><span class="vcard-rank">02</span><span class="vcard-title">AGRITURISMI</span></div>
+        <div class="vcard-score score-green">9/10</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.5rem">
+        <span class="tag tag-si">105 in provincia</span>
+        <span class="tag tag-si">Contenuto cinematografico</span>
+        <span class="tag tag-si">Alto valore per notte</span>
+        <span class="tag tag-special">Solo Ragusa</span>
+      </div>
+      <table class="mini-table">
+        <tr><td>Mercato</td><td class="val">105 agriturismi registrati in provincia (Regione Siciliana, mar 2025)</td></tr>
+        <tr><td>Contenuto video</td><td class="green">10/10 — drone uliveti, farm-to-table, vendemmia, masserie storiche, animali</td></tr>
+        <tr><td>Valore per notte</td><td class="val">&euro;80-200/notte (sopra media B&amp;B)</td></tr>
+        <tr><td>Driver principale</td><td>Prenotazioni DIRETTE (evitare commissioni Booking/Airbnb del 15-20%)</td></tr>
+        <tr><td>ROI per il cliente</td><td class="green">10 prenotazioni dirette in piu = &euro;1.500-4.000 risparmiati in commissioni OTA</td></tr>
+        <tr><td>Pitch</td><td>"Ogni prenotazione da Booking ti costa il 15-20%. Con video + ads generiamo prenotazioni dirette: risparmi le commissioni e paghi il pack."</td></tr>
+      </table>
+      <div class="consideration">
+        <div class="consideration-title">Perche e il verticale perfetto per Ragusa</div>
+        <p>L'agriturismo ragusano e <strong>contenuto cinematografico nato</strong>: uliveti secolari, greggi, formaggi fatti a mano, cene sotto le stelle, masserie in pietra. Nessun agriturismo ha video professionali — usano foto amatoriali. Il ROI si calcola in commissioni OTA risparmiate: se il pack genera 10 prenotazioni dirette in 4 mesi, il cliente risparmia &euro;1.500-4.000 in commissioni che avrebbe pagato a Booking. Il pack si ripaga da solo.</p>
+      </div>
+    </div>
+
+    <!-- #3 PRODUTTORI FOOD/WINE -->
+    <div class="vcard" style="border-color:rgba(34,197,94,.3)">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center;gap:.6rem"><span class="vcard-rank">03</span><span class="vcard-title">PRODUTTORI FOOD &amp; WINE DOP/IGP</span></div>
+        <div class="vcard-score score-green">8.5/10</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.5rem">
+        <span class="tag tag-si">Cioccolato Modica IGP</span>
+        <span class="tag tag-si">Ragusano DOP</span>
+        <span class="tag tag-si">Cerasuolo DOCG</span>
+        <span class="tag tag-special">Sicilia = Regione Gastronomia 2025</span>
+      </div>
+      <table class="mini-table">
+        <tr><td>Prodotti chiave</td><td class="val">Cioccolato Modica IGP (19 produttori), Ragusano DOP (60% latticini Sicilia), Cerasuolo di Vittoria DOCG (unico DOCG siciliano), Olio Monti Iblei DOP</td></tr>
+        <tr><td>Contesto</td><td class="green">Sicilia = Regione Europea della Gastronomia 2025 (budget istituzionale per storytelling)</td></tr>
+        <tr><td>Contenuto video</td><td class="green">10/10 — lavorazione artigianale, territorio, tradizione, prodotto finito</td></tr>
+        <tr><td>Target</td><td>Produttori con distribuzione nazionale/export (Bonajuto, Campo d'Oro, cantine Cerasuolo)</td></tr>
+        <tr><td>WTP</td><td class="green">Alta per produttori con export (&euro;1.000-2.000/trimestre)</td></tr>
+        <tr><td>ROI</td><td>Brand awareness + e-commerce diretto + turismo esperienziale (degustazioni)</td></tr>
+      </table>
+      <div class="consideration">
+        <div class="consideration-title">Nicchia premium</div>
+        <p>Pochi clienti ma alto valore. Un produttore di cioccolato Modica con e-commerce e export puo pagare &euro;1.500/trimestre senza battere ciglio — il video racconta la storia del prodotto e spinge le vendite online. La designazione "Sicilia Regione Europea della Gastronomia 2025" crea un momento perfetto: i produttori vogliono raccontarsi. Il contenuto (lavorazione cioccolato, vendemmia, caseificio) e tra il piu condivisibile su Instagram.</p>
+      </div>
+    </div>
+
+    <!-- #4 RISTORANTI -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center;gap:.6rem"><span class="vcard-rank">04</span><span class="vcard-title">RISTORANTI / CUCINA IBLEA</span></div>
+        <div class="vcard-score score-yellow">7/10</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.5rem">
+        <span class="tag tag-si">1.391 in provincia</span>
+        <span class="tag tag-si">Cucina iblea = brand globale</span>
+        <span class="tag tag-parz">WTP bassa per la massa</span>
+        <span class="tag tag-parz">Break-even alto</span>
+      </div>
+      <table class="mini-table">
+        <tr><td>Mercato</td><td class="val">1.391 ristoranti in provincia, 398 nel comune di Ragusa</td></tr>
+        <tr><td>Contenuto</td><td class="green">9/10 — cucina iblea e un brand, i piatti sono fotogenici, Ragusa = cibo</td></tr>
+        <tr><td>Break-even (&euro;6.200)</td><td class="yellow">16-31 nuovi clienti (scontrino &euro;25-35)</td></tr>
+        <tr><td>WTP Ragusa</td><td class="yellow">&euro;300-600/mese per ristorante medio ibleo</td></tr>
+        <tr><td>Target ideale</td><td>Solo ristoranti fascia alta (&euro;50+ scontrino) o tourist-oriented (Ragusa Ibla, Modica, Scicli)</td></tr>
+      </table>
+      <p><strong>Nota:</strong> A Ragusa i ristoranti sono il verticale piu ovvio ma non il piu profittevole. Il Pack 24 a &euro;5.000 e troppo per la maggior parte. Meglio <strong>Pack 12 a &euro;2.500-3.000</strong> per i ristoranti, riservando il Pack 24 a hotel, agriturismi e produttori.</p>
+    </div>
+
+    <!-- #5 DENTISTI -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center;gap:.6rem"><span class="vcard-rank">05</span><span class="vcard-title">STUDI DENTISTICI</span></div>
+        <div class="vcard-score score-yellow">7.5/10</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.5rem">
+        <span class="tag tag-si">200+ in provincia</span>
+        <span class="tag tag-si">ROI: 1 paziente = break-even</span>
+        <span class="tag tag-parz">Restrizioni Meta Health</span>
+        <span class="tag tag-parz">Decisore lento</span>
+      </div>
+      <table class="mini-table">
+        <tr><td>Mercato</td><td class="val">200+ studi in provincia, 169 nel comune</td></tr>
+        <tr><td>LTV paziente</td><td class="green">&euro;8.000 su 10 anni</td></tr>
+        <tr><td>Break-even</td><td class="green">1 solo paziente nuovo</td></tr>
+        <tr><td>Strategia</td><td>Fase 3 — richiede competenza normativa FNOMCeO, portfolio solido</td></tr>
+      </table>
+    </div>
+
+    <!-- #6 GIOIELLERIE -->
+    <div class="vcard">
+      <div class="vcard-header">
+        <div style="display:flex;align-items:center;gap:.6rem"><span class="vcard-rank">06</span><span class="vcard-title">GIOIELLERIE</span></div>
+        <div class="vcard-score score-yellow">7/10</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.5rem">
+        <span class="tag tag-si">182 in provincia (!)</span>
+        <span class="tag tag-si">Contenuto lusso</span>
+        <span class="tag tag-si">Margini 50-70%</span>
+      </div>
+      <table class="mini-table">
+        <tr><td>Mercato</td><td class="val">182 gioiellerie in provincia (dato sorprendente)</td></tr>
+        <tr><td>Perche tante</td><td>Tradizione orafa siciliana + gioielleria da matrimonio (Ragusa ha una forte cultura nuziale)</td></tr>
+        <tr><td>Contenuto</td><td class="green">9/10 — macro gioielli, artigianato, proposte matrimonio</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING RAGUSA -->
+<section>
+  <div class="container">
+    <div class="section-label">Pricing adattato</div>
+    <div class="section-title">IL PREZZO DEVE ADATTARSI A RAGUSA</div>
+
+    <p>Il reddito medio a Ragusa e <strong>&euro;15.590/anno</strong> (101a su 107 province). Il Pack 24 a &euro;5.000 funziona per i clienti premium ma non per il volume. Serve una struttura a 3 livelli.</p>
+
+    <table>
+      <thead><tr><th>Pack</th><th>Prezzo</th><th>Per chi</th><th>Cosa include</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="val">MotionPack 8<br><span style="font-size:.7rem;color:var(--text-muted)">Entry</span></td>
+          <td class="val" style="color:var(--arancio)">&euro;2.000<br><span style="font-size:.7rem;color:var(--text-muted)">&euro;500/mese</span></td>
+          <td>Ristoranti, piccoli B&amp;B, beauty salon, negozi locali</td>
+          <td>8 video (2/mese), 1 piattaforma, mezza giornata shooting, ads base, report trimestrale</td>
+        </tr>
+        <tr>
+          <td class="val">MotionPack 12<br><span style="font-size:.7rem;color:var(--text-muted)">Standard</span></td>
+          <td class="val" style="color:var(--arancio)">&euro;3.000<br><span style="font-size:.7rem;color:var(--text-muted)">&euro;750/mese</span></td>
+          <td>Hotel 3*, B&amp;B strutturati, ristoranti fascia alta, studi dentistici</td>
+          <td>12 video (3/mese), 1 piattaforma + TikTok, mezza giornata shooting, ads + Lead Form, report mensile</td>
+        </tr>
+        <tr>
+          <td class="val">MotionPack 24<br><span style="font-size:.7rem;color:var(--text-muted)">Premium</span></td>
+          <td class="val" style="color:var(--arancio)">&euro;5.000<br><span style="font-size:.7rem;color:var(--text-muted)">&euro;1.250/mese</span></td>
+          <td>Hotel 4*+, agriturismi premium, produttori DOP/IGP con export, resort</td>
+          <td>24 video (6/mese), 2 piattaforme + YT Shorts, giornata intera, Advantage+ Leads, report mensile + quadrimestrale</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-arancio">
+      <div class="callout-title">Perche 3 tier a Ragusa (e non 2 come prima)</div>
+      <div class="callout-text">A Catania il mercato regge 2 tier (&euro;3.000 e &euro;5.000). A Ragusa serve un ingresso a <strong>&euro;500/mese</strong> per catturare il volume di ristoranti e piccoli B&amp;B. Il Pack 8 e il "cavallo di Troia": entra a basso costo, dimostra risultati, poi upsella al Pack 12 o 24 al rinnovo. I produttori DOP/IGP e gli hotel premium partono direttamente dal Pack 24.</div>
+    </div>
+
+    <h3>ROI PER IL CLIENTE A RAGUSA (PER TIER)</h3>
+
+    <table>
+      <thead><tr><th>Pack</th><th>Investimento totale (pack + ads min)</th><th>Break-even</th><th>Realistico?</th></tr></thead>
+      <tbody>
+        <tr><td class="val">Pack 8 + &euro;10/g ads</td><td>&euro;3.200 (4 mesi)</td><td>B&amp;B: 8-15 prenotazioni dirette<br>Ristorante: 10-20 nuovi clienti</td><td class="yellow">Fattibile ma stretto</td></tr>
+        <tr><td class="val">Pack 12 + &euro;15/g ads</td><td>&euro;4.800 (4 mesi)</td><td>Hotel: 15-25 prenotazioni<br>Dentista: 1 paziente</td><td class="green">Fattibile</td></tr>
+        <tr><td class="val">Pack 24 + &euro;20/g ads</td><td>&euro;7.400 (4 mesi)</td><td>Agriturismo: 15-25 prenotazioni dirette<br>Produttore: brand awareness + vendite online</td><td class="green">Fattibile per premium</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- NUMERI MERCATO -->
+<section>
+  <div class="container">
+    <div class="section-label">I numeri</div>
+    <div class="section-title">MERCATO RAGUSA: TOTALE TARGET PER VERTICALE</div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">1.719</div><div class="stat-label">Strutture ricettive (hotel, B&amp;B, affitti brevi)</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">1.391</div><div class="stat-label">Ristoranti in provincia</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">200+</div><div class="stat-label">Studi dentistici</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">182</div><div class="stat-label">Gioiellerie</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">105</div><div class="stat-label">Agriturismi registrati</div></div>
+      <div class="stat"><div class="stat-value">55</div><div class="stat-label">Cliniche veterinarie</div></div>
+      <div class="stat"><div class="stat-value">37</div><div class="stat-label">Palestre / fitness</div></div>
+      <div class="stat"><div class="stat-value">250-300</div><div class="stat-label">Beauty / parrucchieri</div></div>
+    </div>
+
+    <p><strong>Target raggiungibile totale: ~4.000+ attivita</strong> nei settori primari. Per servire 6-8 clienti l'anno ne bastano lo 0.2%.</p>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Il vantaggio Ragusa che Catania non ha</div>
+      <div class="callout-text">
+        <strong>1. Urgenza turismo:</strong> crisi -17% = operatori disperati per marketing<br>
+        <strong>2. Contenuto UNESCO:</strong> ogni video girato a Ragusa Ibla / Modica / Scicli e portfolio di livello internazionale<br>
+        <strong>3. Zero concorrenza video-first:</strong> 5-6 agenzie generiche, nessuna specializzata<br>
+        <strong>4. Verticalita uniche:</strong> agriturismi e produttori DOP/IGP non esistono come mercato a Catania<br>
+        <strong>5. Fondi regionali:</strong> &euro;9.6M DIGIT IMPRESE per digitalizzazione PMI = clienti che ricevono soldi per investire in marketing<br>
+        <strong>6. Sicilia Regione Gastronomia 2025:</strong> i produttori food vogliono raccontarsi ORA
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGIA RAGUSA -->
+<section>
+  <div class="container">
+    <div class="section-label">Strategia</div>
+    <div class="section-title">PIANO DI PENETRAZIONE RAGUSA</div>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Fase 1 (Mesi 1-3): Hospitality</div>
+      <div class="callout-text">
+        <strong>Target:</strong> 2 strutture ricettive (1 agriturismo + 1 B&amp;B/hotel a Ragusa Ibla o Modica).<br>
+        <strong>Pack:</strong> Pack 12 (&euro;3.000) per l'hotel, Pack 8 (&euro;2.000) per il B&amp;B come test.<br>
+        <strong>Pitch:</strong> "Prenotazioni dirette senza commissioni OTA. Video professionali del tuo posto che nessun competitor ha."<br>
+        <strong>Risultato:</strong> Portfolio con contenuto UNESCO-level + primi dati su prenotazioni dirette generate.
+      </div>
+    </div>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Fase 2 (Mesi 3-6): Food &amp; Wine</div>
+      <div class="callout-text">
+        <strong>Target:</strong> 1 produttore DOP/IGP (cioccolato Modica o caseificio Ragusano) + 1 ristorante fascia alta.<br>
+        <strong>Pack:</strong> Pack 24 (&euro;5.000) per il produttore (ha budget), Pack 8 (&euro;2.000) per il ristorante.<br>
+        <strong>Pitch produttore:</strong> "Sicilia = Regione Gastronomia 2025. Questo e il momento di raccontare la tua storia. 24 video in 4 mesi che vendono online e portano turisti alla tua bottega."<br>
+        <strong>Risultato:</strong> 4-5 clienti attivi, mix di tier.
+      </div>
+    </div>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Fase 3 (Mesi 6-12): Espansione + Premium</div>
+      <div class="callout-text">
+        <strong>Target:</strong> 1-2 dentisti (Pack 12) + 1 gioielleria + referral dai clienti hospitality.<br>
+        <strong>Obiettivo:</strong> 6-8 clienti attivi, ricavo &euro;25.000-35.000 nel primo anno.<br>
+        <strong>Scalabilita:</strong> Con portfolio Ragusa Ibla + Modica + agriturismi, il vostro materiale e cosi bello che si vende da solo.
+      </div>
+    </div>
+
+    <div class="consideration">
+      <div class="consideration-title">La mia raccomandazione finale su Ragusa</div>
+      <p>Ragusa e il mercato ideale per partire. Catania ha piu volume ma piu concorrenza. A Ragusa potete diventare <strong>"l'agenzia video del Val di Noto"</strong> in 6 mesi — un posizionamento che nessuno occupa. Il contenuto che producete a Ragusa Ibla, Modica, Scicli e di livello internazionale: ogni reel e portfolio. E la crisi turismo crea urgenza reale — non dovete convincere i clienti che hanno bisogno di marketing, lo sanno gia.</p>
+      <p>Il rischio e la WTP piu bassa: per questo servono 3 tier (&euro;2.000 / &euro;3.000 / &euro;5.000) e non 2. Il Pack 8 a &euro;500/mese e la porta d'ingresso per il volume, il Pack 24 a &euro;1.250/mese e per i premium (agriturismi, produttori DOP, hotel 4*). Mix entrambi.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Studio121 / 2Nerd &mdash; Ragusa &mdash; Aprile 2026<br>
+    Fonti: Camera Commercio Sud Est 2025, Osservatorio Turismo Ragusa 2025, Regione Siciliana 2025, Quotidiano di Ragusa 2025<br>
+    <a href="sitemap.html">Indice pagine</a> &middot; <a href="verticalita.html">Verticalita generale</a> &middot; <a href="riepilogo.html">Riepilogo prodotto</a>
+  </div>
+</footer>
+
+</body>
+</html>
