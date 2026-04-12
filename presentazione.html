@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MotionPack — Presentazione Interna Completa | Studio121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--arancio:#fe7007;--arancio-glow:rgba(254,112,7,.12);--viola:rgb(100,50,255);--viola-dim:rgba(100,50,255,.1);--verde:#22c55e;--verde-dim:rgba(34,197,94,.08);--rosso:#ef4444;--rosso-dim:rgba(239,68,68,.08);--giallo:#eab308;--giallo-dim:rgba(234,179,8,.08);--bg:#0a0a0a;--bg-card:rgba(255,255,255,.025);--border:rgba(255,255,255,.07);--text:#f5f5f5;--text-muted:rgba(245,245,245,.45);--text-mid:rgba(245,245,245,.7)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+    .container{max-width:940px;margin:0 auto;padding:0 1.5rem}
+
+    /* SLIDE = full-viewport section */
+    .slide{min-height:100vh;display:flex;align-items:center;padding:4rem 1.5rem;border-bottom:1px solid var(--border);position:relative}
+    .slide-content{width:100%;max-width:940px;margin:0 auto}
+    .slide-num{position:absolute;top:2rem;right:2rem;font-family:'Anton',sans-serif;font-size:4rem;color:rgba(255,255,255,.03);line-height:1}
+    .slide-label{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:4px;color:var(--arancio);margin-bottom:.5rem}
+    .slide-title{font-family:'Anton',sans-serif;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;margin-bottom:.75rem}
+    .slide-subtitle{font-size:1.05rem;color:var(--text-mid);max-width:700px;margin-bottom:2rem;line-height:1.7}
+    p{font-size:.88rem;color:var(--text-mid);margin-bottom:.9rem;max-width:750px;line-height:1.7}
+    p strong{color:var(--text);font-weight:600}
+    h3{font-family:'Anton',sans-serif;font-size:1.05rem;margin-top:1.8rem;margin-bottom:.5rem;font-weight:400;color:var(--text)}
+
+    /* Mini sections (non-slide) */
+    section{padding:3rem 1.5rem;border-bottom:1px solid var(--border)}
+    section:last-of-type{border-bottom:none}
+
+    /* Stats */
+    .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:.6rem;margin:1.2rem 0}
+    .stat{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:.75rem .9rem}
+    .stat-value{font-family:'Anton',sans-serif;font-size:1.5rem;line-height:1.1}
+    .stat-label{font-size:.66rem;color:var(--text-muted);margin-top:.15rem;line-height:1.3}
+    .stat-source{font-size:.52rem;color:rgba(255,255,255,.18);margin-top:.2rem}
+
+    /* Tables */
+    table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.8rem}
+    th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--border)}
+    th{color:var(--text-muted);font-weight:500;font-size:.62rem;text-transform:uppercase;letter-spacing:.5px}
+    td{color:var(--text-mid)}tr:last-child td{border-bottom:none}
+    .val{color:var(--text);font-weight:600}.green{color:var(--verde);font-weight:600}.yellow{color:var(--giallo);font-weight:600}.red{color:var(--rosso);font-weight:600}.highlight{color:var(--arancio);font-weight:600}
+
+    /* Cards */
+    .callout{border-radius:10px;padding:1rem;margin:1rem 0}.callout-arancio{background:var(--arancio-glow);border:1px solid rgba(254,112,7,.15)}.callout-verde{background:var(--verde-dim);border:1px solid rgba(34,197,94,.15)}.callout-rosso{background:var(--rosso-dim);border:1px solid rgba(239,68,68,.15)}
+    .callout-title{font-weight:700;font-size:.75rem;margin-bottom:.3rem}.callout-arancio .callout-title{color:var(--arancio)}.callout-verde .callout-title{color:var(--verde)}.callout-rosso .callout-title{color:var(--rosso)}
+    .callout-text{font-size:.78rem;color:var(--text-mid);line-height:1.6}.callout-text strong{color:var(--text)}
+
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:.75rem}
+    .card.featured{border-color:rgba(254,112,7,.3)}
+    .card-title{font-family:'Anton',sans-serif;font-size:1.1rem;margin-bottom:.25rem}
+    .card-sub{font-size:.75rem;color:var(--text-muted);margin-bottom:.75rem}
+    .card-price{font-family:'Anton',sans-serif;font-size:2rem;color:var(--arancio);line-height:1}
+    .card-note{font-size:.7rem;color:var(--text-muted);margin-top:.15rem}
+
+    /* Grids */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;margin:1rem 0}
+    @media(max-width:700px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+    /* Pillars */
+    .pillar{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1rem}
+    .pillar-num{font-family:'Anton',sans-serif;font-size:1.3rem;color:rgba(255,255,255,.05);line-height:1;margin-bottom:.25rem}
+    .pillar-name{font-weight:600;font-size:.85rem;margin-bottom:.2rem}
+    .pillar-desc{font-size:.72rem;color:var(--text-muted);line-height:1.4}
+    .tag{display:inline-block;font-size:.55rem;text-transform:uppercase;letter-spacing:1px;padding:.12rem .4rem;border-radius:100px;font-weight:600;margin-top:.35rem}
+    .tag-org{background:var(--viola-dim);color:rgb(150,120,255)}.tag-ads{background:var(--arancio-glow);color:var(--arancio)}
+
+    /* Timeline */
+    .tl-item{display:flex;gap:1rem;margin-bottom:.6rem;font-size:.8rem}
+    .tl-week{min-width:70px;font-weight:600;color:var(--arancio);font-size:.75rem}
+    .tl-desc{color:var(--text-mid);flex:1}
+    .tl-hours{min-width:50px;text-align:right;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
+
+    /* Header/Footer */
+    .brand{font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:.5px}.brand span{color:var(--arancio)}
+    header{padding:2rem 1.5rem;border-bottom:1px solid var(--border)}
+    header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+    .doc-badge{font-size:.6rem;text-transform:uppercase;letter-spacing:3px;color:var(--text-muted);background:var(--bg-card);padding:.3rem .8rem;border-radius:100px;border:1px solid var(--border)}
+    footer{padding:2rem 1.5rem;text-align:center;font-size:.65rem;color:var(--text-muted)}footer a{color:var(--text-muted);text-decoration:none}
+    .toc{display:flex;flex-wrap:wrap;gap:.35rem;padding:1.2rem 0}
+    .toc a{color:var(--text-muted);text-decoration:none;font-size:.7rem;padding:.3rem .6rem;border:1px solid var(--border);border-radius:6px;transition:all .2s}
+    .toc a:hover{color:var(--text);border-color:var(--arancio)}
+    .big-number{font-family:'Anton',sans-serif;font-size:clamp(3rem,8vw,5rem);color:var(--arancio);line-height:1;margin-bottom:.25rem}
+    .divider{height:1px;background:var(--border);margin:1.5rem 0}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">MOTION<span>PACK</span></div>
+    <div class="doc-badge">Presentazione Interna Completa &mdash; Aprile 2026</div>
+  </div>
+</header>
+<div style="padding:0 1.5rem;border-bottom:1px solid var(--border)"><div class="container"><div class="toc">
+  <a href="#visione">Visione</a><a href="#mercato">Mercato</a><a href="#prodotto">Prodotto</a><a href="#contenuti">Contenuti</a><a href="#piattaforme">Piattaforme</a><a href="#ads">Ads</a><a href="#verticali">Verticali</a><a href="#ragusa">Ragusa</a><a href="#workflow">Workflow</a><a href="#ore">Ore</a><a href="#margini">Margini</a><a href="#upsell">Upsell</a><a href="#rischi">Rischi</a><a href="#azione">Azione</a>
+</div></div></div>
+
+<!-- ========== SLIDE 1: VISIONE ========== -->
+<div class="slide" id="visione">
+  <div class="slide-content">
+    <div class="slide-num">01</div>
+    <div class="slide-label">La Visione</div>
+    <div class="slide-title">NON VENDIAMO VIDEO.<br>VENDIAMO CLIENTI NUOVI.</div>
+    <div class="slide-subtitle">MotionPack e un sistema di acquisizione clienti per attivita locali, confezionato come pacchetto video quadrimestrale con risultati misurabili.</div>
+    <p>I video sono il mezzo. Le ads sono il motore. I lead sono il risultato. Il report a fine quadrimestre e cio che vende il rinnovo.</p>
+    <div class="grid-3">
+      <div class="stat"><div class="stat-value" style="color:var(--arancio)">24</div><div class="stat-label">video in 4 mesi</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--arancio)">2+1</div><div class="stat-label">piattaforme (IG + TikTok + YT Shorts)</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--arancio)">ADS</div><div class="stat-label">obbligatorie con Lead Form nativi</div></div>
+    </div>
+    <div class="callout callout-arancio" style="margin-top:1.5rem">
+      <div class="callout-title">In una frase</div>
+      <div class="callout-text">"Ti costruiamo 4 mesi di video con un obiettivo chiaro, li distribuiamo su Instagram e TikTok, gestiamo le campagne ads con form di contatto, e dopo 4 mesi guardi i numeri insieme a noi."</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 2: MERCATO ========== -->
+<div class="slide" id="mercato">
+  <div class="slide-content">
+    <div class="slide-num">02</div>
+    <div class="slide-label">Il Mercato</div>
+    <div class="slide-title">IL MOMENTO E ADESSO.<br>I DATI NON MENTONO.</div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">77%</div><div class="stat-label">marketer: short video = ROI piu alto</div><div class="stat-source">HubSpot, 2026</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">51%</div><div class="stat-label">ads Italia ora digitale (supera la TV)</div><div class="stat-source">Osservatori.net, 2025</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--rosso)">27.8%</div><div class="stat-label">PMI italiane fa ads (il 72% NO)</div><div class="stat-source">Osservatori.net, 2025</div></div>
+      <div class="stat"><div class="stat-value">+125%</div><div class="stat-label">reach Reels vs foto su Instagram</div><div class="stat-source">Zebracat, 2025</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">50%+</div><div class="stat-label">ads Instagram sono Reels nel 2025</div><div class="stat-source">CNBC, gen 2026</div></div>
+      <div class="stat"><div class="stat-value">&euro;6.50</div><div class="stat-label">CPM medio Italia (52% sotto media globale)</div><div class="stat-source">SuperAds, 2025</div></div>
+    </div>
+
+    <h3>IL GAP</h3>
+    <p>Il 59% delle PMI italiane ha i social. Solo il 27.8% fa ads. <strong>Il 67% della spesa marketing PMI va in pubblicita che non converte.</strong> C'e un buco enorme tra "avere il profilo Instagram" e "generare clienti con video + ads".</p>
+
+    <h3>PERCHE IL VIDEO E NON ALTRO</h3>
+    <p>I Reels raggiungono il <strong>125% in piu di persone</strong> rispetto ai post foto. Il 60% delle views arriva da non-follower (scoperta). L'82% dei consumatori ha comprato qualcosa dopo aver visto un video (Wyzowl 2026). E l'AI riduce i tempi di editing del 60-90% (Clippie AI 2025).</p>
+
+    <h3>PERCHE VIDEO + ADS (NON SOLO VIDEO)</h3>
+    <p>Il reach organico medio e il <strong>3.5% dei follower</strong>. Con 500 follower = 17 persone vedono il tuo post. Con &euro;10/giorno di ads in Italia = <strong>1.000+ persone al giorno</strong>. Senza ads i video sono invisibili. Con ads diventano una macchina di lead generation.</p>
+  </div>
+</div>
+
+<!-- ========== SLIDE 3: PRODOTTO ========== -->
+<div class="slide" id="prodotto">
+  <div class="slide-content">
+    <div class="slide-num">03</div>
+    <div class="slide-label">Il Prodotto</div>
+    <div class="slide-title">3 LIVELLI, 1 METODO</div>
+    <div class="slide-subtitle">Pricing calibrato su Ragusa. Pack 8 per il volume, Pack 12 per lo standard, Pack 24 per il premium.</div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title">PACK 8</div>
+        <div class="card-sub">Entry &mdash; 4 mesi</div>
+        <div class="card-price">&euro;2.000</div>
+        <div class="card-note">&euro;500/mese</div>
+        <table style="margin-top:.75rem">
+          <tr><td>Video</td><td class="val">8 (2/mese)</td></tr>
+          <tr><td>Shooting</td><td>Mezza giornata</td></tr>
+          <tr><td>Hero (ads)</td><td class="val">2</td></tr>
+          <tr><td>Piattaforme</td><td>1 (Instagram)</td></tr>
+          <tr><td>Ads</td><td>1 campagna base</td></tr>
+          <tr><td>Report</td><td>Trimestrale</td></tr>
+          <tr><td>Meeting</td><td>2</td></tr>
+        </table>
+      </div>
+      <div class="card featured">
+        <div class="card-title">PACK 12 <span style="font-size:.6rem;color:var(--arancio);font-family:'DM Sans';font-weight:700;text-transform:uppercase;letter-spacing:1px">Standard</span></div>
+        <div class="card-sub">Standard &mdash; 4 mesi</div>
+        <div class="card-price">&euro;3.000</div>
+        <div class="card-note">&euro;750/mese</div>
+        <table style="margin-top:.75rem">
+          <tr><td>Video</td><td class="val">12 (3/mese)</td></tr>
+          <tr><td>Shooting</td><td>Mezza giornata</td></tr>
+          <tr><td>Hero (ads)</td><td class="val">3</td></tr>
+          <tr><td>Piattaforme</td><td class="val">1 + TikTok</td></tr>
+          <tr><td>Ads</td><td>Advantage+ Leads</td></tr>
+          <tr><td>Lead Form</td><td class="green">Incluso</td></tr>
+          <tr><td>Report</td><td>Mensile</td></tr>
+          <tr><td>Meeting</td><td>3</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">PACK 24 <span style="font-size:.6rem;color:var(--viola);font-family:'DM Sans';font-weight:700;text-transform:uppercase;letter-spacing:1px">Premium</span></div>
+        <div class="card-sub">Premium &mdash; 4 mesi</div>
+        <div class="card-price">&euro;5.000</div>
+        <div class="card-note">&euro;1.250/mese</div>
+        <table style="margin-top:.75rem">
+          <tr><td>Video</td><td class="val">24 (6/mese)</td></tr>
+          <tr><td>Shooting</td><td>Giornata intera</td></tr>
+          <tr><td>Hero (ads)</td><td class="val">4</td></tr>
+          <tr><td>Piattaforme</td><td class="val">IG + TikTok + YT Shorts</td></tr>
+          <tr><td>Ads</td><td>Advantage+ Leads</td></tr>
+          <tr><td>Lead Form + Zapier</td><td class="green">Incluso</td></tr>
+          <tr><td>Report</td><td>Mensile + quadrimestrale</td></tr>
+          <tr><td>Meeting</td><td>3</td></tr>
+          <tr><td>Test A/B</td><td class="green">Sistema direzionale</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="callout callout-arancio">
+      <div class="callout-title">Budget Ads: sempre separato, sempre a carico del cliente</div>
+      <div class="callout-text">Minimo &euro;10/giorno (&euro;300/mese). Il cliente paga Meta direttamente. Noi gestiamo gratuitamente dentro il pack. Con &euro;10/giorno: ~1.000 persone/giorno raggiunte nella zona. In 4 mesi: 120.000+ impression locali.</div>
+    </div>
+
+    <h3>PERCHE 4 MESI E NON 3</h3>
+    <table>
+      <tr><td class="val">Mese 1</td><td>Setup ads, algoritmo in apprendimento</td><td class="yellow">Troppo presto per un report</td></tr>
+      <tr><td class="val">Mese 2</td><td>Prime conversioni, ottimizzazione</td><td class="yellow">I dati iniziano ad arrivare</td></tr>
+      <tr><td class="val">Mese 3</td><td>Campagne a regime</td><td class="green">Dati solidi</td></tr>
+      <tr><td class="val">Mese 4</td><td>Risultati consolidati</td><td class="green">Il mese che vende il rinnovo</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ========== SLIDE 4: CONTENUTI ========== -->
+<div class="slide" id="contenuti">
+  <div class="slide-content">
+    <div class="slide-num">04</div>
+    <div class="slide-label">Struttura Contenuti</div>
+    <div class="slide-title">6 VIDEO AL MESE.<br>OGNI VIDEO HA UN LAVORO.</div>
+    <div class="slide-subtitle">Struttura a pilastri basata su dati di performance 2025-2026. Regola 80/20: 5 di valore, 1 promozionale.</div>
+
+    <div class="grid-3">
+      <div class="pillar"><div class="pillar-num">01</div><div class="pillar-name">Educativo / Tips</div><div class="pillar-desc">Tutorial, consigli. Genera salvataggi &mdash; segnale #1 su IG 2025.</div><div class="tag tag-org">Organico</div></div>
+      <div class="pillar"><div class="pillar-num">02</div><div class="pillar-name">Dietro le Quinte</div><div class="pillar-desc">Processo, team. Contenuto originale: +40-60% distribuzione (IG 2025).</div><div class="tag tag-org">Organico</div></div>
+      <div class="pillar"><div class="pillar-num">03</div><div class="pillar-name">Educativo (Variante)</div><div class="pillar-desc">Stesso tema, hook diverso. Il nostro sistema di test.</div><div class="tag tag-org">Test</div></div>
+      <div class="pillar"><div class="pillar-num">04</div><div class="pillar-name">Testimonianza</div><div class="pillar-desc">Cliente soddisfatto. UGC: 2.8x conversione come ad.</div><div class="tag tag-ads">Candidato Ads</div></div>
+      <div class="pillar"><div class="pillar-num">05</div><div class="pillar-name">Prodotto / Servizio</div><div class="pillar-desc">Demo, risultato. Face nei primi 3 sec: +35% retention.</div><div class="tag tag-org">Organico</div></div>
+      <div class="pillar"><div class="pillar-num">06</div><div class="pillar-name">Promozionale / CTA</div><div class="pillar-desc">Offerta, prenota ora. NASCE come ad. Hook + CTA + Lead Form.</div><div class="tag tag-ads">Ads Principale</div></div>
+    </div>
+
+    <h3>METRICHE CHE CONTANO (ALGORITMO IG 2025)</h3>
+    <table>
+      <tr><td class="val">1. DM Shares</td><td>Segnale PIU pesante. Pesa extra da non-follower.</td></tr>
+      <tr><td class="val">2. Watch Time</td><td>Primi 3 sec decidono tutto. Target: &gt;74% completion (7-15 sec).</td></tr>
+      <tr><td class="val">3. Salvataggi</td><td>Intento forte. Per locali = "voglio visitare questo posto".</td></tr>
+      <tr><td class="val">4. Visite profilo</td><td>Conversione diretta: scoperta &rarr; interesse.</td></tr>
+      <tr><td style="color:var(--text-muted)">5. Like</td><td style="color:var(--text-muted)">Contano meno di prima. Solo baseline.</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ========== SLIDE 5: PIATTAFORME ========== -->
+<div class="slide" id="piattaforme">
+  <div class="slide-content">
+    <div class="slide-num">05</div>
+    <div class="slide-label">Piattaforme</div>
+    <div class="slide-title">TIKTOK PER SCOPERTA.<br>INSTAGRAM PER CONVERSIONE.</div>
+
+    <table>
+      <thead><tr><th></th><th>Instagram</th><th>TikTok</th><th>YouTube Shorts</th></tr></thead>
+      <tbody>
+        <tr><td>Utenti Italia</td><td class="val">29.9M</td><td class="val">23.9M</td><td class="val">~40M (YT totale)</td></tr>
+        <tr><td>Tempo/mese</td><td>15h</td><td class="highlight">30h (2x)</td><td>17h</td></tr>
+        <tr><td>Engagement</td><td>1.2% (Reels)</td><td class="highlight">2.80% (4.3x)</td><td class="highlight">5.91%</td></tr>
+        <tr><td>Ruolo</td><td class="green">Conversione</td><td class="highlight">Scoperta</td><td>Longevita SEO</td></tr>
+        <tr><td>Gen Z cerca locali</td><td style="color:var(--text-muted)">Minoritario</td><td class="highlight">40%+ (vs Google)</td><td>-</td></tr>
+        <tr><td>Durata ottimale</td><td>7-60 sec</td><td>60-180 sec</td><td>15-60 sec</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-arancio">
+      <div class="callout-title">Strategia mirroring</div>
+      <div class="callout-text"><strong>1.</strong> Produci 6 video neutri (9:16, no watermark) &rarr; <strong>2.</strong> Pubblica prima su TikTok (test gratuito reach) &rarr; <strong>3.</strong> A 24-48h adatta e pubblica su Instagram (conversione) &rarr; <strong>4.</strong> YouTube Shorts = bonus SEO. Con 6 video &rarr; <strong>~18 pubblicazioni</strong> su 3 piattaforme.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 6: ADS ========== -->
+<div class="slide" id="ads">
+  <div class="slide-content">
+    <div class="slide-num">06</div>
+    <div class="slide-label">Ads + Lead Form</div>
+    <div class="slide-title">REEL + LEAD FORM =<br>LA COMBO PIU EFFICIENTE SU META</div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">-34.5%</div><div class="stat-label">costo per risultato: Reel 9:16 vs immagine statica</div><div class="stat-source">Meta split test 2025</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">-14%</div><div class="stat-label">CPL con Advantage+ Leads vs manuale</div><div class="stat-source">Meta, 2025</div></div>
+      <div class="stat"><div class="stat-value">&euro;2-20</div><div class="stat-label">CPL attivita locali Italia (per settore)</div><div class="stat-source">WordStream + Leadia.it, 2025</div></div>
+      <div class="stat"><div class="stat-value">1.35%</div><div class="stat-label">CTR Reels ads (vs 0.90% feed)</div><div class="stat-source">AdAmigo, 2026</div></div>
+    </div>
+
+    <h3>SETUP A BASSA GESTIONE</h3>
+    <p><strong>1 campagna Advantage+ Leads</strong> &rarr; 1 ad set geo-locale (3-7 km) &rarr; 2 Reel ads (video 4 + video 6) &rarr; 1 Lead Form (Higher Intent + 1-2 domande qualificanti) &rarr; automazione Zapier &rarr; WhatsApp entro 5 min.</p>
+    <p>Tempo gestione: <strong>~20-30 min/settimana per cliente.</strong></p>
+
+    <h3>QUALITA LEAD</h3>
+    <p>Higher Intent + verifica OTP + domande qualificanti + follow-up entro 5 min (conversioni <strong>8x superiori</strong>).</p>
+  </div>
+</div>
+
+<!-- ========== SLIDE 7: VERTICALI ========== -->
+<div class="slide" id="verticali">
+  <div class="slide-content">
+    <div class="slide-num">07</div>
+    <div class="slide-label">Verticali</div>
+    <div class="slide-title">TOP 6 SETTORI:<br>ROI PER IL CLIENTE + FACILI PER NOI</div>
+    <div class="slide-subtitle">Il cliente spende &euro;4.200-7.400 in 4 mesi (pack + ads). Se il ROI non funziona per lui, non rinnova.</div>
+
+    <table>
+      <thead><tr><th>#</th><th>Verticale</th><th>Break-even cliente</th><th>Ads OK?</th><th>Score</th></tr></thead>
+      <tbody>
+        <tr><td class="val">1</td><td class="val">Centri padel</td><td class="green">3-6 abbonati</td><td class="green">Libere</td><td class="green">9/10</td></tr>
+        <tr><td class="val">2</td><td class="val">Scuole / formazione</td><td class="green">3-8 iscritti</td><td class="green">Libere, CPL &euro;2-8</td><td class="green">8.5/10</td></tr>
+        <tr><td class="val">3</td><td class="val">Studi dentistici</td><td class="green">1 paziente</td><td class="yellow">Restrizioni health</td><td class="green">8/10</td></tr>
+        <tr><td class="val">4</td><td class="val">Gioiellerie</td><td class="green">2-12 clienti</td><td class="green">Libere</td><td class="green">8/10</td></tr>
+        <tr><td class="val">5</td><td class="val">Cliniche veterinarie</td><td class="yellow">10-20 clienti</td><td class="green">Libere</td><td class="yellow">7.5/10</td></tr>
+        <tr><td class="val">6</td><td class="val">Palestre / fitness</td><td class="yellow">7-10 iscritti</td><td class="green">Libere</td><td class="yellow">7.5/10</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-rosso">
+      <div class="callout-title">Da evitare (ROI non sostenibile per il cliente)</div>
+      <div class="callout-text">Farmacie (break-even 31-62 clienti + restrizioni ads), pizzerie d'asporto (micro-attivita), officine auto (settore in calo), commercialisti (zero potenziale video), imprese edili (fine Superbonus).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 8: RAGUSA ========== -->
+<div class="slide" id="ragusa">
+  <div class="slide-content">
+    <div class="slide-num">08</div>
+    <div class="slide-label">Il Nostro Mercato</div>
+    <div class="slide-title">RAGUSA: PICCOLA, DINAMICA,<br>ZERO CONCORRENZA</div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-value" style="color:var(--arancio)">#1 IT</div><div class="stat-label">crescita nuove imprese Q3 2025</div><div class="stat-source">Unioncamere, ott 2025</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--rosso)">-17.3%</div><div class="stat-label">arrivi turistici gen-set 2025</div><div class="stat-source">Osservatorio Turismo, ott 2025</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">3.680</div><div class="stat-label">strutture ricettive (+15.6%)</div><div class="stat-source">Confcommercio, ago 2025</div></div>
+      <div class="stat"><div class="stat-value">~0</div><div class="stat-label">agenzie video-first in provincia</div><div class="stat-source">Sortlist, 2026</div></div>
+    </div>
+
+    <h3>VERTICALI UNICHE RAGUSA (CHE A CATANIA NON ESISTONO)</h3>
+    <table>
+      <tr><td class="val">Hotel / B&amp;B in crisi</td><td>3.680 strutture, arrivi -17%. DEVONO investire in marketing diretto.</td><td class="green">9/10</td></tr>
+      <tr><td class="val">Agriturismi</td><td>~105 in provincia. Contenuto cinematografico (uliveti, masserie). ROI = prenotazioni dirette senza OTA.</td><td class="green">9/10</td></tr>
+      <tr><td class="val">Produttori DOP/IGP</td><td>Cioccolato Modica (~21 produttori), Ragusano DOP, Cerasuolo DOCG. Sicilia = Regione Gastronomia 2025.</td><td class="green">8.5/10</td></tr>
+      <tr><td class="val">Ristoranti cucina iblea</td><td>1.391 in provincia. Food capital. Ma WTP bassa &rarr; solo Pack 8-12.</td><td class="yellow">7/10</td></tr>
+    </table>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Perche Ragusa e non Catania per partire</div>
+      <div class="callout-text"><strong>Concorrenza zero</strong> (5-6 agenzie generiche, nessuna video-first) vs Catania saturata. <strong>Crisi turismo = urgenza reale</strong> (i clienti sanno gia che hanno bisogno di marketing). <strong>Contenuto UNESCO-level</strong> (ogni reel e portfolio internazionale). <strong>Verticalita uniche</strong> (agriturismi, DOP/IGP) che nessuno serve.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 9: WORKFLOW ========== -->
+<div class="slide" id="workflow">
+  <div class="slide-content">
+    <div class="slide-num">09</div>
+    <div class="slide-label">Workflow</div>
+    <div class="slide-title">DA CONSULENZA GRATUITA<br>A RINNOVO IN 16 SETTIMANE</div>
+
+    <div class="tl-item"><div class="tl-week">Pre-firma</div><div class="tl-desc">Consulenza gratuita, proposta, negoziazione, contratto</div><div class="tl-hours">6-10h</div></div>
+    <div class="divider"></div>
+    <div class="tl-item"><div class="tl-week">Sett. 1-2</div><div class="tl-desc">Onboarding + strategia + pre-produzione (script 24 video, shooting list, brief)</div><div class="tl-hours">20-26h</div></div>
+    <div class="tl-item"><div class="tl-week">Sett. 3</div><div class="tl-desc">Shooting (1 giornata intera) + inizio post-produzione</div><div class="tl-hours">14-18h</div></div>
+    <div class="tl-item"><div class="tl-week">Sett. 4-5</div><div class="tl-desc">Post-produzione + adattamento piattaforme + revisioni + setup ads</div><div class="tl-hours">22-30h</div></div>
+    <div class="divider"></div>
+    <div class="tl-item"><div class="tl-week">Sett. 6</div><div class="tl-desc">Go live: prima pubblicazione + ads attive</div><div class="tl-hours">4h</div></div>
+    <div class="tl-item"><div class="tl-week">Sett. 7-15</div><div class="tl-desc">Pilota automatico: pubblicazione + ads check + comunicazione + report</div><div class="tl-hours">~3.5h/sett</div></div>
+    <div class="tl-item"><div class="tl-week">Sett. 16</div><div class="tl-desc">Report finale + meeting chiusura + proposta rinnovo</div><div class="tl-hours">4h</div></div>
+
+    <div class="grid-2" style="margin-top:1.5rem">
+      <div class="stat"><div class="stat-value" style="color:var(--arancio)">~13h/sett</div><div class="stat-label">nelle 5 settimane intensive</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">~3.5h/sett</div><div class="stat-label">nelle 11 settimane passive</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 10: ORE ========== -->
+<div class="slide" id="ore">
+  <div class="slide-content">
+    <div class="slide-num">10</div>
+    <div class="slide-label">Ore Reali</div>
+    <div class="slide-title">QUANTO LAVORO E DAVVERO<br>(DATI VERIFICATI, NON STIME)</div>
+
+    <div class="grid-3">
+      <div class="card" style="border-color:rgba(239,68,68,.2)">
+        <div class="card-title" style="color:var(--rosso)">Primo cliente</div>
+        <div class="card-sub">Senza template, curva apprendimento</div>
+        <div class="big-number" style="color:var(--rosso)">140h</div>
+        <p>&euro;5.000 &divide; 140h = <strong>&euro;36/h</strong></p>
+      </div>
+      <div class="card" style="border-color:rgba(234,179,8,.2)">
+        <div class="card-title" style="color:var(--giallo)">Rodato</div>
+        <div class="card-sub">Template + AI + processo</div>
+        <div class="big-number" style="color:var(--giallo)">110h</div>
+        <p>&euro;5.000 &divide; 110h = <strong>&euro;45/h</strong></p>
+      </div>
+      <div class="card" style="border-color:rgba(34,197,94,.2)">
+        <div class="card-title" style="color:var(--verde)">Ottimizzato</div>
+        <div class="card-sub">Editing outsourced (&euro;1.000)</div>
+        <div class="big-number" style="color:var(--verde)">81h</div>
+        <p>&euro;4.000 netti &divide; 81h = <strong>&euro;49/h</strong></p>
+      </div>
+    </div>
+
+    <div class="callout callout-arancio">
+      <div class="callout-title">Fasi piu sottostimate (da ricerca su agenzie reali)</div>
+      <div class="callout-text">Pre-produzione 24 video: <strong>12-18h</strong> (non 3-4h). Comunicazione cliente: <strong>8-14h</strong> (non 1.5h). Revisioni: <strong>6-10h</strong>. Vendita pre-contratto: <strong>6-10h</strong>. Admin/fatture: <strong>4-5h</strong>. Fonti: Focus Digital, Contra, AgencyAnalytics, FunctionFox 2025.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 11: MARGINI ========== -->
+<div class="slide" id="margini">
+  <div class="slide-content">
+    <div class="slide-num">11</div>
+    <div class="slide-label">Margini</div>
+    <div class="slide-title">QUANTO RESTA IN TASCA</div>
+    <div class="slide-subtitle">Scenario ibrido: voi girate e gestite strategia/ads, freelance Ragusa monta.</div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title">Pack 8 (&euro;2.000)</div>
+        <table>
+          <tr><td>Out-of-pocket</td><td class="red">~&euro;400</td></tr>
+          <tr><td>Ore interne</td><td>~50h</td></tr>
+          <tr><td>Margine netto</td><td class="green">&euro;600-800</td></tr>
+          <tr><td>Rate effettivo</td><td class="val">&euro;32-40/h</td></tr>
+        </table>
+      </div>
+      <div class="card featured">
+        <div class="card-title">Pack 12 (&euro;3.000)</div>
+        <table>
+          <tr><td>Out-of-pocket</td><td class="red">~&euro;660</td></tr>
+          <tr><td>Ore interne</td><td>~74h</td></tr>
+          <tr><td>Margine netto</td><td class="green">&euro;1.300</td></tr>
+          <tr><td>Rate effettivo</td><td class="val">&euro;41/h</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Pack 24 (&euro;5.000)</div>
+        <table>
+          <tr><td>Out-of-pocket</td><td class="red">~&euro;1.240</td></tr>
+          <tr><td>Ore interne</td><td>~81h (editing outsourced)</td></tr>
+          <tr><td>Margine netto</td><td class="green">&euro;2.560</td></tr>
+          <tr><td>Rate effettivo</td><td class="val">&euro;49/h</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 12: UPSELL ========== -->
+<div class="slide" id="upsell">
+  <div class="slide-content">
+    <div class="slide-num">12</div>
+    <div class="slide-label">Revenue Extra</div>
+    <div class="slide-title">UPSELL &amp; CROSS-SELL</div>
+
+    <table>
+      <thead><tr><th>Tipo</th><th>Voce</th><th>Prezzo</th><th>Ore</th></tr></thead>
+      <tbody>
+        <tr><td class="highlight">Upsell</td><td>TikTok Mirroring (solo Pack 8/12)</td><td class="val">+&euro;500</td><td>3h</td></tr>
+        <tr><td class="highlight">Upsell</td><td>Sessione Refresh (meta periodo)</td><td class="val">+&euro;800</td><td>8h</td></tr>
+        <tr><td class="highlight">Upsell</td><td>Video Hero Extra</td><td class="val">+&euro;200/video</td><td>2.5h</td></tr>
+        <tr><td class="highlight">Upsell</td><td>Gestione TikTok Ads</td><td class="val">+&euro;300/mese</td><td>3h/mese</td></tr>
+        <tr><td class="highlight">Upsell</td><td>Rinnovo scontato (-10%)</td><td class="val">&euro;1.800-4.500</td><td>Stesso</td></tr>
+        <tr><td style="color:var(--viola)">Cross</td><td>Shooting Foto Prodotto</td><td class="val">+&euro;300-500</td><td>1-2h</td></tr>
+        <tr><td style="color:var(--viola)">Cross</td><td>Google Business Profile</td><td class="val">+&euro;200</td><td>3h</td></tr>
+        <tr><td style="color:var(--viola)">Cross</td><td>Landing Page</td><td class="val">+&euro;500-800</td><td>8-12h</td></tr>
+        <tr><td style="color:var(--viola)">Cross</td><td>Email Marketing Setup</td><td class="val">+&euro;400</td><td>5h</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Lifetime value per cliente con upsell</div>
+      <div class="callout-text">Pack 24 base &euro;5.000 + TikTok Ads + foto + Google + email (+&euro;2.100) + rinnovo scontato (+&euro;4.500) = <strong>&euro;11.600 nel primo anno per cliente premium</strong>.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 13: RISCHI ========== -->
+<div class="slide" id="rischi">
+  <div class="slide-content">
+    <div class="slide-num">13</div>
+    <div class="slide-label">Rischi</div>
+    <div class="slide-title">COSA PUO ANDARE STORTO<br>(E COME MITIGARE)</div>
+
+    <table>
+      <thead><tr><th>Rischio</th><th>Mitigazione</th></tr></thead>
+      <tbody>
+        <tr><td class="red">Churn 30-45% dopo primo pack</td><td>Report mensile dal mese 1, misurare baseline PRIMA, proporre rinnovo al mese 3</td></tr>
+        <tr><td class="red">Cliente non vede ROI (attribuzione)</td><td>Chiedere "quante chiamate ricevi oggi?" PRIMA di iniziare. Confrontare al mese 4.</td></tr>
+        <tr><td class="yellow">WTP Ragusa piu bassa</td><td>3 tier (&euro;500/750/1.250 al mese). Pack 8 come porta d'ingresso.</td></tr>
+        <tr><td class="yellow">Scope creep ("fammi anche questo")</td><td>Contratto: 1 giro revisioni, feedback solo via Frame.io, extra a &euro;50/h</td></tr>
+        <tr><td class="yellow">24 video mediocri (shooting va male)</td><td>Pre-produzione impeccabile (15-25h). Mai saltare la settimana 1.</td></tr>
+        <tr><td class="yellow">Concorrenza copia il modello</td><td>Il vantaggio e nell'esecuzione e nelle relazioni locali, non nel formato.</td></tr>
+        <tr><td>Meta cambia algoritmo</td><td>Multi-piattaforma (IG + TikTok + YT). Non dipendere da una sola.</td></tr>
+        <tr><td>PIL Ragusa 2026 in contrazione (-0.05%)</td><td>La contrazione crea urgenza: chi non investe in marketing adesso sparisce.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ========== SLIDE 14: AZIONE ========== -->
+<div class="slide" id="azione">
+  <div class="slide-content">
+    <div class="slide-num">14</div>
+    <div class="slide-label">Piano d'Azione</div>
+    <div class="slide-title">I PROSSIMI 6 MESI</div>
+
+    <div class="card" style="border-left:3px solid var(--arancio);border-radius:0 12px 12px 0;margin-bottom:1rem">
+      <div class="card-title" style="color:var(--arancio)">Mese 1-2: Fondamenta</div>
+      <p>&bull; MotionPack su voi stessi (24 video dell'agenzia) = portfolio + prove</p>
+      <p>&bull; 1 primo cliente reale: <strong>struttura ricettiva a Ragusa Ibla o Modica</strong> (Pack 12, &euro;3.000)</p>
+      <p>&bull; Contenuto UNESCO-level per il portfolio fin dal giorno 1</p>
+    </div>
+    <div class="card" style="border-left:3px solid var(--verde);border-radius:0 12px 12px 0;margin-bottom:1rem">
+      <div class="card-title" style="color:var(--verde)">Mese 3-4: Primi risultati + espansione</div>
+      <p>&bull; Report del primo cliente con numeri reali (prenotazioni dirette, lead)</p>
+      <p>&bull; 1 agriturismo (Pack 24 premium, &euro;5.000) + 1 ristorante fascia alta (Pack 8, &euro;2.000)</p>
+      <p>&bull; Primo pranzo strategico: 8-10 titolari, proiettare i reel del primo cliente</p>
+    </div>
+    <div class="card" style="border-left:3px solid var(--viola);border-radius:0 12px 12px 0;margin-bottom:1rem">
+      <div class="card-title" style="color:rgb(160,130,255)">Mese 5-6: Consolidamento</div>
+      <p>&bull; 4-5 clienti attivi (mix: hospitality + food + 1 dentista o gioielleria)</p>
+      <p>&bull; Referral program attivo: sconto 10% sul rinnovo per ogni referral</p>
+      <p>&bull; Se i numeri reggono: freelance editor per l'editing &rarr; scala a 6-8 clienti</p>
+    </div>
+
+    <div class="grid-2" style="margin-top:1.5rem">
+      <div class="stat"><div class="stat-value" style="color:var(--arancio)">&euro;15-20K</div><div class="stat-label">ricavo obiettivo primi 6 mesi</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">&euro;45-60K</div><div class="stat-label">ricavo obiettivo anno 1 (6-8 clienti)</div></div>
+    </div>
+
+    <div class="callout callout-arancio" style="margin-top:2rem">
+      <div class="callout-title">La regola d'oro</div>
+      <div class="callout-text"><strong>Non scalare prima di validare localmente.</strong> Il primo cliente con report positivo a Ragusa vale piu di 100 pagine di business plan. L'idea e forte. L'esecuzione va dimostrata, non assunta.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    Studio121 / 2Nerd &mdash; Ragusa &mdash; Aprile 2026<br>
+    Dati 2025-2026: HubSpot, Wyzowl, ISTAT, Osservatori.net, CNBC, Meta, Unioncamere, Confcommercio, SuperAds, AdAmigo, WordStream, Zebracat, Focus Digital, Contra, FunctionFox<br><br>
+    <a href="sitemap.html">Indice completo</a> &middot; <a href="ragusa.html">Dettaglio Ragusa</a> &middot; <a href="verticalita.html">Verticali</a> &middot; <a href="validazione.html">Validazione critica</a> &middot; <a href="piano-ore.html">Piano ore</a> &middot; <a href="riepilogo.html">Riepilogo dati</a> &middot; <a href="prodotto-motionpack.html">Scheda prodotto</a>
+  </div>
+</footer>
+
+</body>
+</html>
