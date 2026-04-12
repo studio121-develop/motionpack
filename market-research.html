@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MotionPack — Market Research: Pricing + Competitor | Studio121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--arancio:#fe7007;--arancio-glow:rgba(254,112,7,.12);--viola:rgb(100,50,255);--viola-dim:rgba(100,50,255,.1);--verde:#22c55e;--verde-dim:rgba(34,197,94,.08);--rosso:#ef4444;--rosso-dim:rgba(239,68,68,.08);--giallo:#eab308;--giallo-dim:rgba(234,179,8,.08);--bg:#0a0a0a;--bg-card:rgba(255,255,255,.025);--border:rgba(255,255,255,.07);--text:#f5f5f5;--text-muted:rgba(245,245,245,.45);--text-mid:rgba(245,245,245,.7)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}.container{max-width:960px;margin:0 auto;padding:0 1.5rem}
+    header{padding:2.5rem 1.5rem 1.5rem;border-bottom:1px solid var(--border)}header .container{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:.75rem}.brand{font-family:'Anton',sans-serif;font-size:1.4rem}.brand span{color:var(--arancio)}.doc-badge{font-size:.6rem;text-transform:uppercase;letter-spacing:3px;color:var(--text-muted);background:var(--bg-card);padding:.3rem .8rem;border-radius:100px;border:1px solid var(--border)}
+    section{padding:3rem 1.5rem;border-bottom:1px solid var(--border)}section:last-of-type{border-bottom:none}
+    .section-label{font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--arancio);margin-bottom:.4rem}.section-title{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.1;margin-bottom:.4rem}
+    p{font-size:.88rem;color:var(--text-mid);margin-bottom:.85rem;max-width:780px}p strong{color:var(--text);font-weight:600}
+    h3{font-family:'Anton',sans-serif;font-size:1rem;margin-top:1.5rem;margin-bottom:.5rem;font-weight:400}
+    table{width:100%;border-collapse:collapse;margin:.9rem 0;font-size:.78rem}th,td{text-align:left;padding:.5rem .55rem;border-bottom:1px solid var(--border)}th{color:var(--text-muted);font-weight:500;font-size:.6rem;text-transform:uppercase;letter-spacing:.5px}td{color:var(--text-mid)}tr:last-child td{border-bottom:none}.val{color:var(--text);font-weight:600}.green{color:var(--verde);font-weight:600}.yellow{color:var(--giallo);font-weight:600}.red{color:var(--rosso);font-weight:600}.highlight{color:var(--arancio);font-weight:600}
+    .callout{border-radius:10px;padding:.9rem 1rem;margin:1rem 0}.callout-arancio{background:var(--arancio-glow);border:1px solid rgba(254,112,7,.15)}.callout-verde{background:var(--verde-dim);border:1px solid rgba(34,197,94,.15)}.callout-rosso{background:var(--rosso-dim);border:1px solid rgba(239,68,68,.15)}.callout-title{font-weight:700;font-size:.75rem;margin-bottom:.3rem}.callout-arancio .callout-title{color:var(--arancio)}.callout-verde .callout-title{color:var(--verde)}.callout-rosso .callout-title{color:var(--rosso)}.callout-text{font-size:.76rem;color:var(--text-mid);line-height:1.6}.callout-text strong{color:var(--text)}
+    .verdict{display:inline-flex;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:.25rem .7rem;border-radius:100px;margin-bottom:.5rem}.v-green{background:var(--verde-dim);color:var(--verde);border:1px solid rgba(34,197,94,.2)}.v-yellow{background:var(--giallo-dim);color:var(--giallo);border:1px solid rgba(234,179,8,.2)}.v-red{background:var(--rosso-dim);color:var(--rosso);border:1px solid rgba(239,68,68,.2)}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.1rem;margin-bottom:.7rem}.card-title{font-weight:700;font-size:.88rem;margin-bottom:.15rem}.card-sub{font-size:.7rem;color:var(--text-muted);margin-bottom:.5rem}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}@media(max-width:650px){.grid-2{grid-template-columns:1fr}}
+    .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.5rem;margin:1rem 0}.stat{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:.65rem .75rem}.stat-value{font-family:'Anton',sans-serif;font-size:1.3rem;line-height:1.1}.stat-label{font-size:.64rem;color:var(--text-muted);margin-top:.1rem;line-height:1.25}.stat-source{font-size:.5rem;color:rgba(255,255,255,.15);margin-top:.15rem}
+    .tag{display:inline-block;font-size:.55rem;text-transform:uppercase;letter-spacing:1px;padding:.1rem .4rem;border-radius:100px;font-weight:600;margin-right:.2rem}.tag-local{background:var(--verde-dim);color:var(--verde)}.tag-remote{background:var(--rosso-dim);color:var(--rosso)}.tag-video{background:var(--arancio-glow);color:var(--arancio)}.tag-no{background:rgba(255,255,255,.03);color:var(--text-muted)}
+    footer{padding:1.5rem 1.5rem;text-align:center;font-size:.65rem;color:var(--text-muted)}footer a{color:var(--text-muted);text-decoration:none}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">MOTION<span>PACK</span></div>
+    <div class="doc-badge">Market Research &mdash; Aprile 2026</div>
+  </div>
+</header>
+
+<!-- ===== EXECUTIVE SUMMARY ===== -->
+<section>
+  <div class="container">
+    <div class="section-label">Executive Summary</div>
+    <div class="section-title">VERDETTO SUI 3 TIER</div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-value" style="color:var(--giallo)">&euro;2.000</div><div class="stat-label">Pack 8 — sopra il freelance locale (&euro;339 media) ma sotto le agenzie. Funziona come entry.</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">&euro;3.000</div><div class="stat-label">Pack 12 — PERFETTAMENTE allineato al mercato nazionale (LoneSMM &euro;999/mese, Passaparola &euro;990).</div></div>
+      <div class="stat"><div class="stat-value" style="color:var(--verde)">&euro;5.000</div><div class="stat-label">Pack 24 — corretto, 10-20% sotto Eccolo Growth (&euro;1.800/mese). Premium giustificato.</div></div>
+    </div>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Il dato piu importante</div>
+      <div class="callout-text"><strong>Nessuna agenzia a Ragusa pubblica i prezzi.</strong> Nessuna offre "pack reel trimestrali" come prodotto standardizzato. Zero presenza su Sortlist/Clutch. Il mercato e opaco e generalista. Voi sareste i primi con un prodotto chiaro, un prezzo comunicato, e una specializzazione video.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING VALIDATION ===== -->
+<section>
+  <div class="container">
+    <div class="section-label">Sezione 1</div>
+    <div class="section-title">VALIDAZIONE PRICING: CONFRONTO CON PREZZI REALI PUBBLICATI</div>
+
+    <h3>AGENZIE NAZIONALI CON LISTINO PUBBLICO (2025-2026)</h3>
+    <table>
+      <thead><tr><th>Agenzia</th><th>Pacchetto</th><th>Prezzo/mese</th><th>Cosa include</th></tr></thead>
+      <tbody>
+        <tr><td class="val">LoneSMM</td><td>Premium</td><td class="val">&euro;599</td><td>2 post/sett, stories, video/reel, 2 canali, shooting incluso</td></tr>
+        <tr><td class="val">LoneSMM</td><td>Viral All Inclusive</td><td class="val">&euro;999</td><td>3 canali, video, SEO, blog, Google Ads, report</td></tr>
+        <tr><td class="val">Eccolo Marketing</td><td>Start</td><td class="val">&euro;900</td><td>Presidio canali, contenuti qualita</td></tr>
+        <tr><td class="val">Eccolo Marketing</td><td>Growth</td><td class="val">&euro;1.800</td><td>Reels/TikTok originali, lead acquisition</td></tr>
+        <tr><td class="val">Eccolo Marketing</td><td>Dominance</td><td class="val">&euro;3.000+</td><td>Ecosistema multipiattaforma, team completo</td></tr>
+        <tr><td class="val">Studio Fromlu</td><td>Video Impact</td><td class="val">&euro;800</td><td>12 video verticali/mese, 1 piattaforma, report, coaching</td></tr>
+        <tr><td class="val">Passaparola (Sicilia)</td><td>Step 1 — Contenuti</td><td class="val">&euro;350</td><td>12 immagini + 3 reel/mese, planning</td></tr>
+        <tr><td class="val">Passaparola (Sicilia)</td><td>Step 2 — Gestione</td><td class="val">&euro;700</td><td>Strategia, contenuti, community, monitoring</td></tr>
+        <tr><td class="val">Passaparola (Sicilia)</td><td>Step 3 — Crescita</td><td class="val">&euro;990</td><td>Tutto Step 2 + programma crescita</td></tr>
+        <tr><td class="val">SynBrand (Sicilia)</td><td>Small Business</td><td class="val">&euro;600</td><td>10 contenuti + 2 video reel/mese</td></tr>
+        <tr><td class="val">SynBrand (Sicilia)</td><td>Business</td><td class="val">&euro;800</td><td>12 contenuti + 4 video/mese</td></tr>
+      </tbody>
+    </table>
+
+    <h3>PRODUZIONE VIDEO SINGOLA (BENCHMARK NAZIONALE)</h3>
+    <table>
+      <thead><tr><th>Servizio</th><th>Prezzo</th><th>Fonte</th></tr></thead>
+      <tbody>
+        <tr><td>Reel editing (materiale cliente, bulk 10+)</td><td class="val">&euro;55+IVA/cad</td><td>WebCrew.it</td></tr>
+        <tr><td>Reel Top (post-produzione pro)</td><td class="val">&euro;149+IVA/cad</td><td>WebCrew.it</td></tr>
+        <tr><td>Original Shoot 4-6 reel</td><td class="val">&euro;650+IVA</td><td>WebCrew.it</td></tr>
+        <tr><td>Original Shoot 12-18 reel</td><td class="val">&euro;1.760+IVA</td><td>WebCrew.it</td></tr>
+      </tbody>
+    </table>
+
+    <h3>MERCATO LOCALE RAGUSA (PRONTOPRO 2025)</h3>
+    <div class="stats">
+      <div class="stat"><div class="stat-value">&euro;339</div><div class="stat-label">Prezzo medio SMM Ragusa (aprile 2025)</div><div class="stat-source">ProntoPro, 4 preventivi</div></div>
+      <div class="stat"><div class="stat-value">&euro;150-1.180</div><div class="stat-label">Range prezzi su ProntoPro Ragusa</div><div class="stat-source">ProntoPro 2025</div></div>
+      <div class="stat"><div class="stat-value">81</div><div class="stat-label">SMM registrati zona Ragusa</div><div class="stat-source">ProntoPro 2025</div></div>
+      <div class="stat"><div class="stat-value">137</div><div class="stat-label">Clienti che hanno cercato SMM a Ragusa nell'ultimo anno</div><div class="stat-source">ProntoPro 2025</div></div>
+    </div>
+
+    <h3>I VOSTRI PACK vs IL MERCATO</h3>
+    <table>
+      <thead><tr><th>Vostro Pack</th><th>&euro;/mese</th><th>Confronto piu vicino</th><th>Differenza</th><th>Verdetto</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="val">Pack 8 (&euro;2.000/trim)</td>
+          <td class="val">&euro;667</td>
+          <td>SynBrand Business &euro;800 (12+4 video)<br>Fromlu Video Impact &euro;800 (12 video)<br>Freelance Ragusa media &euro;339</td>
+          <td>-17% vs SynBrand<br>-17% vs Fromlu<br>+97% vs freelance</td>
+          <td class="yellow">OK ma al limite alto per Ragusa. Il confronto con il freelance locale (&euro;339) e il rischio: devi giustificare il 2x con qualita e risultati.</td>
+        </tr>
+        <tr>
+          <td class="val">Pack 12 (&euro;3.000/trim)</td>
+          <td class="val">&euro;1.000</td>
+          <td>LoneSMM Viral &euro;999<br>Passaparola Step 3 &euro;990<br>Eccolo Start &euro;900</td>
+          <td>+0.1% vs LoneSMM<br>+1% vs Passaparola<br>+11% vs Eccolo Start</td>
+          <td class="green">PERFETTAMENTE allineato. Il mercato conferma questo prezzo. 3 agenzie diverse vendono prodotti comparabili a &euro;990-999.</td>
+        </tr>
+        <tr>
+          <td class="val">Pack 24 (&euro;5.000/trim)</td>
+          <td class="val">&euro;1.667</td>
+          <td>Eccolo Growth &euro;1.800<br>Eccolo Dominance &euro;3.000+</td>
+          <td>-7% vs Eccolo Growth<br>-44% vs Dominance</td>
+          <td class="green">Corretto. Sotto Eccolo Growth con piu video e riprese originali incluse. Premium giustificato.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-arancio">
+      <div class="callout-title">Raccomandazione pricing</div>
+      <div class="callout-text">
+        <strong>Pack 12 a &euro;3.000:</strong> il prezzo piu difendibile. Non cambiatelo.<br>
+        <strong>Pack 24 a &euro;5.000:</strong> corretto per il premium. Non cambiatelo.<br>
+        <strong>Pack 8 a &euro;2.000:</strong> valutate se abbassare a <strong>&euro;1.800</strong> (&euro;450/mese) per creare distanza dal freelance. A &euro;667/mese siete quasi al doppio del mercato ProntoPro locale — il cliente confrontera. A &euro;450/mese il confronto e piu morbido e il Pack 8 diventa un vero "entry irresistibile" che porta al Pack 12 al rinnovo.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPETITOR DEEP DIVE ===== -->
+<section>
+  <div class="container">
+    <div class="section-label">Sezione 2</div>
+    <div class="section-title">COMPETITOR A RAGUSA: CHI C'E DAVVERO</div>
+
+    <p>Abbiamo analizzato 13 agenzie. La scoperta principale: <strong>la meta delle "agenzie di Ragusa" non e di Ragusa.</strong> Sono agenzie nazionali con landing page SEO per ogni citta d'Italia.</p>
+
+    <h3>CHI E LOCALE vs CHI FINGE DI ESSERLO</h3>
+    <table>
+      <thead><tr><th>Agenzia</th><th>Sede reale</th><th>Locale?</th><th>Video?</th><th>Prezzi?</th><th>Minaccia</th></tr></thead>
+      <tbody>
+        <tr><td class="val">Brain Computing</td><td>Roma (40+ dip.)</td><td><span class="tag tag-remote">Fake locale</span></td><td><span class="tag tag-no">Dichiarato</span></td><td>No</td><td class="yellow">Media (SEO)</td></tr>
+        <tr><td class="val">Kreativa SRL</td><td>Rosa (Vicenza)</td><td><span class="tag tag-remote">Fake locale</span></td><td><span class="tag tag-no">Dichiarato</span></td><td>No</td><td class="yellow">Media (SEO)</td></tr>
+        <tr><td class="val">Up&amp;Up</td><td>Brescia</td><td><span class="tag tag-remote">Fake locale</span></td><td><span class="tag tag-no">No</span></td><td>No</td><td style="color:var(--text-muted)">Bassa</td></tr>
+        <tr><td class="val">L&amp;L Comunicazione</td><td>Giulianova (Abruzzo)</td><td><span class="tag tag-remote">Fake locale</span></td><td><span class="tag tag-no">No</span></td><td>No</td><td style="color:var(--text-muted)">Molto bassa</td></tr>
+        <tr><td class="val">Creatiwa Studio</td><td>Salerno</td><td><span class="tag tag-remote">Fake locale</span></td><td><span class="tag tag-video">Si (sito down)</span></td><td>No</td><td style="color:var(--text-muted)">Bassa</td></tr>
+        <tr style="background:rgba(255,255,255,.02)"><td class="val">Globo Marketing</td><td>Ragusa</td><td><span class="tag tag-local">Locale</span></td><td><span class="tag tag-video">Si (2D/3D)</span></td><td>No</td><td class="red">Alta</td></tr>
+        <tr style="background:rgba(255,255,255,.02)"><td class="val">Boma Studio</td><td>Modica (RG)</td><td><span class="tag tag-local">Locale</span></td><td><span class="tag tag-video">Si (videomaker)</span></td><td>No</td><td class="red">Alta</td></tr>
+        <tr style="background:rgba(255,255,255,.02)"><td class="val">MediaLive</td><td>Ragusa</td><td><span class="tag tag-local">Locale</span></td><td><span class="tag tag-video">Si</span></td><td>No</td><td class="yellow">Media</td></tr>
+        <tr style="background:rgba(255,255,255,.02)"><td class="val">Extra-Web</td><td>Ragusa</td><td><span class="tag tag-local">Locale</span></td><td><span class="tag tag-no">Outsource?</span></td><td>No</td><td class="yellow">Media</td></tr>
+        <tr style="background:rgba(255,255,255,.02)"><td class="val">Komunica</td><td>Ragusa</td><td><span class="tag tag-local">Locale</span></td><td><span class="tag tag-no">No</span></td><td>No</td><td style="color:var(--text-muted)">Media-Bassa</td></tr>
+        <tr style="background:rgba(255,255,255,.02)"><td class="val">SPM Pubblicitaria</td><td>Ragusa (30+ anni)</td><td><span class="tag tag-local">Locale</span></td><td><span class="tag tag-no">No</span></td><td>No</td><td style="color:var(--text-muted)">Bassa</td></tr>
+        <tr style="background:rgba(255,255,255,.02)"><td class="val">Kreativamente</td><td>Ragusa (dal 1993)</td><td><span class="tag tag-local">Locale</span></td><td><span class="tag tag-no">No</span></td><td>No</td><td style="color:var(--text-muted)">Molto bassa</td></tr>
+        <tr style="background:rgba(255,255,255,.02)"><td class="val">GG Comunicazione</td><td>Modica (RG)</td><td><span class="tag tag-local">Locale</span></td><td><span class="tag tag-no">No</span></td><td>No</td><td style="color:var(--text-muted)">Bassa</td></tr>
+      </tbody>
+    </table>
+
+    <h3>I 2 COMPETITOR DA MONITORARE</h3>
+
+    <div class="card" style="border-color:rgba(239,68,68,.2)">
+      <div class="card-title">Globo Marketing (Ragusa)</div>
+      <div class="card-sub">Dal 2005 &bull; Ragusa + Roma + Milano &bull; Dichiarano 8.000 clienti</div>
+      <p><strong>Servizi:</strong> Social + video 2D-3D + motion graphics + OOH (cinema, LED, affissioni) + web + branding + voiceover. Clienti nazionali: Loaker, Satispay, Enel, RE/MAX.</p>
+      <p><strong>Punto di forza:</strong> Multi-canale autentico (digitale + OOH), lunga storia, video interno.</p>
+      <p><strong>Punto debole:</strong> Focus su advertising tradizionale piu che contenuti social seriali. "8.000 clienti" suggerisce molti lavori piccoli standardizzati. Non offrono pack reel come prodotto.</p>
+      <p><strong>Come batterli:</strong> Loro fanno tutto. Voi fate UNA cosa sola (video + ads per locali) e la fate meglio. Specializzazione batte generalizzazione.</p>
+    </div>
+
+    <div class="card" style="border-color:rgba(239,68,68,.2)">
+      <div class="card-title">Boma Studio (Modica)</div>
+      <div class="card-sub">20+ anni &bull; Via Gesu 2, Modica &bull; Team multidisciplinare con videomaker</div>
+      <p><strong>Servizi:</strong> Branding + web + foto commerciale + video + social + SEO/SEM. Portfolio food &amp; hospitality eccellente: Cantine Settesoli, Bibite Polara, Marabino, Grimaldi Lines.</p>
+      <p><strong>Punto di forza:</strong> Il concorrente piu credibile nella provincia. Ha videomaker nel team, portfolio food/hospitality forte, posizionamento creativo di qualita.</p>
+      <p><strong>Punto debole:</strong> Focus su brand identity e adv per brand medio-grandi (cantine, catene), non PMI locali. Non offre pack standardizzati. Prezzi probabilmente alti.</p>
+      <p><strong>Come batterli:</strong> Loro servono brand grandi con progetti custom. Voi servite il ristoratore, l'agriturismo, il B&amp;B con un pack chiaro a prezzo fisso. Target diverso.</p>
+    </div>
+
+    <h3>MAPPA SERVIZI: CHI FA COSA</h3>
+    <table>
+      <thead><tr><th>Servizio</th><th>Chi lo offre a Ragusa</th><th>Gap?</th></tr></thead>
+      <tbody>
+        <tr><td>Video production (reel/short)</td><td>Globo, Boma, MediaLive</td><td class="yellow">Presente ma non come pack seriale</td></tr>
+        <tr><td>Social media management</td><td>Quasi tutti + 81 freelance</td><td style="color:var(--text-muted)">Mercato saturo</td></tr>
+        <tr><td>Meta/Google Ads</td><td>Brain Computing, Kreativa, Extra-Web, Globo</td><td class="yellow">Presente ma non combinato con video</td></tr>
+        <tr><td>OOH (affissioni, cinema, LED)</td><td>Globo, Komunica, SPM</td><td style="color:var(--text-muted)">Coperto</td></tr>
+        <tr><td>Branding/grafica</td><td>Quasi tutti</td><td style="color:var(--text-muted)">Coperto</td></tr>
+        <tr><td class="highlight">Pack reel trimestrali con prezzo fisso</td><td class="highlight">NESSUNO</td><td class="green">GAP APERTO</td></tr>
+        <tr><td class="highlight">Video + ads bundle standardizzato</td><td class="highlight">NESSUNO</td><td class="green">GAP APERTO</td></tr>
+        <tr><td class="highlight">Prezzi pubblici e trasparenti</td><td class="highlight">NESSUNO</td><td class="green">GAP APERTO</td></tr>
+        <tr><td class="highlight">Lead Form + automazione WhatsApp</td><td class="highlight">NESSUNO</td><td class="green">GAP APERTO</td></tr>
+        <tr><td class="highlight">Presenza su Sortlist/Clutch</td><td class="highlight">NESSUNO da Ragusa</td><td class="green">GAP APERTO</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== KEY FINDINGS ===== -->
+<section>
+  <div class="container">
+    <div class="section-label">Key Findings</div>
+    <div class="section-title">5 SCOPERTE CHE CAMBIANO LA STRATEGIA</div>
+
+    <div class="card">
+      <div class="card-title">1. Il vostro vero competitor e il freelance da &euro;339, non le agenzie</div>
+      <p>A Ragusa il prezzo medio per "gestione social" su ProntoPro e &euro;339/mese (81 freelance registrati, 137 clienti/anno). Quando un ristoratore di Ragusa pensa "quanto costa farmi gestire i social", pensa a &euro;300-400. Non a &euro;667. Il Pack 8 deve comunicare chiaramente perche vale 2x un freelance: <strong>video professionali (non post grafici), ads gestite (non solo posting), risultati misurabili (non vanity metrics).</strong></p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">2. Nessuno a Ragusa vende un prodotto — vendono tutti "servizi"</div>
+      <p>Tutte le agenzie ragusane operano su preventivo opaco. Nessuna ha un "pack" standardizzato. Nessuna pubblica i prezzi. Questo e il vostro vantaggio competitivo piu grande: <strong>un prodotto chiaro, con un prezzo, un deliverable definito, e una durata.</strong> Il cliente sa cosa riceve prima di firmare.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">3. Meta delle "agenzie di Ragusa" sono fantasmi</div>
+      <p>Brain Computing (Roma), Kreativa (Vicenza), Up&amp;Up (Brescia), L&amp;L (Abruzzo), Creatiwa (Salerno) — tutte hanno pagine SEO "Agenzia Ragusa" ma nessuna e fisicamente presente. Il cliente ragusano che vuole qualcuno che viene a girare nel suo ristorante non puo affidarsi a loro. <strong>La presenza locale e un differenziante reale, non un marketing claim.</strong></p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">4. Boma Studio e l'unico rivale serio sulla qualita video</div>
+      <p>Hanno videomaker nel team, portfolio food/hospitality eccellente, 20 anni di storia, sede a Modica. Ma servono brand medio-grandi con progetti custom, non PMI locali con pack standardizzati. <strong>Non vi sovrappone direttamente se vi posizionate come "pack per PMI".</strong></p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">5. Ragusa e completamente assente da Sortlist e Clutch</div>
+      <p>Zero agenzie ragusane su Sortlist (piattaforma B2B di ricerca agenzie). Zero su Clutch. Registrarvi su queste piattaforme vi da visibilita nazionale/internazionale a costo zero. Un turista tedesco che cerca "video agency Ragusa" non trova nessuno. <strong>Siete i primi a esistere su queste piattaforme = SEO immediato.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPLICATIONS ===== -->
+<section>
+  <div class="container">
+    <div class="section-label">Implicazioni</div>
+    <div class="section-title">COSA FARE CON QUESTI DATI</div>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Sul pricing</div>
+      <div class="callout-text">
+        <strong>Pack 12 (&euro;3.000) e Pack 24 (&euro;5.000): confermati.</strong> Non cambiate nulla. Il mercato nazionale vende prodotti equivalenti allo stesso prezzo.<br><br>
+        <strong>Pack 8:</strong> Considerate &euro;1.800 (&euro;450/mese) anziche &euro;2.000. Questo vi posiziona a +33% vs freelance locale (giustificabile) invece che +97% (difficile da difendere). E crea un entry point piu irresistibile.
+      </div>
+    </div>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Sul posizionamento</div>
+      <div class="callout-text">
+        <strong>Non posizionatevi come "agenzia di comunicazione"</strong> — ce ne sono gia 8+ a Ragusa. Posizionatevi come <strong>"il sistema di video + ads per attivita locali"</strong>. La parola chiave e "sistema", non "agenzia". Un sistema ha un processo, un prezzo, un risultato misurabile.
+      </div>
+    </div>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Azioni immediate</div>
+      <div class="callout-text">
+        <strong>1.</strong> Registratevi su Sortlist e Clutch (gratis) — sarete gli unici da Ragusa.<br>
+        <strong>2.</strong> Pubblicate i prezzi sul sito — nessun competitor lo fa. La trasparenza attrae chi e stanco dei "preventivi su richiesta".<br>
+        <strong>3.</strong> Non nominate mai Globo o Boma nel pitch. Non attaccate i competitor — posizionatevi come categoria diversa: "Loro sono agenzie. Noi siamo un sistema di risultati."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RISKS ===== -->
+<section>
+  <div class="container">
+    <div class="section-label">Rischi</div>
+    <div class="section-title">COSA POTREBBE ANDARE STORTO</div>
+
+    <table>
+      <thead><tr><th>Rischio</th><th>Probabilita</th><th>Impatto</th><th>Mitigazione</th></tr></thead>
+      <tbody>
+        <tr><td>Il cliente confronta col freelance a &euro;339</td><td class="yellow">Alta</td><td class="yellow">Medio</td><td>Comunicare la differenza: video vs grafiche, ads incluse, risultati misurabili</td></tr>
+        <tr><td>Globo Marketing lancia un pack simile</td><td style="color:var(--text-muted)">Bassa</td><td class="yellow">Medio</td><td>First mover advantage + specializzazione batte generalizzazione</td></tr>
+        <tr><td>Boma Studio scende nel segmento PMI</td><td style="color:var(--text-muted)">Bassa</td><td class="red">Alto</td><td>Hanno portfolio piu forte ma non il modello pack. Se accade, differenziatevi su prezzo e velocita.</td></tr>
+        <tr><td>Brain Computing/Kreativa catturano traffico SEO</td><td class="yellow">Alta</td><td style="color:var(--text-muted)">Basso</td><td>Il cliente che cerca online puo finire da loro, ma chi vuole presenza locale sceglie voi. Sortlist/Clutch compensano.</td></tr>
+        <tr><td>Il mercato Ragusa non puo permettersi &euro;667/mese (Pack 8)</td><td class="yellow">Media</td><td class="yellow">Medio</td><td>Abbassare a &euro;450/mese (&euro;1.800/trim). O proporre Pack 8 solo con 4 rate mensili.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== RECOMMENDATION ===== -->
+<section>
+  <div class="container">
+    <div class="section-label">Raccomandazione</div>
+    <div class="section-title">IL VERDETTO FINALE</div>
+
+    <div class="grid-2">
+      <div>
+        <div class="verdict v-green">Validato</div>
+        <h3>PACK 12 — &euro;3.000</h3>
+        <p>Prezzo perfetto. Allineato a LoneSMM (&euro;999/mese), Passaparola (&euro;990), Eccolo Start (&euro;900). Il mercato conferma. <strong>Questo e il vostro prodotto principale.</strong></p>
+      </div>
+      <div>
+        <div class="verdict v-green">Validato</div>
+        <h3>PACK 24 — &euro;5.000</h3>
+        <p>Prezzo corretto per il premium. Sotto Eccolo Growth (-7%). Include piu contenuti (24 video + 3 piattaforme). <strong>Riservato a hotel, agriturismi, produttori DOP.</strong></p>
+      </div>
+    </div>
+    <div style="margin-top:.75rem">
+      <div class="verdict v-yellow">Da valutare</div>
+      <h3>PACK 8 — &euro;2.000 → forse &euro;1.800</h3>
+      <p>A &euro;667/mese siete quasi il doppio del freelance locale (&euro;339). A &euro;450/mese (&euro;1.800/trim) il gap si riduce e il Pack 8 diventa un vero "entry irresistibile". <strong>Valutate il taglio da &euro;200 — puo fare la differenza sulla chiusura del primo cliente.</strong></p>
+    </div>
+
+    <div class="callout callout-arancio" style="margin-top:1.5rem">
+      <div class="callout-title">La frase da ricordare</div>
+      <div class="callout-text">A Ragusa nessuno vende un prodotto video standardizzato con prezzo pubblico. Tutti vendono "servizi su preventivo". <strong>Voi siete i primi a dire: "Ecco cosa ricevi. Ecco quanto costa. Ecco come lo misuriamo."</strong> Questa chiarezza e il vostro vantaggio competitivo #1.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Studio121 / 2Nerd &mdash; Aprile 2026<br>
+    Fonti: LoneSMM.it, EccoloMarketing.it, Fromlu.com, WebCrew.it, AgenziaPassaparola.com, SynBrandMarketing.it, ProntoPro.it Ragusa 2025, BrainComputing.com, Kreativa.com, MediaLive, ExtraWeb, Globo Marketing, Boma Studio, Komunica, SPM, Kreativamente, GG Comunicazione, Sortlist, Clutch<br>
+    <a href="sitemap.html">Indice</a> &middot; <a href="presentazione.html">Presentazione</a> &middot; <a href="ragusa.html">Ragusa</a>
+  </div>
+</footer>
+
+</body>
+</html>
