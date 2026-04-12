@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MotionPack — Piano Ore Reale | Studio121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--arancio:#fe7007;--arancio-glow:rgba(254,112,7,.15);--viola:rgb(100,50,255);--viola-dim:rgba(100,50,255,.12);--verde:#22c55e;--verde-dim:rgba(34,197,94,.1);--rosso:#ef4444;--rosso-dim:rgba(239,68,68,.1);--giallo:#eab308;--giallo-dim:rgba(234,179,8,.1);--bg:#0a0a0a;--bg-card:rgba(255,255,255,.03);--border:rgba(255,255,255,.08);--text:#f5f5f5;--text-muted:rgba(245,245,245,.5);--text-mid:rgba(245,245,245,.72)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+    .container{max-width:920px;margin:0 auto;padding:0 1.5rem}
+    header{padding:3rem 1.5rem 2rem;border-bottom:1px solid var(--border)}
+    header .container{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem}
+    .brand{font-family:'Anton',sans-serif;font-size:1.5rem}.brand span{color:var(--arancio)}
+    .doc-label{font-size:.65rem;text-transform:uppercase;letter-spacing:3px;color:var(--text-muted);background:var(--bg-card);padding:.35rem .9rem;border-radius:100px;border:1px solid var(--border)}
+    section{padding:3.5rem 1.5rem;border-bottom:1px solid var(--border)}section:last-of-type{border-bottom:none}
+    .section-label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--arancio);margin-bottom:.5rem}
+    .section-title{font-family:'Anton',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.1;margin-bottom:.5rem}
+    p{font-size:.92rem;color:var(--text-mid);margin-bottom:1rem;max-width:750px}p strong{color:var(--text);font-weight:600}
+    h3{font-family:'Anton',sans-serif;font-size:1.15rem;margin-top:2rem;margin-bottom:.75rem;font-weight:400}
+    table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:.85rem}
+    th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--border)}
+    th{color:var(--text-muted);font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:1px}
+    td{color:var(--text-mid)}tr:last-child td{border-bottom:none}
+    .val{color:var(--text);font-weight:600}.green{color:var(--verde);font-weight:600}.yellow{color:var(--giallo);font-weight:600}.red{color:var(--rosso);font-weight:600}
+    .highlight-cell{color:var(--arancio);font-weight:600}
+    .callout{border-radius:10px;padding:1.15rem 1.25rem;margin:1.25rem 0}
+    .callout-arancio{background:var(--arancio-glow);border:1px solid rgba(254,112,7,.2)}
+    .callout-rosso{background:var(--rosso-dim);border:1px solid rgba(239,68,68,.2)}
+    .callout-verde{background:var(--verde-dim);border:1px solid rgba(34,197,94,.2)}
+    .callout-title{font-weight:700;font-size:.8rem;margin-bottom:.4rem}
+    .callout-arancio .callout-title{color:var(--arancio)}.callout-rosso .callout-title{color:var(--rosso)}.callout-verde .callout-title{color:var(--verde)}
+    .callout-text{font-size:.82rem;color:var(--text-mid);line-height:1.6}.callout-text strong{color:var(--text)}
+    .consideration{background:rgba(255,255,255,.02);border-left:3px solid var(--arancio);padding:1rem 1.25rem;margin:1.5rem 0;border-radius:0 8px 8px 0}
+    .consideration-title{font-weight:700;font-size:.85rem;color:var(--arancio);margin-bottom:.4rem}
+    .consideration p{font-size:.85rem;margin-bottom:.5rem}
+    .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin:1.25rem 0}
+    .stat{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:.9rem 1rem}
+    .stat-value{font-family:'Anton',sans-serif;font-size:1.6rem;line-height:1.1}
+    .stat-label{font-size:.72rem;color:var(--text-muted);margin-top:.2rem;line-height:1.3}
+    .stat-source{font-size:.58rem;color:rgba(255,255,255,.2);margin-top:.3rem}
+    .phase{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1rem}
+    .phase-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.75rem;flex-wrap:wrap}
+    .phase-num{font-family:'Anton',sans-serif;font-size:.9rem;color:var(--arancio);text-transform:uppercase;letter-spacing:1px}
+    .phase-title{font-family:'Anton',sans-serif;font-size:1.2rem;flex:1}
+    .phase-hours{font-family:'Anton',sans-serif;font-size:1.4rem;color:var(--arancio);white-space:nowrap}
+    .phase p{font-size:.82rem}
+    .phase-detail{font-size:.8rem;color:var(--text-muted);margin-top:.5rem;line-height:1.5}
+    .total-row{background:rgba(254,112,7,.05);border:1px solid rgba(254,112,7,.2);border-radius:12px;padding:1.25rem;display:flex;justify-content:space-between;align-items:center;margin:1.5rem 0}
+    .total-label{font-family:'Anton',sans-serif;font-size:1.1rem}
+    .total-value{font-family:'Anton',sans-serif;font-size:2rem;color:var(--arancio)}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0}
+    @media(max-width:700px){.compare-grid{grid-template-columns:1fr}}
+    .compare-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+    .compare-card-title{font-family:'Anton',sans-serif;font-size:1rem;margin-bottom:.75rem}
+    .compare-row{display:flex;justify-content:space-between;padding:.3rem 0;font-size:.8rem;border-bottom:1px solid rgba(255,255,255,.03)}
+    .compare-row:last-child{border-bottom:none}
+    .compare-row .label{color:var(--text-muted)}.compare-row .value{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
+    .compare-total{border-top:1px solid var(--border);margin-top:.5rem;padding-top:.5rem;display:flex;justify-content:space-between;font-size:.85rem}
+    .compare-total .label{color:var(--text);font-weight:600}.compare-total .value{color:var(--arancio);font-weight:700;font-size:1rem}
+    footer{padding:2rem 1.5rem;text-align:center;font-size:.7rem;color:var(--text-muted)}footer a{color:var(--text-muted)}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">MOTION<span>PACK</span></div>
+    <div class="doc-label">Piano Ore Reale &mdash; Aprile 2026</div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section>
+  <div class="container">
+    <div class="section-label">Premessa importante</div>
+    <div class="section-title">LE MIE STIME PRECEDENTI ERANO TROPPO BASSE</div>
+
+    <p>Nelle pagine precedenti stimavo <strong>42-50 ore per il Pack 24</strong>. Dopo una ricerca approfondita su dati reali di agenzie che tracciano il tempo (Focus Digital, Contra, AgencyAnalytics, FunctionFox, Sprout Social 2025-2026), le ore reali sono significativamente piu alte.</p>
+
+    <p>Le fasi che avevo sottostimato:</p>
+
+    <table>
+      <thead><tr><th>Fase</th><th>Stima precedente</th><th>Dato reale (ricerca)</th><th>Errore</th></tr></thead>
+      <tbody>
+        <tr><td>Vendita (pre-contratto)</td><td class="red">0h (non contata)</td><td class="val">6-10h</td><td class="red">Mancante</td></tr>
+        <tr><td>Pre-produzione (24 video)</td><td class="red">3-4h</td><td class="val">12-18h</td><td class="red">4x sottostimata</td></tr>
+        <tr><td>Editing (con AI)</td><td class="yellow">13h</td><td class="val">19-26h</td><td class="yellow">2x sottostimata</td></tr>
+        <tr><td>Revisioni cliente</td><td class="red">0h (inclusa in altro)</td><td class="val">6-10h</td><td class="red">Mancante</td></tr>
+        <tr><td>Gestione ads (4 mesi)</td><td class="yellow">9.5h</td><td class="val">15-20h</td><td class="yellow">2x sottostimata</td></tr>
+        <tr><td>Comunicazione cliente</td><td class="red">1.5h (solo meeting)</td><td class="val">8-16h</td><td class="red">5-10x sottostimata</td></tr>
+        <tr><td>Admin/contratti/fatture</td><td class="red">0h</td><td class="val">4-6h</td><td class="red">Mancante</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-rosso">
+      <div class="callout-title">Perche importa</div>
+      <div class="callout-text">Se calcoli il tuo guadagno orario su 42-50 ore ottieni &euro;100-119/h. Bello. Ma se le ore reali sono 100-140, il guadagno orario scende a &euro;36-50/h. Ancora buono &mdash; ma devi saperlo PRIMA di firmare, non dopo 4 mesi di lavoro.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PACK 24 DETTAGLIO -->
+<section>
+  <div class="container">
+    <div class="section-label">MotionPack 24 &mdash; &euro;5.000</div>
+    <div class="section-title">OGNI ORA, DALLA CONSULENZA GRATUITA ALLA CHIUSURA</div>
+
+    <!-- FASE 0 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 0 &mdash; Prima della firma</div><div class="phase-title">Vendita e Acquisizione</div></div>
+        <div class="phase-hours">6-10h</div>
+      </div>
+      <table>
+        <tr><td>Consulenza gratuita iniziale (call/incontro)</td><td class="val">1h</td></tr>
+        <tr><td>Preparazione proposta commerciale personalizzata</td><td class="val">1.5-2h</td></tr>
+        <tr><td>Follow-up, secondo contatto, domande</td><td class="val">1-2h</td></tr>
+        <tr><td>Call di approfondimento / presentazione proposta</td><td class="val">1h</td></tr>
+        <tr><td>Negoziazione, modifiche proposta, contratto</td><td class="val">1-2h</td></tr>
+        <tr><td>Admin: preparazione contratto, invio, firma</td><td class="val">0.5-1h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Dato reale:</strong> Le agenzie impiegano in media 7.4 call per chiudere un deal nella fascia &euro;2-8K. Call sopra 30 min hanno 580% piu successo di call brevi. Con un modello prodottizzato e una proposta template, si puo scendere a 3-4 touchpoint. (Focus Digital, 2025)
+      </div>
+    </div>
+
+    <!-- FASE 1 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 1 &mdash; Settimana 1-2</div><div class="phase-title">Onboarding + Strategia</div></div>
+        <div class="phase-hours">8-12h</div>
+      </div>
+      <table>
+        <tr><td>Call discovery (obiettivi, target, tone of voice, KPI)</td><td class="val">1.5-2h</td></tr>
+        <tr><td>Brand audit (contenuti esistenti, competitor, posizionamento)</td><td class="val">2-3h</td></tr>
+        <tr><td>Strategia contenuti (pilastri, formati, frequenza)</td><td class="val">2-3h</td></tr>
+        <tr><td>Piano editoriale quadrimestrale (24 video definiti)</td><td class="val">2-4h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Dato reale:</strong> I social media marketer spendono in media 3.6h/settimana solo in pianificazione strategica per account. Per un setup iniziale completo (discovery + audit + strategia + calendario): 8-14h e la norma. Con template e processo rodato si scende a 8h. (Sprout Social survey 500 marketer, 2025; Mixpost, 2025)
+      </div>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 2 &mdash; Settimana 2-3</div><div class="phase-title">Pre-Produzione (24 Video)</div></div>
+        <div class="phase-hours">12-18h</div>
+      </div>
+      <table>
+        <tr><td>Script/concept video hero (4 &times; 1-1.5h)</td><td class="val">4-6h</td></tr>
+        <tr><td>Script/concept video leggeri (20 &times; 25-35 min con template)</td><td class="val">8-12h</td></tr>
+        <tr><td>Shooting list raggruppata per setup</td><td class="val">1.5-2h</td></tr>
+        <tr><td>Brief cliente (cosa preparare) + approvazione</td><td class="val">1-2h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Dato reale:</strong> Un operatore esperto con template impiega 45-75 min per video in pre-produzione (script + concept + shotlist). Per 24 video: 15-25h totali. Senza template (primo cliente): fino a 2-4h per video. L'investimento in template si ripaga dal secondo cliente. (VMG Studios, Spirit Juice Studios, 2025)
+      </div>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 3 &mdash; Settimana 3</div><div class="phase-title">Shooting (1 Giornata)</div></div>
+        <div class="phase-hours">8-10h</div>
+      </div>
+      <table>
+        <tr><td>Viaggio + trasporto attrezzatura</td><td class="val">0.5-1h</td></tr>
+        <tr><td>Setup iniziale (luci, audio, inquadratura)</td><td class="val">0.5-1h</td></tr>
+        <tr><td>Shooting attivo (24+ take)</td><td class="val">6-7h</td></tr>
+        <tr><td>Teardown + backup materiale</td><td class="val">0.5-1h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Dato reale:</strong> In batch filming una volta settati, si producono 5-7 video/ora per parlati e 3-4/ora con cambi setup. In una giornata di 8h (4h attive dopo setup/pause): 15-24 video realistici. Con 2-3 location: scende a 12-18. Sempre girare piu materiale del necessario. (A Squared Communications nov 2025, Stay Abundant 2025)
+      </div>
+    </div>
+
+    <!-- FASE 4 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 4 &mdash; Settimana 4-5</div><div class="phase-title">Post-Produzione</div></div>
+        <div class="phase-hours">19-26h</div>
+      </div>
+      <table>
+        <tr><td>Editing hero CON AI (4 &times; 3-4h)</td><td class="val">12-16h</td></tr>
+        <tr><td>Editing leggeri CON AI / CapCut (20 &times; 20-30 min)</td><td class="val">7-10h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Dato reale:</strong> Un reel "standard" (taglio + sottotitoli + musica + color) richiede 2-3h senza AI, 1.5-2.5h con AI. Un reel hero (motion graphics, sound design) richiede 4-6h senza AI, 3-4h con AI. L'AI (CapCut + AutoCut) risparmia il 40-60% del tempo di assembly, ma il lavoro creativo (scelte di montaggio, ritmo, hook) resta umano. (Contra 2025, Offshore Clipping 2025)
+      </div>
+    </div>
+
+    <!-- FASE 5 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 5 &mdash; Settimana 5</div><div class="phase-title">Adattamento Multi-Piattaforma</div></div>
+        <div class="phase-hours">4-6h</div>
+      </div>
+      <table>
+        <tr><td>Adattamento TikTok (24 video &times; 10-15 min: hook, audio, caption)</td><td class="val">4-6h</td></tr>
+        <tr><td>YouTube Shorts (titolo + descrizione SEO, batch)</td><td class="val">1h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Dato reale:</strong> L'adattamento "reale" (non semplice crosspost) richiede 15-30 min per video: rimuovere watermark, cambiare audio trending, riscrivere caption, adattare hook. Crosspost automatico (stesso video) funziona ma ha performance 20-30% inferiori. (Vista Social, AIR Media-Tech, 2025)
+      </div>
+    </div>
+
+    <!-- FASE 6 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 6 &mdash; Settimana 5-6</div><div class="phase-title">Revisioni Cliente</div></div>
+        <div class="phase-hours">6-10h</div>
+      </div>
+      <table>
+        <tr><td>Preparazione + upload su Frame.io (24 video)</td><td class="val">1-2h</td></tr>
+        <tr><td>Gestione feedback (raccolta, organizzazione)</td><td class="val">1-2h</td></tr>
+        <tr><td>Rework (stima: 50% dei video necessita fix minori, ~30 min ciascuno)</td><td class="val">4-6h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Dato reale alarmante:</strong> Il 60% dei progetti video attraversa 5+ round di revisione. Il 14% supera i 10 round. Con un contratto che limita a 1 round e Frame.io come unico canale, il numero scende drasticamente. Ma anche con 1 round: prevedere 2.5-5h per video nel ciclo completo e realistico (KROCK.IO, Wipster, 2025). Per 24 video con 1 round limitato: 6-10h totali.<br><br>
+        <strong>Il rischio:</strong> Senza Frame.io e contratto chiaro, le revisioni via WhatsApp possono triplicare questa voce.
+      </div>
+    </div>
+
+    <!-- FASE 7 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 7 &mdash; Settimana 4 + ongoing</div><div class="phase-title">Setup + Gestione Ads (4 mesi)</div></div>
+        <div class="phase-hours">15-20h</div>
+      </div>
+      <table>
+        <tr><td>Setup iniziale (Business Manager, pixel, campaign, Lead Form)</td><td class="val">3-5h</td></tr>
+        <tr><td>Gestione mensile con Advantage+ (4 mesi &times; 3-4h)</td><td class="val">12-16h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Senza Advantage+:</strong> Il setup completo di una campagna Meta (audience, creativita, test) richiede 4-8h. La gestione mensile richiede 6-11h/mese. Con Advantage+ e automazione (regole budget + rotazione creativa automatica), scende a 3-4h/mese. (AdStellar, Birch, 2025)
+      </div>
+    </div>
+
+    <!-- FASE 8 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 8 &mdash; Ongoing 4 mesi</div><div class="phase-title">Pubblicazione + Scheduling</div></div>
+        <div class="phase-hours">2-3h</div>
+      </div>
+      <table>
+        <tr><td>Scheduling 6 video/mese &times; 2 piattaforme &times; 4 mesi (48 post &times; 3 min)</td><td class="val">2-3h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Dato reale:</strong> Con tool di scheduling (Later, Buffer): 2-4 min per post. 48 post totali = 2-3h su 4 mesi. Senza tool: 5-10 min per post = 4-8h. (Sendible, Later, 2025)
+      </div>
+    </div>
+
+    <!-- FASE 9 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 9 &mdash; Ongoing 4 mesi</div><div class="phase-title">Report</div></div>
+        <div class="phase-hours">4-6h</div>
+      </div>
+      <table>
+        <tr><td>Report mensili (4 &times; 30-45 min con tool semi-automatico)</td><td class="val">2-3h</td></tr>
+        <tr><td>Report quadrimestrale finale (completo, con raccomandazioni)</td><td class="val">1.5-2h</td></tr>
+        <tr><td>Preparazione meeting review</td><td class="val">0.5-1h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Dato reale:</strong> Report manuale (screenshot, Excel, formattazione): 60-90 min/mese. Report semi-automatico (AgencyAnalytics, DashThis) + commento scritto: 45-60 min/mese. Il commento scritto e critico per la retention &mdash; dati senza interpretazione non servono. (SociaVault, AgencyAnalytics, 2025)
+      </div>
+    </div>
+
+    <!-- FASE 10 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 10 &mdash; Ongoing 4 mesi</div><div class="phase-title">Comunicazione Cliente + Account Management</div></div>
+        <div class="phase-hours">8-14h</div>
+      </div>
+      <table>
+        <tr><td>Meeting schedulati (3 &times; 30 min + 15 min prep ciascuno)</td><td class="val">2-3h</td></tr>
+        <tr><td>Email/WhatsApp/messaggi async (4 mesi &times; 1-2h/mese)</td><td class="val">4-8h</td></tr>
+        <tr><td>Risposte a domande, chiarimenti, aggiornamenti non schedulati</td><td class="val">2-3h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>La voce piu sottostimata:</strong> I dati mostrano 4-8h/mese di overhead comunicazione per clienti retainer. Per un pack prodottizzato con scope definito: 2-3.5h/mese. Ma il cliente locale tende a scrivere su WhatsApp fuori orario, chiedere "aggiornamenti veloci", e inviare richieste non previste. Il contratto deve definire i confini. (MarketingProfs/Sprout Social, Databox, 2025)
+      </div>
+    </div>
+
+    <!-- FASE 11 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div><div class="phase-num">Fase 11 &mdash; Ongoing</div><div class="phase-title">Admin / Contratti / Fatturazione</div></div>
+        <div class="phase-hours">4-5h</div>
+      </div>
+      <table>
+        <tr><td>Gestione contratto iniziale</td><td class="val">1h</td></tr>
+        <tr><td>Fatture (4 &times; 15 min) + eventuale sollecito</td><td class="val">1-2h</td></tr>
+        <tr><td>Organizzazione file (Drive, consegne, backup)</td><td class="val">1-1.5h</td></tr>
+        <tr><td>Varie (template, tool, formazione)</td><td class="val">0.5-1h</td></tr>
+      </table>
+      <div class="phase-detail">
+        <strong>Dato reale:</strong> Le agenzie creative perdono il 20% della capacita in admin. Il 23% delle ore fatturabili non viene mai fatturato perche non tracciato. Per un pack prodottizzato con processi standard: 1-1.5h/mese. (FunctionFox, tMetric, TimeRewards, 2025)
+      </div>
+    </div>
+
+    <!-- TOTALE -->
+    <div class="total-row">
+      <div class="total-label">TOTALE PACK 24 (tutte le fasi incluse)</div>
+      <div class="total-value">96-140h</div>
+    </div>
+
+    <div class="callout callout-arancio">
+      <div class="callout-title">Traduzione in tariffa oraria effettiva</div>
+      <div class="callout-text">
+        <strong>&euro;5.000 &divide; 96h = &euro;52/h</strong> (scenario ottimista, operatore esperto con template)<br>
+        <strong>&euro;5.000 &divide; 140h = &euro;36/h</strong> (scenario primo cliente, senza template)<br>
+        <strong>&euro;5.000 &divide; 118h = &euro;42/h</strong> (media realistica)<br><br>
+        Non e &euro;100-119/h come stimavo prima. E comunque un buon rate per Catania (tariffe freelance locali: &euro;20-40/h), ma dovete saperlo.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACK 12 DETTAGLIO -->
+<section>
+  <div class="container">
+    <div class="section-label">MotionPack 12 &mdash; &euro;3.000</div>
+    <div class="section-title">PACK STARTER: ORE REALI</div>
+
+    <table>
+      <thead><tr><th>Fase</th><th>Ore Pack 12</th><th>vs Pack 24</th></tr></thead>
+      <tbody>
+        <tr><td>Vendita (pre-contratto)</td><td class="val">6-10h</td><td class="yellow">Uguale (stesso sforzo)</td></tr>
+        <tr><td>Onboarding + strategia</td><td class="val">6-9h</td><td>-25% (meno video da pianificare)</td></tr>
+        <tr><td>Pre-produzione (12 video)</td><td class="val">7-10h</td><td>-45% (meta video)</td></tr>
+        <tr><td>Shooting (mezza giornata)</td><td class="val">4-5h</td><td>-50%</td></tr>
+        <tr><td>Editing hero con AI (2 &times; 3-4h)</td><td class="val">6-8h</td><td>-50%</td></tr>
+        <tr><td>Editing leggeri con AI (10 &times; 25 min)</td><td class="val">4-5h</td><td>-50%</td></tr>
+        <tr><td>Adattamento piattaforme</td><td class="val">0h</td><td>Solo 1 piattaforma</td></tr>
+        <tr><td>Revisioni (1 round, 12 video)</td><td class="val">3-5h</td><td>-50%</td></tr>
+        <tr><td>Ads setup + gestione (4 mesi)</td><td class="val">12-16h</td><td>-20% (1 campagna sola)</td></tr>
+        <tr><td>Pubblicazione/scheduling</td><td class="val">1-1.5h</td><td>-50% (1 piattaforma)</td></tr>
+        <tr><td>Report</td><td class="val">3-4h</td><td>-20%</td></tr>
+        <tr><td>Comunicazione cliente</td><td class="val">6-10h</td><td>-25%</td></tr>
+        <tr><td>Admin</td><td class="val">3-4h</td><td>Simile</td></tr>
+        <tr style="background:rgba(254,112,7,.05)"><td><strong>TOTALE PACK 12</strong></td><td class="highlight-cell" style="font-size:1.1rem"><strong>61-87h</strong></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-arancio">
+      <div class="callout-title">Tariffa oraria effettiva Pack 12</div>
+      <div class="callout-text">
+        <strong>&euro;3.000 &divide; 61h = &euro;49/h</strong> (ottimista)<br>
+        <strong>&euro;3.000 &divide; 87h = &euro;34/h</strong> (primo cliente)<br>
+        <strong>&euro;3.000 &divide; 74h = &euro;41/h</strong> (media realistica)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 SCENARI -->
+<section>
+  <div class="container">
+    <div class="section-label">Scenari</div>
+    <div class="section-title">3 LIVELLI DI EFFICIENZA</div>
+    <p>Le ore variano enormemente in base all'esperienza e ai sistemi. Ecco cosa cambia.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card" style="border-color:rgba(239,68,68,.2)">
+        <div class="compare-card-title" style="color:var(--rosso)">Primo cliente (senza template)</div>
+        <div class="compare-row"><span class="label">Vendita</span><span class="value">10h</span></div>
+        <div class="compare-row"><span class="label">Strategia</span><span class="value">12h</span></div>
+        <div class="compare-row"><span class="label">Pre-prod</span><span class="value">18h</span></div>
+        <div class="compare-row"><span class="label">Shooting</span><span class="value">10h</span></div>
+        <div class="compare-row"><span class="label">Editing</span><span class="value">26h</span></div>
+        <div class="compare-row"><span class="label">Adattamento</span><span class="value">6h</span></div>
+        <div class="compare-row"><span class="label">Revisioni</span><span class="value">10h</span></div>
+        <div class="compare-row"><span class="label">Ads</span><span class="value">20h</span></div>
+        <div class="compare-row"><span class="label">Scheduling</span><span class="value">3h</span></div>
+        <div class="compare-row"><span class="label">Report</span><span class="value">6h</span></div>
+        <div class="compare-row"><span class="label">Comunicazione</span><span class="value">14h</span></div>
+        <div class="compare-row"><span class="label">Admin</span><span class="value">5h</span></div>
+        <div class="compare-total"><span class="label">Totale</span><span class="value" style="color:var(--rosso)">140h</span></div>
+        <div style="margin-top:.5rem;font-size:.75rem;color:var(--text-muted)">&euro;5.000 &divide; 140 = <strong style="color:var(--rosso)">&euro;36/h</strong></div>
+      </div>
+
+      <div class="compare-card" style="border-color:rgba(234,179,8,.2)">
+        <div class="compare-card-title" style="color:var(--giallo)">Rodato (template + AI)</div>
+        <div class="compare-row"><span class="label">Vendita</span><span class="value">7h</span></div>
+        <div class="compare-row"><span class="label">Strategia</span><span class="value">9h</span></div>
+        <div class="compare-row"><span class="label">Pre-prod</span><span class="value">14h</span></div>
+        <div class="compare-row"><span class="label">Shooting</span><span class="value">9h</span></div>
+        <div class="compare-row"><span class="label">Editing</span><span class="value">22h</span></div>
+        <div class="compare-row"><span class="label">Adattamento</span><span class="value">5h</span></div>
+        <div class="compare-row"><span class="label">Revisioni</span><span class="value">7h</span></div>
+        <div class="compare-row"><span class="label">Ads</span><span class="value">16h</span></div>
+        <div class="compare-row"><span class="label">Scheduling</span><span class="value">2h</span></div>
+        <div class="compare-row"><span class="label">Report</span><span class="value">5h</span></div>
+        <div class="compare-row"><span class="label">Comunicazione</span><span class="value">10h</span></div>
+        <div class="compare-row"><span class="label">Admin</span><span class="value">4h</span></div>
+        <div class="compare-total"><span class="label">Totale</span><span class="value" style="color:var(--giallo)">110h</span></div>
+        <div style="margin-top:.5rem;font-size:.75rem;color:var(--text-muted)">&euro;5.000 &divide; 110 = <strong style="color:var(--giallo)">&euro;45/h</strong></div>
+      </div>
+
+      <div class="compare-card" style="border-color:rgba(34,197,94,.2)">
+        <div class="compare-card-title" style="color:var(--verde)">Ottimizzato (editing outsourced)</div>
+        <div class="compare-row"><span class="label">Vendita</span><span class="value">7h</span></div>
+        <div class="compare-row"><span class="label">Strategia</span><span class="value">9h</span></div>
+        <div class="compare-row"><span class="label">Pre-prod</span><span class="value">14h</span></div>
+        <div class="compare-row"><span class="label">Shooting</span><span class="value">9h</span></div>
+        <div class="compare-row"><span class="label">Editing</span><span class="value green">0h (outsourced)</span></div>
+        <div class="compare-row"><span class="label">Adattamento</span><span class="value green">0h (outsourced)</span></div>
+        <div class="compare-row"><span class="label">Revisioni</span><span class="value">5h</span></div>
+        <div class="compare-row"><span class="label">Ads</span><span class="value">16h</span></div>
+        <div class="compare-row"><span class="label">Scheduling</span><span class="value">2h</span></div>
+        <div class="compare-row"><span class="label">Report</span><span class="value">5h</span></div>
+        <div class="compare-row"><span class="label">Comunicazione</span><span class="value">10h</span></div>
+        <div class="compare-row"><span class="label">Admin</span><span class="value">4h</span></div>
+        <div class="compare-total"><span class="label">Totale ore interne</span><span class="value" style="color:var(--verde)">81h</span></div>
+        <div style="margin-top:.5rem;font-size:.75rem;color:var(--text-muted)">Costo editing freelance: ~&euro;1.000<br>&euro;4.000 netti &divide; 81h = <strong style="color:var(--verde)">&euro;49/h</strong></div>
+      </div>
+    </div>
+
+    <div class="consideration">
+      <div class="consideration-title">La mia raccomandazione</div>
+      <p><strong>Partite con lo scenario "Primo cliente" (140h) e accettatelo.</strong> Il primo pack vi costera di piu in tempo perche state costruendo template, processi e esperienza. Dal secondo cliente in poi scendete a 110h. Dal terzo-quarto, con editing outsourced, a 81h interne.</p>
+      <p>Il vero salto di efficienza non e l'AI &mdash; e l'<strong>outsourcing dell'editing</strong>. 22-27h di editing liberate significano 2-3 clienti in piu gestibili con le stesse ore. Il costo (&euro;1.000 per 24 video a Catania) si ripaga immediatamente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DISTRIBUZIONE TEMPORALE -->
+<section>
+  <div class="container">
+    <div class="section-label">Timeline</div>
+    <div class="section-title">DOVE CADONO LE ORE NEI 4 MESI</div>
+
+    <table>
+      <thead><tr><th>Settimana</th><th>Attivita</th><th>Ore (scenario rodato)</th></tr></thead>
+      <tbody>
+        <tr><td class="val">Pre-firma</td><td>Vendita, consulenza, proposta, contratto</td><td class="val">7h</td></tr>
+        <tr style="background:rgba(254,112,7,.03)"><td class="val">Sett. 1-2</td><td>Onboarding + strategia + pre-produzione</td><td class="highlight-cell">23h</td></tr>
+        <tr style="background:rgba(254,112,7,.03)"><td class="val">Sett. 3</td><td>Shooting + inizio post-produzione</td><td class="highlight-cell">15h</td></tr>
+        <tr style="background:rgba(254,112,7,.03)"><td class="val">Sett. 4-5</td><td>Post-prod + adattamento + revisioni + setup ads</td><td class="highlight-cell">25h</td></tr>
+        <tr><td class="val">Sett. 6</td><td>Go live + prima pubblicazione + ads attive</td><td class="val">4h</td></tr>
+        <tr><td class="val">Sett. 7-10</td><td>Pubblicazione + ads check + comunicazione</td><td class="val">8h</td></tr>
+        <tr><td class="val">Sett. 11</td><td>Meeting meta periodo + report mese 2</td><td class="val">3h</td></tr>
+        <tr><td class="val">Sett. 12-15</td><td>Pubblicazione + ads + comunicazione</td><td class="val">8h</td></tr>
+        <tr style="background:rgba(34,197,94,.03)"><td class="val">Sett. 16</td><td>Report finale + meeting chiusura + proposta rinnovo</td><td class="val">4h</td></tr>
+        <tr><td class="val">Distribuito</td><td>Admin, fatture, imprevisti</td><td class="val">4h</td></tr>
+        <tr style="background:rgba(254,112,7,.05)"><td></td><td><strong>TOTALE</strong></td><td class="highlight-cell" style="font-size:1.1rem"><strong>~110h</strong></td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Pattern chiaro:</strong> Le settimane 1-5 concentrano <strong>~63h (57%)</strong> del lavoro. Le settimane 6-16 sono <strong>~40h (36%)</strong> distribuite su 11 settimane (~3.6h/settimana). La vendita pre-firma sono le restanti 7h.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value" style="color:var(--arancio)">~13h/sett</div>
+        <div class="stat-label">Carico nelle 5 settimane intensive</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" style="color:var(--verde)">~3.6h/sett</div>
+        <div class="stat-label">Carico nelle 11 settimane passive</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">~6.9h/sett</div>
+        <div class="stat-label">Media su tutto il quadrimestre (16 settimane)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFRONTO VECCHIO vs NUOVO -->
+<section>
+  <div class="container">
+    <div class="section-label">Correzione</div>
+    <div class="section-title">VECCHIA STIMA vs REALTA</div>
+
+    <table>
+      <thead><tr><th>Metrica</th><th>Stima precedente</th><th>Dato reale</th></tr></thead>
+      <tbody>
+        <tr><td>Ore totali Pack 24</td><td class="red">42-50h</td><td class="val">96-140h</td></tr>
+        <tr><td>Tariffa oraria effettiva</td><td class="red">&euro;100-119/h</td><td class="val">&euro;36-52/h</td></tr>
+        <tr><td>Ore/settimana media</td><td class="red">~3h</td><td class="val">~7h</td></tr>
+        <tr><td>Clienti gestibili in contemporanea (2 persone)</td><td class="red">3-4</td><td class="val">2-3 (realistico)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-verde">
+      <div class="callout-title">Ma il modello regge ancora?</div>
+      <div class="callout-text">
+        <strong>Si, regge.</strong> &euro;42-49/h effettivi sono un buon rate per Catania (freelance locali: &euro;20-40/h). Con editing outsourced (&euro;1.000): &euro;49/h su 81 ore interne. Con 2-3 clienti contemporanei: &euro;10.000-15.000/quadrimestre, ~25-30h/settimana per persona.<br><br>
+        La differenza e che ora <strong>sapete quanto lavoro e realmente</strong>. Niente sorprese al mese 2.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Studio121 / 2Nerd &mdash; Catania &mdash; Aprile 2026<br>
+    Fonti: Focus Digital 2025, Contra 2025, AgencyAnalytics 2025, FunctionFox 2025, Sprout Social 2025, KROCK.IO 2025, AdStellar 2025, tMetric 2025<br>
+    <a href="sitemap.html">Indice pagine</a> &middot; <a href="riepilogo.html">Riepilogo prodotto</a> &middot; <a href="validazione.html">Validazione</a>
+  </div>
+</footer>
+
+</body>
+</html>
