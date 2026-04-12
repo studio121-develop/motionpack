@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MotionPack — Struttura Partnership | Studio121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--arancio:#fe7007;--arancio-glow:rgba(254,112,7,.12);--viola:rgb(100,50,255);--viola-dim:rgba(100,50,255,.1);--verde:#22c55e;--verde-dim:rgba(34,197,94,.08);--rosso:#ef4444;--rosso-dim:rgba(239,68,68,.08);--giallo:#eab308;--giallo-dim:rgba(234,179,8,.08);--bg:#0a0a0a;--bg-card:rgba(255,255,255,.025);--border:rgba(255,255,255,.07);--text:#f5f5f5;--text-muted:rgba(245,245,245,.45);--text-mid:rgba(245,245,245,.7)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}.container{max-width:900px;margin:0 auto;padding:0 1.5rem}
+    header{padding:2.5rem 1.5rem 1.5rem;border-bottom:1px solid var(--border)}header .container{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:.75rem}.brand{font-family:'Anton',sans-serif;font-size:1.4rem}.brand span{color:var(--arancio)}.doc-badge{font-size:.6rem;text-transform:uppercase;letter-spacing:3px;color:var(--text-muted);background:var(--bg-card);padding:.3rem .8rem;border-radius:100px;border:1px solid var(--border)}
+    section{padding:3rem 1.5rem;border-bottom:1px solid var(--border)}section:last-of-type{border-bottom:none}
+    .sl{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--arancio);margin-bottom:.4rem}
+    .st{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.1;margin-bottom:.5rem}
+    p{font-size:.88rem;color:var(--text-mid);margin-bottom:.85rem;max-width:780px}p strong{color:var(--text);font-weight:600}
+    h3{font-family:'Anton',sans-serif;font-size:1rem;margin-top:1.5rem;margin-bottom:.5rem;font-weight:400}
+    table{width:100%;border-collapse:collapse;margin:.9rem 0;font-size:.8rem}th,td{text-align:left;padding:.5rem .55rem;border-bottom:1px solid var(--border)}th{color:var(--text-muted);font-weight:500;font-size:.62rem;text-transform:uppercase;letter-spacing:.5px}td{color:var(--text-mid)}tr:last-child td{border-bottom:none}.val{color:var(--text);font-weight:600}.green{color:var(--verde);font-weight:600}.yellow{color:var(--giallo);font-weight:600}.red{color:var(--rosso);font-weight:600}.hi{color:var(--arancio);font-weight:600}
+    .co{border-radius:10px;padding:1rem 1.1rem;margin:1rem 0}.co-a{background:var(--arancio-glow);border:1px solid rgba(254,112,7,.15)}.co-v{background:var(--verde-dim);border:1px solid rgba(34,197,94,.15)}.co-r{background:var(--rosso-dim);border:1px solid rgba(239,68,68,.15)}.co-y{background:var(--giallo-dim);border:1px solid rgba(234,179,8,.15)}
+    .co-t{font-weight:700;font-size:.76rem;margin-bottom:.3rem}.co-a .co-t{color:var(--arancio)}.co-v .co-t{color:var(--verde)}.co-r .co-t{color:var(--rosso)}.co-y .co-t{color:var(--giallo)}.co-x{font-size:.78rem;color:var(--text-mid);line-height:1.6}.co-x strong{color:var(--text)}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:.75rem}.card-t{font-family:'Anton',sans-serif;font-size:1.15rem;margin-bottom:.2rem}.card-s{font-size:.7rem;color:var(--text-muted);margin-bottom:.6rem}
+    .consideration{background:rgba(255,255,255,.02);border-left:3px solid var(--arancio);padding:.9rem 1.1rem;margin:1.25rem 0;border-radius:0 8px 8px 0}.consideration-t{font-weight:700;font-size:.82rem;color:var(--arancio);margin-bottom:.35rem}.consideration p{font-size:.82rem;margin-bottom:.4rem}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}@media(max-width:650px){.grid-2{grid-template-columns:1fr}}
+    .tag{display:inline-block;font-size:.55rem;text-transform:uppercase;letter-spacing:1px;padding:.12rem .45rem;border-radius:100px;font-weight:600;margin-right:.2rem}.tag-g{background:var(--verde-dim);color:var(--verde)}.tag-r{background:var(--rosso-dim);color:var(--rosso)}.tag-y{background:var(--giallo-dim);color:var(--giallo)}
+    footer{padding:1.5rem 1.5rem;text-align:center;font-size:.65rem;color:var(--text-muted)}footer a{color:var(--text-muted);text-decoration:none}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">MOTION<span>PACK</span></div>
+    <div class="doc-badge">Partnership &mdash; Riservato &mdash; Aprile 2026</div>
+  </div>
+</header>
+
+<!-- CONTESTO -->
+<section>
+  <div class="container">
+    <div class="sl">Contesto</div>
+    <div class="st">DUE SOGGETTI, UN PRODOTTO. COME LO STRUTTURIAMO?</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-t">STUDIO121 SRLS</div>
+        <div class="card-s">Emanuele &bull; Societa di capitali</div>
+        <p><strong>Ruolo naturale:</strong> Strategia, vendita, gestione cliente, ads, reporting, account management, fatturazione</p>
+        <p><strong>Regime:</strong> SRLS &mdash; emette fattura con IVA 22%, deduce costi, contabilita ordinaria</p>
+        <p><strong>Vantaggi:</strong> Struttura societaria (credibilita B2B), puo scalare, puo assumere, puo avere piu clienti</p>
+      </div>
+      <div class="card">
+        <div class="card-t">MOTION LAB</div>
+        <div class="card-s">Partner &bull; Regime forfettario</div>
+        <p><strong>Ruolo naturale:</strong> Produzione video, shooting, editing, post-produzione, direzione creativa</p>
+        <p><strong>Regime:</strong> Forfettario &mdash; fattura senza IVA, tassazione sostitutiva 15% (5% primi 5 anni), limite ricavi &euro;85.000/anno</p>
+        <p><strong>Vantaggi:</strong> Tassazione agevolata, semplicita gestionale, costi bassi</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LE 3 OPZIONI -->
+<section>
+  <div class="container">
+    <div class="sl">Le 3 opzioni</div>
+    <div class="st">COME STRUTTURARE LA COLLABORAZIONE</div>
+
+    <!-- OPZIONE A -->
+    <div class="card" style="border-color:rgba(34,197,94,.3)">
+      <div class="card-t">OPZIONE A: TUTTO ATTRAVERSO STUDIO121</div>
+      <div class="card-s">Studio121 fattura, promuove, gestisce. Motion Lab e un fornitore invisibile.</div>
+
+      <h3>COME FUNZIONA</h3>
+      <p>Studio121 SRLS e l'unico brand visibile al cliente. Vende MotionPack, firma il contratto, emette fattura. Motion Lab fattura a Studio121 come fornitore esterno per i servizi di produzione video. Il cliente non sa che Motion Lab esiste.</p>
+
+      <h3>FLUSSO ECONOMICO (esempio Pack 12 &euro;3.000)</h3>
+      <table>
+        <tr><td>Cliente paga a Studio121</td><td class="val">&euro;3.000 + IVA = &euro;3.660</td></tr>
+        <tr><td>Studio121 paga Motion Lab (produzione video)</td><td class="red">-&euro;800-1.200 (fattura forfettario, no IVA)</td></tr>
+        <tr><td>Studio121 paga tools, trasporto, altro</td><td class="red">-&euro;200-300</td></tr>
+        <tr><td>Studio121 incassa IVA (credito/debito)</td><td>Gestione IVA normale SRLS</td></tr>
+        <tr><td class="val">Netto Studio121 (pre-tasse)</td><td class="green">&euro;1.500-2.000</td></tr>
+        <tr><td class="val">Netto Motion Lab (pre-tasse)</td><td class="green">&euro;800-1.200 (tassati al 5-15%)</td></tr>
+      </table>
+
+      <div class="grid-2">
+        <div>
+          <h3 style="color:var(--verde)">PRO</h3>
+          <p><span class="tag tag-g">Brand pulito</span> Un solo nome, un solo interlocutore, zero confusione</p>
+          <p><span class="tag tag-g">Scalabile</span> Se Motion Lab non puo, Studio121 trova un altro videomaker</p>
+          <p><span class="tag tag-g">Credibilita</span> SRLS e piu credibile di un forfettario per clienti B2B</p>
+          <p><span class="tag tag-g">Equity</span> Studio121 costruisce tutto il valore del brand MotionPack</p>
+          <p><span class="tag tag-g">Fiscale</span> Motion Lab paga solo 5-15% sui suoi ricavi. Studio121 deduce il costo di Motion Lab.</p>
+        </div>
+        <div>
+          <h3 style="color:var(--rosso)">CONTRO</h3>
+          <p><span class="tag tag-r">Motivazione partner</span> Motion Lab e "solo un fornitore" &mdash; meno coinvolto, meno motivato</p>
+          <p><span class="tag tag-r">Dipendenza</span> Se Motion Lab se ne va, Studio121 deve trovare un sostituto velocemente</p>
+          <p><span class="tag tag-r">Squilibrio</span> Tutto il rischio commerciale e su Studio121. Motion Lab ha zero rischio.</p>
+          <p><span class="tag tag-r">Percezione</span> Il partner potrebbe sentirsi svalutato se non e visibile</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPZIONE B -->
+    <div class="card" style="border-color:rgba(254,112,7,.3)">
+      <div class="card-t">OPZIONE B: PRODOTTO BRANDIZZATO, PARTNERSHIP TRASPARENTE</div>
+      <div class="card-s">MotionPack e un prodotto co-creato. Studio121 fattura ma Motion Lab e visibile come partner creativo.</div>
+
+      <h3>COME FUNZIONA</h3>
+      <p>"MotionPack by Studio121" oppure "MotionPack &mdash; powered by Studio121 + Motion Lab". Il prodotto ha un suo brand, il sito mostra entrambi. Studio121 SRLS resta il soggetto che fattura (piu credibile, struttura societaria). Motion Lab e il "braccio creativo" visibile.</p>
+
+      <h3>FLUSSO ECONOMICO</h3>
+      <p>Identico all'Opzione A dal punto di vista fiscale: Studio121 fattura al cliente, paga Motion Lab come fornitore. La differenza e solo nella <strong>comunicazione</strong>, non nella struttura legale.</p>
+
+      <div class="grid-2">
+        <div>
+          <h3 style="color:var(--verde)">PRO</h3>
+          <p><span class="tag tag-g">Partner motivato</span> Motion Lab e visibile, si sente parte del progetto, lavora meglio</p>
+          <p><span class="tag tag-g">Doppia credibilita</span> "Studio121 per la strategia + Motion Lab per la produzione" &mdash; due competenze, piu fiducia</p>
+          <p><span class="tag tag-g">Contenuto del partner</span> Motion Lab puo usare i lavori nel suo portfolio personale (attrae altri clienti per Studio121)</p>
+          <p><span class="tag tag-g">Flessibile</span> Se la partnership finisce, il brand MotionPack resta di Studio121</p>
+        </div>
+        <div>
+          <h3 style="color:var(--rosso)">CONTRO</h3>
+          <p><span class="tag tag-r">Complessita brand</span> Due nomi da comunicare = piu confusione per il cliente locale</p>
+          <p><span class="tag tag-r">Rischio reputazione</span> Se Motion Lab fa un errore, ricade anche su Studio121 (e viceversa)</p>
+          <p><span class="tag tag-r">Separazione difficile</span> Se la partnership finisce, il cliente puo seguire Motion Lab invece di Studio121</p>
+          <p><span class="tag tag-r">Governance</span> Chi decide cosa? Senza accordo scritto, le decisioni diventano lente</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPZIONE C -->
+    <div class="card" style="border-color:rgba(100,50,255,.3)">
+      <div class="card-t">OPZIONE C: STUDIO121 COMPRA I SERVIZI, GESTISCE TUTTO</div>
+      <div class="card-s">Studio121 e il brand. Motion Lab e un fornitore specializzato con tariffa fissa per giornata/progetto.</div>
+
+      <h3>COME FUNZIONA</h3>
+      <p>Studio121 vende MotionPack ai clienti. Per la parte produzione video, "compra" il servizio da Motion Lab a una tariffa concordata (es: &euro;X per giornata di shooting + editing). Motion Lab non ha alcun rapporto col cliente finale. E come assumere un freelance per un progetto.</p>
+
+      <h3>FLUSSO ECONOMICO (esempio Pack 12 &euro;3.000)</h3>
+      <table>
+        <tr><td>Cliente paga Studio121</td><td class="val">&euro;3.000 + IVA</td></tr>
+        <tr><td>Studio121 paga Motion Lab (tariffa fissa)</td><td class="red">-&euro;600-1.000 (giornata shooting + editing batch)</td></tr>
+        <tr><td>Studio121 gestisce tutto il resto</td><td>Strategia, ads, report, comunicazione</td></tr>
+        <tr><td class="val">Netto Studio121</td><td class="green">&euro;1.700-2.200</td></tr>
+        <tr><td class="val">Netto Motion Lab</td><td>&euro;600-1.000 (tassati 5-15%)</td></tr>
+      </table>
+
+      <div class="grid-2">
+        <div>
+          <h3 style="color:var(--verde)">PRO</h3>
+          <p><span class="tag tag-g">Massimo controllo</span> Studio121 decide tutto: prezzo, cliente, strategia, brand</p>
+          <p><span class="tag tag-g">Sostituibile</span> Se Motion Lab non e disponibile, un altro videomaker fa lo stesso lavoro</p>
+          <p><span class="tag tag-g">Nessun rischio legale</span> Rapporto fornitore puro, nessun accordo di partnership</p>
+          <p><span class="tag tag-g">Semplice</span> Fattura fornitore, pagamento, fine. Zero governance.</p>
+        </div>
+        <div>
+          <h3 style="color:var(--rosso)">CONTRO</h3>
+          <p><span class="tag tag-r">Zero motivazione partner</span> Motion Lab e un freelance a cottimo. Nessun investimento emotivo.</p>
+          <p><span class="tag tag-r">Qualita variabile</span> Se paghi poco, il lavoro e poco. Se paghi bene, il margine cala.</p>
+          <p><span class="tag tag-r">Fragilita</span> Dipendi da un singolo fornitore per la parte piu critica (la produzione video)</p>
+          <p><span class="tag tag-r">No co-creazione</span> Motion Lab non contribuisce idee, non propone, non migliora il prodotto. Esegue.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFRONTO -->
+<section>
+  <div class="container">
+    <div class="sl">Confronto</div>
+    <div class="st">LE 3 OPZIONI A CONFRONTO</div>
+
+    <table>
+      <thead><tr><th>Criterio</th><th>A: Tutto Studio121</th><th>B: Partnership visibile</th><th>C: Fornitore puro</th></tr></thead>
+      <tbody>
+        <tr><td>Chi fattura</td><td class="val">Studio121</td><td class="val">Studio121</td><td class="val">Studio121</td></tr>
+        <tr><td>Chi e visibile al cliente</td><td>Solo Studio121</td><td class="hi">Entrambi</td><td>Solo Studio121</td></tr>
+        <tr><td>Motivazione Motion Lab</td><td class="yellow">Media</td><td class="green">Alta</td><td class="red">Bassa</td></tr>
+        <tr><td>Controllo Studio121</td><td class="green">Alto</td><td class="yellow">Condiviso</td><td class="green">Massimo</td></tr>
+        <tr><td>Rischio se partnership finisce</td><td class="yellow">Medio (devi trovare sostituto)</td><td class="red">Alto (cliente puo seguire ML)</td><td class="green">Basso (sostituibile)</td></tr>
+        <tr><td>Brand equity</td><td class="green">Tutta a Studio121</td><td class="yellow">Condivisa</td><td class="green">Tutta a Studio121</td></tr>
+        <tr><td>Complessita gestionale</td><td class="green">Bassa</td><td class="yellow">Media</td><td class="green">Minima</td></tr>
+        <tr><td>Crescita a lungo termine</td><td class="green">Scalabile</td><td class="yellow">Legata alla partnership</td><td class="green">Scalabile</td></tr>
+        <tr><td>Qualita prodotto</td><td class="yellow">Dipende dal compenso</td><td class="green">Co-creazione migliora il prodotto</td><td class="yellow">Esecuzione, no innovazione</td></tr>
+        <tr><td>Fiscale Motion Lab</td><td class="green">5-15% forfettario</td><td class="green">5-15% forfettario</td><td class="green">5-15% forfettario</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ASPETTI FISCALI -->
+<section>
+  <div class="container">
+    <div class="sl">Aspetti fiscali</div>
+    <div class="st">COSA CAMBIA TRA SRLS E FORFETTARIO</div>
+
+    <div class="co co-y">
+      <div class="co-t">Disclaimer</div>
+      <div class="co-x">Queste sono riflessioni generali, NON consulenza fiscale. Per le scelte definitive consultate il commercialista. Ogni situazione ha variabili specifiche.</div>
+    </div>
+
+    <h3>STUDIO121 SRLS</h3>
+    <table>
+      <tr><td>Fatturazione</td><td class="val">Con IVA 22%</td></tr>
+      <tr><td>Tassazione utili</td><td>IRES 24% + IRAP 3.9% + tassazione dividendi</td></tr>
+      <tr><td>Deducibilita costi</td><td class="green">Si, deduce tutti i costi (incluse fatture Motion Lab)</td></tr>
+      <tr><td>Contributi INPS</td><td>Gestione commercianti/artigiani (fissi + variabili)</td></tr>
+      <tr><td>Credibilita</td><td class="green">Alta per clienti B2B e PA</td></tr>
+    </table>
+
+    <h3>MOTION LAB FORFETTARIO</h3>
+    <table>
+      <tr><td>Fatturazione</td><td class="val">Senza IVA (esente art. 1 c. 54-89 L. 190/2014)</td></tr>
+      <tr><td>Tassazione</td><td class="green">5% primi 5 anni, poi 15% (sostitutiva)</td></tr>
+      <tr><td>Limite ricavi</td><td class="hi">&euro;85.000/anno (superamento = uscita dal regime)</td></tr>
+      <tr><td>Deducibilita costi</td><td class="red">No, coefficiente di redditivita forfettario</td></tr>
+      <tr><td>Contributi INPS</td><td>Gestione separata o artigiani (riduzione 35% disponibile)</td></tr>
+    </table>
+
+    <h3>IMPLICAZIONE PRATICA</h3>
+    <p><strong>In tutti e 3 gli scenari, Studio121 SRLS fattura al cliente.</strong> Questo e il setup piu vantaggioso perche:</p>
+    <p>1. La SRLS ha piu credibilita per contratti B2B (soprattutto con hotel, wedding venue, studi dentistici)</p>
+    <p>2. La SRLS puo detrarre l'IVA sugli acquisti e dedurre i costi di Motion Lab</p>
+    <p>3. Motion Lab col forfettario paga solo 5-15% sui suoi ricavi &mdash; molto meno della SRLS</p>
+    <p>4. Il limite di &euro;85.000 per Motion Lab e ampio: con &euro;1.000/mese per 8 clienti = &euro;8.000/mese = &euro;96.000/anno &rarr; attenzione al limite se si scala molto</p>
+
+    <div class="co co-a">
+      <div class="co-t">Attenzione: rischio mono-committenza</div>
+      <div class="co-x">Se Motion Lab fattura SOLO a Studio121, potrebbe configurarsi come <strong>"falsa partita IVA"</strong> (mono-committenza). Per evitarlo, Motion Lab dovrebbe avere almeno 1-2 altri clienti propri. Oppure la collaborazione va strutturata con un contratto di appalto di servizi chiaramente definito. <strong>Consultate il commercialista su questo punto specifico.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARI ECONOMICI -->
+<section>
+  <div class="container">
+    <div class="sl">Scenari economici</div>
+    <div class="st">QUANTO GUADAGNA CIASCUNO (ANNO 1)</div>
+
+    <p>Ipotesi: 6 clienti anno 1, mix Pack 8/12/24, ricavo totale &euro;22.000.</p>
+
+    <table>
+      <thead><tr><th>Voce</th><th>Opzione A/C</th><th>Opzione B (50/50 utili)</th></tr></thead>
+      <tbody>
+        <tr><td>Ricavo lordo totale</td><td class="val">&euro;22.000</td><td class="val">&euro;22.000</td></tr>
+        <tr><td>Costi vivi (tools, trasporto)</td><td class="red">-&euro;2.000</td><td class="red">-&euro;2.000</td></tr>
+        <tr><td>Compenso Motion Lab</td><td class="red">-&euro;6.000-8.000 (tariffa fissa)</td><td class="red">-&euro;10.000 (50% utili)</td></tr>
+        <tr><td class="val">Netto Studio121 (pre-tasse SRLS)</td><td class="green">&euro;12.000-14.000</td><td class="yellow">&euro;10.000</td></tr>
+        <tr><td class="val">Netto Motion Lab (pre-tasse forfettario)</td><td>&euro;6.000-8.000</td><td class="green">&euro;10.000</td></tr>
+        <tr><td>Tasse Motion Lab (5-15%)</td><td>&euro;300-1.200</td><td>&euro;500-1.500</td></tr>
+        <tr><td class="val">Netto Motion Lab dopo tasse</td><td class="val">&euro;5.400-7.200</td><td class="val">&euro;8.500-9.500</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Nota:</strong> nell'Opzione B con split 50/50, Motion Lab guadagna di piu ma Studio121 guadagna meno E si assume tutto il rischio commerciale (vendita, gestione, incasso). L'Opzione A/C e piu equilibrata: Studio121 tiene di piu perche fa di piu (vendita + strategia + ads + comunicazione + admin).</p>
+  </div>
+</section>
+
+<!-- SPLIT SUGGERITI -->
+<section>
+  <div class="container">
+    <div class="sl">Split suggeriti</div>
+    <div class="st">COME DIVIDERE IL COMPENSO</div>
+
+    <p>Non esiste uno split "giusto" universale. Dipende da chi fa cosa. Ecco 3 modelli basati sul valore apportato:</p>
+
+    <div class="card">
+      <div class="card-t">MODELLO 1: Tariffa fissa per giornata</div>
+      <div class="card-s">Il piu semplice. Motion Lab = fornitore a prezzo concordato.</div>
+      <p><strong>Motion Lab riceve:</strong> &euro;300-500/giornata di shooting + &euro;25-40/video per editing</p>
+      <p><strong>Esempio Pack 12:</strong> 1 giornata (&euro;400) + 12 video editing (&euro;360) = <strong>&euro;760 per Motion Lab</strong> su &euro;3.000 (25%)</p>
+      <p><strong>Esempio Pack 24:</strong> 1 giornata (&euro;500) + 24 video editing (&euro;720) = <strong>&euro;1.220 per Motion Lab</strong> su &euro;5.000 (24%)</p>
+      <p style="color:var(--text-muted);font-size:.78rem">Pro: prevedibile, scalabile, facile da gestire. Contro: Motion Lab non ha incentivo a far crescere il business.</p>
+    </div>
+
+    <div class="card" style="border-color:rgba(254,112,7,.3)">
+      <div class="card-t">MODELLO 2: Percentuale sul pack (30-35%)</div>
+      <div class="card-s">Motion Lab cresce col business. Piu motivato.</div>
+      <p><strong>Motion Lab riceve:</strong> 30-35% del prezzo del pack</p>
+      <p><strong>Pack 8 (&euro;2.000):</strong> Motion Lab = <strong>&euro;600-700</strong></p>
+      <p><strong>Pack 12 (&euro;3.000):</strong> Motion Lab = <strong>&euro;900-1.050</strong></p>
+      <p><strong>Pack 24 (&euro;5.000):</strong> Motion Lab = <strong>&euro;1.500-1.750</strong></p>
+      <p style="color:var(--text-muted);font-size:.78rem">Pro: allineamento interessi, Motion Lab e motivato a fare bene. Contro: se il pack si vende a sconto, il margine Studio121 si comprime.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-t">MODELLO 3: Base fissa + bonus risultati</div>
+      <div class="card-s">Il piu sofisticato. Premia l'eccellenza.</div>
+      <p><strong>Motion Lab riceve:</strong> tariffa base (Modello 1) + bonus del 5-10% sul pack se il cliente rinnova</p>
+      <p><strong>Esempio Pack 12:</strong> &euro;760 base + &euro;150-300 bonus rinnovo = <strong>&euro;760-1.060</strong></p>
+      <p style="color:var(--text-muted);font-size:.78rem">Pro: premia la qualita che porta al rinnovo. Contro: piu complesso da gestire, il rinnovo dipende anche da fattori esterni.</p>
+    </div>
+
+    <div class="consideration">
+      <div class="consideration-t">La mia raccomandazione</div>
+      <p><strong>Modello 2 (percentuale 30-35%)</strong> se volete una partnership vera dove Motion Lab e investito nel successo. <strong>Modello 1 (tariffa fissa)</strong> se volete mantenere il massimo controllo e trattare Motion Lab come un fornitore sostituibile.</p>
+      <p>La scelta dipende dal rapporto personale: se vi fidate e volete costruire insieme, Modello 2. Se volete tenervi la liberta di cambiare, Modello 1.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COSA METTERE PER ISCRITTO -->
+<section>
+  <div class="container">
+    <div class="sl">Cosa mettere per iscritto</div>
+    <div class="st">INDIPENDENTEMENTE DALL'OPZIONE, SERVE UN ACCORDO</div>
+
+    <p>Anche se siete amici, mettete per iscritto almeno questi punti:</p>
+
+    <table>
+      <thead><tr><th>Punto</th><th>Perche</th></tr></thead>
+      <tbody>
+        <tr><td class="val">Chi possiede il brand "MotionPack"</td><td>Se la partnership finisce, chi tiene il nome? (Consiglio: Studio121)</td></tr>
+        <tr><td class="val">Chi possiede i contenuti prodotti</td><td>I video sono di Studio121 o di Motion Lab? (Consiglio: Studio121, che paga)</td></tr>
+        <tr><td class="val">Compenso e tempistiche di pagamento</td><td>Quanto, quando, come (30 giorni data fattura, bonifico)</td></tr>
+        <tr><td class="val">Esclusivita o no</td><td>Motion Lab puo lavorare con clienti diretti suoi? Con competitor? (Consiglio: si per clienti propri, no per competitor diretti nella stessa zona)</td></tr>
+        <tr><td class="val">Preavviso di uscita</td><td>Quanto tempo prima uno dei due puo uscire? (Consiglio: 60-90 giorni, per completare i pack attivi)</td></tr>
+        <tr><td class="val">Non-concorrenza post-uscita</td><td>Motion Lab puo vendere MotionPack per conto suo dopo? (Consiglio: no per 12 mesi nella stessa zona)</td></tr>
+        <tr><td class="val">Uso del portfolio</td><td>Entrambi possono usare i lavori nel portfolio personale? (Consiglio: si)</td></tr>
+        <tr><td class="val">Responsabilita verso il cliente</td><td>Se un video ha un problema, chi risponde? (Consiglio: Studio121 verso il cliente, poi si rivalsa internamente)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="co co-r">
+      <div class="co-t">L'errore piu comune</div>
+      <div class="co-x">Non mettere niente per iscritto "perche ci fidiamo". Il 70% delle partnership tra freelance/piccole agenzie in Italia finisce entro 2 anni (dato aneddotico ma coerente con i dati di sopravvivenza delle micro-imprese). <strong>L'accordo scritto non e sfiducia &mdash; e protezione per entrambi.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- LA MIA RACCOMANDAZIONE -->
+<section>
+  <div class="container">
+    <div class="sl">La mia raccomandazione</div>
+    <div class="st">OPZIONE A CON ELEMENTI DI B</div>
+
+    <div class="co co-v">
+      <div class="co-t">Il setup consigliato</div>
+      <div class="co-x">
+        <strong>1. Studio121 SRLS fattura, vende, gestisce tutto.</strong> Il cliente conosce solo Studio121. Il brand MotionPack e di Studio121.<br><br>
+        <strong>2. Motion Lab e il partner creativo &mdash; visibile ma non co-brand.</strong> Sul sito: "Produzione video: Motion Lab". Nei credit dei reel: "Shot by Motion Lab". Non "MotionPack by Studio121 + Motion Lab", ma "MotionPack by Studio121 | Video: Motion Lab". La differenza e sottile ma importante: Studio121 e il proprietario, Motion Lab e il collaboratore riconosciuto.<br><br>
+        <strong>3. Compenso: Modello 2 (30-35% del pack).</strong> Motion Lab ha interesse che il business cresca perche guadagna di piu. Ma Studio121 mantiene il controllo totale su brand, clienti, strategia.<br><br>
+        <strong>4. Accordo scritto semplice (1-2 pagine).</strong> Proprieta brand, compenso, esclusivita, preavviso, portfolio. Non serve un avvocato — basta un documento firmato da entrambi.<br><br>
+        <strong>5. Motion Lab deve avere almeno 1-2 clienti propri.</strong> Per evitare il rischio mono-committenza (falsa partita IVA). Questo e anche sano per lui: diversifica il rischio e cresce professionalmente.
+      </div>
+    </div>
+
+    <div class="consideration">
+      <div class="consideration-t">Perche non 50/50</div>
+      <p>Uno split 50/50 sembra equo ma non lo e se i ruoli non sono uguali. Studio121 si assume: vendita (6-10h per cliente), gestione ads, comunicazione continua, reporting, admin, fatturazione, rischio di incasso. Motion Lab fa: shooting (1 giornata) + editing. Il carico di lavoro di Studio121 e ~70% del totale. Uno split 65-70 / 30-35 e piu coerente col valore apportato.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Studio121 &mdash; Documento riservato &mdash; Aprile 2026<br>
+    <span style="color:var(--rosso);font-size:.6rem">Nota: le considerazioni fiscali sono indicative. Consultare il commercialista per decisioni definitive.</span><br>
+    <a href="sitemap.html">Indice</a> &middot; <a href="presentazione.html">Presentazione</a>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
