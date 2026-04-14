@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenzia Marketing Ragusa che GARANTISCE Risultati | Studio 121</title>
+    <meta name="description" content="BASTA agenzie che ti prendono i soldi e spariscono. Studio 121 e l'unica agenzia di comunicazione a Ragusa che ti garantisce risultati misurabili o ti rimborsa. Scopri come.">
+    <meta name="keywords" content="agenzia comunicazione ragusa, agenzia marketing ragusa, agenzia comunicazione sicilia, agenzia digitale ragusa, marketing ragusa, risultati misurabili">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.studio121.it/agenzia-marketing-ragusa">
+    <meta property="og:title" content="L'Unica Agenzia a Ragusa che GARANTISCE Risultati Misurabili | Studio 121">
+    <meta property="og:description" content="Se dopo 90 giorni non vedi risultati misurabili, ti rimborsiamo tutto. Scopri perche oltre 150 imprese di Ragusa ci hanno scelto.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://www.studio121.it",
+        "name": "Studio 121",
+        "description": "Agenzia di comunicazione e marketing digitale a Ragusa, Sicilia. Risultati misurabili garantiti.",
+        "url": "https://www.studio121.it",
+        "telephone": "+39XXXXXXXXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Example 121",
+            "addressLocality": "Ragusa",
+            "addressRegion": "RG",
+            "postalCode": "97100",
+            "addressCountry": "IT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "36.9269",
+            "longitude": "14.7255"
+        },
+        "areaServed": {
+            "@type": "State",
+            "name": "Sicilia"
+        },
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": [
+            "https://www.facebook.com/studio121",
+            "https://www.instagram.com/studio121",
+            "https://www.linkedin.com/company/studio121"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "47"
+        }
+    }
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #ffffff; line-height: 1.8; overflow-x: hidden; }
+
+        /* Animations */
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .shake { animation: shake 0.6s ease-in-out; }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+
+        /* Urgency Bar */
+        .urgency-bar { background: #e94560; color: #fff; text-align: center; padding: 12px 24px; font-size: 14px; font-weight: 700; position: fixed; top: 0; left: 0; right: 0; z-index: 1001; }
+        .urgency-bar span { background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 4px; margin-left: 8px; }
+
+        /* Sticky CTA */
+        .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: #1a1a2e; padding: 14px 24px; display: flex; justify-content: center; align-items: center; gap: 16px; box-shadow: 0 -4px 20px rgba(0,0,0,0.2); transform: translateY(100%); transition: transform 0.4s ease; }
+        .sticky-cta.show { transform: translateY(0); }
+        .sticky-cta a { background: #e94560; color: #fff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .sticky-cta span { color: #fff; font-size: 14px; opacity: 0.7; }
+
+        /* Content container */
+        .content { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+        /* Hero Sales Letter */
+        .hero-sales { padding: 90px 24px 60px; text-align: center; }
+        .hero-sales .pretitle { color: #e94560; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .hero-sales h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 900; line-height: 1.15; margin-bottom: 24px; letter-spacing: -1px; }
+        .hero-sales h1 .highlight { background: linear-gradient(180deg, transparent 60%, #ffeaa7 60%); padding: 0 4px; }
+        .hero-sales h1 .red { color: #e94560; }
+        .hero-sales .subhead { font-size: 20px; color: #555; max-width: 650px; margin: 0 auto 36px; }
+
+        /* Yellow highlight */
+        .hl { background: linear-gradient(180deg, transparent 55%, #ffeaa7 55%); padding: 0 3px; font-weight: 700; }
+        .hl-red { color: #e94560; font-weight: 800; }
+        .bold { font-weight: 700; }
+        .strike { text-decoration: line-through; opacity: 0.5; }
+
+        /* Letter sections */
+        .letter { padding: 40px 24px; }
+        .letter .content p { font-size: 17px; margin-bottom: 20px; color: #333; }
+        .letter .content h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 900; margin: 48px 0 24px; color: #1a1a2e; line-height: 1.2; }
+        .letter .content h3 { font-size: 22px; font-weight: 800; margin: 36px 0 16px; color: #1a1a2e; }
+
+        /* Red alert box */
+        .alert-box { background: #fff5f5; border: 3px solid #e94560; border-radius: 12px; padding: 32px; margin: 36px 0; }
+        .alert-box h3 { color: #e94560; margin-top: 0 !important; font-size: 20px !important; }
+        .alert-box p { margin-bottom: 12px !important; }
+
+        /* Yellow box */
+        .yellow-box { background: #fffde7; border: 3px solid #f9a825; border-radius: 12px; padding: 32px; margin: 36px 0; }
+        .yellow-box h3 { color: #f57f17; margin-top: 0 !important; }
+
+        /* Guarantee box */
+        .guarantee-box { background: #e8f5e9; border: 4px solid #2e7d32; border-radius: 16px; padding: 40px; margin: 48px 0; text-align: center; }
+        .guarantee-box h2 { color: #2e7d32 !important; margin-top: 0 !important; font-size: 28px !important; }
+        .guarantee-icon { font-size: 60px; margin-bottom: 16px; }
+
+        /* Error list */
+        .error-list { list-style: none; margin: 24px 0; }
+        .error-list li { padding: 16px 20px; margin-bottom: 12px; background: #fff5f5; border-left: 5px solid #e94560; border-radius: 0 8px 8px 0; font-size: 16px; font-weight: 600; display: flex; align-items: flex-start; gap: 12px; }
+        .error-list li::before { content: '\2717'; color: #e94560; font-size: 20px; font-weight: 900; flex-shrink: 0; }
+
+        /* Comparison table */
+        .comparison { width: 100%; border-collapse: collapse; margin: 36px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .comparison th { padding: 18px 20px; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+        .comparison th:first-child { background: #f5f5f5; color: #999; text-align: left; width: 35%; }
+        .comparison th:nth-child(2) { background: #ffebee; color: #c62828; }
+        .comparison th:nth-child(3) { background: #1a1a2e; color: #fff; }
+        .comparison td { padding: 16px 20px; font-size: 14px; border-bottom: 1px solid #f0f0f0; }
+        .comparison td:first-child { font-weight: 600; color: #555; background: #fafafa; }
+        .comparison td:nth-child(2) { text-align: center; color: #999; }
+        .comparison td:nth-child(3) { text-align: center; font-weight: 600; color: #1a1a2e; background: rgba(233,69,96,0.03); }
+        .comparison .check { color: #2e7d32; font-size: 20px; }
+        .comparison .cross { color: #c62828; font-size: 20px; }
+
+        /* CTA Buttons */
+        .cta-block { text-align: center; margin: 48px 0; padding: 40px; background: #1a1a2e; border-radius: 16px; }
+        .cta-block h3 { color: #fff; font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+        .cta-block p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 24px; }
+        .cta-block .spots { color: #e94560; font-weight: 700; font-size: 14px; margin-bottom: 20px; }
+        .btn-cta { display: inline-block; background: #e94560; color: #fff; padding: 20px 48px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 18px; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(233,69,96,0.4); background: #d63d56; }
+        .btn-cta-outline { display: inline-block; background: transparent; color: #e94560; padding: 16px 36px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; border: 2px solid #e94560; margin-top: 12px; transition: all 0.3s ease; }
+        .btn-cta-outline:hover { background: #e94560; color: #fff; }
+
+        /* Testimonials */
+        .testimonial { background: #f8f8fa; border-radius: 16px; padding: 32px; margin: 28px 0; border-left: 5px solid #e94560; }
+        .testimonial p { font-size: 17px; font-style: italic; color: #333; margin-bottom: 16px !important; line-height: 1.7; }
+        .testimonial .author { font-weight: 700; font-style: normal; color: #1a1a2e; font-size: 15px; }
+        .testimonial .author span { color: #e94560; font-weight: 400; }
+        .testimonial-stars { color: #f9a825; font-size: 18px; margin-bottom: 12px; letter-spacing: 2px; }
+
+        /* Bullet benefits */
+        .benefit-list { list-style: none; margin: 24px 0; }
+        .benefit-list li { padding: 12px 0; font-size: 17px; display: flex; align-items: flex-start; gap: 12px; color: #333; }
+        .benefit-list li::before { content: '\2713'; width: 28px; height: 28px; background: #e8f5e9; color: #2e7d32; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; margin-top: 2px; }
+
+        /* Scarcity counter */
+        .scarcity { text-align: center; margin: 36px 0; padding: 24px; background: #fff3e0; border: 2px solid #ff9800; border-radius: 12px; }
+        .scarcity h4 { color: #e65100; font-size: 16px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .scarcity .counter { font-size: 48px; font-weight: 900; color: #e65100; }
+        .scarcity p { font-size: 14px; color: #bf360c; }
+
+        /* PS section */
+        .ps-section { background: #fffde7; border-radius: 12px; padding: 32px; margin: 36px 0; border: 2px dashed #f9a825; }
+        .ps-section p { font-size: 16px; color: #333; }
+        .ps-section strong { color: #1a1a2e; }
+
+        /* Form */
+        .form-section { background: #1a1a2e; padding: 80px 24px; margin-top: 40px; }
+        .form-container { max-width: 580px; margin: 0 auto; }
+        .form-container h2 { color: #fff; font-size: 32px; font-weight: 900; text-align: center; margin-bottom: 8px; }
+        .form-container .form-sub { color: rgba(255,255,255,0.6); text-align: center; font-size: 15px; margin-bottom: 32px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px 18px; background: rgba(255,255,255,0.07); border: 2px solid rgba(255,255,255,0.12); border-radius: 10px; color: #fff; font-family: 'Inter', sans-serif; font-size: 15px; transition: border-color 0.3s ease; outline: none; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #e94560; }
+        .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+        .form-group select option { background: #1a1a2e; color: #fff; }
+        .form-group textarea { resize: vertical; min-height: 90px; }
+        .form-submit { width: 100%; padding: 18px; background: #e94560; color: #fff; border: none; border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 800; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-submit:hover { background: #d63d56; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(233,69,96,0.4); }
+        .form-note { text-align: center; margin-top: 16px; }
+        .form-note p { font-size: 13px; color: rgba(255,255,255,0.4); }
+        .form-guarantee { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; color: rgba(255,255,255,0.6); font-size: 13px; }
+
+        /* FAQ */
+        .faq-section { padding: 80px 24px; background: #f8f8fa; }
+        .faq-section h2 { text-align: center; font-size: 32px; font-weight: 900; margin-bottom: 40px; }
+        .faq-list { max-width: 780px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #e0e0e0; }
+        .faq-question { width: 100%; background: none; border: none; color: #1a1a2e; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; padding: 22px 40px 22px 0; text-align: left; cursor: pointer; position: relative; }
+        .faq-question::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 24px; font-weight: 300; color: #e94560; transition: transform 0.3s ease; }
+        .faq-question.active::after { transform: translateY(-50%) rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-answer.open { max-height: 400px; padding-bottom: 20px; }
+        .faq-answer p { font-size: 15px; color: #666; line-height: 1.8; }
+
+        /* Footer */
+        .footer { background: #0d0d1a; color: #fff; padding: 40px 24px; text-align: center; }
+        .footer p { font-size: 13px; opacity: 0.4; margin-bottom: 8px; }
+        .footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+        /* WhatsApp Float */
+        .whatsapp-float { position: fixed; bottom: 80px; right: 24px; z-index: 999; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s ease; text-decoration: none; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-sales { padding: 70px 16px 40px; }
+            .hero-sales h1 { font-size: 28px; }
+            .comparison { font-size: 13px; }
+            .comparison th, .comparison td { padding: 12px 8px; }
+            .cta-block { padding: 28px 20px; }
+            .btn-cta { padding: 16px 32px; font-size: 16px; }
+            .sticky-cta span { display: none; }
+            .urgency-bar { font-size: 12px; padding: 10px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Urgency Bar -->
+<div class="urgency-bar">
+    &#9888;&#65039; Ad aprile 2026 accettiamo solo <span id="spots-counter">7 nuovi clienti</span> &mdash; poi chiudiamo le candidature
+</div>
+
+<!-- Hero -->
+<section class="hero-sales">
+    <div class="content fade-up">
+        <p class="pretitle">Agenzia di Comunicazione e Marketing a Ragusa, Sicilia</p>
+        <h1>
+            BASTA Agenzie che Ti Prendono i Soldi e Spariscono.<br>
+            Ecco l'Unica Agenzia a Ragusa che Ti <span class="highlight">GARANTISCE Risultati Misurabili</span> <span class="red">o Non Paghi.</span>
+        </h1>
+        <p class="subhead">Sei stufo di pagare migliaia di euro all'anno per "creativita" che non ti porta <strong>UN SOLO cliente in piu</strong>? Leggi questa pagina fino in fondo. Potrebbe essere la decisione piu importante che prendi quest'anno per la tua azienda.</p>
+        <a href="#candidatura" class="btn-cta pulse">CANDIDATI ORA PER UNA CONSULENZA GRATUITA &#8594;</a>
+        <br>
+        <a href="tel:+39XXXXXXXXXX" class="btn-cta-outline">&#9742; Oppure chiamaci: +39 XXX XXX XXXX</a>
+    </div>
+</section>
+
+<!-- Sales Letter Body -->
+<section class="letter">
+    <div class="content">
+
+        <div class="fade-up">
+            <h2>Caro imprenditore di Ragusa,<br>ti devo dire una cosa scomoda.</h2>
+            <p>Se stai leggendo questa pagina, probabilmente ti riconosci in almeno una di queste situazioni:</p>
+            <ul class="error-list">
+                <li>Hai cambiato 3 agenzie in 5 anni e <strong>nessuna ti ha portato risultati concreti</strong></li>
+                <li>Paghi l'agenzia ogni mese ma <strong>non sai cosa fanno veramente</strong> con i tuoi soldi</li>
+                <li>Ti mandano report pieni di numeri che <strong>non capisci e non significano niente</strong></li>
+                <li>Quando li chiami <strong>non rispondono mai al telefono</strong>. Ti richiamano "quando possono"</li>
+                <li>Ti hanno promesso il mondo e poi <strong>si sono dimenticati di te</strong> dopo il primo mese</li>
+                <li>L'agenzia "grande" ti tratta come un <strong>cliente di serie B</strong> perche non spendi abbastanza</li>
+                <li>Il freelance costa poco ma poi <strong>sparisce per settimane</strong> senza darti spiegazioni</li>
+            </ul>
+            <p>Se hai annuito anche solo a uno di questi punti, sappi che <span class="hl">non e colpa tua</span>.</p>
+            <p>E colpa di un'industria malata dove il 90% delle agenzie vende fumo. Ti vendono "creativita", "visibilita", "engagement"... ma <strong>nessuno ti dice quanti CLIENTI ti hanno portato e quanto ti e costato ognuno</strong>.</p>
+        </div>
+
+        <div class="alert-box fade-up">
+            <h3>&#9888;&#65039; I 7 ERRORI FATALI che le Agenzie di Ragusa Fanno (e che Ti Costano Migliaia di Euro)</h3>
+            <p><strong>Errore #1:</strong> Ti vendono "pacchetti social" uguali per tutti. Il ristorante riceve lo stesso servizio del dentista. Assurdo.</p>
+            <p><strong>Errore #2:</strong> Non misurano NIENTE. Ti mostrano i "like" come se fossero soldi sul tuo conto corrente.</p>
+            <p><strong>Errore #3:</strong> Nessuna strategia. Pubblicano post a caso sperando che qualcosa funzioni.</p>
+            <p><strong>Errore #4:</strong> Zero trasparenza. Non sai dove vanno i tuoi soldi di advertising.</p>
+            <p><strong>Errore #5:</strong> Non conoscono il TUO settore. Fanno copia-incolla da un cliente all'altro.</p>
+            <p><strong>Errore #6:</strong> Non usano dati e tecnologia. Mentre il mondo va avanti con AI e automazione, loro sono fermi al 2015.</p>
+            <p><strong>Errore #7:</strong> Nessuna garanzia. Ti chiedono soldi ogni mese ma non si assumono MAI la responsabilita dei risultati.</p>
+        </div>
+
+        <div class="fade-up">
+            <h2>Le agenzie ti mostrano i "like".<br>Noi ti mostriamo i <span class="hl">SOLDI sul tuo conto corrente</span>.</h2>
+            <p>Lascia che mi presenti. Sono Emanuele Diquattro, fondatore di <strong>Studio 121</strong>, agenzia di comunicazione e marketing digitale a Ragusa.</p>
+            <p>E ti dico subito una cosa che nessun'altra agenzia a Ragusa ha il coraggio di dirti:</p>
+            <p style="font-size: 22px; font-weight: 800; text-align: center; padding: 20px; color: #e94560;"><em>"Se non ti portiamo risultati misurabili, non meriti di pagarci. Punto."</em></p>
+            <p>Non siamo l'ennesima agenzia che ti vende "il pacchetto social da 500 euro al mese" e poi sparisce. Siamo il partner strategico che si siede al tuo fianco, studia il tuo mercato, costruisce un piano d'attacco e <span class="hl">ti mostra esattamente quanti clienti ti ha portato e quanto ti e costato ognuno</span>.</p>
+        </div>
+
+        <div class="fade-up">
+            <h2>Ecco cosa ottieni lavorando con Studio 121<br>(e che NESSUN'altra agenzia a Ragusa ti da)</h2>
+            <ul class="benefit-list">
+                <li><strong>Report mensili in lingua umana:</strong> niente grafici incomprensibili. Numeri chiari: lead generati, costo per lead, vendite, ROI. Se tua nonna non lo capisce, non va bene.</li>
+                <li><strong>Un referente dedicato che RISPONDE AL TELEFONO:</strong> si, davvero. Una persona reale che conosce la tua azienda e che puoi chiamare quando vuoi.</li>
+                <li><strong>Strategia personalizzata al 100%:</strong> studiamo il TUO mercato, i TUOI competitor, il TUO cliente ideale. Zero copia-incolla.</li>
+                <li><strong>AI e automazione integrata:</strong> siamo tra le prime agenzie in Sicilia a usare l'intelligenza artificiale per ottimizzare campagne, creare contenuti e analizzare dati. Questo ti da un vantaggio sleale sui competitor.</li>
+                <li><strong>Nessun vincolo contrattuale lungo:</strong> se non sei soddisfatto, te ne vai. Non ti teniamo in ostaggio con contratti annuali.</li>
+                <li><strong>Trasparenza totale:</strong> sai esattamente dove va ogni euro del tuo budget pubblicitario. Dashboard in tempo reale.</li>
+                <li><strong>Focus su RISULTATI, non vanity metrics:</strong> non ci interessa quanti follower hai. Ci interessa quanti clienti entrano dalla porta.</li>
+            </ul>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="fade-up">
+            <h2>Il confronto che nessuno ha il coraggio di farti vedere</h2>
+            <table class="comparison">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>&#10060; Agenzia Tradizionale</th>
+                        <th>&#10004;&#65039; Studio 121</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Report</td>
+                        <td>PDF incomprensibile con grafici inutili</td>
+                        <td><strong>Numeri chiari: lead, vendite, ROI</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Risposta telefonica</td>
+                        <td>"Ti richiamo appena posso"</td>
+                        <td><strong>Risposta entro 2 ore, sempre</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Strategia</td>
+                        <td>Pacchetto uguale per tutti</td>
+                        <td><strong>Piano su misura per il tuo settore</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Tecnologia</td>
+                        <td>Fermi al 2015</td>
+                        <td><strong>AI e automazione integrate</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Contratto</td>
+                        <td>Vincolo 12 mesi</td>
+                        <td><strong>Nessun vincolo, esci quando vuoi</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Garanzia risultati</td>
+                        <td><span class="cross">&#10060;</span> Zero</td>
+                        <td><span class="check">&#10004;</span> <strong>Garanzia 90 giorni</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Trasparenza budget</td>
+                        <td>"Fidati di noi"</td>
+                        <td><strong>Dashboard in tempo reale</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Conoscenza territorio</td>
+                        <td>Sede a Roma/Milano, non sanno dove sei</td>
+                        <td><strong>Siamo di Ragusa, conosciamo il mercato</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="fade-up">
+            <h2>Ma non credere a me. Ascolta chi ci ha provato.</h2>
+
+            <div class="testimonial">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>"Avevo speso 15.000 euro in due anni con un'agenzia che mi mandava report che non capivo. Con Studio 121 in 3 mesi ho capito esattamente quanto mi costa ogni cliente. Ora investo il doppio perche SO che funziona. Il mese scorso il sito mi ha generato 38 richieste di preventivo."</p>
+                <div class="author">Marco Rossi <span>- Titolare, Rossi Edilizia, Ragusa</span></div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>"La differenza? Mi rispondono al telefono. Sembra banale ma dopo 3 agenzie che sparivano, per me e stato rivoluzionario. E poi i numeri: prenotazioni online +180% in 4 mesi. Non like, non follower: PRENOTAZIONI REALI di persone che vengono a mangiare."</p>
+                <div class="author">Giovanna Catania <span>- Direttrice, Hotel Antica Ibla, Ragusa</span></div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>"Gestisco un e-commerce di prodotti tipici siciliani. Tre freelance diversi mi avevano 'fatto il sito' ma non vendeva niente. Studio 121 ha rifatto tutto: sito, campagne, email marketing. In 6 mesi: da zero a 150 ordini al mese. E il bello? So esattamente quanto mi costa ogni ordine."</p>
+                <div class="author">Salvatore Barone <span>- Fondatore, Sapori di Sicilia, Ragusa</span></div>
+            </div>
+        </div>
+
+        <!-- Guarantee -->
+        <div class="guarantee-box fade-up">
+            <div class="guarantee-icon">&#128170;</div>
+            <h2>LA NOSTRA GARANZIA:<br>"Risultati Misurabili o Rimborsati"</h2>
+            <p style="font-size: 18px; max-width: 600px; margin: 16px auto; color: #333;">Se dopo 90 giorni di lavoro insieme non vedi <strong>risultati misurabili e documentabili</strong> (piu lead, piu vendite, piu prenotazioni), <span class="hl-red">ti rimborsiamo tutto. Punto.</span></p>
+            <p style="font-size: 15px; color: #555;">Nessuna clausola nascosta. Nessun "dipende". Nessun "eh ma il mercato...". O funziona o ti restituiamo i soldi. Quante agenzie a Ragusa (o in tutta la Sicilia) hanno il coraggio di offrirti questa garanzia?</p>
+        </div>
+
+        <!-- Scarcity -->
+        <div class="scarcity fade-up">
+            <h4>&#9888;&#65039; Attenzione: posti limitati</h4>
+            <div class="counter" id="spots-number">7</div>
+            <p>candidature ancora aperte per aprile 2026. Quando siamo pieni, chiudiamo. Non per fare i preziosi: per garantire a ogni cliente la qualita che merita.</p>
+        </div>
+
+        <div class="fade-up">
+            <p style="font-size: 19px; font-weight: 700; text-align: center; color: #1a1a2e;">Mentre tu leggi questa pagina, i tuoi concorrenti stanno investendo per rubarti clienti.</p>
+            <p style="text-align: center;">Ogni giorno che rimandi e un giorno in cui perdi terreno. La domanda non e "posso permettermelo?". La domanda e: <strong>"posso permettermi di NON farlo?"</strong></p>
+        </div>
+
+        <!-- CTA Block -->
+        <div class="cta-block fade-up">
+            <h3>Smetti di Buttare Soldi. Inizia a Investire.</h3>
+            <p>Richiedi ora la tua consulenza strategica gratuita (valore 297 euro)</p>
+            <div class="spots">Solo 7 posti disponibili questo mese</div>
+            <a href="#candidatura" class="btn-cta pulse">CANDIDATI ORA &#8594;</a>
+        </div>
+
+        <!-- PS Section -->
+        <div class="ps-section fade-up">
+            <p><strong>P.S.</strong> - So cosa stai pensando: "Sara l'ennesima agenzia che promette e non mantiene". Ed e giusto che tu sia scettico: te lo sei guadagnato con le fregature passate. Per questo offriamo la garanzia "Risultati o Rimborsati". <strong>Il rischio e tutto nostro, non tuo.</strong> L'unico rischio per te e non provarci e scoprire tra 6 mesi che i tuoi concorrenti ci hanno chiamato prima di te.</p>
+            <p style="margin-top: 16px;"><strong>P.P.S.</strong> - Ogni mese riceviamo piu richieste di quelle che possiamo gestire. Non lo dico per vantarmi: lo dico perche se ti interessa, e meglio che ti fai avanti ORA. Non tra una settimana, non "dopo le vacanze". <strong>Adesso.</strong> <a href="#candidatura" style="color: #e94560; font-weight: 800;">Candidati qui.</a></p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Form -->
+<section class="form-section" id="candidatura">
+    <div class="form-container fade-up">
+        <h2 style="color: #fff;">Candidati per una Consulenza Gratuita</h2>
+        <p class="form-sub">Compila il modulo qui sotto. Ti ricontattiamo entro 24 ore per capire se possiamo aiutarti.</p>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome e Cognome *</label>
+                <input type="text" id="nome" name="nome" placeholder="Il tuo nome completo" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email aziendale *</label>
+                <input type="email" id="email" name="email" placeholder="nome@tuaazienda.it" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Telefono *</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="+39 XXX XXX XXXX" required>
+            </div>
+            <div class="form-group">
+                <label for="servizio">Di cosa hai bisogno?</label>
+                <select id="servizio" name="servizio">
+                    <option value="">Seleziona...</option>
+                    <option value="piu-clienti">Voglio piu clienti</option>
+                    <option value="sito-web">Ho bisogno di un sito che converte</option>
+                    <option value="social-ads">Voglio campagne pubblicitarie che funzionano</option>
+                    <option value="branding">Devo rifare il mio brand</option>
+                    <option value="tutto">Ho bisogno di tutto: strategia completa</option>
+                    <option value="altro">Altro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="messaggio">Raccontaci la tua situazione (facoltativo)</label>
+                <textarea id="messaggio" name="messaggio" placeholder="Quali sono le tue sfide piu grandi? Cosa hai provato finora? Quali risultati vorresti ottenere?"></textarea>
+            </div>
+            <button type="submit" class="form-submit">INVIA LA TUA CANDIDATURA &#8594;</button>
+            <div class="form-note">
+                <p>&#128274; I tuoi dati sono protetti e non verranno condivisi con nessuno.</p>
+            </div>
+            <div class="form-guarantee">
+                &#9989; Consulenza gratuita &bull; &#9989; Garanzia 90 giorni &bull; &#9989; Nessun vincolo
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+    <h2>Domande Frequenti</h2>
+    <div class="faq-list">
+        <div class="faq-item fade-up">
+            <button class="faq-question" onclick="toggleFaq(this)">Cosa intendete con "risultati misurabili"?</button>
+            <div class="faq-answer">
+                <p>Numeri concreti che impattano il tuo fatturato: numero di lead (richieste di contatto/preventivo), costo per acquisizione cliente, tasso di conversione del sito, vendite generate. Non parliamo di like, impression o "reach". Parliamo di soldi.</p>
+            </div>
+        </div>
+        <div class="faq-item fade-up">
+            <button class="faq-question" onclick="toggleFaq(this)">Come funziona la garanzia "Risultati o Rimborsati"?</button>
+            <div class="faq-answer">
+                <p>Semplice: definiamo insieme degli obiettivi misurabili prima di iniziare. Se dopo 90 giorni non li raggiungiamo, ti restituiamo l'intero importo pagato per i nostri servizi. Nessuna clausola nascosta, nessuna scusa.</p>
+            </div>
+        </div>
+        <div class="faq-item fade-up">
+            <button class="faq-question" onclick="toggleFaq(this)">Quanto costa lavorare con voi?</button>
+            <div class="faq-answer">
+                <p>Dipende dai tuoi obiettivi e dalla tua situazione. Non abbiamo "pacchetti" uguali per tutti. Dopo la consulenza gratuita ti presentiamo un piano con costi chiari e ROI atteso. I nostri clienti investono mediamente da 500 a 3.000 euro/mese, ma ogni caso e diverso.</p>
+            </div>
+        </div>
+        <div class="faq-item fade-up">
+            <button class="faq-question" onclick="toggleFaq(this)">Perche accettate solo 10 clienti al mese?</button>
+            <div class="faq-answer">
+                <p>Perche ogni cliente merita un team dedicato e un'attenzione maniacale. Se prendessimo tutti, diventerebbe la catena di montaggio che critichiamo. Preferiamo meno clienti ma risultati eccezionali per ognuno.</p>
+            </div>
+        </div>
+        <div class="faq-item fade-up">
+            <button class="faq-question" onclick="toggleFaq(this)">Quanto tempo ci vuole per vedere risultati?</button>
+            <div class="faq-answer">
+                <p>Con le campagne Google Ads: i primi contatti arrivano in 1-2 settimane. Con il social media marketing: risultati significativi in 60-90 giorni. Con la SEO: 3-6 mesi per il posizionamento organico. Ti diamo sempre tempistiche realistiche, mai promesse irrealizzabili.</p>
+            </div>
+        </div>
+        <div class="faq-item fade-up">
+            <button class="faq-question" onclick="toggleFaq(this)">Lavorate anche con aziende piccole?</button>
+            <div class="faq-answer">
+                <p>Assolutamente si. Anzi, le PMI sono il nostro cliente ideale. Non ti trattiamo come un "cliente piccolo" perche per noi non esistono clienti piccoli: esistono aziende con grandi ambizioni che meritano un partner all'altezza.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="content">
+        <p style="font-size: 20px; font-weight: 800; opacity: 1; margin-bottom: 16px;">Studio <span style="color: #e94560;">121</span></p>
+        <p>Agenzia di Comunicazione e Marketing Digitale</p>
+        <p>Via Example 121, 97100 Ragusa (RG) - Sicilia</p>
+        <p>P.IVA: XXXXXXXXXXX</p>
+        <p style="margin-top: 16px;"><a href="tel:+39XXXXXXXXXX">+39 XXX XXX XXXX</a> | <a href="mailto:info@studio121.it">info@studio121.it</a></p>
+        <p style="margin-top: 16px;"><a href="#">Privacy Policy</a> | <a href="#">Cookie Policy</a></p>
+        <p style="margin-top: 24px;">&copy; 2026 Studio 121 S.r.l. - Tutti i diritti riservati</p>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/39XXXXXXXXXX" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Scrivici su WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta" id="stickyCta">
+    <span>&#9888;&#65039; Solo 7 posti rimasti</span>
+    <a href="#candidatura">CANDIDATI ORA &#8594;</a>
+</div>
+
+<script>
+// Sticky CTA show on scroll
+(function() {
+    var sticky = document.getElementById('stickyCta');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 600) {
+            sticky.classList.add('show');
+        } else {
+            sticky.classList.remove('show');
+        }
+    });
+})();
+
+// IntersectionObserver animations
+(function() {
+    var elements = document.querySelectorAll('.fade-up');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    elements.forEach(function(el) { observer.observe(el); });
+})();
+
+// FAQ toggle
+function toggleFaq(button) {
+    var answer = button.nextElementSibling;
+    var isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.remove('open'); });
+    document.querySelectorAll('.faq-question').forEach(function(q) { q.classList.remove('active'); });
+    if (!isOpen) {
+        answer.classList.add('open');
+        button.classList.add('active');
+    }
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+</script>
+</body>
+</html>

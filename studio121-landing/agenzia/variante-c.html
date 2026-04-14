@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenzia Comunicazione Ragusa | Studio 121 - La Tua Agenzia di Fiducia in Sicilia</title>
+    <meta name="description" content="Studio 121: agenzia di comunicazione e marketing digitale a Ragusa, Sicilia. Conosciamo il territorio, le tue sfide e i tuoi clienti. Scopri come aiutiamo le imprese ragusane a crescere.">
+    <meta name="keywords" content="agenzia comunicazione ragusa, agenzia marketing ragusa, agenzia comunicazione sicilia, agenzia digitale ragusa, marketing sicilia, comunicazione ragusa ibla">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.studio121.it/agenzia-comunicazione-ragusa-sicilia">
+    <meta property="og:title" content="Agenzia Comunicazione Ragusa | Studio 121 - Siamo di Qui">
+    <meta property="og:description" content="L'agenzia di comunicazione che conosce Ragusa come le sue tasche. Turismo, food, professionisti: sappiamo come far crescere la tua impresa.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://www.studio121.it",
+        "name": "Studio 121",
+        "description": "Agenzia di comunicazione e marketing digitale a Ragusa, Sicilia. La tua agenzia di fiducia nel territorio.",
+        "url": "https://www.studio121.it",
+        "telephone": "+39XXXXXXXXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Example 121",
+            "addressLocality": "Ragusa",
+            "addressRegion": "RG",
+            "postalCode": "97100",
+            "addressCountry": "IT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "36.9269",
+            "longitude": "14.7255"
+        },
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Ragusa"
+            },
+            {
+                "@type": "State",
+                "name": "Sicilia"
+            }
+        ],
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": [
+            "https://www.facebook.com/studio121",
+            "https://www.instagram.com/studio121",
+            "https://www.linkedin.com/company/studio121"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "47"
+        }
+    }
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #ffffff; line-height: 1.7; overflow-x: hidden; }
+
+        /* Animations */
+        .fade-up { opacity: 0; transform: translateY(35px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-left { opacity: 0; transform: translateX(-35px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-left.visible { opacity: 1; transform: translateX(0); }
+        .fade-right { opacity: 0; transform: translateX(35px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-right.visible { opacity: 1; transform: translateX(0); }
+        .scale-in { opacity: 0; transform: scale(0.92); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .scale-in.visible { opacity: 1; transform: scale(1); }
+
+        /* Navbar */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 0; transition: background 0.3s ease, box-shadow 0.3s ease; }
+        .navbar.scrolled { background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-size: 24px; font-weight: 800; color: #1a1a2e; text-decoration: none; letter-spacing: -0.5px; }
+        .navbar:not(.scrolled) .nav-logo { color: #fff; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a { color: rgba(26,26,46,0.7); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
+        .navbar:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.8); }
+        .nav-links a:hover { color: #e94560; }
+        .nav-cta { background: #e94560; color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s ease; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(233,69,96,0.4); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
+        .hamburger span { width: 24px; height: 2px; background: #1a1a2e; transition: all 0.3s ease; }
+        .navbar:not(.scrolled) .hamburger span { background: #fff; }
+
+        /* Hero with local photo placeholder */
+        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+        .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, #1a1a2e 0%, #2d2d4e 50%, #1a1a2e 100%); }
+        .hero-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800"><rect fill="%231a1a2e" width="1440" height="800"/><text x="720" y="380" font-family="Inter,sans-serif" font-size="18" fill="%23ffffff20" text-anchor="middle">[ Foto panoramica di Ragusa Ibla ]</text><text x="720" y="420" font-family="Inter,sans-serif" font-size="14" fill="%23ffffff15" text-anchor="middle">Inserire immagine 1920x1080 di Ragusa Ibla al tramonto</text></svg>') center/cover no-repeat; opacity: 0.3; }
+        .hero-bg::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(26,26,46,0.3) 0%, rgba(26,26,46,0.7) 60%, rgba(26,26,46,0.95) 100%); }
+        .hero-content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 140px 24px 100px; width: 100%; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(233,69,96,0.15); color: #e94560; padding: 8px 20px; border-radius: 50px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 24px; border: 1px solid rgba(233,69,96,0.3); }
+        .hero-badge .dot { width: 8px; height: 8px; background: #e94560; border-radius: 50%; }
+        .hero h1 { font-size: clamp(34px, 5vw, 56px); font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 24px; letter-spacing: -1.5px; max-width: 750px; }
+        .hero h1 span { background: linear-gradient(135deg, #e94560, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero .subtitle { font-size: 19px; color: rgba(255,255,255,0.75); margin-bottom: 40px; max-width: 580px; line-height: 1.8; }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 60px; }
+        .btn-primary { background: #e94560; color: #fff; padding: 16px 36px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s ease; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(233,69,96,0.4); background: #d63d56; }
+        .btn-outline-white { background: transparent; color: #fff; padding: 16px 36px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 16px; border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-outline-white:hover { border-color: #e94560; color: #e94560; }
+
+        /* Trust badges in hero */
+        .hero-trust { display: flex; gap: 32px; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.7); font-size: 14px; }
+        .trust-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+
+        /* Sections */
+        .section { padding: 100px 24px; }
+        .section-light { background: #ffffff; }
+        .section-warm { background: #faf9f7; }
+        .section-dark { background: #1a1a2e; color: #fff; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-header .badge { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+        .section-dark .section-header .badge { background: rgba(233,69,96,0.2); }
+        .section-header h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
+        .section-header p { font-size: 17px; color: #666; max-width: 600px; margin: 0 auto; }
+        .section-dark .section-header p { color: rgba(255,255,255,0.6); }
+
+        /* Map / Client Area */
+        .map-section { position: relative; }
+        .map-visual { background: linear-gradient(135deg, #f0ebe3, #e8e0d4); border-radius: 24px; padding: 60px 40px; text-align: center; position: relative; overflow: hidden; min-height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .map-visual::before { content: '[ Mappa stilizzata della provincia di Ragusa con pin dei clienti serviti ]'; display: block; color: #999; font-size: 16px; font-style: italic; margin-bottom: 32px; }
+        .map-stats { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; }
+        .map-stat { text-align: center; }
+        .map-stat .number { font-size: 48px; font-weight: 900; color: #e94560; }
+        .map-stat .label { font-size: 14px; color: #777; font-weight: 500; }
+        .city-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 32px; }
+        .city-tag { background: #fff; padding: 8px 18px; border-radius: 50px; font-size: 13px; font-weight: 600; color: #1a1a2e; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .city-tag.active { background: #e94560; color: #fff; }
+
+        /* Sectors */
+        .sectors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+        .sector-card { background: #fff; border-radius: 20px; padding: 40px 32px; border: 1px solid #f0f0f0; transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .sector-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.06); border-color: #e94560; }
+        .sector-icon { width: 64px; height: 64px; background: linear-gradient(135deg, rgba(233,69,96,0.08), rgba(233,69,96,0.15)); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; font-size: 28px; }
+        .sector-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #1a1a2e; }
+        .sector-card p { font-size: 15px; color: #666; line-height: 1.7; }
+        .sector-stat { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 13px; font-weight: 600; color: #e94560; }
+
+        /* Case Study */
+        .case-study { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .case-visual { background: linear-gradient(135deg, #1a1a2e, #2d2d4e); border-radius: 24px; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); font-size: 14px; padding: 40px; text-align: center; position: relative; overflow: hidden; }
+        .case-visual .case-badge { position: absolute; top: 20px; left: 20px; background: #e94560; color: #fff; padding: 6px 14px; border-radius: 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .case-info .badge { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 6px 14px; border-radius: 50px; font-size: 12px; font-weight: 600; margin-bottom: 16px; }
+        .case-info h3 { font-size: 28px; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+        .case-info p { font-size: 16px; color: #555; margin-bottom: 16px; }
+        .case-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+        .case-result { text-align: center; padding: 20px; background: #faf9f7; border-radius: 12px; }
+        .case-result .value { font-size: 28px; font-weight: 900; color: #e94560; }
+        .case-result .desc { font-size: 12px; color: #777; margin-top: 4px; }
+
+        /* Testimonials */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
+        .testimonial-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 36px; transition: all 0.3s ease; }
+        .testimonial-card:hover { border-color: rgba(233,69,96,0.3); transform: translateY(-4px); }
+        .testimonial-stars { color: #f9a825; font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+        .testimonial-text { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 24px; font-style: italic; }
+        .testimonial-author { display: flex; align-items: center; gap: 14px; }
+        .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #e94560, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: #fff; }
+        .testimonial-name { font-weight: 700; font-size: 15px; color: #fff; }
+        .testimonial-role { font-size: 13px; color: rgba(255,255,255,0.5); }
+
+        /* Numbers */
+        .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; text-align: center; }
+        .number-card { padding: 32px 20px; }
+        .number-value { font-size: 52px; font-weight: 900; background: linear-gradient(135deg, #e94560, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+        .number-label { font-size: 15px; color: #666; margin-top: 8px; font-weight: 500; }
+
+        /* Form */
+        .form-section { background: linear-gradient(135deg, #1a1a2e, #16213e); color: #fff; }
+        .form-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .form-info h2 { font-size: clamp(28px, 4vw, 38px); font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .form-info p { font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 28px; line-height: 1.8; }
+        .form-benefits { list-style: none; }
+        .form-benefits li { display: flex; align-items: center; gap: 12px; padding: 10px 0; font-size: 15px; color: rgba(255,255,255,0.85); }
+        .form-benefits li::before { content: '\2713'; width: 28px; height: 28px; background: rgba(233,69,96,0.15); color: #e94560; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+        .form-local { display: flex; align-items: center; gap: 12px; margin-top: 28px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); }
+        .form-local-icon { font-size: 32px; }
+        .form-local p { font-size: 14px; color: rgba(255,255,255,0.6); }
+        .form-local strong { color: #e94560; }
+        .form-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px; }
+        .form-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; text-align: center; }
+        .form-card .form-subtitle { font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; margin-bottom: 28px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: rgba(255,255,255,0.8); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; color: #fff; font-family: 'Inter', sans-serif; font-size: 15px; transition: border-color 0.3s ease; outline: none; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #e94560; }
+        .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+        .form-group select option { background: #1a1a2e; color: #fff; }
+        .form-group textarea { resize: vertical; min-height: 90px; }
+        .form-submit { width: 100%; padding: 16px; background: #e94560; color: #fff; border: none; border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .form-submit:hover { background: #d63d56; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(233,69,96,0.3); }
+        .form-disclaimer { font-size: 12px; color: rgba(255,255,255,0.35); text-align: center; margin-top: 16px; }
+
+        /* FAQ */
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #eee; }
+        .faq-question { width: 100%; background: none; border: none; color: #1a1a2e; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; padding: 24px 40px 24px 0; text-align: left; cursor: pointer; position: relative; }
+        .faq-question::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 24px; font-weight: 300; color: #e94560; transition: transform 0.3s ease; }
+        .faq-question.active::after { transform: translateY(-50%) rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-answer.open { max-height: 300px; padding-bottom: 24px; }
+        .faq-answer p { font-size: 15px; color: #666; line-height: 1.8; }
+
+        /* Footer */
+        .footer { background: #0d0d1a; color: #fff; padding: 60px 24px 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand p { font-size: 14px; opacity: 0.5; margin-top: 12px; max-width: 300px; }
+        .footer h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; color: #e94560; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.3s ease; }
+        .footer ul a:hover { color: #e94560; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-bottom p { font-size: 13px; opacity: 0.4; }
+
+        /* WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s ease; text-decoration: none; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .case-study { grid-template-columns: 1fr; }
+            .case-visual { order: -1; }
+            .form-wrapper { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero-trust { gap: 20px; }
+        }
+        @media (max-width: 640px) {
+            .section { padding: 70px 20px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .btn-primary, .btn-outline-white { justify-content: center; }
+            .sectors-grid, .testimonials-grid { grid-template-columns: 1fr; }
+            .case-results { grid-template-columns: 1fr; }
+            .numbers-grid { grid-template-columns: 1fr 1fr; }
+            .map-stats { gap: 24px; }
+            .hero-trust { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#" class="nav-logo">Studio <span>121</span></a>
+        <ul class="nav-links">
+            <li><a href="#territorio">Il territorio</a></li>
+            <li><a href="#settori">Settori</a></li>
+            <li><a href="#caso-studio">Caso studio</a></li>
+            <li><a href="#testimonianze">Recensioni</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+        <a href="#contatti" class="nav-cta">Richiedi Preventivo</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <div class="fade-up">
+            <div class="hero-badge"><span class="dot"></span> Agenzia di comunicazione a Ragusa, Sicilia</div>
+            <h1>La tua agenzia di comunicazione e di Ragusa. <span>Come te.</span></h1>
+            <p class="subtitle">Conosciamo il territorio, le sfide delle imprese locali e cosa serve davvero per crescere nella provincia di Ragusa. Non siamo un'agenzia di Milano che non sa dove sei sulla cartina. Siamo qui, al tuo fianco.</p>
+            <div class="hero-actions">
+                <a href="#contatti" class="btn-primary">Richiedi Preventivo Gratuito &#8594;</a>
+                <a href="tel:+39XXXXXXXXXX" class="btn-outline-white">&#9742; Chiamaci: +39 XXX XXX XXXX</a>
+            </div>
+        </div>
+        <div class="hero-trust fade-up" style="transition-delay: 0.3s;">
+            <div class="trust-item">
+                <div class="trust-icon">&#127968;</div>
+                <span>Sede a Ragusa</span>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">&#128188;</div>
+                <span>150+ progetti locali</span>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">&#128200;</div>
+                <span>Risultati misurabili</span>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">&#129309;</div>
+                <span>Referente dedicato</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mappa Clienti Serviti -->
+<section class="section section-warm" id="territorio">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">Il Nostro Territorio</div>
+            <h2>Abbiamo aiutato imprese in tutta la provincia di Ragusa</h2>
+            <p>Dal centro storico di Ibla alle campagne di Vittoria, conosciamo ogni angolo di questo territorio.</p>
+        </div>
+        <div class="map-visual fade-up">
+            <div class="map-stats">
+                <div class="map-stat">
+                    <div class="number">150+</div>
+                    <div class="label">Progetti completati</div>
+                </div>
+                <div class="map-stat">
+                    <div class="number">12</div>
+                    <div class="label">Comuni serviti</div>
+                </div>
+                <div class="map-stat">
+                    <div class="number">18</div>
+                    <div class="label">Settori diversi</div>
+                </div>
+                <div class="map-stat">
+                    <div class="number">10+</div>
+                    <div class="label">Anni sul territorio</div>
+                </div>
+            </div>
+            <div class="city-tags">
+                <span class="city-tag active">Ragusa</span>
+                <span class="city-tag">Modica</span>
+                <span class="city-tag">Vittoria</span>
+                <span class="city-tag">Comiso</span>
+                <span class="city-tag">Ispica</span>
+                <span class="city-tag">Scicli</span>
+                <span class="city-tag">Pozzallo</span>
+                <span class="city-tag">Santa Croce</span>
+                <span class="city-tag">Chiaramonte</span>
+                <span class="city-tag">Monterosso</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Settori di Specializzazione -->
+<section class="section section-light" id="settori">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">Settori di Specializzazione</div>
+            <h2>Conosciamo il tuo settore perche ci lavoriamo ogni giorno</h2>
+            <p>Non siamo generalisti che trattano tutti allo stesso modo. Abbiamo esperienza specifica nei settori chiave del territorio ragusano.</p>
+        </div>
+        <div class="sectors-grid">
+            <div class="sector-card fade-up">
+                <div class="sector-icon">&#127869;</div>
+                <h3>Ristorazione &amp; Food</h3>
+                <p>Ristoranti, trattorie, pasticcerie, produttori di cioccolato modicano, cantine vinicole. Sappiamo come portare turisti e locali ai tuoi tavoli con foto che fanno venire l'acquolina, menu digitali e campagne geolocalizzate.</p>
+                <span class="sector-stat">&#8593; +180% prenotazioni online in media</span>
+            </div>
+            <div class="sector-card fade-up" style="transition-delay: 0.1s;">
+                <div class="sector-icon">&#127960;</div>
+                <h3>Turismo &amp; Hospitality</h3>
+                <p>Hotel, B&amp;B, agriturismi, tour operator. Ragusa Ibla, il barocco, il mare di Punta Secca: abbiamo tutte le chiavi per attrarre turisti italiani e internazionali con strategie multilingue e SEO locale.</p>
+                <span class="sector-stat">&#8593; 3.2x ROI medio campagne turistiche</span>
+            </div>
+            <div class="sector-card fade-up" style="transition-delay: 0.2s;">
+                <div class="sector-icon">&#128138;</div>
+                <h3>Professionisti &amp; Studi</h3>
+                <p>Dentisti, avvocati, commercialisti, medici, architetti. Aiutiamo i professionisti di Ragusa a costruire un'immagine autorevole online e a generare appuntamenti con campagne mirate.</p>
+                <span class="sector-stat">&#8593; 42 lead/mese per studio medio</span>
+            </div>
+            <div class="sector-card fade-up" style="transition-delay: 0.3s;">
+                <div class="sector-icon">&#128736;</div>
+                <h3>Artigianato &amp; PMI</h3>
+                <p>Edilizia, impiantistica, falegnameria, sartoria, ceramica. Le eccellenze artigiane ragusane meritano una comunicazione all'altezza. Ti facciamo trovare da chi cerca i tuoi servizi.</p>
+                <span class="sector-stat">&#8593; -65% costo per lead vs media</span>
+            </div>
+            <div class="sector-card fade-up" style="transition-delay: 0.4s;">
+                <div class="sector-icon">&#128722;</div>
+                <h3>Retail &amp; E-commerce</h3>
+                <p>Negozi, boutique, enogastronomie, prodotti tipici siciliani online. Dalla vetrina fisica allo shop digitale: ti accompagniamo nella transizione con siti veloci e strategie omnichannel.</p>
+                <span class="sector-stat">&#8593; Da 0 a 150 ordini/mese</span>
+            </div>
+            <div class="sector-card fade-up" style="transition-delay: 0.5s;">
+                <div class="sector-icon">&#127806;</div>
+                <h3>Agroalimentare</h3>
+                <p>Aziende agricole, frantoi, caseifici, produttori DOP. Il ragusano ha eccellenze uniche: olio, formaggio, vino, miele. Ti aiutiamo a vendere online e a raccontare la tua storia.</p>
+                <span class="sector-stat">&#8593; +95% visibilita brand online</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Caso Studio Locale -->
+<section class="section section-warm" id="caso-studio">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">Caso Studio</div>
+            <h2>Come abbiamo trasformato un ristorante di Ragusa Ibla</h2>
+            <p>Risultati reali, numeri veri, per un'attivita del nostro territorio.</p>
+        </div>
+        <div class="case-study">
+            <div class="case-visual scale-in">
+                <div class="case-badge">Caso Studio Reale</div>
+                <p>[ Screenshot del sito e delle campagne ]</p>
+                <p style="margin-top: 12px;">Inserire immagine del progetto</p>
+            </div>
+            <div class="case-info fade-right">
+                <div class="badge">Ristorazione - Ragusa Ibla</div>
+                <h3>Da "nessuno ci trova online" a 38 prenotazioni al giorno</h3>
+                <p>Un ristorante storico nel cuore di Ibla con ottimo cibo ma zero presenza digitale. I turisti passavano davanti senza entrare perche non lo trovavano su Google.</p>
+                <p><strong>Cosa abbiamo fatto:</strong> Rebranding completo, sito web con prenotazione online, profilo Google My Business ottimizzato, campagne Google Ads geolocalizzate per turisti, gestione social con foto professionali dei piatti.</p>
+                <p><strong>Il risultato?</strong> In soli 3 mesi, il ristorante e passato da 5-6 prenotazioni online al mese a una media di 38 al giorno. Il proprietario ha dovuto assumere personale.</p>
+                <div class="case-results">
+                    <div class="case-result">
+                        <div class="value">+540%</div>
+                        <div class="desc">Prenotazioni online</div>
+                    </div>
+                    <div class="case-result">
+                        <div class="value">4.8/5</div>
+                        <div class="desc">Rating Google</div>
+                    </div>
+                    <div class="case-result">
+                        <div class="value">2.1x</div>
+                        <div class="desc">ROI investimento</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonianze -->
+<section class="section section-dark" id="testimonianze">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">Testimonianze</div>
+            <h2>Cosa dicono gli imprenditori ragusani</h2>
+            <p>Le parole di chi lavora con noi ogni giorno, nel nostro stesso territorio.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-up">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Finalmente un'agenzia che capisce come funzionano le cose qui a Ragusa. Non devo spiegare ogni volta chi sono i miei clienti o come funziona il mio settore. Lo sanno gia, perche sono di qui. E i risultati si vedono: il sito genera contatti ogni giorno."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MR</div>
+                    <div>
+                        <div class="testimonial-name">Marco Rossi</div>
+                        <div class="testimonial-role">Titolare, Rossi Edilizia - Ragusa</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-up" style="transition-delay: 0.1s;">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Avevo provato con un'agenzia di Milano. Non capivano niente del nostro territorio, dei turisti che vengono qui, della stagionalita. Studio 121 ha creato campagne che parlano al turista giusto al momento giusto. Le prenotazioni sono esplose."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">GC</div>
+                    <div>
+                        <div class="testimonial-name">Giovanna Catania</div>
+                        <div class="testimonial-role">Direttrice, Hotel Antica Ibla - Ragusa</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-up" style="transition-delay: 0.2s;">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Vendo prodotti tipici siciliani online. Le agenzie 'grandi' mi trattavano come un cliente di serie B. Studio 121 ha capito il valore dei nostri prodotti e ha costruito un e-commerce che racconta la nostra storia. 150 ordini al mese e clienti in tutta Italia."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SB</div>
+                    <div>
+                        <div class="testimonial-name">Salvatore Barone</div>
+                        <div class="testimonial-role">Fondatore, Sapori di Sicilia - Ragusa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Numeri -->
+<section class="section section-light" id="numeri">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">I Nostri Numeri</div>
+            <h2>Risultati concreti, non promesse</h2>
+            <p>Numeri reali delle nostre attivita per imprese della provincia di Ragusa.</p>
+        </div>
+        <div class="numbers-grid">
+            <div class="number-card fade-up">
+                <div class="number-value">150+</div>
+                <div class="number-label">Progetti completati a Ragusa e provincia</div>
+            </div>
+            <div class="number-card fade-up" style="transition-delay: 0.1s;">
+                <div class="number-value">98%</div>
+                <div class="number-label">Tasso di soddisfazione clienti</div>
+            </div>
+            <div class="number-card fade-up" style="transition-delay: 0.2s;">
+                <div class="number-value">3.2x</div>
+                <div class="number-label">ROI medio delle nostre campagne</div>
+            </div>
+            <div class="number-card fade-up" style="transition-delay: 0.3s;">
+                <div class="number-value">24h</div>
+                <div class="number-label">Tempo medio di risposta</div>
+            </div>
+            <div class="number-card fade-up" style="transition-delay: 0.4s;">
+                <div class="number-value">90%</div>
+                <div class="number-label">Clienti che rinnovano ogni anno</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Form Contatti -->
+<section class="section form-section" id="contatti">
+    <div class="container">
+        <div class="form-wrapper">
+            <div class="form-info fade-left">
+                <h2>Ci vediamo per un caffe?</h2>
+                <p>Siamo a Ragusa, a due passi da te. Possiamo vederci di persona, parlare al telefono o in videochiamata. Come preferisci tu. Iniziamo con una consulenza gratuita per capire come possiamo aiutarti.</p>
+                <ul class="form-benefits">
+                    <li>Consulenza iniziale gratuita e senza impegno</li>
+                    <li>Analisi del tuo mercato locale inclusa</li>
+                    <li>Piano personalizzato per il tuo settore</li>
+                    <li>Nessun vincolo contrattuale lungo</li>
+                    <li>Possibilita di incontro di persona a Ragusa</li>
+                </ul>
+                <div class="form-local">
+                    <div class="form-local-icon">&#128205;</div>
+                    <div>
+                        <p><strong>Vieni a trovarci</strong></p>
+                        <p>Via Example 121, Ragusa (RG) - Lun-Ven 9:00-18:00</p>
+                    </div>
+                </div>
+                <div style="margin-top: 24px;">
+                    <a href="tel:+39XXXXXXXXXX" style="color: #e94560; text-decoration: none; font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 8px;">&#9742; +39 XXX XXX XXXX</a>
+                </div>
+            </div>
+            <div class="form-card fade-right">
+                <h3>Richiedi Preventivo Gratuito</h3>
+                <p class="form-subtitle">Compila il form, ti ricontattiamo entro 24 ore</p>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nome">Nome e Cognome *</label>
+                        <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="la-tua@email.it" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Telefono *</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+39 XXX XXX XXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="servizio">Servizio di interesse</label>
+                        <select id="servizio" name="servizio">
+                            <option value="">Seleziona un servizio...</option>
+                            <option value="sito-web">Sito Web / E-commerce</option>
+                            <option value="social-media">Social Media Management</option>
+                            <option value="advertising">Google Ads &amp; Social Ads</option>
+                            <option value="branding">Branding &amp; Identita Visiva</option>
+                            <option value="strategia">Strategia di Marketing Completa</option>
+                            <option value="seo">SEO &amp; Visibilita Online</option>
+                            <option value="altro">Altro / Non so ancora</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="messaggio">Raccontaci il tuo progetto</label>
+                        <textarea id="messaggio" name="messaggio" placeholder="In che settore operi? Quali sono le tue sfide principali? Cosa vorresti ottenere?"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Invia Richiesta Gratuita &#8594;</button>
+                    <p class="form-disclaimer">I tuoi dati sono al sicuro. Non li condivideremo con nessuno.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-light" id="faq">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">FAQ</div>
+            <h2>Domande frequenti</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Lavorate solo con aziende di Ragusa?</button>
+                <div class="faq-answer">
+                    <p>Abbiamo sede a Ragusa e la maggior parte dei nostri clienti e nella provincia, ma lavoriamo con aziende in tutta la Sicilia e in Italia. Essere locali e un vantaggio per chi preferisce incontri di persona e un partner che conosce il territorio.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Quanto costa lavorare con voi?</button>
+                <div class="faq-answer">
+                    <p>Ogni progetto e diverso. Dopo una consulenza gratuita dove analizziamo la tua situazione, ti presentiamo un preventivo personalizzato con costi chiari e risultati attesi. Lavoriamo con PMI e professionisti: i nostri prezzi sono pensati per le realta del territorio.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Cosa vi differenzia dalle altre agenzie della zona?</button>
+                <div class="faq-answer">
+                    <p>Tre cose: misuriamo i risultati e ti mostriamo numeri veri (lead, vendite, ROI), non vanity metrics. Conosciamo il territorio e i suoi settori specifici (turismo, food, artigianato). E soprattutto, hai un referente dedicato che risponde sempre al telefono.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Possiamo vederci di persona?</button>
+                <div class="faq-answer">
+                    <p>Certo! Siamo a Ragusa e ci fa piacere incontrare i nostri clienti dal vivo. Puoi venire nel nostro ufficio o possiamo incontrarci dove preferisci. Per chi preferisce, lavoriamo anche in videochiamata.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Quanto tempo serve per vedere i primi risultati?</button>
+                <div class="faq-answer">
+                    <p>Dipende dal canale: le campagne Google Ads possono generare contatti gia dalla prima settimana. Il social media marketing mostra risultati in 60-90 giorni. La SEO richiede 3-6 mesi. Ti diamo sempre tempistiche realistiche, calibrate sul mercato locale.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Avete esperienza nel mio settore specifico?</button>
+                <div class="faq-answer">
+                    <p>Abbiamo lavorato con oltre 18 settori diversi nella provincia di Ragusa: ristorazione, turismo, edilizia, studi professionali, agroalimentare, retail e molti altri. Raccontaci il tuo settore nella consulenza gratuita e ti mostreremo casi simili al tuo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Finale -->
+<section class="section section-dark" style="padding: 80px 24px; text-align: center;">
+    <div class="container fade-up">
+        <h2 style="font-size: clamp(28px, 4vw, 40px); font-weight: 800; margin-bottom: 16px; color: #fff;">Pronto a far conoscere la tua impresa a tutta Ragusa?</h2>
+        <p style="font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 36px; max-width: 600px; margin-left: auto; margin-right: auto;">Siamo a due passi da te. Iniziamo con un caffe e una chiacchierata sul tuo progetto. La consulenza e gratuita.</p>
+        <a href="#contatti" class="btn-primary" style="font-size: 18px; padding: 18px 44px;">Richiedi Preventivo Gratuito &#8594;</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo" style="font-size: 22px; text-decoration: none; color: #fff;">Studio <span style="color: #e94560;">121</span></a>
+                <p>Agenzia di comunicazione e marketing digitale a Ragusa, Sicilia. La tua agenzia di fiducia nel territorio ragusano.</p>
+            </div>
+            <div>
+                <h4>Settori</h4>
+                <ul>
+                    <li><a href="#settori">Ristorazione &amp; Food</a></li>
+                    <li><a href="#settori">Turismo &amp; Hospitality</a></li>
+                    <li><a href="#settori">Professionisti</a></li>
+                    <li><a href="#settori">Artigianato &amp; PMI</a></li>
+                    <li><a href="#settori">E-commerce</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Agenzia</h4>
+                <ul>
+                    <li><a href="#territorio">Il territorio</a></li>
+                    <li><a href="#caso-studio">Caso studio</a></li>
+                    <li><a href="#testimonianze">Recensioni</a></li>
+                    <li><a href="#numeri">I numeri</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="tel:+39XXXXXXXXXX">+39 XXX XXX XXXX</a></li>
+                    <li><a href="mailto:info@studio121.it">info@studio121.it</a></li>
+                    <li><a href="#">Via Example 121, Ragusa (RG)</a></li>
+                    <li><a href="#">Lun-Ven 9:00-18:00</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Studio 121 S.r.l. - P.IVA: XXXXXXXXXXX - Via Example 121, 97100 Ragusa (RG)</p>
+            <p><a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none;">Cookie Policy</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/39XXXXXXXXXX" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Scrivici su WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Navbar scroll
+(function() {
+    var navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 80) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+})();
+
+// IntersectionObserver animations
+(function() {
+    var elements = document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    elements.forEach(function(el) { observer.observe(el); });
+})();
+
+// FAQ toggle
+function toggleFaq(button) {
+    var answer = button.nextElementSibling;
+    var isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.remove('open'); });
+    document.querySelectorAll('.faq-question').forEach(function(q) { q.classList.remove('active'); });
+    if (!isOpen) {
+        answer.classList.add('open');
+        button.classList.add('active');
+    }
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Animate numbers on scroll
+(function() {
+    var animated = false;
+    var numbersSection = document.getElementById('numeri');
+    if (!numbersSection) return;
+    var observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !animated) {
+            animated = true;
+            document.querySelectorAll('.number-value').forEach(function(el) {
+                var text = el.textContent;
+                var num = parseFloat(text);
+                if (isNaN(num)) return;
+                var suffix = text.replace(/[0-9.]/g, '');
+                var duration = 1500;
+                var start = performance.now();
+                var isFloat = text.includes('.');
+                function update(now) {
+                    var elapsed = now - start;
+                    var progress = Math.min(elapsed / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    var current = num * eased;
+                    el.textContent = (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
+                    if (progress < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            });
+        }
+    }, { threshold: 0.3 });
+    observer.observe(numbersSection);
+})();
+</script>
+</body>
+</html>

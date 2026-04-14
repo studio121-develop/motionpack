@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio 121 - Landing Page Google Ads | Dashboard Varianti</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0d0d1a; color: #fff; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-size: 2.5rem; font-weight: 800; text-align: center; margin-bottom: 8px; }
+        h1 span { color: #e94560; }
+        .subtitle { text-align: center; color: #8892b0; font-size: 1.1rem; margin-bottom: 48px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-bottom: 48px; }
+        .card { background: #1a1a2e; border-radius: 16px; padding: 32px; border: 1px solid #2a2a4a; transition: all 0.3s; }
+        .card:hover { border-color: #e94560; transform: translateY(-4px); box-shadow: 0 20px 40px rgba(233,69,96,0.15); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 16px; }
+        .card h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+        .card .keyword { color: #8892b0; font-size: 0.85rem; margin-bottom: 20px; }
+        .variants { display: flex; flex-direction: column; gap: 12px; }
+        .variant-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #0d0d1a; border-radius: 10px; text-decoration: none; color: #fff; transition: all 0.2s; border: 1px solid transparent; }
+        .variant-link:hover { background: #e94560; border-color: #e94560; }
+        .variant-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+        .badge-a { background: #1a365d; color: #63b3ed; }
+        .badge-b { background: #5c3a1e; color: #f6ad55; }
+        .badge-c { background: #1a3a2a; color: #68d391; }
+        .variant-info { flex: 1; }
+        .variant-name { font-weight: 600; font-size: 0.95rem; }
+        .variant-desc { font-size: 0.8rem; color: #8892b0; }
+        .variant-link:hover .variant-desc { color: rgba(255,255,255,0.8); }
+        .arrow { color: #8892b0; font-size: 1.2rem; }
+        .variant-link:hover .arrow { color: #fff; }
+        .legend { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; padding: 20px; background: #1a1a2e; border-radius: 12px; }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 4px; }
+        .dot-a { background: #63b3ed; }
+        .dot-b { background: #f6ad55; }
+        .dot-c { background: #68d391; }
+        footer { text-align: center; color: #4a4a6a; font-size: 0.85rem; padding-top: 32px; border-top: 1px solid #2a2a4a; }
+        footer a { color: #e94560; text-decoration: none; }
+        .stats { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-num { font-size: 2rem; font-weight: 800; color: #e94560; }
+        .stat-label { font-size: 0.85rem; color: #8892b0; }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
+            .stats { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Studio 121 <span>Landing Pages</span></h1>
+        <p class="subtitle">Dashboard varianti per campagne Google Ads - Ragusa, Sicilia</p>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-num">12</div>
+                <div class="stat-label">Landing Page</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">4</div>
+                <div class="stat-label">Categorie</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">3</div>
+                <div class="stat-label">Varianti ciascuna</div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-dot dot-a"></div> A — Professionale</div>
+            <div class="legend-item"><div class="legend-dot dot-b"></div> B — Frank Merenda Style</div>
+            <div class="legend-item"><div class="legend-dot dot-c"></div> C — Social Proof / Case Study</div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h2>Realizzazione Siti Web</h2>
+                <p class="keyword">siti web ragusa, web agency ragusa, realizzazione siti web sicilia</p>
+                <div class="variants">
+                    <a href="siti-web/variante-a.html" class="variant-link">
+                        <span class="variant-badge badge-a">A</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Professionale Elegante</div>
+                            <div class="variant-desc">Design scuro, autorevole, portfolio-driven</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="siti-web/variante-b.html" class="variant-link">
+                        <span class="variant-badge badge-b">B</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Frank Merenda Style</div>
+                            <div class="variant-desc">Sales letter aggressiva, urgenza, garanzia</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="siti-web/variante-c.html" class="variant-link">
+                        <span class="variant-badge badge-c">C</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Social Proof & Case Study</div>
+                            <div class="variant-desc">147 aziende, before/after, metriche</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h2>Branding & Logo</h2>
+                <p class="keyword">logo ragusa, branding ragusa, brand identity sicilia, studio grafico</p>
+                <div class="variants">
+                    <a href="branding/variante-a.html" class="variant-link">
+                        <span class="variant-badge badge-a">A</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Professionale Premium</div>
+                            <div class="variant-desc">Design-focused, processo creativo, elegante</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="branding/variante-b.html" class="variant-link">
+                        <span class="variant-badge badge-b">B</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Frank Merenda Style</div>
+                            <div class="variant-desc">"Il logo da 50 euro sta distruggendo..."</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="branding/variante-c.html" class="variant-link">
+                        <span class="variant-badge badge-c">C</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Before/After Trasformazioni</div>
+                            <div class="variant-desc">Da brand invisibile a brand memorabile</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h2>Social Media & Ads</h2>
+                <p class="keyword">gestione social media ragusa, google ads, facebook ads, pubblicita online</p>
+                <div class="variants">
+                    <a href="social-ads/variante-a.html" class="variant-link">
+                        <span class="variant-badge badge-a">A</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Data-Driven Dashboard</div>
+                            <div class="variant-desc">KPI, piattaforme, pacchetti prezzi</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="social-ads/variante-b.html" class="variant-link">
+                        <span class="variant-badge badge-b">B</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Frank Merenda Style</div>
+                            <div class="variant-desc">"Stai BRUCIANDO soldi su Facebook..."</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="social-ads/variante-c.html" class="variant-link">
+                        <span class="variant-badge badge-c">C</span>
+                        <div class="variant-info">
+                            <div class="variant-name">ROI Calculator Interattivo</div>
+                            <div class="variant-desc">Calcola il tuo ROI per settore + caso studio</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h2>Agenzia Comunicazione</h2>
+                <p class="keyword">agenzia comunicazione ragusa, agenzia marketing ragusa, agenzia digitale</p>
+                <div class="variants">
+                    <a href="agenzia/variante-a.html" class="variant-link">
+                        <span class="variant-badge badge-a">A</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Full-Service Professionale</div>
+                            <div class="variant-desc">Tutti i servizi, team, metodo, portfolio</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="agenzia/variante-b.html" class="variant-link">
+                        <span class="variant-badge badge-b">B</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Frank Merenda Style</div>
+                            <div class="variant-desc">"BASTA agenzie che spariscono..."</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="agenzia/variante-c.html" class="variant-link">
+                        <span class="variant-badge badge-c">C</span>
+                        <div class="variant-info">
+                            <div class="variant-name">Local Authority & Trust</div>
+                            <div class="variant-desc">Siamo di Ragusa, mappa clienti, caso studio locale</div>
+                        </div>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Studio 121 SRLS &mdash; Landing Page per campagne Google Ads</p>
+            <p style="margin-top:8px">Documento interno &mdash; <a href="../index.html">Torna al progetto MotionPack</a></p>
+        </footer>
+    </div>
+</body>
+</html>

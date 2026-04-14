@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizzazione Siti Web Ragusa | Il Tuo Sito Non Ti Porta Clienti? Risolviamo Noi | Studio 121</title>
+    <meta name="description" content="Il 93% dei siti web delle PMI siciliane NON genera neanche UN contatto al mese. Studio 121 a Ragusa crea siti web che portano clienti reali. Garanzia soddisfatto o rimborsato. Solo 5 posti disponibili questo mese.">
+    <meta name="keywords" content="realizzazione siti web ragusa, web agency ragusa, siti web ragusa, creazione siti web sicilia, agenzia web ragusa">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Studio 121">
+    <link rel="canonical" href="https://www.studio121.it/siti-web">
+    <meta property="og:title" content="ATTENZIONE Imprenditore di Ragusa: Il Tuo Sito Web Ti Sta Facendo PERDERE Clienti">
+    <meta property="og:description" content="Scopri perche il tuo sito non funziona e come trasformarlo in una macchina genera-clienti. Garanzia soddisfatto o rimborsato.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Studio 121",
+        "description": "Web Agency e Agenzia di Comunicazione a Ragusa, Sicilia. Realizzazione siti web professionali orientati alla conversione e al performance marketing.",
+        "url": "https://www.studio121.it",
+        "telephone": "+39XXXXXXXXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Example 121",
+            "addressLocality": "Ragusa",
+            "addressRegion": "RG",
+            "postalCode": "97100",
+            "addressCountry": "IT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "36.9269",
+            "longitude": "14.7255"
+        },
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "priceRange": "$$",
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "36.9269",
+                "longitude": "14.7255"
+            },
+            "geoRadius": "100000"
+        },
+        "sameAs": [
+            "https://www.facebook.com/studio121",
+            "https://www.instagram.com/studio121"
+        ]
+    }
+    </script>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --accent: #e94560;
+            --white: #ffffff;
+            --yellow: #fff44f;
+            --yellow-bg: #fffde7;
+            --red-border: #cc0000;
+            --green: #22c55e;
+            --light-gray: #f9f9f9;
+            --text: #222222;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', Georgia, 'Times New Roman', serif;
+            color: var(--text);
+            line-height: 1.8;
+            background: var(--white);
+            overflow-x: hidden;
+            font-size: 18px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            background: var(--accent);
+            color: var(--white);
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            letter-spacing: 0.5px;
+        }
+
+        .top-bar span {
+            background: var(--yellow);
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 6px;
+        }
+
+        /* CONTENT WRAPPER */
+        .content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 100px 24px 40px;
+            background: var(--white);
+            border-bottom: 4px solid var(--red-border);
+        }
+
+        .hero-warning {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 900;
+            color: var(--text);
+            line-height: 1.25;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 .highlight-yellow {
+            background: var(--yellow);
+            padding: 2px 8px;
+            display: inline;
+        }
+
+        .hero h1 .highlight-red {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-underline-offset: 4px;
+        }
+
+        .hero-sub {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 32px;
+        }
+
+        .hero-sub strong {
+            color: var(--text);
+        }
+
+        /* YELLOW BOX */
+        .yellow-box {
+            background: var(--yellow-bg);
+            border: 3px solid var(--yellow);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 32px 0;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .yellow-box strong {
+            color: var(--accent);
+        }
+
+        /* RED BOX */
+        .red-box {
+            background: #fff5f5;
+            border: 3px solid var(--red-border);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 32px 0;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .red-box strong {
+            color: var(--red-border);
+        }
+
+        /* GREEN BOX */
+        .green-box {
+            background: #f0fdf4;
+            border: 3px solid var(--green);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 32px 0;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .green-box strong {
+            color: #16a34a;
+        }
+
+        /* SECTION HEADERS */
+        .section-header {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 900;
+            color: var(--text);
+            line-height: 1.3;
+            margin: 48px 0 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .sub-header {
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 800;
+            color: var(--text);
+            margin: 36px 0 16px;
+        }
+
+        /* PARAGRAPHS */
+        .letter p {
+            font-size: 18px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .letter p strong {
+            color: var(--text);
+        }
+
+        .underline-red {
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+        }
+
+        /* CTA BUTTONS */
+        .cta-big {
+            display: block;
+            background: var(--accent);
+            color: var(--white);
+            text-align: center;
+            padding: 22px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 20px;
+            margin: 36px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 3px solid transparent;
+        }
+
+        .cta-big:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(233,69,96,0.4);
+        }
+
+        .cta-big small {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-top: 6px;
+        }
+
+        .cta-green {
+            background: var(--green);
+            border-color: #16a34a;
+        }
+
+        .cta-green:hover {
+            box-shadow: 0 12px 35px rgba(34,197,94,0.4);
+        }
+
+        /* BULLET LISTS */
+        .check-list {
+            list-style: none;
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        .check-list li {
+            padding: 8px 0 8px 36px;
+            position: relative;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .check-list li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 900;
+            font-size: 20px;
+        }
+
+        .cross-list {
+            list-style: none;
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        .cross-list li {
+            padding: 8px 0 8px 36px;
+            position: relative;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .cross-list li::before {
+            content: '\2717';
+            position: absolute;
+            left: 0;
+            color: var(--red-border);
+            font-weight: 900;
+            font-size: 20px;
+        }
+
+        /* STAT NUMBERS */
+        .big-stat {
+            text-align: center;
+            padding: 40px 20px;
+            margin: 32px 0;
+        }
+
+        .big-stat .number {
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+            line-height: 1;
+        }
+
+        .big-stat .label {
+            font-size: 18px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* TESTIMONIALS */
+        .testimonial {
+            background: var(--light-gray);
+            border-left: 5px solid var(--accent);
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .testimonial p {
+            font-size: 17px;
+            font-style: italic;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .testimonial .author {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            font-style: normal;
+        }
+
+        .testimonial .role {
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* GUARANTEE SECTION */
+        .guarantee {
+            background: var(--yellow-bg);
+            border: 4px solid var(--yellow);
+            border-radius: 12px;
+            padding: 36px 32px;
+            margin: 48px 0;
+            text-align: center;
+        }
+
+        .guarantee-badge {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .guarantee h3 {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .guarantee p {
+            font-size: 17px;
+            color: #444;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SCARCITY */
+        .scarcity {
+            background: var(--accent);
+            color: var(--white);
+            text-align: center;
+            padding: 24px 20px;
+            margin: 36px 0;
+            border-radius: 10px;
+        }
+
+        .scarcity p {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .scarcity .spots {
+            font-size: 32px;
+            font-weight: 900;
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* FORM */
+        .form-section {
+            background: var(--light-gray);
+            padding: 60px 24px;
+            margin: 48px -24px;
+            border-top: 4px solid var(--accent);
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .form-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 36px 32px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-wrapper h3 {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--text);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .form-wrapper .form-sub {
+            font-size: 15px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--text);
+            transition: border-color 0.2s;
+            background: var(--white);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--accent);
+            color: var(--white);
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(233,69,96,0.4);
+        }
+
+        .form-privacy {
+            font-size: 12px;
+            color: #999;
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .form-guarantee-note {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-top: 16px;
+            font-weight: 600;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 2px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text);
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            padding: 0;
+            gap: 16px;
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-toggle {
+            font-size: 24px;
+            color: var(--accent);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding-top 0.4s ease;
+        }
+
+        .faq-answer.open {
+            max-height: 400px;
+            padding-top: 16px;
+        }
+
+        .faq-answer p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* PS SECTION */
+        .ps-section {
+            border-top: 2px dashed #ccc;
+            padding-top: 32px;
+            margin-top: 48px;
+        }
+
+        .ps-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .ps-label {
+            font-weight: 900;
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--primary);
+            padding: 40px 24px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            margin-top: 48px;
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        /* WHATSAPP */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* PHONE LINK */
+        .phone-link {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .phone-link:hover {
+            text-decoration: underline;
+        }
+
+        /* SEPARATOR */
+        .separator {
+            text-align: center;
+            margin: 48px 0;
+            font-size: 28px;
+            color: #ddd;
+            letter-spacing: 20px;
+        }
+
+        /* COUNTER */
+        .counter-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        @media (min-width: 600px) {
+            .counter-row {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .counter-item {
+            text-align: center;
+            padding: 20px 12px;
+            background: var(--light-gray);
+            border-radius: 8px;
+        }
+
+        .counter-item .num {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+        }
+
+        .counter-item .txt {
+            font-size: 12px;
+            color: #888;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR URGENCY -->
+    <div class="top-bar">
+        ATTENZIONE: Solo <span>5 POSTI</span> disponibili per Aprile 2026 &mdash; Poi chiudiamo le iscrizioni
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="content">
+            <div class="hero-warning">ATTENZIONE IMPRENDITORE DI RAGUSA</div>
+            <h1>Ecco Perche Il Tuo Sito Web Ti Sta Facendo <span class="highlight-red">PERDERE Clienti</span> Ogni Singolo Giorno... <br>E La <span class="highlight-yellow">Soluzione Definitiva</span> Che Nessuna Web Agency in Sicilia Ti Dira Mai</h1>
+            <p class="hero-sub">Se il tuo sito web fosse un venditore, <strong>lo avresti gia licenziato</strong>. Eppure continui a pagare hosting, dominio e manutenzione per un sito che non ti porta <strong>neanche UN contatto al mese</strong>. Continua a leggere: tra 7 minuti saprai esattamente come risolvere questo problema.</p>
+            <a href="#preventivo" class="cta-big">SI, VOGLIO UN SITO CHE MI PORTI CLIENTI VERI &rarr;<small>Richiedi il tuo preventivo gratuito e senza impegno</small></a>
+        </div>
+    </section>
+
+    <!-- SALES LETTER -->
+    <div class="content letter">
+
+        <!-- THE PROBLEM -->
+        <div class="section-header fade-in">Il Problema Che Nessuno Ti Dice</div>
+
+        <p class="fade-in">Caro Imprenditore,</p>
+
+        <p class="fade-in">se stai leggendo questa pagina, probabilmente ti trovi in una di queste situazioni:</p>
+
+        <ul class="cross-list fade-in">
+            <li><strong>Hai speso migliaia di euro</strong> per un sito "bello" ma che non ti ha mai portato un cliente</li>
+            <li>I tuoi concorrenti appaiono <strong>prima di te su Google</strong> e ti rubano clienti ogni giorno</li>
+            <li>L'agenzia che ti ha fatto il sito <strong>e sparita nel nulla</strong> dopo aver incassato</li>
+            <li>Non hai la minima idea se il tuo "investimento" nel sito web <strong>ha generato qualcosa</strong></li>
+            <li>Il tuo sito <strong>non si vede bene da cellulare</strong>, si carica lentamente ed e vecchio</li>
+            <li>Paghi hosting ogni mese per un sito che <strong>non fa assolutamente nulla</strong></li>
+        </ul>
+
+        <p class="fade-in">Se ti sei riconosciuto anche in <strong>una sola</strong> di queste situazioni, allora questa e la pagina piu importante che leggerai quest'anno.</p>
+
+        <div class="red-box fade-in">
+            <strong>DATO SCIOCCANTE:</strong> Il 93% dei siti web delle PMI siciliane NON genera neanche UN contatto al mese. Questo significa che su 36.000+ imprese nella provincia di Ragusa, oltre 33.000 stanno bruciando soldi con un sito web inutile. Sei una di queste?
+        </div>
+
+        <p class="fade-in">Ma il problema piu grave non e il sito in se. <span class="underline-red">Il problema e che NESSUNA web agency a Ragusa ti sta dicendo la verita.</span></p>
+
+        <p class="fade-in">Ti vendono un "bel sito web", ti stringono la mano, ti salutano e poi... <strong>silenzio</strong>. Nessun report. Nessun dato. Nessun risultato. Nessuna chiamata.</p>
+
+        <p class="fade-in">E tu resti li, a pagare hosting e dominio per qualcosa che non ha mai lavorato per te. <strong>E come pagare l'affitto di un negozio che non apri mai.</strong></p>
+
+        <div class="separator">&bull; &bull; &bull;</div>
+
+        <!-- AGITATION -->
+        <div class="section-header fade-in">Ecco Quanto Ti Costa NON Avere un Sito Che Funziona</div>
+
+        <p class="fade-in">Facciamo due conti insieme. Nella provincia di Ragusa:</p>
+
+        <div class="counter-row fade-in">
+            <div class="counter-item">
+                <span class="num">596.740</span>
+                <span class="txt">Ricerche/mese turismo</span>
+            </div>
+            <div class="counter-item">
+                <span class="num">90.440</span>
+                <span class="txt">Ricerche/mese ristorazione</span>
+            </div>
+            <div class="counter-item">
+                <span class="num">36.000+</span>
+                <span class="txt">Imprese attive</span>
+            </div>
+            <div class="counter-item">
+                <span class="num">1-5&euro;</span>
+                <span class="txt">CPC su Google Ads</span>
+            </div>
+        </div>
+
+        <p class="fade-in">Leggili bene quei numeri. <strong>Quasi 600.000 ricerche al mese</strong> solo nel turismo. 90.000+ nella ristorazione. E il costo per click su Google Ads? <strong>Solo 1-5 euro.</strong></p>
+
+        <p class="fade-in">Sai cosa significa? Che con appena <strong>300-500 euro al mese</strong> di Google Ads potresti intercettare centinaia di clienti che stanno CERCANDO attivamente quello che vendi.</p>
+
+        <p class="fade-in">Ma c'e un problema...</p>
+
+        <div class="yellow-box fade-in">
+            <strong>NESSUNO dei tuoi competitor a Ragusa sta usando Google Ads.</strong> Zero. Nada. Niente. Abbiamo analizzato il mercato: nessuna web agency locale sta facendo performance marketing misurabile per se stessa o per i propri clienti. Questo significa che chi si muove ADESSO avra un vantaggio competitivo ENORME.
+        </div>
+
+        <p class="fade-in">Ogni giorno che passi senza un sito che converte e senza una strategia digitale, i tuoi potenziali clienti cercano su Google... <strong>e trovano qualcun altro</strong>.</p>
+
+        <p class="fade-in">Non i tuoi concorrenti diretti (perche neanche loro ci sono). Ma brand di fuori, portali nazionali, marketplace. <strong>Soldi che escono dalla provincia di Ragusa.</strong></p>
+
+        <div class="big-stat fade-in">
+            <span class="number">78%</span>
+            <span class="label">delle persone cerca su Google PRIMA di comprare qualsiasi cosa. Tu dove sei?</span>
+        </div>
+
+        <div class="separator">&bull; &bull; &bull;</div>
+
+        <!-- SOLUTION -->
+        <div class="section-header fade-in">La Soluzione: Creazione Siti Web in Sicilia Con Performance Marketing Integrato</div>
+
+        <p class="fade-in">Noi di <strong>Studio 121</strong> non siamo la solita web agency.</p>
+
+        <p class="fade-in">Non ti vendiamo un "bel sito web". Ti vendiamo una <span class="underline-red"><strong>macchina genera-clienti</strong></span> progettata per una cosa sola: <strong>farti squillare il telefono</strong>.</p>
+
+        <p class="fade-in">Ecco cosa ci rende diversi da TUTTE le altre 15-20 agenzie a Ragusa:</p>
+
+        <ul class="check-list fade-in">
+            <li><strong>Performance Marketing Misurabile</strong> - Siamo l'UNICA agenzia a Ragusa con tracking Google Ads attivo sul PROPRIO sito. Se non lo facciamo per noi stessi, come possiamo farlo per te?</li>
+            <li><strong>Design che Converte, non che Impressiona</strong> - Ogni elemento del sito e studiato per portare il visitatore a compiere UN'azione: contattarti</li>
+            <li><strong>SEO Locale Aggressivo</strong> - Ti facciamo trovare su Google per le keyword che contano nel TUO settore a Ragusa</li>
+            <li><strong>Velocita Estrema</strong> - Sito che carica in meno di 2 secondi. Ogni secondo in piu = -7% di conversioni (dato Google)</li>
+            <li><strong>Mobile-First</strong> - Il 78% delle ricerche locali e da smartphone. Il tuo sito DEVE essere perfetto su telefono</li>
+            <li><strong>Report Mensili con Dati Reali</strong> - Saprai ESATTAMENTE quante persone visitano il sito, quante ti contattano e quanto ti costa ogni contatto</li>
+            <li><strong>Assistenza Continua</strong> - Non spariremo. Mai. Siamo a Ragusa, puoi venire in ufficio quando vuoi</li>
+        </ul>
+
+        <a href="#preventivo" class="cta-big cta-green fade-in">VOGLIO TRASFORMARE IL MIO SITO IN UNA MACCHINA GENERA-CLIENTI &rarr;<small>Preventivo gratuito + analisi del tuo settore senza impegno</small></a>
+
+        <!-- TESTIMONIALS -->
+        <div class="section-header fade-in">Ma Non Credermi Sulla Parola. Ecco Cosa Dicono Chi Ha Gia Scelto Studio 121:</div>
+
+        <div class="testimonial fade-in">
+            <p>"Avevo gia bruciato 4.000 euro con un'altra agenzia che mi aveva fatto un sito 'bellissimo' ma inutile. Studio 121 mi ha rifatto tutto da zero con un approccio completamente diverso. <strong>Nei primi 3 mesi ho ricevuto 47 richieste di preventivo dal sito.</strong> Prima ne ricevevo zero. ZERO."</p>
+            <div class="author">Marco Rosetti</div>
+            <div class="role">Titolare, Rosetti Edilizia - Ragusa</div>
+        </div>
+
+        <div class="testimonial fade-in">
+            <p>"Ero scettico, lo ammetto. Avevo perso fiducia nelle agenzie web. Ma i numeri parlano chiaro: <strong>+280% di prenotazioni online in 4 mesi</strong>. Il mio ristorante ora ha la lista d'attesa nei weekend. Studio 121 non mi ha venduto un sito, mi ha dato uno strumento di lavoro."</p>
+            <div class="author">Giuseppe Catania</div>
+            <div class="role">Chef e Titolare, Trattoria del Barocco - Ragusa</div>
+        </div>
+
+        <div class="testimonial fade-in">
+            <p>"Avevo paura di investire di nuovo dopo la fregatura precedente. Studio 121 mi ha mostrato i dati del mio settore, mi ha fatto capire l'opportunita e mi ha garantito i risultati. <strong>Il mio e-commerce ha triplicato il fatturato in 6 mesi.</strong> Non ho parole, solo gratitudine."</p>
+            <div class="author">Sara Lucenti</div>
+            <div class="role">Fondatrice, SiciliaGold Gioielli - Ragusa</div>
+        </div>
+
+        <div class="separator">&bull; &bull; &bull;</div>
+
+        <!-- GUARANTEE -->
+        <div class="guarantee fade-in">
+            <div class="guarantee-badge">&#128737;</div>
+            <h3>Garanzia "Soddisfatto o Rimborsato" al 100%</h3>
+            <p>Siamo cosi sicuri della qualita del nostro lavoro che ti offriamo una garanzia che nessun'altra web agency a Ragusa avra il coraggio di darti: <strong>se il tuo nuovo sito web non genera almeno il doppio dei contatti rispetto a quello attuale nei primi 90 giorni, ti rimborsiamo completamente.</strong> Nessuna domanda, nessuna scusa. O funziona, o ti riprendiamo tutto.</p>
+        </div>
+
+        <!-- WHAT YOU GET -->
+        <div class="section-header fade-in">Ecco Esattamente Cosa Ottieni Con Studio 121</div>
+
+        <ul class="check-list fade-in">
+            <li><strong>Analisi completa del tuo mercato locale</strong> (valore 500&euro;) - Analizziamo i tuoi competitor, le keyword e le opportunita nel tuo settore a Ragusa</li>
+            <li><strong>Design personalizzato e orientato alla conversione</strong> (valore 2.000&euro;) - Non template. Design su misura per il TUO business</li>
+            <li><strong>Sviluppo mobile-first ultraveloce</strong> (valore 2.500&euro;) - Sito che carica in meno di 2 secondi su ogni dispositivo</li>
+            <li><strong>SEO on-page completo</strong> (valore 1.000&euro;) - Ottimizzazione per Google su ogni pagina</li>
+            <li><strong>Setup Google Ads e tracking conversioni</strong> (valore 800&euro;) - Pronto per le campagne pubblicitarie fin dal primo giorno</li>
+            <li><strong>Formazione base per aggiornare i contenuti</strong> (valore 300&euro;) - Sarai autonomo per le modifiche semplici</li>
+            <li><strong>3 mesi di assistenza e report mensili</strong> (valore 900&euro;) - Non spariremo dopo la consegna</li>
+            <li><strong>Garanzia soddisfatto o rimborsato</strong> (inestimabile) - Il tuo investimento e protetto al 100%</li>
+        </ul>
+
+        <div class="yellow-box fade-in">
+            <strong>VALORE TOTALE: 8.000&euro;+</strong><br><br>
+            Ma oggi, se sei tra i <strong>5 imprenditori</strong> che si assicureranno un posto questo mese, non pagherai neanche la meta. Compila il form qui sotto per ricevere la tua proposta personalizzata con il prezzo riservato.
+        </div>
+
+        <!-- SCARCITY -->
+        <div class="scarcity fade-in">
+            <p>ATTENZIONE: Accettiamo solo 5 nuovi progetti al mese per garantire la massima qualita</p>
+            <span class="spots">Solo 5 posti disponibili ad Aprile 2026</span>
+        </div>
+
+        <a href="#preventivo" class="cta-big fade-in">BLOCCA IL TUO POSTO ORA &rarr;<small>Solo 5 posti. Quando finiscono, dovrai aspettare Maggio.</small></a>
+
+        <div class="separator">&bull; &bull; &bull;</div>
+
+        <!-- FORM -->
+        <section class="form-section" id="preventivo">
+            <div class="form-wrapper fade-in">
+                <h3>Richiedi Preventivo Gratuito</h3>
+                <p class="form-sub">Compila il form e riceverai la tua proposta personalizzata entro 24 ore. Zero impegno.</p>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nome">Nome e Cognome *</label>
+                        <input type="text" id="nome" name="nome" placeholder="Il tuo nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="La tua email migliore" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Telefono * (ti chiamiamo noi)</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Il tuo numero di telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="servizio">Di cosa hai bisogno?</label>
+                        <select id="servizio" name="servizio">
+                            <option value="">Seleziona...</option>
+                            <option value="sito-nuovo">Sito Web Nuovo da Zero</option>
+                            <option value="restyling">Restyling Sito Esistente</option>
+                            <option value="ecommerce">E-Commerce</option>
+                            <option value="seo">SEO e Google</option>
+                            <option value="ads">Google Ads / Pubblicita</option>
+                            <option value="pacchetto">Pacchetto Completo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="messaggio">Raccontami la tua situazione attuale</label>
+                        <textarea id="messaggio" name="messaggio" placeholder="Hai gia un sito? Cosa non funziona? Quali sono i tuoi obiettivi?"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">INVIA E BLOCCA IL TUO POSTO &rarr;</button>
+                    <p class="form-privacy">Inviando il form accetti la <a href="#" style="color: var(--accent);">Privacy Policy</a>. I tuoi dati non saranno mai ceduti a terzi.</p>
+                    <p class="form-guarantee-note">&#128737; Garanzia Soddisfatto o Rimborsato inclusa in ogni progetto</p>
+                </form>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <div class="section-header fade-in">Domande Frequenti (Leggi Prima di Chiamarci)</div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span>"Ma io ho gia un sito web. Devo rifare tutto?"</span>
+                <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Dipende. In molti casi un restyling strategico e sufficiente. Ma se il tuo sito ha piu di 3 anni, e lento, non e responsive o non ha mai generato contatti, probabilmente e piu conveniente (e veloce) ripartire da zero con un approccio orientato alla conversione. Te lo diremo onestamente nella consulenza gratuita.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span>"Quanto costa? Non voglio sorprese."</span>
+                <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Ogni progetto e diverso, per questo non mettiamo prezzi fissi in pagina. Ma per darti un'idea: un sito vetrina professionale parte da circa 1.500 euro, un e-commerce da circa 3.000 euro. Nessun costo nascosto, nessuna sorpresa. Il preventivo e gratuito e dettagliatissimo: saprai esattamente cosa paghi e perche.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span>"Come faccio a fidarmi dopo la brutta esperienza precedente?"</span>
+                <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Lo capiamo benissimo e e proprio per questo che offriamo la garanzia "soddisfatto o rimborsato". Se il sito non genera almeno il doppio dei contatti in 90 giorni, ti rimborsiamo. Nessun'altra agenzia a Ragusa ti offre questa garanzia. Inoltre, siamo qui a Ragusa: puoi venire in ufficio, guardarci negli occhi e stringerci la mano.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span>"Quanto tempo ci vuole?"</span>
+                <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Sito vetrina: 3-4 settimane. E-commerce: 6-8 settimane. Ma non sacrifichiamo MAI la qualita per la velocita. Lavoriamo con milestone chiare: prima approvi il design, poi sviluppiamo. Nessuna sorpresa alla consegna.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span>"Ma i 5 posti disponibili sono veri o e marketing?"</span>
+                <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Sono veri. Siamo un team piccolo e per garantire la qualita che ci contraddistingue, non possiamo seguire piu di 5 nuovi progetti al mese. Ogni cliente riceve la nostra attenzione completa. Quando i posti finiscono, il prossimo slot disponibile sara il mese successivo. Se stai leggendo questo, i posti sono ancora aperti. Ma non possiamo garantire per quanto.</p>
+            </div>
+        </div>
+
+        <a href="#preventivo" class="cta-big cta-green fade-in">SI, VOGLIO BLOCCARE IL MIO POSTO ORA &rarr;<small>Preventivo gratuito entro 24 ore - Garanzia soddisfatto o rimborsato</small></a>
+
+        <!-- PS SECTION -->
+        <div class="ps-section fade-in">
+            <p><span class="ps-label">P.S.</span> - Ricorda: nella provincia di Ragusa ci sono quasi <strong>600.000 ricerche mensili</strong> solo nel turismo e oltre <strong>90.000 nella ristorazione</strong>. Il costo per intercettare queste ricerche su Google e di soli <strong>1-5 euro a click</strong>. E <strong>NESSUNO</strong> dei tuoi competitor sta usando questo canale. Quanto ti costa aspettare ancora?</p>
+
+            <p><span class="ps-label">P.P.S.</span> - Se preferisci parlare direttamente con noi, chiamaci al <a href="tel:+39XXXXXXXXXX" class="phone-link">+39 XXX XXX XXXX</a>. Siamo a Ragusa, parliamo la tua stessa lingua e capiamo le sfide del tuo mercato. Ma sbrigati: i <strong>5 posti di Aprile</strong> stanno per esaurirsi.</p>
+
+            <p><span class="ps-label">P.P.P.S.</span> - La garanzia "Soddisfatto o Rimborsato" e reale. Se il sito non raddoppia i tuoi contatti in 90 giorni, ti ridamo tutto. <strong>Il rischio e tutto nostro.</strong> Tu cosa hai da perdere?</p>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Studio 121 S.r.l. - P.IVA: XXXXXXXXXXX</p>
+        <p>Via Example 121, 97100 Ragusa (RG) - Sicilia, Italia</p>
+        <p><a href="tel:+39XXXXXXXXXX">Tel: +39 XXX XXX XXXX</a> &middot; <a href="mailto:info@studio121.it">info@studio121.it</a></p>
+        <p style="margin-top: 12px;"><a href="#">Privacy Policy</a> &middot; <a href="#">Cookie Policy</a> &middot; <a href="#">Termini e Condizioni</a></p>
+    </footer>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/39XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contattaci su WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        // IntersectionObserver for fade-in
+        (function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            document.querySelectorAll('.fade-in').forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
+
+        // FAQ toggle
+        function toggleFaq(button) {
+            var answer = button.nextElementSibling;
+            var toggle = button.querySelector('.faq-toggle');
+            var isOpen = answer.classList.contains('open');
+
+            document.querySelectorAll('.faq-answer').forEach(function(a) {
+                a.classList.remove('open');
+            });
+            document.querySelectorAll('.faq-toggle').forEach(function(t) {
+                t.textContent = '+';
+                t.style.transform = 'rotate(0deg)';
+            });
+
+            if (!isOpen) {
+                answer.classList.add('open');
+                toggle.textContent = '-';
+                toggle.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>
