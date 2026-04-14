@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio 121 — Lookbook Landing Pages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --red: #d94625;
+      --red-hover: #c13d20;
+      --blue: #253441;
+      --bg: #f1ece8;
+      --white: #ffffff;
+      --gray-100: #f8f6f4;
+      --gray-200: #e8e3df;
+      --gray-300: #d4cec9;
+      --gray-400: #9e9893;
+      --gray-500: #6b6560;
+      --shadow-sm: 0 1px 3px rgba(37, 52, 65, 0.08);
+      --shadow-md: 0 4px 12px rgba(37, 52, 65, 0.10);
+      --shadow-lg: 0 8px 30px rgba(37, 52, 65, 0.14);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --radius-pill: 50px;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--blue);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 32px 24px 28px;
+      text-align: center;
+    }
+
+    .header__logo {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+
+    .header__title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .header__subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--gray-300);
+    }
+
+    .header__count {
+      display: inline-block;
+      margin-top: 14px;
+      background: var(--red);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: var(--radius-pill);
+    }
+
+    /* ===== FILTERS ===== */
+    .filters {
+      background: var(--white);
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--gray-200);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filters__section {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .filters__label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .filters__row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .filters__row:last-child {
+      margin-bottom: 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-pill);
+      background: var(--white);
+      color: var(--gray-500);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .pill:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .pill.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+
+    /* ===== GRID ===== */
+    .grid-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 1024px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .header__title { font-size: 24px; }
+      .filters { padding: 14px 16px; }
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+
+    .card.hidden {
+      display: none;
+    }
+
+    /* Card header */
+    .card__header {
+      padding: 16px 18px 12px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .card__category {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--red);
+    }
+
+    .card__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    .card__desc {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    /* Tags */
+    .card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 10px 18px 0;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--gray-100);
+      color: var(--gray-500);
+      border: 1px solid var(--gray-200);
+    }
+
+    .tag--tone {
+      background: #fef3f0;
+      color: var(--red);
+      border-color: #f5d5cc;
+    }
+
+    .tag--cta {
+      background: #eef3f7;
+      color: var(--blue);
+      border-color: #d0dce5;
+    }
+
+    .tag--keyword {
+      background: #f0f5ee;
+      color: #3d6b30;
+      border-color: #d0e0ca;
+    }
+
+    /* Preview iframe */
+    .card__preview {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background: var(--gray-100);
+      overflow: hidden;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .card__iframe-wrapper {
+      width: 1200px;
+      height: 1600px;
+      transform: scale(0.25);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    .card__iframe {
+      width: 1200px;
+      height: 1600px;
+      border: none;
+      background: var(--white);
+    }
+
+    .card__preview-overlay {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    /* Card actions */
+    .card__actions {
+      padding: 14px 18px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn--primary {
+      background: var(--red);
+      color: var(--white);
+      flex: 1;
+    }
+
+    .btn--primary:hover {
+      background: var(--red-hover);
+    }
+
+    .btn--secondary {
+      background: var(--gray-100);
+      color: var(--blue);
+      border: 1px solid var(--gray-200);
+    }
+
+    .btn--secondary:hover {
+      background: var(--gray-200);
+    }
+
+    /* Feedback textarea */
+    .card__feedback {
+      padding: 0 18px 16px;
+    }
+
+    .card__feedback-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray-400);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .card__textarea {
+      width: 100%;
+      min-height: 72px;
+      padding: 10px 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      color: var(--blue);
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      resize: vertical;
+      transition: border-color 0.2s ease;
+    }
+
+    .card__textarea:focus {
+      outline: none;
+      border-color: var(--red);
+      background: var(--white);
+    }
+
+    .card__textarea::placeholder {
+      color: var(--gray-400);
+    }
+
+    /* ===== EXPORT BAR ===== */
+    .export-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--blue);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 200;
+      box-shadow: 0 -4px 20px rgba(37, 52, 65, 0.2);
+    }
+
+    .export-bar__text {
+      color: var(--gray-300);
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .export-bar__text strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .btn--export {
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 10px 24px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn--export:hover {
+      background: var(--red-hover);
+    }
+
+    .btn--clear {
+      background: transparent;
+      color: var(--gray-400);
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--gray-500);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn--clear:hover {
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--blue);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 300;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray-400);
+    }
+
+    .empty-state__text {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__logo">Studio 121</div>
+    <h1 class="header__title">Lookbook Landing Pages</h1>
+    <p class="header__subtitle">Panoramica completa di tutte le varianti per revisione e selezione</p>
+    <span class="header__count">30 Landing Pages &middot; 6 Categorie &middot; 5 Varianti</span>
+  </header>
+
+  <!-- FILTERS -->
+  <nav class="filters">
+    <div class="filters__section">
+      <span class="filters__label">Categoria</span>
+      <div class="filters__row" id="categoryFilters">
+        <button class="pill active" data-filter-category="tutti">Tutti</button>
+        <button class="pill" data-filter-category="siti-web">Siti Web</button>
+        <button class="pill" data-filter-category="branding">Branding</button>
+        <button class="pill" data-filter-category="social-ads">Social Ads</button>
+        <button class="pill" data-filter-category="social-trap">Social Trap</button>
+        <button class="pill" data-filter-category="performance">Performance</button>
+        <button class="pill" data-filter-category="agenzia">Agenzia</button>
+      </div>
+      <span class="filters__label">Stile / Variante</span>
+      <div class="filters__row" id="styleFilters">
+        <button class="pill active" data-filter-style="tutti">Tutti</button>
+        <button class="pill" data-filter-style="a">A &mdash; Professionale</button>
+        <button class="pill" data-filter-style="b">B &mdash; Merenda</button>
+        <button class="pill" data-filter-style="c">C &mdash; Proof / Numeri</button>
+        <button class="pill" data-filter-style="d">D &mdash; Storytelling</button>
+        <button class="pill" data-filter-style="e">E &mdash; Elegante</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- GRID -->
+  <main class="grid-container">
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <!-- EXPORT BAR -->
+  <div class="export-bar">
+    <span class="export-bar__text">
+      <strong id="feedbackCount">0</strong> note salvate in locale
+    </span>
+    <button class="btn--export" id="exportBtn">Esporta Feedback</button>
+    <button class="btn--clear" id="clearBtn">Cancella Tutto</button>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // =========================================================================
+    // DATA: 30 landing pages (6 categories x 5 variants)
+    // =========================================================================
+    var LANDING_DATA = [
+      // --- SITI WEB ---
+      {
+        category: "siti-web", categoryLabel: "Siti Web", variant: "a", variantLabel: "Variante A",
+        title: "Professionale",
+        desc: "Approccio corporate e autorevole. Layout pulito, tono istituzionale, focus su credibilita e competenza tecnica.",
+        tone: "Professionale", cta: "Richiedi preventivo", keyword: "realizzazione siti web",
+        path: "siti-web/variante-a.html"
+      },
+      {
+        category: "siti-web", categoryLabel: "Siti Web", variant: "b", variantLabel: "Variante B",
+        title: "Merenda",
+        desc: "Stile conversazionale e diretto. Linguaggio quotidiano, come parlare a un amico imprenditore davanti a un caffe.",
+        tone: "Merenda", cta: "Prenota chiamata", keyword: "siti web per aziende",
+        path: "siti-web/variante-b.html"
+      },
+      {
+        category: "siti-web", categoryLabel: "Siti Web", variant: "c", variantLabel: "Variante C",
+        title: "Social Proof",
+        desc: "Basato su testimonianze e casi studio reali. Ogni sezione supportata da numeri e risultati misurabili.",
+        tone: "Numeri", cta: "Vedi i risultati", keyword: "agenzia siti web",
+        path: "siti-web/variante-c.html"
+      },
+      {
+        category: "siti-web", categoryLabel: "Siti Web", variant: "d", variantLabel: "Variante D",
+        title: "Storytelling",
+        desc: "Narrazione coinvolgente con storia di un cliente tipo. Percorso dal problema alla soluzione con arco narrativo.",
+        tone: "Storytelling", cta: "Inizia la tua storia", keyword: "sito web professionale",
+        path: "siti-web/variante-d.html"
+      },
+      {
+        category: "siti-web", categoryLabel: "Siti Web", variant: "e", variantLabel: "Variante E",
+        title: "Numeri",
+        desc: "Data-driven, metriche in evidenza. Dashboard visiva con KPI, percentuali e risultati quantificabili in primo piano.",
+        tone: "Numeri", cta: "Scopri i dati", keyword: "creazione siti web",
+        path: "siti-web/variante-e.html"
+      },
+
+      // --- BRANDING ---
+      {
+        category: "branding", categoryLabel: "Branding", variant: "a", variantLabel: "Variante A",
+        title: "Premium",
+        desc: "Posizionamento alto di gamma. Estetica raffinata, copy esclusivo, focus su brand identity come investimento strategico.",
+        tone: "Professionale", cta: "Richiedi consulenza", keyword: "branding aziendale",
+        path: "branding/variante-a.html"
+      },
+      {
+        category: "branding", categoryLabel: "Branding", variant: "b", variantLabel: "Variante B",
+        title: "Merenda",
+        desc: "Branding spiegato semplice. Linguaggio accessibile che demistifica logo, colori e identita visiva.",
+        tone: "Merenda", cta: "Parliamone insieme", keyword: "logo e branding",
+        path: "branding/variante-b.html"
+      },
+      {
+        category: "branding", categoryLabel: "Branding", variant: "c", variantLabel: "Variante C",
+        title: "Before / After",
+        desc: "Confronto visivo prima e dopo il rebranding. Slider interattivi e casi studio con trasformazione evidente.",
+        tone: "Numeri", cta: "Vedi trasformazioni", keyword: "rebranding azienda",
+        path: "branding/variante-c.html"
+      },
+      {
+        category: "branding", categoryLabel: "Branding", variant: "d", variantLabel: "Variante D",
+        title: "Storytelling",
+        desc: "La storia dietro un brand di successo. Narrazione emozionale sul perche il branding cambia il destino di un'azienda.",
+        tone: "Storytelling", cta: "Costruisci il tuo brand", keyword: "identita visiva",
+        path: "branding/variante-d.html"
+      },
+      {
+        category: "branding", categoryLabel: "Branding", variant: "e", variantLabel: "Variante E",
+        title: "Numeri",
+        desc: "ROI del branding in numeri. Statistiche su riconoscibilita, fidelizzazione e impatto economico del brand.",
+        tone: "Numeri", cta: "Calcola il tuo ROI", keyword: "brand identity",
+        path: "branding/variante-e.html"
+      },
+
+      // --- SOCIAL ADS ---
+      {
+        category: "social-ads", categoryLabel: "Social Ads", variant: "a", variantLabel: "Variante A",
+        title: "Data-Driven",
+        desc: "Approccio analitico alle campagne social. Focus su targeting, A/B test, pixel tracking e ottimizzazione algoritmica.",
+        tone: "Professionale", cta: "Analisi gratuita", keyword: "social media advertising",
+        path: "social-ads/variante-a.html"
+      },
+      {
+        category: "social-ads", categoryLabel: "Social Ads", variant: "b", variantLabel: "Variante B",
+        title: "Merenda",
+        desc: "Ads spiegati come al bar. Linguaggio semplice per imprenditori che vogliono capire senza tecnicismi.",
+        tone: "Merenda", cta: "Facciamo due conti", keyword: "pubblicita social",
+        path: "social-ads/variante-b.html"
+      },
+      {
+        category: "social-ads", categoryLabel: "Social Ads", variant: "c", variantLabel: "Variante C",
+        title: "ROI Calculator",
+        desc: "Calcolatore interattivo del ritorno sull'investimento. L'utente inserisce budget e vede proiezioni realistiche.",
+        tone: "Numeri", cta: "Calcola il tuo ROI", keyword: "campagne social ads",
+        path: "social-ads/variante-c.html"
+      },
+      {
+        category: "social-ads", categoryLabel: "Social Ads", variant: "d", variantLabel: "Variante D",
+        title: "Storytelling",
+        desc: "Da zero a risultato: la storia di una campagna vincente. Timeline narrativa con ostacoli e vittorie.",
+        tone: "Storytelling", cta: "Scrivi la tua storia", keyword: "gestione social ads",
+        path: "social-ads/variante-d.html"
+      },
+      {
+        category: "social-ads", categoryLabel: "Social Ads", variant: "e", variantLabel: "Variante E",
+        title: "Numeri",
+        desc: "Dashboard di risultati campagne. Metriche CPC, CTR, ROAS presentate in formato report visivo accattivante.",
+        tone: "Numeri", cta: "Vedi i report", keyword: "facebook ads agenzia",
+        path: "social-ads/variante-e.html"
+      },
+
+      // --- SOCIAL TRAP ---
+      {
+        category: "social-trap", categoryLabel: "Social Trap", variant: "a", variantLabel: "Variante A",
+        title: "Educativa",
+        desc: "Approccio didattico che spiega cosa sono i social trap e perche funzionano. Contenuto formativo e autorevole.",
+        tone: "Professionale", cta: "Scopri il metodo", keyword: "social media marketing",
+        path: "social-trap/variante-a.html"
+      },
+      {
+        category: "social-trap", categoryLabel: "Social Trap", variant: "b", variantLabel: "Variante B",
+        title: "Merenda Diretto",
+        desc: "Tono colloquiale e provocatorio. Sfida diretta alle convinzioni sbagliate sui social media delle PMI.",
+        tone: "Merenda", cta: "Prenota la call", keyword: "gestione social media",
+        path: "social-trap/variante-b.html"
+      },
+      {
+        category: "social-trap", categoryLabel: "Social Trap", variant: "c", variantLabel: "Variante C",
+        title: "Confronto Numeri",
+        desc: "Tabella comparativa tra chi usa social trap e chi no. Numeri di engagement, lead e conversioni a confronto.",
+        tone: "Numeri", cta: "Confronta i risultati", keyword: "content marketing social",
+        path: "social-trap/variante-c.html"
+      },
+      {
+        category: "social-trap", categoryLabel: "Social Trap", variant: "d", variantLabel: "Variante D",
+        title: "Storytelling Anna",
+        desc: "La storia di Anna, imprenditrice che ha trasformato i suoi social. Narrazione personale e coinvolgente.",
+        tone: "Storytelling", cta: "Inizia come Anna", keyword: "strategia social media",
+        path: "social-trap/variante-d.html"
+      },
+      {
+        category: "social-trap", categoryLabel: "Social Trap", variant: "e", variantLabel: "Variante E",
+        title: "Test 500 EUR",
+        desc: "Proposta test con budget contenuto. Barriera d'ingresso bassa, focus su risultati misurabili in 30 giorni.",
+        tone: "Numeri", cta: "Prova con 500 EUR", keyword: "social media agenzia",
+        path: "social-trap/variante-e.html"
+      },
+
+      // --- PERFORMANCE ---
+      {
+        category: "performance", categoryLabel: "Performance", variant: "a", variantLabel: "Variante A",
+        title: "Sistema Clienti",
+        desc: "Framework completo per acquisizione clienti. Sistema step-by-step con funnel, automazioni e nurturing.",
+        tone: "Professionale", cta: "Attiva il sistema", keyword: "performance marketing",
+        path: "performance/variante-a.html"
+      },
+      {
+        category: "performance", categoryLabel: "Performance", variant: "b", variantLabel: "Variante B",
+        title: "Merenda Matematica",
+        desc: "Performance spiegato coi numeri semplici. Quanto investi, quanto torni, punto. Niente fuffa.",
+        tone: "Merenda", cta: "Fai i conti", keyword: "lead generation",
+        path: "performance/variante-b.html"
+      },
+      {
+        category: "performance", categoryLabel: "Performance", variant: "c", variantLabel: "Variante C",
+        title: "Scenari Budget",
+        desc: "Simulatore con 3 scenari di investimento. L'utente vede proiezioni realistiche per budget piccolo, medio e grande.",
+        tone: "Numeri", cta: "Simula il tuo budget", keyword: "campagne performance",
+        path: "performance/variante-c.html"
+      },
+      {
+        category: "performance", categoryLabel: "Performance", variant: "d", variantLabel: "Variante D",
+        title: "Storia Marco",
+        desc: "Marco, imprenditore edile, racconta come ha triplicato i clienti. Case study narrativo con numeri reali.",
+        tone: "Storytelling", cta: "Fai come Marco", keyword: "acquisizione clienti online",
+        path: "performance/variante-d.html"
+      },
+      {
+        category: "performance", categoryLabel: "Performance", variant: "e", variantLabel: "Variante E",
+        title: "596K Dashboard",
+        desc: "Dashboard live con risultati aggregati. 596K di fatturato generato per i clienti, visualizzato in real-time.",
+        tone: "Numeri", cta: "Vedi la dashboard", keyword: "marketing performance",
+        path: "performance/variante-e.html"
+      },
+
+      // --- AGENZIA ---
+      {
+        category: "agenzia", categoryLabel: "Agenzia", variant: "a", variantLabel: "Variante A",
+        title: "Full-Service",
+        desc: "Presentazione completa dell'agenzia. Tutti i servizi, il team, la vision. Landing istituzionale e comprensiva.",
+        tone: "Professionale", cta: "Scopri i servizi", keyword: "agenzia marketing Palermo",
+        path: "agenzia/variante-a.html"
+      },
+      {
+        category: "agenzia", categoryLabel: "Agenzia", variant: "b", variantLabel: "Variante B",
+        title: "Sales Letter",
+        desc: "Lettera di vendita lunga e persuasiva. Copy lungo, struttura classica direct response con urgenza e scarsita.",
+        tone: "Merenda", cta: "Contattaci ora", keyword: "agenzia web Sicilia",
+        path: "agenzia/variante-b.html"
+      },
+      {
+        category: "agenzia", categoryLabel: "Agenzia", variant: "c", variantLabel: "Variante C",
+        title: "Local Trust",
+        desc: "Focus sulla fiducia locale. Recensioni Google, partnership territoriali, presenza fisica. Per chi cerca vicino.",
+        tone: "Numeri", cta: "Vieni a trovarci", keyword: "agenzia comunicazione",
+        path: "agenzia/variante-c.html"
+      },
+      {
+        category: "agenzia", categoryLabel: "Agenzia", variant: "d", variantLabel: "Variante D",
+        title: "Storytelling Giovanni",
+        desc: "La storia del fondatore Giovanni e la nascita di Studio 121. Narrazione autentica su missione e valori.",
+        tone: "Storytelling", cta: "Conosci la nostra storia", keyword: "studio grafico Palermo",
+        path: "agenzia/variante-d.html"
+      },
+      {
+        category: "agenzia", categoryLabel: "Agenzia", variant: "e", variantLabel: "Variante E",
+        title: "36K Imprese",
+        desc: "Focus sui numeri dell'agenzia. 36K imprese nel territorio, quote di mercato, opportunita quantificate.",
+        tone: "Numeri", cta: "Unisciti a noi", keyword: "marketing digitale PMI",
+        path: "agenzia/variante-e.html"
+      }
+    ];
+
+    // =========================================================================
+    // STATE
+    // =========================================================================
+    var activeCategory = "tutti";
+    var activeStyle = "tutti";
+
+    // =========================================================================
+    // SAFE DOM HELPERS
+    // =========================================================================
+    function createTextEl(tag, className, text) {
+      var el = document.createElement(tag);
+      if (className) el.className = className;
+      el.textContent = text;
+      return el;
+    }
+
+    function createEl(tag, className) {
+      var el = document.createElement(tag);
+      if (className) el.className = className;
+      return el;
+    }
+
+    // =========================================================================
+    // BUILD A SINGLE CARD (safe DOM methods, no innerHTML)
+    // =========================================================================
+    function buildCard(item) {
+      var storageKey = "s121_fb_" + item.category + "_" + item.variant;
+      var savedNote = localStorage.getItem(storageKey) || "";
+
+      var card = createEl("div", "card");
+      card.dataset.category = item.category;
+      card.dataset.variant = item.variant;
+
+      // -- Header --
+      var header = createEl("div", "card__header");
+      header.appendChild(createTextEl("div", "card__category", item.categoryLabel));
+
+      var title = createEl("div", "card__title");
+      title.textContent = item.variantLabel + " \u2014 " + item.title;
+      header.appendChild(title);
+
+      header.appendChild(createTextEl("div", "card__desc", item.desc));
+      card.appendChild(header);
+
+      // -- Tags --
+      var tags = createEl("div", "card__tags");
+      tags.appendChild(createTextEl("span", "tag tag--tone", item.tone));
+      tags.appendChild(createTextEl("span", "tag tag--cta", item.cta));
+      tags.appendChild(createTextEl("span", "tag tag--keyword", item.keyword));
+      card.appendChild(tags);
+
+      // -- Preview --
+      var preview = createEl("div", "card__preview");
+
+      var iframeWrapper = createEl("div", "card__iframe-wrapper");
+      var iframe = document.createElement("iframe");
+      iframe.className = "card__iframe";
+      iframe.src = item.path;
+      iframe.loading = "lazy";
+      iframe.sandbox = "allow-same-origin";
+      iframe.title = "Preview " + item.categoryLabel + " " + item.variantLabel;
+      iframeWrapper.appendChild(iframe);
+      preview.appendChild(iframeWrapper);
+
+      var overlay = createEl("div", "card__preview-overlay");
+      overlay.addEventListener("click", (function(path) {
+        return function() { window.open(path, "_blank"); };
+      })(item.path));
+      preview.appendChild(overlay);
+
+      card.appendChild(preview);
+
+      // -- Actions --
+      var actions = createEl("div", "card__actions");
+      var btn = document.createElement("a");
+      btn.className = "btn btn--primary";
+      btn.href = item.path;
+      btn.target = "_blank";
+      btn.rel = "noopener";
+      btn.textContent = "Apri a schermo intero";
+      actions.appendChild(btn);
+      card.appendChild(actions);
+
+      // -- Feedback --
+      var feedback = createEl("div", "card__feedback");
+      feedback.appendChild(createTextEl("label", "card__feedback-label", "Note / Feedback"));
+
+      var textarea = document.createElement("textarea");
+      textarea.className = "card__textarea";
+      textarea.placeholder = "Scrivi qui le tue note su questa variante...";
+      textarea.dataset.key = storageKey;
+      textarea.value = savedNote;
+      textarea.addEventListener("input", function() { saveFeedback(this); });
+      feedback.appendChild(textarea);
+
+      card.appendChild(feedback);
+
+      return card;
+    }
+
+    // =========================================================================
+    // RENDER GRID
+    // =========================================================================
+    function renderGrid() {
+      var grid = document.getElementById("grid");
+      var fragment = document.createDocumentFragment();
+
+      LANDING_DATA.forEach(function(item) {
+        fragment.appendChild(buildCard(item));
+      });
+
+      grid.appendChild(fragment);
+      updateFeedbackCount();
+    }
+
+    // =========================================================================
+    // FILTERING
+    // =========================================================================
+    function applyFilters() {
+      var cards = document.querySelectorAll(".card");
+      var visibleCount = 0;
+
+      cards.forEach(function(card) {
+        var matchCategory = activeCategory === "tutti" || card.dataset.category === activeCategory;
+        var matchStyle = activeStyle === "tutti" || card.dataset.variant === activeStyle;
+
+        if (matchCategory && matchStyle) {
+          card.classList.remove("hidden");
+          visibleCount++;
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+
+      // Empty state
+      var existingEmpty = document.querySelector(".empty-state");
+      if (existingEmpty) existingEmpty.remove();
+
+      if (visibleCount === 0) {
+        var empty = createEl("div", "empty-state");
+        empty.appendChild(createTextEl("div", "empty-state__text", "Nessuna landing corrisponde ai filtri selezionati"));
+        document.getElementById("grid").appendChild(empty);
+      }
+    }
+
+    // Category filter clicks
+    document.getElementById("categoryFilters").addEventListener("click", function(e) {
+      var pill = e.target.closest(".pill");
+      if (!pill) return;
+
+      document.querySelectorAll("#categoryFilters .pill").forEach(function(p) {
+        p.classList.remove("active");
+      });
+      pill.classList.add("active");
+      activeCategory = pill.dataset.filterCategory;
+      applyFilters();
+    });
+
+    // Style filter clicks
+    document.getElementById("styleFilters").addEventListener("click", function(e) {
+      var pill = e.target.closest(".pill");
+      if (!pill) return;
+
+      document.querySelectorAll("#styleFilters .pill").forEach(function(p) {
+        p.classList.remove("active");
+      });
+      pill.classList.add("active");
+      activeStyle = pill.dataset.filterStyle;
+      applyFilters();
+    });
+
+    // =========================================================================
+    // FEEDBACK (localStorage)
+    // =========================================================================
+    function saveFeedback(textarea) {
+      var key = textarea.dataset.key;
+      var value = textarea.value.trim();
+
+      if (value) {
+        localStorage.setItem(key, value);
+      } else {
+        localStorage.removeItem(key);
+      }
+
+      updateFeedbackCount();
+    }
+
+    function updateFeedbackCount() {
+      var count = 0;
+      LANDING_DATA.forEach(function(item) {
+        var key = "s121_fb_" + item.category + "_" + item.variant;
+        if (localStorage.getItem(key)) count++;
+      });
+      document.getElementById("feedbackCount").textContent = String(count);
+    }
+
+    function exportFeedback() {
+      var lines = [];
+      lines.push("==========================================================");
+      lines.push("STUDIO 121 \u2014 LOOKBOOK FEEDBACK");
+      lines.push("Esportato il: " + new Date().toLocaleString("it-IT"));
+      lines.push("==========================================================");
+      lines.push("");
+
+      var hasAny = false;
+
+      LANDING_DATA.forEach(function(item) {
+        var key = "s121_fb_" + item.category + "_" + item.variant;
+        var note = localStorage.getItem(key);
+
+        if (note) {
+          hasAny = true;
+          lines.push("--- " + item.categoryLabel + " / " + item.variantLabel + " \u2014 " + item.title + " ---");
+          lines.push(note);
+          lines.push("");
+        }
+      });
+
+      if (!hasAny) {
+        showToast("Nessuna nota da esportare");
+        return;
+      }
+
+      var text = lines.join("\n");
+
+      navigator.clipboard.writeText(text).then(function() {
+        showToast("Feedback copiato negli appunti!");
+      }).catch(function() {
+        // Fallback: create a temporary textarea for copy
+        var temp = document.createElement("textarea");
+        temp.value = text;
+        temp.style.position = "fixed";
+        temp.style.left = "-9999px";
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand("copy");
+          showToast("Feedback copiato negli appunti!");
+        } catch (err) {
+          showToast("Errore nella copia. Prova manualmente.");
+        }
+        document.body.removeChild(temp);
+      });
+    }
+
+    function clearAllFeedback() {
+      if (!confirm("Vuoi cancellare tutte le note? Questa azione non puo essere annullata.")) return;
+
+      LANDING_DATA.forEach(function(item) {
+        var key = "s121_fb_" + item.category + "_" + item.variant;
+        localStorage.removeItem(key);
+      });
+
+      document.querySelectorAll(".card__textarea").forEach(function(ta) {
+        ta.value = "";
+      });
+
+      updateFeedbackCount();
+      showToast("Tutte le note sono state cancellate");
+    }
+
+    // =========================================================================
+    // TOAST
+    // =========================================================================
+    function showToast(message) {
+      var toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+
+      setTimeout(function() {
+        toast.classList.remove("visible");
+      }, 2500);
+    }
+
+    // =========================================================================
+    // EVENT BINDINGS
+    // =========================================================================
+    document.getElementById("exportBtn").addEventListener("click", exportFeedback);
+    document.getElementById("clearBtn").addEventListener("click", clearAllFeedback);
+
+    // =========================================================================
+    // INIT
+    // =========================================================================
+    renderGrid();
+  </script>
+
+</body>
+</html>

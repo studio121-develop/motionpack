@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — Studio 121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      /* Palette */
+      --red:            #d94625;
+      --red-hover:      #c23d20;
+      --blue-dark:      #253441;
+      --blue-dark-alt:  #2e4252;
+      --white:          #ffffff;
+      --beige:          #f1ece8;
+      --footer-bottom:  #1a2630;
+      --text-secondary: #4a5d6c;
+      --text-muted:     #566a78;
+
+      /* Spacing */
+      --sp-xs:  4px;
+      --sp-sm:  8px;
+      --sp-md:  16px;
+      --sp-lg:  24px;
+      --sp-xl:  32px;
+      --sp-2xl: 48px;
+      --sp-3xl: 64px;
+      --sp-4xl: 96px;
+
+      /* Radius */
+      --r-sm:   8px;
+      --r-md:   12px;
+      --r-lg:   16px;
+      --r-pill: 100px;
+
+      /* Shadows */
+      --shadow-light:  0 4px 12px rgba(37, 52, 65, 0.25);
+      --shadow-medium: 0 8px 25px rgba(217, 70, 37, 0.3);
+      --shadow-large:  0 20px 60px rgba(37, 52, 65, 0.15);
+
+      /* Transition */
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.5;
+      color: var(--blue-dark);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    .ds-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--blue-dark);
+      padding: 0 var(--sp-lg);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .ds-nav__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-xs);
+      max-width: 1280px;
+      margin: 0 auto;
+      min-height: 56px;
+    }
+    .ds-nav__brand {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--white);
+      margin-right: var(--sp-lg);
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .ds-nav a {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: var(--sp-sm) var(--sp-md);
+      border-radius: var(--r-sm);
+      transition: var(--transition);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .ds-nav a:hover {
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       LAYOUT
+       ============================================================ */
+    .ds-section {
+      padding: 90px var(--sp-lg);
+    }
+    .ds-section--beige { background: var(--beige); }
+    .ds-section--dark  { background: var(--blue-dark); color: var(--white); }
+    .ds-section--dark .ds-section__subtitle { color: rgba(255,255,255,0.6); }
+    .ds-section--dark .ds-code { background: rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.08); }
+
+    .ds-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .ds-section__title {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1.15;
+      margin-bottom: var(--sp-sm);
+    }
+    .ds-section__subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: var(--sp-3xl);
+      max-width: 640px;
+    }
+
+    @media (max-width: 768px) {
+      .ds-section { padding: 50px var(--sp-md); }
+    }
+
+    /* ============================================================
+       CODE BLOCKS
+       ============================================================ */
+    .ds-code {
+      background: #f6f8fa;
+      border: 1px solid #e1e4e8;
+      border-radius: var(--r-sm);
+      padding: var(--sp-lg);
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin-top: var(--sp-xl);
+      white-space: pre;
+      color: var(--blue-dark);
+      tab-size: 2;
+    }
+    .ds-code-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-top: var(--sp-xl);
+      margin-bottom: var(--sp-sm);
+    }
+
+    /* ============================================================
+       1. PALETTE
+       ============================================================ */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--sp-lg);
+    }
+    .palette-card {
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid rgba(37,52,65,0.08);
+      transition: var(--transition);
+    }
+    .palette-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-light);
+    }
+    .palette-swatch {
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--sp-md);
+    }
+    .palette-swatch span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--r-sm);
+      backdrop-filter: blur(4px);
+    }
+    .palette-info {
+      padding: var(--sp-md);
+    }
+    .palette-info__name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+    .palette-info__hex {
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .palette-info__usage {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: var(--sp-xs);
+    }
+
+    /* ============================================================
+       2. TYPOGRAPHY
+       ============================================================ */
+    .typo-row {
+      padding: var(--sp-xl) 0;
+      border-bottom: 1px solid rgba(37,52,65,0.08);
+      display: flex;
+      gap: var(--sp-2xl);
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .typo-row:last-child { border-bottom: none; }
+    .typo-meta {
+      min-width: 180px;
+      flex-shrink: 0;
+    }
+    .typo-meta__label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .typo-meta__specs {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      line-height: 1.8;
+    }
+    .typo-sample { flex: 1; min-width: 0; }
+    .typo-sample h1 { font-size: 1.8em; font-weight: 700; color: var(--red); line-height: 1.1; }
+    .typo-sample h2 { font-size: 1.6em; font-weight: 700; color: var(--red); line-height: 1.15; }
+    .typo-sample h3 { font-size: 1.2em; font-weight: 700; color: var(--blue-dark); line-height: 1.2; }
+    .typo-sample h4 { font-size: 1em; font-weight: 600; color: var(--blue-dark); line-height: 1.3; }
+    .typo-sample .body-text { font-size: 1.125rem; line-height: 1.5; color: var(--blue-dark); }
+    .typo-sample .caption-text { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; }
+
+    /* ============================================================
+       3. BUTTONS
+       ============================================================ */
+    .btn-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-lg);
+      align-items: center;
+      margin-bottom: var(--sp-xl);
+    }
+    .btn-grid--dark {
+      background: var(--blue-dark);
+      padding: var(--sp-xl);
+      border-radius: var(--r-md);
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn:hover { text-decoration: none; }
+
+    .btn--cta-red {
+      background: var(--red);
+      color: var(--white);
+      padding: 22px 40px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+    }
+    .btn--cta-red:hover {
+      background: var(--red-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(217,70,37,0.3);
+    }
+
+    .btn--cta-dark {
+      background: var(--blue-dark);
+      color: var(--white);
+      padding: 22px 40px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+    }
+    .btn--cta-dark:hover {
+      background: var(--footer-bottom);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37,52,65,0.3);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: var(--r-sm);
+      border: 1px solid rgba(255,255,255,0.25);
+      font-size: 0.8rem;
+    }
+    .btn--outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: var(--r-sm);
+      border: 2px solid var(--white);
+      font-size: 0.8rem;
+    }
+    .btn--ghost:hover {
+      background: var(--white);
+      color: var(--red);
+    }
+
+    .btn--small {
+      padding: 10px 20px;
+      font-size: 0.75rem;
+    }
+
+    /* ============================================================
+       4. CARDS
+       ============================================================ */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--sp-xl);
+    }
+
+    /* Blog card */
+    .card-blog {
+      border: 1px solid #eee;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      transition: var(--transition);
+      background: var(--white);
+    }
+    .card-blog:hover {
+      box-shadow: 0 8px 30px rgba(37,52,65,0.14);
+      transform: translateY(-2px);
+    }
+    .card-blog__img {
+      height: 200px;
+      background: linear-gradient(135deg, var(--red) 0%, var(--blue-dark-alt) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .card-blog__body { padding: var(--sp-lg); }
+    .card-blog__tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--red);
+      margin-bottom: var(--sp-sm);
+    }
+    .card-blog__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: var(--sp-sm);
+      line-height: 1.3;
+    }
+    .card-blog__excerpt {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .card-blog__footer {
+      padding: var(--sp-md) var(--sp-lg);
+      border-top: 1px solid #f0f0f0;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Testimonial card */
+    .card-testimonial {
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--r-md);
+      padding: 28px 24px;
+      border-left: 3px solid var(--red);
+      transition: var(--transition);
+    }
+    .card-testimonial:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-light);
+    }
+    .card-testimonial__quote {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: var(--sp-lg);
+      font-style: italic;
+    }
+    .card-testimonial__author {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-md);
+    }
+    .card-testimonial__avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .card-testimonial__name {
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .card-testimonial__role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Metodo step card */
+    .card-step {
+      border: 1px solid rgba(37,52,65,0.06);
+      border-radius: var(--r-md);
+      padding: var(--sp-xl);
+      transition: var(--transition);
+    }
+    .card-step:hover {
+      background: rgba(217,70,37,0.03);
+      transform: translateY(-2px);
+    }
+    .card-step__number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--red);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: var(--sp-md);
+    }
+    .card-step__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: var(--sp-sm);
+    }
+    .card-step__desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       5. FORMS
+       ============================================================ */
+    .form-demo {
+      max-width: 600px;
+      display: grid;
+      gap: var(--sp-lg);
+    }
+    .form-group { display: flex; flex-direction: column; gap: var(--sp-xs); }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-lg);
+    }
+    @media (max-width: 480px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .form-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #6a7a86;
+      font-weight: 600;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-bottom: 2px solid #ddd;
+      border-radius: var(--r-sm);
+      padding: 14px 16px;
+      color: var(--blue-dark);
+      background: var(--white);
+      transition: var(--transition);
+      outline: none;
+      width: 100%;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-bottom-color: var(--red);
+      box-shadow: 0 2px 8px rgba(217,70,37,0.08);
+    }
+    .form-textarea { min-height: 120px; resize: vertical; }
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23566a78' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+    .form-checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-sm);
+    }
+    .form-checkbox-group input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--red);
+    }
+    .form-checkbox-group label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .form-submit {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
+      background: var(--blue-dark);
+      color: var(--white);
+      width: 100%;
+      padding: 1.5em 1em;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .form-submit:hover {
+      background: var(--footer-bottom);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37,52,65,0.3);
+    }
+
+    /* ============================================================
+       6. HERO SECTIONS
+       ============================================================ */
+    .hero-demo {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      margin-bottom: var(--sp-xl);
+    }
+
+    /* Hero Dark */
+    .hero--dark {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-dark-alt) 60%, var(--red) 100%);
+      color: var(--white);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+    }
+    .hero--dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 20%, rgba(217,70,37,0.15) 0%, transparent 60%);
+    }
+    .hero--dark > * { position: relative; z-index: 1; }
+    .hero__overline {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: var(--sp-lg);
+      opacity: 0.7;
+    }
+    .hero__title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: var(--sp-lg);
+    }
+    .hero__title span { color: var(--red); }
+    .hero--dark .hero__title span { color: #ff6b4a; }
+    .hero__desc {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto var(--sp-xl);
+      opacity: 0.85;
+    }
+    .hero__actions {
+      display: flex;
+      gap: var(--sp-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Hero Light */
+    .hero--light {
+      background: var(--beige);
+      color: var(--blue-dark);
+      padding: 80px 48px;
+      text-align: center;
+    }
+    .hero--light .hero__overline { color: var(--red); opacity: 1; }
+    .hero--light .hero__title span { color: var(--red); }
+    .hero--light .hero__desc { color: var(--text-secondary); }
+
+    /* Hero Split */
+    .hero--split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 400px;
+    }
+    @media (max-width: 768px) {
+      .hero--split { grid-template-columns: 1fr; }
+    }
+    .hero--split__content {
+      padding: 60px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--white);
+    }
+    .hero--split__content .hero__overline { color: var(--red); opacity: 1; }
+    .hero--split__content .hero__title { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    .hero--split__content .hero__title span { color: var(--red); }
+    .hero--split__content .hero__desc { color: var(--text-secondary); margin: 0 0 var(--sp-xl); }
+    .hero--split__content .hero__actions { justify-content: flex-start; }
+    .hero--split__visual {
+      background: linear-gradient(135deg, var(--red) 0%, var(--blue-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* ============================================================
+       7. SOCIAL PROOF
+       ============================================================ */
+    .clients-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-3xl);
+      flex-wrap: wrap;
+      padding: var(--sp-xl) 0;
+      margin-bottom: var(--sp-3xl);
+    }
+    .client-logo {
+      width: 100px;
+      height: 40px;
+      background: rgba(37,52,65,0.06);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .counters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--sp-xl);
+      text-align: center;
+      margin-bottom: var(--sp-3xl);
+    }
+    .counter {
+      padding: var(--sp-xl);
+    }
+    .counter__number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: var(--sp-sm);
+    }
+    .counter__label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--sp-xl);
+    }
+
+    /* ============================================================
+       8. FAQ ACCORDION
+       ============================================================ */
+    .faq-list {
+      max-width: 760px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-sm);
+    }
+    .faq-item {
+      border: 1px solid rgba(37,52,65,0.08);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item[open] {
+      border-color: var(--red);
+      box-shadow: 0 4px 16px rgba(217,70,37,0.08);
+    }
+    .faq-item summary {
+      padding: var(--sp-lg);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--sp-md);
+      transition: var(--transition);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--red);
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+    .faq-item summary:hover { color: var(--red); }
+    .faq-item__content {
+      padding: 0 var(--sp-lg) var(--sp-lg);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    /* ============================================================
+       9. FOOTER
+       ============================================================ */
+    .footer-demo {
+      background: var(--blue-dark);
+      color: rgba(255,255,255,0.7);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .footer-demo__main {
+      padding: 60px 48px 40px;
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: var(--sp-2xl);
+    }
+    @media (max-width: 768px) {
+      .footer-demo__main {
+        grid-template-columns: 1fr;
+        padding: 40px 24px 24px;
+      }
+    }
+    .footer-brand__name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: var(--sp-md);
+    }
+    .footer-brand__desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col__title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--white);
+      margin-bottom: var(--sp-lg);
+    }
+    .footer-col__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-sm);
+    }
+    .footer-col__links a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .footer-col__links a:hover { color: var(--white); text-decoration: none; }
+    .footer-demo__bottom {
+      background: var(--footer-bottom);
+      padding: var(--sp-lg) 48px;
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--sp-md);
+    }
+    .footer-demo__bottom a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+    .footer-demo__bottom a:hover { color: var(--white); text-decoration: none; }
+    .footer-social {
+      display: flex;
+      gap: var(--sp-md);
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .footer-social a:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       10. SPACING & GRID
+       ============================================================ */
+    .spacing-scale {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-md);
+      margin-bottom: var(--sp-3xl);
+    }
+    .spacing-item {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-lg);
+    }
+    .spacing-item__label {
+      min-width: 60px;
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .spacing-item__bar {
+      height: 24px;
+      background: linear-gradient(90deg, var(--red), var(--blue-dark-alt));
+      border-radius: 4px;
+      opacity: 0.7;
+    }
+    .spacing-item__value {
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      min-width: 40px;
+    }
+
+    .grid-demo {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--sp-md);
+      margin-bottom: var(--sp-md);
+    }
+    .grid-demo__cell {
+      height: 48px;
+      background: rgba(217,70,37,0.1);
+      border-radius: var(--r-sm);
+      border: 1px dashed rgba(217,70,37,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+    }
+    .grid-demo--4col { grid-template-columns: repeat(4, 1fr); }
+    .grid-demo--3col { grid-template-columns: repeat(3, 1fr); }
+    .grid-demo--2col { grid-template-columns: repeat(2, 1fr); }
+
+    .radius-grid {
+      display: flex;
+      gap: var(--sp-xl);
+      flex-wrap: wrap;
+      margin-top: var(--sp-xl);
+    }
+    .radius-item {
+      text-align: center;
+    }
+    .radius-item__box {
+      width: 80px;
+      height: 80px;
+      background: rgba(217,70,37,0.1);
+      border: 2px solid var(--red);
+      margin-bottom: var(--sp-sm);
+    }
+    .radius-item__label {
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .radius-item__value {
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       11. ANIMATIONS
+       ============================================================ */
+    .anim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: var(--sp-xl);
+    }
+    .anim-card {
+      border: 1px solid rgba(37,52,65,0.08);
+      border-radius: var(--r-md);
+      padding: var(--sp-xl);
+      text-align: center;
+    }
+    .anim-card__label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: var(--sp-lg);
+    }
+
+    /* Hover Lift */
+    .anim-lift-box {
+      width: 80px;
+      height: 80px;
+      background: var(--red);
+      border-radius: var(--r-md);
+      margin: 0 auto var(--sp-md);
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+    .anim-lift-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(217,70,37,0.3);
+    }
+
+    /* Fade In */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim-fade-box {
+      width: 80px;
+      height: 80px;
+      background: var(--blue-dark);
+      border-radius: var(--r-md);
+      margin: 0 auto var(--sp-md);
+      animation: fadeInUp 1s ease infinite;
+    }
+
+    /* Pulse CTA */
+    @keyframes pulseCta {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(217,70,37,0.4); }
+      50%      { box-shadow: 0 0 0 16px rgba(217,70,37,0); }
+    }
+    .anim-pulse-btn {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      animation: pulseCta 2s ease infinite;
+      cursor: pointer;
+    }
+
+    /* Scale */
+    .anim-scale-box {
+      width: 80px;
+      height: 80px;
+      background: var(--beige);
+      border: 2px solid var(--red);
+      border-radius: var(--r-md);
+      margin: 0 auto var(--sp-md);
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+    .anim-scale-box:hover {
+      transform: scale(1.1);
+    }
+
+    .anim-card__hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: var(--sp-sm);
+    }
+
+    /* ============================================================
+       SCROLL ANIMATIONS (Intersection Observer)
+       ============================================================ */
+    .ds-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .ds-animate.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       HEADER / HERO INTRO
+       ============================================================ */
+    .ds-hero-intro {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-dark-alt) 60%, var(--red) 100%);
+      color: var(--white);
+      padding: 120px var(--sp-lg) 80px;
+      text-align: center;
+      position: relative;
+    }
+    .ds-hero-intro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 80%, rgba(217,70,37,0.12) 0%, transparent 50%);
+    }
+    .ds-hero-intro > * { position: relative; }
+    .ds-hero-intro__badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 6px 16px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--r-pill);
+      margin-bottom: var(--sp-xl);
+      color: rgba(255,255,255,0.7);
+    }
+    .ds-hero-intro__title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: var(--sp-lg);
+    }
+    .ds-hero-intro__title span { color: #ff6b4a; }
+    .ds-hero-intro__desc {
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      opacity: 0.75;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <nav class="ds-nav">
+    <div class="ds-nav__inner">
+      <span class="ds-nav__brand">Studio 121 DS</span>
+      <a href="#palette">Palette</a>
+      <a href="#tipografia">Tipografia</a>
+      <a href="#bottoni">Bottoni</a>
+      <a href="#card">Card</a>
+      <a href="#form">Form</a>
+      <a href="#hero">Hero</a>
+      <a href="#social-proof">Social Proof</a>
+      <a href="#faq">FAQ</a>
+      <a href="#footer">Footer</a>
+      <a href="#spacing">Spacing & Grid</a>
+      <a href="#animazioni">Animazioni</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       INTRO
+       ============================================================ -->
+  <header class="ds-hero-intro">
+    <div class="ds-hero-intro__badge">Design System v1.0</div>
+    <h1 class="ds-hero-intro__title">Studio <span>121</span><br>Design System</h1>
+    <p class="ds-hero-intro__desc">Tutti i componenti del brand, pronti da copiare e incollare nelle landing page. Colori, tipografia, bottoni, card, form e pattern.</p>
+  </header>
+
+  <!-- ============================================================
+       1. PALETTE
+       ============================================================ -->
+  <section id="palette" class="ds-section">
+    <div class="ds-container">
+      <h2 class="ds-section__title">1. Palette Colori</h2>
+      <p class="ds-section__subtitle">I colori del brand Studio 121, estratti dal sito ufficiale. Ogni colore ha un ruolo preciso nel sistema.</p>
+
+      <div class="palette-grid ds-animate">
+        <div class="palette-card">
+          <div class="palette-swatch" style="background: #d94625;">
+            <span style="background: rgba(0,0,0,0.3); color: #fff;">Primary</span>
+          </div>
+          <div class="palette-info">
+            <div class="palette-info__name">Rosso Studio 121</div>
+            <div class="palette-info__hex">#d94625</div>
+            <div class="palette-info__usage">CTA, titoli h1/h2, accent principale</div>
+          </div>
+        </div>
+
+        <div class="palette-card">
+          <div class="palette-swatch" style="background: #253441;">
+            <span style="background: rgba(255,255,255,0.15); color: #fff;">Dark</span>
+          </div>
+          <div class="palette-info">
+            <div class="palette-info__name">Blu Scuro</div>
+            <div class="palette-info__hex">#253441</div>
+            <div class="palette-info__usage">Sfondo dark, testo principale, footer</div>
+          </div>
+        </div>
+
+        <div class="palette-card">
+          <div class="palette-swatch" style="background: #2e4252;">
+            <span style="background: rgba(255,255,255,0.15); color: #fff;">Dark Alt</span>
+          </div>
+          <div class="palette-info">
+            <div class="palette-info__name">Blu Scuro Alt</div>
+            <div class="palette-info__hex">#2e4252</div>
+            <div class="palette-info__usage">Hover, sfumature, variante scura</div>
+          </div>
+        </div>
+
+        <div class="palette-card">
+          <div class="palette-swatch" style="background: #ffffff; border-bottom: 1px solid #eee;">
+            <span style="background: rgba(0,0,0,0.06); color: #253441;">Light</span>
+          </div>
+          <div class="palette-info">
+            <div class="palette-info__name">Bianco</div>
+            <div class="palette-info__hex">#ffffff</div>
+            <div class="palette-info__usage">Sfondo principale, testo su dark</div>
+          </div>
+        </div>
+
+        <div class="palette-card">
+          <div class="palette-swatch" style="background: #f1ece8;">
+            <span style="background: rgba(0,0,0,0.06); color: #253441;">Neutral</span>
+          </div>
+          <div class="palette-info">
+            <div class="palette-info__name">Beige</div>
+            <div class="palette-info__hex">#f1ece8</div>
+            <div class="palette-info__usage">Sfondo alternativo sezioni</div>
+          </div>
+        </div>
+
+        <div class="palette-card">
+          <div class="palette-swatch" style="background: #1a2630;">
+            <span style="background: rgba(255,255,255,0.15); color: #fff;">Darkest</span>
+          </div>
+          <div class="palette-info">
+            <div class="palette-info__name">Footer Bottom</div>
+            <div class="palette-info__hex">#1a2630</div>
+            <div class="palette-info__usage">Barra inferiore footer</div>
+          </div>
+        </div>
+
+        <div class="palette-card">
+          <div class="palette-swatch" style="background: #4a5d6c;">
+            <span style="background: rgba(255,255,255,0.15); color: #fff;">Text</span>
+          </div>
+          <div class="palette-info">
+            <div class="palette-info__name">Text Secondary</div>
+            <div class="palette-info__hex">#4a5d6c</div>
+            <div class="palette-info__usage">Paragrafi secondari, descrizioni</div>
+          </div>
+        </div>
+
+        <div class="palette-card">
+          <div class="palette-swatch" style="background: #566a78;">
+            <span style="background: rgba(255,255,255,0.15); color: #fff;">Muted</span>
+          </div>
+          <div class="palette-info">
+            <div class="palette-info__name">Text Muted</div>
+            <div class="palette-info__hex">#566a78</div>
+            <div class="palette-info__usage">Label, caption, meta</div>
+          </div>
+        </div>
+
+        <div class="palette-card">
+          <div class="palette-swatch" style="background: #c23d20;">
+            <span style="background: rgba(0,0,0,0.3); color: #fff;">Hover</span>
+          </div>
+          <div class="palette-info">
+            <div class="palette-info__name">Rosso Hover</div>
+            <div class="palette-info__hex">#c23d20</div>
+            <div class="palette-info__usage">Stato hover bottoni rossi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-code-label">CSS Custom Properties</div>
+      <pre class="ds-code">:root {
+  --red:            #d94625;   /* Accent principale, CTA, h1/h2 */
+  --red-hover:      #c23d20;   /* Hover state rosso */
+  --blue-dark:      #253441;   /* Sfondo dark, testo, footer */
+  --blue-dark-alt:  #2e4252;   /* Hover, sfumature */
+  --white:          #ffffff;
+  --beige:          #f1ece8;   /* Sfondo alternativo */
+  --footer-bottom:  #1a2630;   /* Barra footer */
+  --text-secondary: #4a5d6c;
+  --text-muted:     #566a78;
+}</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. TIPOGRAFIA
+       ============================================================ -->
+  <section id="tipografia" class="ds-section ds-section--beige">
+    <div class="ds-container">
+      <h2 class="ds-section__title">2. Tipografia</h2>
+      <p class="ds-section__subtitle">Font Poppins da Google Fonts. Pesi dal 100 al 800 per massima flessibilita.</p>
+
+      <div class="ds-animate">
+        <div class="typo-row">
+          <div class="typo-meta">
+            <div class="typo-meta__label">H1 — Heading</div>
+            <div class="typo-meta__specs">
+              font-weight: 700<br>
+              font-size: 1.8em<br>
+              line-height: 1.1<br>
+              color: #d94625
+            </div>
+          </div>
+          <div class="typo-sample">
+            <h1>Creiamo brand che lasciano il segno</h1>
+          </div>
+        </div>
+
+        <div class="typo-row">
+          <div class="typo-meta">
+            <div class="typo-meta__label">H2 — Section Title</div>
+            <div class="typo-meta__specs">
+              font-weight: 700<br>
+              font-size: 1.6em<br>
+              line-height: 1.15<br>
+              color: #d94625
+            </div>
+          </div>
+          <div class="typo-sample">
+            <h2>Il nostro metodo in 4 fasi</h2>
+          </div>
+        </div>
+
+        <div class="typo-row">
+          <div class="typo-meta">
+            <div class="typo-meta__label">H3 — Subsection</div>
+            <div class="typo-meta__specs">
+              font-weight: 700<br>
+              font-size: 1.2em<br>
+              line-height: 1.2<br>
+              color: #253441
+            </div>
+          </div>
+          <div class="typo-sample">
+            <h3>Strategia digitale su misura per il tuo business</h3>
+          </div>
+        </div>
+
+        <div class="typo-row">
+          <div class="typo-meta">
+            <div class="typo-meta__label">H4 — Card Title</div>
+            <div class="typo-meta__specs">
+              font-weight: 600<br>
+              font-size: 1em<br>
+              line-height: 1.3<br>
+              color: #253441
+            </div>
+          </div>
+          <div class="typo-sample">
+            <h4>Analisi e Ricerca di Mercato</h4>
+          </div>
+        </div>
+
+        <div class="typo-row">
+          <div class="typo-meta">
+            <div class="typo-meta__label">Body — Paragrafo</div>
+            <div class="typo-meta__specs">
+              font-weight: 400<br>
+              font-size: 1.125rem<br>
+              line-height: 1.5<br>
+              color: #253441
+            </div>
+          </div>
+          <div class="typo-sample">
+            <p class="body-text">Studio 121 trasforma le idee in identita visive potenti. Dal logo alla strategia digitale completa, ogni progetto nasce da un approccio metodico e creativo.</p>
+          </div>
+        </div>
+
+        <div class="typo-row">
+          <div class="typo-meta">
+            <div class="typo-meta__label">Caption — Label</div>
+            <div class="typo-meta__specs">
+              font-weight: 600<br>
+              font-size: 0.75rem<br>
+              letter-spacing: 0.5px<br>
+              text-transform: uppercase<br>
+              color: #566a78
+            </div>
+          </div>
+          <div class="typo-sample">
+            <span class="caption-text">Branding &middot; Web Design &middot; Marketing Digitale</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-code-label">CSS Tipografia</div>
+      <pre class="ds-code">/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.125rem;       /* 18px */
+  line-height: 1.5;
+  color: #253441;
+}
+h1 { font-weight: 700; font-size: 1.8em; color: #d94625; line-height: 1.1; }
+h2 { font-weight: 700; font-size: 1.6em; color: #d94625; line-height: 1.15; }
+h3 { font-weight: 700; font-size: 1.2em; color: #253441; line-height: 1.2; }
+h4 { font-weight: 600; font-size: 1em;   color: #253441; line-height: 1.3; }
+
+.caption {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #566a78;
+}</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. BOTTONI
+       ============================================================ -->
+  <section id="bottoni" class="ds-section">
+    <div class="ds-container">
+      <h2 class="ds-section__title">3. Bottoni</h2>
+      <p class="ds-section__subtitle">Quattro varianti principali. Tutti con transizione hover lift + shadow.</p>
+
+      <div class="ds-animate">
+        <h3 style="margin-bottom: var(--sp-lg);">Su sfondo chiaro</h3>
+        <div class="btn-grid">
+          <a href="#" class="btn btn--cta-red">Richiedi Preventivo</a>
+          <a href="#" class="btn btn--cta-dark">Scopri i Servizi</a>
+          <a href="#" class="btn btn--cta-red btn--small">CTA Small</a>
+          <a href="#" class="btn btn--cta-dark btn--small">Dark Small</a>
+        </div>
+
+        <h3 style="margin-bottom: var(--sp-lg); margin-top: var(--sp-xl);">Su sfondo scuro</h3>
+        <div class="btn-grid btn-grid--dark">
+          <a href="#" class="btn btn--outline">Outline Button</a>
+          <a href="#" class="btn btn--ghost">Ghost Button</a>
+          <a href="#" class="btn btn--cta-red">CTA Red on Dark</a>
+        </div>
+      </div>
+
+      <div class="ds-code-label">CSS Bottoni</div>
+      <pre class="ds-code">/* CTA Red */
+.btn--cta-red {
+  background: #d94625;
+  color: #ffffff;
+  padding: 22px 40px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: 0.2s ease;
+}
+.btn--cta-red:hover {
+  background: #c23d20;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(217,70,37,0.3);
+}
+
+/* CTA Dark */
+.btn--cta-dark {
+  background: #253441;
+  color: #ffffff;
+  padding: 22px 40px;
+  border-radius: 10px;
+}
+.btn--cta-dark:hover {
+  background: #1a2630;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37,52,65,0.3);
+}
+
+/* Outline (su sfondo scuro) */
+.btn--outline {
+  background: transparent;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* Ghost (su sfondo scuro) */
+.btn--ghost {
+  background: transparent;
+  color: #ffffff;
+  padding: 12px 28px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+}
+.btn--ghost:hover {
+  background: #ffffff;
+  color: #d94625;
+}</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. CARD
+       ============================================================ -->
+  <section id="card" class="ds-section ds-section--beige">
+    <div class="ds-container">
+      <h2 class="ds-section__title">4. Card</h2>
+      <p class="ds-section__subtitle">Tre tipologie di card usate nelle landing page: blog, testimonial e metodo step.</p>
+
+      <h3 style="margin-bottom: var(--sp-lg);">Blog Card</h3>
+      <div class="cards-grid ds-animate" style="margin-bottom: var(--sp-3xl);">
+        <div class="card-blog">
+          <div class="card-blog__img">Immagine Articolo</div>
+          <div class="card-blog__body">
+            <div class="card-blog__tag">Branding</div>
+            <div class="card-blog__title">Come costruire un brand memorabile nel 2026</div>
+            <div class="card-blog__excerpt">Scopri le 5 strategie fondamentali per creare un'identita visiva che si distingue nel mercato competitivo di oggi.</div>
+          </div>
+          <div class="card-blog__footer">
+            <span>14 Apr 2026</span>
+            <span>5 min lettura</span>
+          </div>
+        </div>
+
+        <div class="card-blog">
+          <div class="card-blog__img" style="background: linear-gradient(135deg, #253441, #2e4252);">Immagine Articolo</div>
+          <div class="card-blog__body">
+            <div class="card-blog__tag">Web Design</div>
+            <div class="card-blog__title">Landing page che convertono: la guida completa</div>
+            <div class="card-blog__excerpt">Dall'above the fold al form di contatto: ogni elemento conta. Ecco come ottimizzare la tua landing page.</div>
+          </div>
+          <div class="card-blog__footer">
+            <span>10 Apr 2026</span>
+            <span>8 min lettura</span>
+          </div>
+        </div>
+
+        <div class="card-blog">
+          <div class="card-blog__img" style="background: linear-gradient(135deg, #d94625, #c23d20);">Immagine Articolo</div>
+          <div class="card-blog__body">
+            <div class="card-blog__tag">Social Media</div>
+            <div class="card-blog__title">Instagram Reels per aziende: strategie che funzionano</div>
+            <div class="card-blog__excerpt">Video brevi, impatto lungo. Come usare i Reels per aumentare la visibilita del tuo brand locale.</div>
+          </div>
+          <div class="card-blog__footer">
+            <span>5 Apr 2026</span>
+            <span>6 min lettura</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: var(--sp-lg);">Testimonial Card</h3>
+      <div class="cards-grid ds-animate" style="margin-bottom: var(--sp-3xl);">
+        <div class="card-testimonial">
+          <div class="card-testimonial__quote">"Studio 121 ha completamente trasformato la nostra immagine online. Il nuovo sito ci ha portato il 40% di richieste in piu nel primo trimestre."</div>
+          <div class="card-testimonial__author">
+            <div class="card-testimonial__avatar">MR</div>
+            <div>
+              <div class="card-testimonial__name">Marco Rossi</div>
+              <div class="card-testimonial__role">CEO, TechStart Srl</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-testimonial">
+          <div class="card-testimonial__quote">"Professionali, creativi e sempre disponibili. Il loro approccio strategico ha fatto la differenza per il nostro lancio prodotto."</div>
+          <div class="card-testimonial__author">
+            <div class="card-testimonial__avatar">LB</div>
+            <div>
+              <div class="card-testimonial__name">Laura Bianchi</div>
+              <div class="card-testimonial__role">Marketing Director, FoodCraft</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-testimonial">
+          <div class="card-testimonial__quote">"Da quando collaboriamo con Studio 121, il nostro engagement sui social e cresciuto del 300%. Risultati concreti, non solo numeri."</div>
+          <div class="card-testimonial__author">
+            <div class="card-testimonial__avatar">GV</div>
+            <div>
+              <div class="card-testimonial__name">Giuseppe Verdi</div>
+              <div class="card-testimonial__role">Founder, Bottega Verde</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: var(--sp-lg);">Metodo Step Card</h3>
+      <div class="cards-grid ds-animate">
+        <div class="card-step">
+          <div class="card-step__number">1</div>
+          <div class="card-step__title">Analisi</div>
+          <div class="card-step__desc">Studiamo il tuo mercato, i competitor e il tuo pubblico target per definire una strategia su misura.</div>
+        </div>
+
+        <div class="card-step">
+          <div class="card-step__number">2</div>
+          <div class="card-step__title">Strategia</div>
+          <div class="card-step__desc">Definiamo obiettivi chiari, KPI misurabili e un piano d'azione dettagliato con tempistiche precise.</div>
+        </div>
+
+        <div class="card-step">
+          <div class="card-step__number">3</div>
+          <div class="card-step__title">Esecuzione</div>
+          <div class="card-step__desc">Il nostro team creativo realizza ogni asset con cura maniacale per il dettaglio e coerenza di brand.</div>
+        </div>
+
+        <div class="card-step">
+          <div class="card-step__number">4</div>
+          <div class="card-step__title">Ottimizzazione</div>
+          <div class="card-step__desc">Monitoriamo i risultati e ottimizziamo continuamente per massimizzare il ritorno sull'investimento.</div>
+        </div>
+      </div>
+
+      <div class="ds-code-label">CSS Card</div>
+      <pre class="ds-code">/* Blog Card */
+.card-blog {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.2s ease;
+}
+.card-blog:hover {
+  box-shadow: 0 8px 30px rgba(37,52,65,0.14);
+  transform: translateY(-2px);
+}
+
+/* Testimonial Card */
+.card-testimonial {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 28px 24px;
+  border-left: 3px solid #d94625;
+}
+
+/* Metodo Step Card */
+.card-step {
+  border: 1px solid rgba(37,52,65,0.06);
+  border-radius: 12px;
+  padding: 32px;
+}
+.card-step:hover {
+  background: rgba(217,70,37,0.03);
+  transform: translateY(-2px);
+}</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. FORM
+       ============================================================ -->
+  <section id="form" class="ds-section">
+    <div class="ds-container">
+      <h2 class="ds-section__title">5. Form</h2>
+      <p class="ds-section__subtitle">Form di contatto con input, select, textarea e submit. Focus state con bordo rosso inferiore.</p>
+
+      <form class="form-demo ds-animate" onsubmit="event.preventDefault(); alert('Form inviato (demo)');">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="ds-nome">Nome</label>
+            <input class="form-input" type="text" id="ds-nome" placeholder="Mario">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ds-cognome">Cognome</label>
+            <input class="form-input" type="text" id="ds-cognome" placeholder="Rossi">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ds-email">Email</label>
+          <input class="form-input" type="email" id="ds-email" placeholder="mario@esempio.it">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ds-telefono">Telefono</label>
+          <input class="form-input" type="tel" id="ds-telefono" placeholder="+39 333 1234567">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ds-servizio">Servizio di interesse</label>
+          <select class="form-select" id="ds-servizio">
+            <option value="" disabled selected>Seleziona un servizio</option>
+            <option>Branding & Logo Design</option>
+            <option>Sito Web / Landing Page</option>
+            <option>Social Media Marketing</option>
+            <option>Google Ads / SEO</option>
+            <option>Pacchetto Completo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ds-messaggio">Messaggio</label>
+          <textarea class="form-textarea" id="ds-messaggio" placeholder="Raccontaci il tuo progetto..."></textarea>
+        </div>
+
+        <div class="form-checkbox-group">
+          <input type="checkbox" id="ds-privacy">
+          <label for="ds-privacy">Acconsento al trattamento dei dati personali secondo la <a href="#">Privacy Policy</a>.</label>
+        </div>
+
+        <button type="submit" class="form-submit">Invia Richiesta</button>
+      </form>
+
+      <div class="ds-code-label">CSS Form</div>
+      <pre class="ds-code">/* Input */
+.form-input {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: #253441;
+  transition: 0.2s ease;
+}
+.form-input:focus {
+  border-bottom-color: #d94625;
+  box-shadow: 0 2px 8px rgba(217,70,37,0.08);
+}
+
+/* Label */
+.form-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6a7a86;
+  font-weight: 600;
+}
+
+/* Submit */
+.form-submit {
+  background: #253441;
+  color: #ffffff;
+  width: 100%;
+  padding: 1.5em 1em;
+  border-radius: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. HERO SECTIONS
+       ============================================================ -->
+  <section id="hero" class="ds-section ds-section--beige">
+    <div class="ds-container">
+      <h2 class="ds-section__title">6. Hero Section</h2>
+      <p class="ds-section__subtitle">Tre varianti hero: dark (sfondo scuro), light (sfondo beige) e split (contenuto + visual).</p>
+
+      <!-- Hero Dark -->
+      <h3 style="margin-bottom: var(--sp-lg);">Variante Dark</h3>
+      <div class="hero-demo ds-animate">
+        <div class="hero--dark">
+          <div class="hero__overline">Agenzia Creativa</div>
+          <h1 class="hero__title">Il tuo brand merita<br>di <span>essere visto</span></h1>
+          <p class="hero__desc">Creiamo identita visive potenti e strategie digitali che trasformano la tua presenza online in risultati concreti.</p>
+          <div class="hero__actions">
+            <a href="#" class="btn btn--cta-red">Richiedi Preventivo</a>
+            <a href="#" class="btn btn--ghost">Scopri i Servizi</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Light -->
+      <h3 style="margin-bottom: var(--sp-lg);">Variante Light</h3>
+      <div class="hero-demo ds-animate">
+        <div class="hero--light">
+          <div class="hero__overline">Web Design & Development</div>
+          <h1 class="hero__title">Siti web che<br><span>convertono</span> davvero</h1>
+          <p class="hero__desc">Design responsive, velocita ottimizzata e UX studiata per guidare i visitatori verso l'azione. Ogni pixel conta.</p>
+          <div class="hero__actions">
+            <a href="#" class="btn btn--cta-red">Vedi Portfolio</a>
+            <a href="#" class="btn btn--cta-dark">Contattaci</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Split -->
+      <h3 style="margin-bottom: var(--sp-lg);">Variante Split</h3>
+      <div class="hero-demo ds-animate">
+        <div class="hero--split">
+          <div class="hero--split__content">
+            <div class="hero__overline">Social Media Marketing</div>
+            <h1 class="hero__title">Fai crescere il tuo <span>pubblico</span></h1>
+            <p class="hero__desc">Strategie social personalizzate per aumentare la visibilita, l'engagement e le conversioni del tuo brand.</p>
+            <div class="hero__actions">
+              <a href="#" class="btn btn--cta-red">Inizia Ora</a>
+            </div>
+          </div>
+          <div class="hero--split__visual">
+            Visual / Immagine
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-code-label">CSS Hero Dark</div>
+      <pre class="ds-code">/* Hero Dark */
+.hero--dark {
+  background: linear-gradient(135deg, #253441 0%, #2e4252 60%, #d94625 100%);
+  color: #ffffff;
+  padding: 80px 48px;
+  text-align: center;
+}
+.hero__title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+.hero__title span { color: #ff6b4a; }
+.hero__desc {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.85;
+}</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. SOCIAL PROOF
+       ============================================================ -->
+  <section id="social-proof" class="ds-section">
+    <div class="ds-container">
+      <h2 class="ds-section__title">7. Social Proof</h2>
+      <p class="ds-section__subtitle">Loghi clienti, contatori animati e testimonial per costruire fiducia.</p>
+
+      <h3 style="margin-bottom: var(--sp-lg);">Barra Loghi Clienti</h3>
+      <div class="clients-bar ds-animate">
+        <div class="client-logo">Cliente 1</div>
+        <div class="client-logo">Cliente 2</div>
+        <div class="client-logo">Cliente 3</div>
+        <div class="client-logo">Cliente 4</div>
+        <div class="client-logo">Cliente 5</div>
+        <div class="client-logo">Cliente 6</div>
+      </div>
+
+      <h3 style="margin-bottom: var(--sp-lg);">Contatori Animati</h3>
+      <div class="counters-grid ds-animate">
+        <div class="counter">
+          <div class="counter__number" data-target="150">0</div>
+          <div class="counter__label">Progetti completati</div>
+        </div>
+        <div class="counter">
+          <div class="counter__number" data-target="98">0</div>
+          <div class="counter__label">Clienti soddisfatti %</div>
+        </div>
+        <div class="counter">
+          <div class="counter__number" data-target="12">0</div>
+          <div class="counter__label">Anni di esperienza</div>
+        </div>
+        <div class="counter">
+          <div class="counter__number" data-target="40">0</div>
+          <div class="counter__label">Professionisti nel team</div>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: var(--sp-lg);">Testimonial Grid</h3>
+      <div class="testimonials-grid ds-animate">
+        <div class="card-testimonial">
+          <div class="card-testimonial__quote">"Il rebranding che ci hanno fatto ha aumentato la riconoscibilita del nostro marchio in modo tangibile. Consigliamo Studio 121 a chiunque cerchi qualita."</div>
+          <div class="card-testimonial__author">
+            <div class="card-testimonial__avatar">AP</div>
+            <div>
+              <div class="card-testimonial__name">Anna Pellegrini</div>
+              <div class="card-testimonial__role">CEO, Pellegrini & Co.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-testimonial">
+          <div class="card-testimonial__quote">"Le campagne Google Ads gestite da Studio 121 ci hanno portato un ROI del 340% nel primo semestre. Numeri incredibili."</div>
+          <div class="card-testimonial__author">
+            <div class="card-testimonial__avatar">FS</div>
+            <div>
+              <div class="card-testimonial__name">Francesco Santini</div>
+              <div class="card-testimonial__role">Head of Growth, DataFlow</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-code-label">CSS Social Proof</div>
+      <pre class="ds-code">/* Barra Loghi */
+.clients-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
+/* Contatori */
+.counter__number {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #d94625;
+}
+
+/* Testimonial — vedi sezione Card */</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. FAQ ACCORDION
+       ============================================================ -->
+  <section id="faq" class="ds-section ds-section--beige">
+    <div class="ds-container">
+      <h2 class="ds-section__title">8. FAQ</h2>
+      <p class="ds-section__subtitle">Accordion nativo con &lt;details&gt;/&lt;summary&gt;. Nessun JavaScript necessario.</p>
+
+      <div class="faq-list ds-animate">
+        <details class="faq-item">
+          <summary>Quanto costa un progetto di branding completo?</summary>
+          <div class="faq-item__content">
+            Ogni progetto e unico e il costo dipende dalla complessita e dall'ambito. Offriamo pacchetti a partire da 2.000 EUR per startup e PMI. Contattaci per un preventivo personalizzato basato sulle tue esigenze specifiche.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Quali sono i tempi di consegna per un sito web?</summary>
+          <div class="faq-item__content">
+            Un sito web standard viene consegnato in 4-6 settimane dalla conferma del progetto. Per landing page singole i tempi si riducono a 1-2 settimane. Progetti complessi con funzionalita personalizzate possono richiedere 8-12 settimane.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Offrite assistenza post-lancio?</summary>
+          <div class="faq-item__content">
+            Assolutamente si. Tutti i nostri progetti includono 30 giorni di assistenza gratuita post-lancio. Offriamo anche piani di manutenzione mensili per aggiornamenti continui, monitoraggio performance e supporto tecnico dedicato.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Come funziona il processo di collaborazione?</summary>
+          <div class="faq-item__content">
+            Il nostro metodo si articola in 4 fasi: Analisi (studio del mercato e dei competitor), Strategia (definizione degli obiettivi e del piano), Esecuzione (design e sviluppo) e Ottimizzazione (monitoraggio e miglioramento continuo). Ad ogni fase ricevi aggiornamenti e approvazioni.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Lavorate solo con aziende della Sicilia?</summary>
+          <div class="faq-item__content">
+            No, lavoriamo con clienti in tutta Italia e anche all'estero. Il nostro team lavora in modo efficiente sia in presenza che da remoto, utilizzando strumenti di collaborazione professionali per garantire la massima qualita indipendentemente dalla distanza.
+          </div>
+        </details>
+      </div>
+
+      <div class="ds-code-label">CSS FAQ Accordion</div>
+      <pre class="ds-code">/* FAQ nativo con details/summary */
+.faq-item {
+  border: 1px solid rgba(37,52,65,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.faq-item[open] {
+  border-color: #d94625;
+  box-shadow: 0 4px 16px rgba(217,70,37,0.08);
+}
+.faq-item summary {
+  padding: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;          /* rimuove marker nativo */
+  display: flex;
+  justify-content: space-between;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  color: #d94625;
+  transition: 0.2s ease;
+}
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq-item__content {
+  padding: 0 24px 24px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4a5d6c;
+}</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. FOOTER
+       ============================================================ -->
+  <section id="footer" class="ds-section">
+    <div class="ds-container">
+      <h2 class="ds-section__title">9. Footer</h2>
+      <p class="ds-section__subtitle">Footer completo con brand info, link di navigazione, contatti e barra copyright.</p>
+
+      <div class="footer-demo ds-animate">
+        <div class="footer-demo__main">
+          <div class="footer-brand">
+            <div class="footer-brand__name">Studio 121</div>
+            <div class="footer-brand__desc">Agenzia creativa specializzata in branding, web design e marketing digitale. Trasformiamo le tue idee in esperienze memorabili.</div>
+          </div>
+
+          <div class="footer-col">
+            <div class="footer-col__title">Servizi</div>
+            <ul class="footer-col__links">
+              <li><a href="#">Branding</a></li>
+              <li><a href="#">Web Design</a></li>
+              <li><a href="#">Social Media</a></li>
+              <li><a href="#">Google Ads</a></li>
+              <li><a href="#">SEO</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <div class="footer-col__title">Azienda</div>
+            <ul class="footer-col__links">
+              <li><a href="#">Chi Siamo</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contatti</a></li>
+              <li><a href="#">Lavora con Noi</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <div class="footer-col__title">Contatti</div>
+            <ul class="footer-col__links">
+              <li><a href="#">info@studio121.it</a></li>
+              <li><a href="#">+39 091 123 4567</a></li>
+              <li><a href="#">Via Roma 121, Palermo</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-demo__bottom">
+          <span>&copy; 2026 Studio 121. Tutti i diritti riservati. <a href="#">Privacy</a> &middot; <a href="#">Cookie</a></span>
+          <div class="footer-social">
+            <a href="#" title="Instagram">IG</a>
+            <a href="#" title="Facebook">FB</a>
+            <a href="#" title="LinkedIn">LI</a>
+            <a href="#" title="Behance">BE</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-code-label">CSS Footer</div>
+      <pre class="ds-code">/* Footer */
+.footer {
+  background: #253441;
+  color: rgba(255,255,255,0.7);
+}
+.footer__main {
+  padding: 60px 48px 40px;
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 48px;
+}
+.footer__bottom {
+  background: #1a2630;
+  padding: 24px 48px;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-col__title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+.footer-col__links a {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+}
+.footer-col__links a:hover { color: #ffffff; }</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. SPACING & GRID
+       ============================================================ -->
+  <section id="spacing" class="ds-section ds-section--beige">
+    <div class="ds-container">
+      <h2 class="ds-section__title">10. Spacing & Grid</h2>
+      <p class="ds-section__subtitle">Scala di spacing, griglia a 12 colonne e border radius del sistema.</p>
+
+      <h3 style="margin-bottom: var(--sp-lg);">Spacing Scale</h3>
+      <div class="spacing-scale ds-animate">
+        <div class="spacing-item">
+          <div class="spacing-item__label">xs</div>
+          <div class="spacing-item__bar" style="width: 4px;"></div>
+          <div class="spacing-item__value">4px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-item__label">sm</div>
+          <div class="spacing-item__bar" style="width: 8px;"></div>
+          <div class="spacing-item__value">8px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-item__label">md</div>
+          <div class="spacing-item__bar" style="width: 16px;"></div>
+          <div class="spacing-item__value">16px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-item__label">lg</div>
+          <div class="spacing-item__bar" style="width: 24px;"></div>
+          <div class="spacing-item__value">24px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-item__label">xl</div>
+          <div class="spacing-item__bar" style="width: 32px;"></div>
+          <div class="spacing-item__value">32px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-item__label">2xl</div>
+          <div class="spacing-item__bar" style="width: 48px;"></div>
+          <div class="spacing-item__value">48px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-item__label">3xl</div>
+          <div class="spacing-item__bar" style="width: 64px;"></div>
+          <div class="spacing-item__value">64px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-item__label">4xl</div>
+          <div class="spacing-item__bar" style="width: 96px;"></div>
+          <div class="spacing-item__value">96px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-item__label">section</div>
+          <div class="spacing-item__bar" style="width: 180px;"></div>
+          <div class="spacing-item__value">90px / 50px mobile</div>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: var(--sp-lg);">Griglia 12 Colonne</h3>
+      <div class="ds-animate">
+        <div class="grid-demo">
+          <div class="grid-demo__cell">1</div>
+          <div class="grid-demo__cell">2</div>
+          <div class="grid-demo__cell">3</div>
+          <div class="grid-demo__cell">4</div>
+          <div class="grid-demo__cell">5</div>
+          <div class="grid-demo__cell">6</div>
+          <div class="grid-demo__cell">7</div>
+          <div class="grid-demo__cell">8</div>
+          <div class="grid-demo__cell">9</div>
+          <div class="grid-demo__cell">10</div>
+          <div class="grid-demo__cell">11</div>
+          <div class="grid-demo__cell">12</div>
+        </div>
+        <div class="grid-demo grid-demo--4col" style="margin-bottom: var(--sp-md);">
+          <div class="grid-demo__cell">1/4</div>
+          <div class="grid-demo__cell">2/4</div>
+          <div class="grid-demo__cell">3/4</div>
+          <div class="grid-demo__cell">4/4</div>
+        </div>
+        <div class="grid-demo grid-demo--3col" style="margin-bottom: var(--sp-md);">
+          <div class="grid-demo__cell">1/3</div>
+          <div class="grid-demo__cell">2/3</div>
+          <div class="grid-demo__cell">3/3</div>
+        </div>
+        <div class="grid-demo grid-demo--2col">
+          <div class="grid-demo__cell">1/2</div>
+          <div class="grid-demo__cell">2/2</div>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: var(--sp-lg); margin-top: var(--sp-3xl);">Border Radius</h3>
+      <div class="radius-grid ds-animate">
+        <div class="radius-item">
+          <div class="radius-item__box" style="border-radius: 8px;"></div>
+          <div class="radius-item__value">sm</div>
+          <div class="radius-item__label">8px</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-item__box" style="border-radius: 12px;"></div>
+          <div class="radius-item__value">md</div>
+          <div class="radius-item__label">12px</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-item__box" style="border-radius: 16px;"></div>
+          <div class="radius-item__value">lg</div>
+          <div class="radius-item__label">16px</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-item__box" style="border-radius: 100px;"></div>
+          <div class="radius-item__value">pill</div>
+          <div class="radius-item__label">100px</div>
+        </div>
+      </div>
+
+      <div class="ds-code-label">CSS Spacing & Grid</div>
+      <pre class="ds-code">/* Spacing Scale */
+--sp-xs:  4px;     --sp-sm:  8px;
+--sp-md:  16px;    --sp-lg:  24px;
+--sp-xl:  32px;    --sp-2xl: 48px;
+--sp-3xl: 64px;    --sp-4xl: 96px;
+
+/* Section padding */
+.section { padding: 90px 24px; }
+@media (max-width: 768px) { .section { padding: 50px 16px; } }
+
+/* 12-column grid */
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+
+/* Border Radius */
+--r-sm: 8px;   --r-md: 12px;
+--r-lg: 16px;  --r-pill: 100px;</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. ANIMAZIONI
+       ============================================================ -->
+  <section id="animazioni" class="ds-section">
+    <div class="ds-container">
+      <h2 class="ds-section__title">11. Animazioni</h2>
+      <p class="ds-section__subtitle">Effetti di transizione e animazione usati nel design system. Hover per testare.</p>
+
+      <div class="anim-grid ds-animate">
+        <div class="anim-card">
+          <div class="anim-card__label">Hover Lift</div>
+          <div class="anim-lift-box"></div>
+          <div class="anim-card__hint">Passa il mouse sopra</div>
+        </div>
+
+        <div class="anim-card">
+          <div class="anim-card__label">Fade In Up</div>
+          <div class="anim-fade-box"></div>
+          <div class="anim-card__hint">Animazione continua (loop)</div>
+        </div>
+
+        <div class="anim-card">
+          <div class="anim-card__label">Pulse CTA</div>
+          <div class="anim-pulse-btn">Contattaci</div>
+          <div class="anim-card__hint">Richiama attenzione sulla CTA</div>
+        </div>
+
+        <div class="anim-card">
+          <div class="anim-card__label">Scale</div>
+          <div class="anim-scale-box"></div>
+          <div class="anim-card__hint">Passa il mouse sopra</div>
+        </div>
+      </div>
+
+      <div class="ds-code-label">CSS Animazioni</div>
+      <pre class="ds-code">/* Hover Lift (standard) */
+.hover-lift {
+  transition: 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(217,70,37,0.3);
+}
+
+/* Fade In Up (scroll reveal) */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulse CTA */
+@keyframes pulseCta {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217,70,37,0.4); }
+  50%      { box-shadow: 0 0 0 16px rgba(217,70,37,0); }
+}
+.cta-pulse { animation: pulseCta 2s ease infinite; }
+
+/* Shadows */
+--shadow-light:  0 4px 12px rgba(37,52,65,0.25);
+--shadow-medium: 0 8px 25px rgba(217,70,37,0.3);
+--shadow-large:  0 20px 60px rgba(37,52,65,0.15);
+
+/* Standard transition */
+transition: 0.2s ease;</pre>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PAGE FOOTER
+       ============================================================ -->
+  <footer style="background: var(--blue-dark); color: rgba(255,255,255,0.5); text-align: center; padding: var(--sp-xl); font-size: 0.75rem;">
+    Studio 121 Design System v1.0 &mdash; Generato il 14 Aprile 2026<br>
+    Tutti i componenti sono pronti per essere copiati nelle landing page.
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    // -------------------------------------------------------
+    // Scroll Reveal (Intersection Observer)
+    // -------------------------------------------------------
+    (function () {
+      var elements = document.querySelectorAll('.ds-animate');
+      if (!('IntersectionObserver' in window)) {
+        elements.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      elements.forEach(function (el) { observer.observe(el); });
+    })();
+
+    // -------------------------------------------------------
+    // Animated Counters
+    // -------------------------------------------------------
+    (function () {
+      var counters = document.querySelectorAll('.counter__number[data-target]');
+      if (!counters.length) return;
+
+      function animateCounter(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var duration = 1500;
+        var start = 0;
+        var startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+          var current = Math.round(eased * target);
+          el.textContent = current + (target >= 40 && target !== 98 ? '+' : target === 98 ? '%' : '+');
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      counters.forEach(function (el) { observer.observe(el); });
+    })();
+
+    // -------------------------------------------------------
+    // Smooth scroll for nav links
+    // -------------------------------------------------------
+    document.querySelectorAll('.ds-nav a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          var offset = document.querySelector('.ds-nav').offsetHeight + 16;
+          window.scrollTo({
+            top: target.offsetTop - offset,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

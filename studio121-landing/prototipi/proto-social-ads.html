@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Clienti Misurabili per la Tua Attivita | Studio 121 Ragusa</title>
+    <meta name="description" content="Il sistema che porta clienti misurabili alla tua attivita a Ragusa. Campagne mirate, landing dedicate e report mensili. Scopri i pacchetti Studio 121.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.studio121.it/sistema-clienti">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Studio 121",
+        "description": "Sistema di acquisizione clienti per attivita locali a Ragusa. Campagne mirate e risultati misurabili.",
+        "url": "https://www.studio121.it",
+        "telephone": "+39XXXXXXXXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ragusa",
+            "addressRegion": "RG",
+            "addressCountry": "IT"
+        },
+        "areaServed": "Ragusa"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Cos'e il sistema di acquisizione clienti?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "E un sistema completo che combina campagne mirate su Google e social, una pagina web dedicata alla conversione, e un sistema di tracciamento per misurare ogni contatto. Non vendi pubblicita: compri clienti."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto devo investire al mese in campagne?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il budget pubblicitario dipende dal tuo settore e dalla concorrenza locale. Nella consulenza gratuita ti mostriamo il budget consigliato per il tuo caso specifico, con stime realistiche sui risultati attesi."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Posso iniziare con un budget basso e scalare?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si. Il pacchetto Starter e pensato proprio per questo: iniziare con un investimento contenuto, validare i risultati, e poi scalare quando vedi che funziona."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come faccio a sapere se sta funzionando?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ricevi un report mensile dettagliato con: numero di visite, contatti ricevuti, costo per contatto, e confronto con il mese precedente. Hai il controllo completo dei numeri."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --rosso: #d94625;
+            --rosso-hover: #c23d20;
+            --blu-scuro: #253441;
+            --blu-alt: #2e4252;
+            --beige: #f1ece8;
+            --footer-dark: #1a2630;
+            --text-secondary: #4a5d6c;
+            --text-muted: #566a78;
+            --white: #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--blu-scuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--rosso);
+            color: var(--white);
+            padding: 22px 40px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        .cta-btn:hover {
+            background: var(--rosso-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(217,70,37,0.3);
+        }
+        .cta-btn-outline {
+            background: transparent;
+            border: 2px solid var(--rosso);
+            color: var(--rosso);
+        }
+        .cta-btn-outline:hover {
+            background: var(--rosso);
+            color: var(--white);
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(217,70,37,0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(217,70,37,0); }
+        }
+        .cta-pulse { animation: pulse 2.5s infinite; }
+
+        /* HERO PREMIUM DARK */
+        .hero {
+            background: var(--blu-scuro);
+            color: var(--white);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(217,70,37,0.06) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+        .hero h1 span { color: var(--rosso); }
+        .hero-text p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* DASHBOARD MOCKUP */
+        .dashboard-mock {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .dash-header span {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .dash-header .dash-status {
+            font-size: 0.75rem;
+            color: #4ade80;
+            font-weight: 600;
+        }
+        .dash-kpis {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .dash-kpi {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .dash-kpi .kpi-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .dash-kpi .kpi-value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--rosso);
+        }
+        .dash-kpi .kpi-change {
+            font-size: 0.75rem;
+            color: #4ade80;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* SECTIONS */
+        .section-white { background: var(--white); padding: 80px 0; }
+        .section-dark { background: var(--blu-scuro); color: var(--white); padding: 80px 0; }
+        .section-beige { background: var(--beige); padding: 80px 0; }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--rosso);
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 640px;
+            font-weight: 300;
+        }
+        .section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
+
+        .shape-divider { width: 100%; overflow: hidden; line-height: 0; }
+        .shape-divider svg { display: block; width: 100%; height: 60px; }
+
+        /* COSA INCLUDE */
+        .include-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .include-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .include-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .include-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--rosso);
+        }
+        .include-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.6;
+        }
+
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px 32px;
+            text-align: center;
+            border: 1px solid rgba(37,52,65,0.08);
+            box-shadow: 0 2px 12px rgba(37,52,65,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .pricing-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37,52,65,0.1);
+        }
+        .pricing-card.featured {
+            border: 2px solid var(--rosso);
+            box-shadow: 0 4px 20px rgba(217,70,37,0.1);
+        }
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--rosso);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 20px;
+            border-radius: 100px;
+        }
+        .pricing-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--blu-scuro);
+            margin-bottom: 8px;
+        }
+        .pricing-card .pricing-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .pricing-card .pricing-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--rosso);
+            margin-bottom: 4px;
+        }
+        .pricing-card .pricing-period {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+        .pricing-features li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid rgba(37,52,65,0.06);
+        }
+        .pricing-features li:last-child { border-bottom: none; }
+        .pricing-features li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--rosso);
+            font-weight: 700;
+        }
+        .pricing-card .cta-btn { width: 100%; }
+
+        /* TESTIMONIAL */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .testimonial-card {
+            border-left: 3px solid var(--rosso);
+            padding: 28px 28px 28px 24px;
+            background: var(--white);
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 12px rgba(37,52,65,0.06);
+        }
+        .testimonial-card p {
+            font-size: 1rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .testimonial-card .author { font-weight: 600; font-style: normal; color: var(--blu-scuro); font-size: 0.9rem; }
+        .testimonial-card .role { font-size: 0.8rem; color: var(--text-muted); font-style: normal; }
+
+        /* FORM */
+        .form-section { text-align: center; }
+        .form-wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 12px;
+        }
+        .form-wrapper h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+        .form-field {
+            width: 100%;
+            padding: 16px 0;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--white);
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+        .form-field::placeholder { color: rgba(255,255,255,0.4); }
+        .form-field:focus { border-bottom-color: var(--rosso); }
+        .form-wrapper .cta-btn { width: 100%; margin-top: 8px; }
+
+        /* FAQ */
+        .faq-list { max-width: 700px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid rgba(37,52,65,0.1); padding: 24px 0; }
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--blu-scuro);
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--rosso);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        .faq-item.open .faq-question::after { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .faq-item.open .faq-answer { max-height: 300px; padding-top: 16px; }
+
+        /* FOOTER */
+        footer {
+            background: var(--footer-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 48px 0 32px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--rosso); text-decoration: none; }
+        footer .footer-brand { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+        footer p { margin-bottom: 8px; }
+        footer .footer-links { margin: 16px 0; }
+        footer .footer-links a { margin: 0 12px; color: rgba(255,255,255,0.6); }
+        footer .footer-links a:hover { color: var(--rosso); }
+
+        .cta-bar { text-align: center; padding: 48px 24px; }
+        .cta-bar p { font-size: 1.1rem; margin-bottom: 24px; font-weight: 300; }
+
+        @media (max-width: 768px) {
+            .hero .container { grid-template-columns: 1fr; }
+            .hero { min-height: auto; padding: 60px 24px; }
+            .include-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .dash-kpis { grid-template-columns: 1fr; }
+            .section-white, .section-dark, .section-beige { padding: 56px 0; }
+            .form-wrapper { padding: 28px 20px; }
+            .cta-btn { padding: 18px 32px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>Il sistema che porta <span>clienti misurabili</span> alla tua attivita</h1>
+                <p>Non compri pubblicita. Compri un sistema che intercetta chi cerca i tuoi servizi, lo porta sul tuo sito, e lo converte in un contatto reale. Misurabile. Ogni mese.</p>
+                <a href="#form" class="cta-btn cta-pulse">Scopri come funziona</a>
+            </div>
+            <div class="dashboard-mock">
+                <div class="dash-header">
+                    <span>Dashboard mensile</span>
+                    <span class="dash-status">&#9679; Campagne attive</span>
+                </div>
+                <div class="dash-kpis">
+                    <div class="dash-kpi">
+                        <div class="kpi-label">Visite al sito</div>
+                        <div class="kpi-value">1.247</div>
+                        <div class="kpi-change">+23% vs mese prec.</div>
+                    </div>
+                    <div class="dash-kpi">
+                        <div class="kpi-label">Contatti ricevuti</div>
+                        <div class="kpi-value">47</div>
+                        <div class="kpi-change">+18% vs mese prec.</div>
+                    </div>
+                    <div class="dash-kpi">
+                        <div class="kpi-label">Costo per contatto</div>
+                        <div class="kpi-value">4,80&euro;</div>
+                        <div class="kpi-change">-12% vs mese prec.</div>
+                    </div>
+                    <div class="dash-kpi">
+                        <div class="kpi-label">Tasso conversione</div>
+                        <div class="kpi-value">3,8%</div>
+                        <div class="kpi-change">+0,6% vs mese prec.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--blu-scuro);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--white);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- COSA INCLUDE IL SISTEMA -->
+    <section class="section-white">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title fade-in">Non e un servizio. E un sistema.</h2>
+            <p class="section-subtitle fade-in" style="margin: 0 auto 20px;">Tre componenti che lavorano insieme per un unico obiettivo: portarti clienti.</p>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--blu-scuro);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="include-grid">
+                <div class="include-card fade-in">
+                    <h3>Campagne mirate</h3>
+                    <p>Intercettiamo le persone che stanno cercando attivamente i tuoi servizi nella provincia di Ragusa. Campagne su Google e sui social, ottimizzate ogni settimana.</p>
+                </div>
+                <div class="include-card fade-in">
+                    <h3>Landing page dedicata</h3>
+                    <p>Una pagina web progettata per un solo obiettivo: convertire il visitatore in un contatto. Design professionale, testi persuasivi, form ottimizzato.</p>
+                </div>
+                <div class="include-card fade-in">
+                    <h3>Tracciamento e report</h3>
+                    <p>Ogni visita, ogni contatto, ogni euro investito e tracciato. Report mensile chiaro con numeri che puoi verificare.</p>
+                </div>
+            </div>
+            <div class="cta-bar fade-in">
+                <a href="#form" class="cta-btn">Attiva il sistema per la tua attivita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--blu-scuro);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--beige);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- PRICING -->
+    <section class="section-beige">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title fade-in">Scegli il tuo piano</h2>
+            <p class="section-subtitle fade-in" style="margin: 0 auto 20px;">Ogni piano include setup, gestione e report mensile. Scegli in base alle tue esigenze e scala quando vuoi.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3>Starter</h3>
+                    <p class="pricing-desc">Per iniziare a testare il sistema</p>
+                    <div class="pricing-price">da 390&euro;</div>
+                    <div class="pricing-period">/mese + budget campagne</div>
+                    <ul class="pricing-features">
+                        <li>1 campagna attiva</li>
+                        <li>1 landing page dedicata</li>
+                        <li>Report mensile</li>
+                        <li>Ottimizzazione settimanale</li>
+                        <li>Supporto via email</li>
+                    </ul>
+                    <a href="#form" class="cta-btn cta-btn-outline">Inizia con Starter</a>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <span class="pricing-badge">Consigliato</span>
+                    <h3>Growth</h3>
+                    <p class="pricing-desc">Per risultati concreti e costanti</p>
+                    <div class="pricing-price">da 690&euro;</div>
+                    <div class="pricing-period">/mese + budget campagne</div>
+                    <ul class="pricing-features">
+                        <li>2 campagne attive (Google + Social)</li>
+                        <li>2 landing page dedicate</li>
+                        <li>Report mensile dettagliato</li>
+                        <li>Ottimizzazione 2x settimana</li>
+                        <li>Consulenza strategica mensile</li>
+                        <li>Supporto prioritario</li>
+                    </ul>
+                    <a href="#form" class="cta-btn cta-pulse">Scegli Growth</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3>Scale</h3>
+                    <p class="pricing-desc">Per dominare il mercato locale</p>
+                    <div class="pricing-price">da 1.190&euro;</div>
+                    <div class="pricing-period">/mese + budget campagne</div>
+                    <ul class="pricing-features">
+                        <li>Campagne illimitate</li>
+                        <li>Landing page multiple</li>
+                        <li>Report settimanale</li>
+                        <li>Ottimizzazione continua</li>
+                        <li>Strategia multicanale completa</li>
+                        <li>Account manager dedicato</li>
+                    </ul>
+                    <a href="#form" class="cta-btn cta-btn-outline">Contattaci per Scale</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--white);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- TESTIMONIAL -->
+    <section class="section-white">
+        <div class="container">
+            <h2 class="section-title fade-in">Cosa dicono i nostri clienti</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <p>"Finalmente so esattamente quanto spendo e quanto mi torna. Ogni mese vedo i numeri: visite, contatti, costo per contatto. E un sistema serio, non le solite promesse vaghe."</p>
+                    <div class="author">Giovanni L.</div>
+                    <div class="role">Titolare attivita commerciale, Ragusa</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"Abbiamo iniziato con lo Starter per provare. Dopo due mesi siamo passati al Growth perche i risultati si vedevano. Ora il sistema ci porta contatti ogni settimana."</p>
+                    <div class="author">Maria S.</div>
+                    <div class="role">Titolare studio medico, Vittoria</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--blu-scuro);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FORM -->
+    <section class="section-dark" id="form">
+        <div class="container form-section">
+            <h2 class="section-title fade-in" style="color: var(--white);">Attiva il sistema per la tua attivita</h2>
+            <p class="section-subtitle fade-in" style="margin: 0 auto 40px;">Ti contattiamo entro 24 ore per analizzare il tuo settore e consigliarti il piano migliore.</p>
+            <div class="form-wrapper fade-in">
+                <h3>Richiedi consulenza gratuita</h3>
+                <form action="#" method="POST">
+                    <input type="text" name="nome" class="form-field" placeholder="Il tuo nome" required>
+                    <input type="tel" name="telefono" class="form-field" placeholder="Numero di telefono" required>
+                    <input type="text" name="attivita" class="form-field" placeholder="Tipo di attivita (es. ristorante, dentista...)" required>
+                    <button type="submit" class="cta-btn cta-pulse">Richiedi consulenza gratuita</button>
+                </form>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+                Oppure scrivici: <a href="https://wa.me/39XXXXXXXXXX" style="color: var(--rosso); text-decoration: none; font-weight: 600;">WhatsApp</a>
+                &nbsp;|&nbsp;
+                Chiamaci: <a href="tel:+39XXXXXXXXXX" style="color: var(--rosso); text-decoration: none; font-weight: 600;">+39 XXX XXX XXXX</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--blu-scuro);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--beige);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FAQ -->
+    <section class="section-beige">
+        <div class="container">
+            <h2 class="section-title fade-in">Domande frequenti</h2>
+            <div class="faq-list fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">Cos'e il sistema di acquisizione clienti?</div>
+                    <div class="faq-answer">E un sistema completo che combina campagne mirate su Google e social, una pagina web dedicata alla conversione, e un sistema di tracciamento per misurare ogni contatto. Non compri pubblicita: compri clienti.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto devo investire al mese in campagne?</div>
+                    <div class="faq-answer">Il budget pubblicitario dipende dal tuo settore e dalla concorrenza locale. Nella consulenza gratuita ti mostriamo il budget consigliato per il tuo caso specifico, con stime realistiche sui risultati attesi.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Posso iniziare con un budget basso e scalare?</div>
+                    <div class="faq-answer">Si. Il pacchetto Starter e pensato proprio per questo: iniziare con un investimento contenuto, validare i risultati, e poi scalare quando vedi che funziona.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Come faccio a sapere se sta funzionando?</div>
+                    <div class="faq-answer">Ricevi un report mensile dettagliato con: numero di visite, contatti ricevuti, costo per contatto, e confronto con il mese precedente. Hai il controllo completo dei numeri.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section-white">
+        <div class="container cta-bar">
+            <h2 class="section-title">Smetti di sperare. Inizia a misurare.</h2>
+            <p style="color: var(--text-secondary);">Il tuo prossimo cliente ti sta cercando su Google in questo momento.</p>
+            <a href="#form" class="cta-btn cta-pulse">Attiva il sistema</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-brand">Studio 121</div>
+            <p>Agenzia di comunicazione e marketing digitale</p>
+            <p>Ragusa, Sicilia</p>
+            <div class="footer-links">
+                <a href="tel:+39XXXXXXXXXX">Telefono</a>
+                <a href="https://wa.me/39XXXXXXXXXX">WhatsApp</a>
+                <a href="mailto:info@studio121.it">Email</a>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.75rem;">P.IVA: XXXXXXXXXXX | &copy; 2026 Studio 121. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+            document.querySelectorAll('.faq-question').forEach(function(q) {
+                q.addEventListener('click', function() { this.parentElement.classList.toggle('open'); });
+            });
+        });
+    </script>
+</body>
+</html>

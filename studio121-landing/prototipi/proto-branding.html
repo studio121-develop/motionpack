@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branding e Logo Design a Ragusa | Studio 121</title>
+    <meta name="description" content="Crea un brand memorabile per la tua attivita a Ragusa. Logo professionale, identita visiva e strategia di branding con Studio 121.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.studio121.it/branding">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Studio 121",
+        "description": "Studio di branding e logo design a Ragusa. Identita visive per imprese locali.",
+        "url": "https://www.studio121.it",
+        "telephone": "+39XXXXXXXXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ragusa",
+            "addressRegion": "RG",
+            "addressCountry": "IT"
+        },
+        "areaServed": "Ragusa"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Cosa include un progetto di branding?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Un progetto di branding completo include: analisi del mercato e dei competitor, progettazione del logo, definizione della palette colori, tipografia, e linee guida per l'utilizzo su tutti i supporti."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto tempo serve per creare un logo professionale?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il processo completo richiede circa 2-3 settimane. Include la fase di ricerca, le proposte creative, le revisioni e la consegna dei file definitivi in tutti i formati necessari."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Posso usare il logo su tutti i materiali?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si. Ti consegniamo il logo in tutti i formati (vettoriale, PNG, JPG) con le varianti per sfondo chiaro e scuro, insieme alle linee guida complete per l'utilizzo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Perche il branding e importante per una piccola attivita?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il branding crea fiducia. In un mercato locale con tanti competitor, un'identita visiva professionale ti distingue e trasmette credibilita ancora prima che il cliente entri nel tuo negozio."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --rosso: #d94625;
+            --rosso-hover: #c23d20;
+            --blu-scuro: #253441;
+            --blu-alt: #2e4252;
+            --beige: #f1ece8;
+            --footer-dark: #1a2630;
+            --text-secondary: #4a5d6c;
+            --text-muted: #566a78;
+            --white: #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--blu-scuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--rosso);
+            color: var(--white);
+            padding: 22px 40px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        .cta-btn:hover {
+            background: var(--rosso-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(217,70,37,0.3);
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(217,70,37,0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(217,70,37,0); }
+        }
+        .cta-pulse { animation: pulse 2.5s infinite; }
+
+        /* HERO - DARK FULL */
+        .hero {
+            background: var(--blu-scuro);
+            color: var(--white);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(217,70,37,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content { position: relative; max-width: 760px; }
+        .hero-eyebrow {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--rosso);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+        .hero h1 span { color: var(--rosso); }
+        .hero .hero-sub {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+        .hero .hero-stat {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 40px;
+        }
+        .hero .hero-stat strong {
+            color: var(--rosso);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* SHAPE DIVIDERS */
+        .shape-divider { width: 100%; overflow: hidden; line-height: 0; }
+        .shape-divider svg { display: block; width: 100%; height: 60px; }
+
+        /* SECTIONS */
+        .section-white { background: var(--white); padding: 80px 0; }
+        .section-dark { background: var(--blu-scuro); color: var(--white); padding: 80px 0; }
+        .section-beige { background: var(--beige); padding: 80px 0; }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--rosso);
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 640px;
+            font-weight: 300;
+        }
+        .section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
+
+        /* BEFORE/AFTER CONCEPTUAL */
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        .ba-card {
+            padding: 36px;
+            border-radius: 12px;
+            position: relative;
+        }
+        .ba-before {
+            background: rgba(37,52,65,0.04);
+            border: 2px dashed rgba(37,52,65,0.15);
+        }
+        .ba-after {
+            background: var(--white);
+            border: 2px solid var(--rosso);
+            box-shadow: 0 4px 20px rgba(217,70,37,0.1);
+        }
+        .ba-label {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+        .ba-before .ba-label {
+            background: var(--text-muted);
+            color: var(--white);
+        }
+        .ba-after .ba-label {
+            background: var(--rosso);
+            color: var(--white);
+        }
+        .ba-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--blu-scuro);
+        }
+        .ba-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .ba-card ul li {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            padding-left: 24px;
+            position: relative;
+        }
+        .ba-before ul li::before {
+            content: '\2717';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+        .ba-after ul li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--rosso);
+            font-weight: 700;
+        }
+
+        /* PROCESSO 4 STEP */
+        .processo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .processo-step {
+            text-align: center;
+            padding: 32px 20px;
+            position: relative;
+        }
+        .processo-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: var(--rosso);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .processo-step h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        .processo-step p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.6;
+        }
+
+        /* TESTIMONIAL */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .testimonial-card {
+            border-left: 3px solid var(--rosso);
+            padding: 28px 28px 28px 24px;
+            background: var(--white);
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 12px rgba(37,52,65,0.06);
+        }
+        .testimonial-card p {
+            font-size: 1rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .testimonial-card .author { font-weight: 600; font-style: normal; color: var(--blu-scuro); font-size: 0.9rem; }
+        .testimonial-card .role { font-size: 0.8rem; color: var(--text-muted); font-style: normal; }
+
+        /* FORM */
+        .form-section { text-align: center; }
+        .form-wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(37,52,65,0.1);
+        }
+        .form-wrapper h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--blu-scuro);
+        }
+        .form-field {
+            width: 100%;
+            padding: 16px 0;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 2px solid rgba(37,52,65,0.15);
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--blu-scuro);
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+        .form-field::placeholder { color: var(--text-muted); }
+        .form-field:focus { border-bottom-color: var(--rosso); }
+        .form-wrapper .cta-btn { width: 100%; margin-top: 8px; }
+
+        /* FAQ */
+        .faq-list { max-width: 700px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid rgba(37,52,65,0.1); padding: 24px 0; }
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--blu-scuro);
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--rosso);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        .faq-item.open .faq-question::after { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .faq-item.open .faq-answer { max-height: 300px; padding-top: 16px; }
+
+        /* FOOTER */
+        footer {
+            background: var(--footer-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 48px 0 32px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--rosso); text-decoration: none; }
+        footer .footer-brand { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+        footer p { margin-bottom: 8px; }
+        footer .footer-links { margin: 16px 0; }
+        footer .footer-links a { margin: 0 12px; color: rgba(255,255,255,0.6); }
+        footer .footer-links a:hover { color: var(--rosso); }
+
+        .cta-bar { text-align: center; padding: 48px 24px; }
+        .cta-bar p { font-size: 1.1rem; margin-bottom: 24px; font-weight: 300; }
+        .section-dark .cta-bar p { color: rgba(255,255,255,0.75); }
+
+        @media (max-width: 768px) {
+            .hero { min-height: auto; padding: 60px 24px; }
+            .before-after { grid-template-columns: 1fr; }
+            .processo-grid { grid-template-columns: 1fr 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .section-white, .section-dark, .section-beige { padding: 56px 0; }
+            .form-wrapper { padding: 28px 20px; }
+            .cta-btn { padding: 18px 32px; font-size: 0.9rem; }
+        }
+        @media (max-width: 480px) {
+            .processo-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO DARK -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">Branding &amp; Logo Design</div>
+            <h1>Il tuo brand e la prima cosa che i clienti vedono. <span>E l'ultima che ricordano.</span></h1>
+            <p class="hero-sub">In un mercato con oltre 36.000 imprese nella provincia di Ragusa, la tua identita visiva fa la differenza tra essere scelti e essere ignorati.</p>
+            <p class="hero-stat">Ogni mese <strong>90 persone</strong> cercano "logo ragusa" su Google</p>
+            <a href="#form" class="cta-btn cta-pulse">Richiedi consulenza gratuita</a>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--blu-scuro);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--white);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- BEFORE / AFTER -->
+    <section class="section-white">
+        <div class="container">
+            <h2 class="section-title fade-in" style="text-align: center;">Il brand che non comunica, non vende</h2>
+            <p class="section-subtitle fade-in" style="text-align: center; margin: 0 auto 20px;">La differenza tra un'attivita che fatica e una che attrae clienti spesso sta nell'identita visiva.</p>
+            <div class="before-after fade-in">
+                <div class="ba-card ba-before">
+                    <span class="ba-label">Prima</span>
+                    <h3>Brand improvvisato</h3>
+                    <ul>
+                        <li>Logo fatto con un tool gratuito</li>
+                        <li>Colori scelti a caso</li>
+                        <li>Nessuna coerenza tra insegna, sito e social</li>
+                        <li>I clienti non ti riconoscono</li>
+                        <li>Percezione di poca professionalita</li>
+                    </ul>
+                </div>
+                <div class="ba-card ba-after">
+                    <span class="ba-label">Dopo</span>
+                    <h3>Brand professionale</h3>
+                    <ul>
+                        <li>Logo progettato su misura</li>
+                        <li>Palette colori strategica</li>
+                        <li>Identita coerente su ogni touchpoint</li>
+                        <li>Riconoscibilita immediata</li>
+                        <li>Fiducia dal primo sguardo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cta-bar fade-in">
+                <a href="#form" class="cta-btn">Voglio un brand professionale</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--blu-scuro);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- PROCESSO 4 STEP -->
+    <section class="section-dark">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title fade-in">Il nostro processo in 4 fasi</h2>
+            <p class="section-subtitle fade-in" style="margin: 0 auto 20px;">Ogni brand che creiamo nasce da un metodo preciso, non dall'improvvisazione.</p>
+            <div class="processo-grid">
+                <div class="processo-step fade-in">
+                    <div class="processo-num">1</div>
+                    <h3>Ascolto</h3>
+                    <p>Analizziamo la tua attivita, il mercato locale e i competitor per capire come posizionarti.</p>
+                </div>
+                <div class="processo-step fade-in">
+                    <div class="processo-num">2</div>
+                    <h3>Strategia</h3>
+                    <p>Definiamo il tono di voce, i valori e la personalita del brand prima di disegnare una sola linea.</p>
+                </div>
+                <div class="processo-step fade-in">
+                    <div class="processo-num">3</div>
+                    <h3>Design</h3>
+                    <p>Creiamo il logo, la palette colori, la tipografia e tutti gli elementi dell'identita visiva.</p>
+                </div>
+                <div class="processo-step fade-in">
+                    <div class="processo-num">4</div>
+                    <h3>Consegna</h3>
+                    <p>Ti consegniamo tutti i file, le linee guida e ti accompagniamo nell'applicazione su ogni supporto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--blu-scuro);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--beige);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- TESTIMONIAL -->
+    <section class="section-beige">
+        <div class="container">
+            <h2 class="section-title fade-in">Cosa dicono i nostri clienti</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <p>"Prima il mio logo sembrava fatto in casa. Ora i clienti mi dicono che il brand trasmette professionalita. Ha cambiato la percezione della mia attivita."</p>
+                    <div class="author">Salvatore D.</div>
+                    <div class="role">Titolare studio professionale, Ragusa</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"Studio 121 ha capito esattamente cosa volevo comunicare. Il nuovo brand e coerente ovunque: insegna, biglietti da visita, sito, social. Fa tutta un'altra impressione."</p>
+                    <div class="author">Francesca T.</div>
+                    <div class="role">Titolare negozio, Modica</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--white);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FORM -->
+    <section class="section-white" id="form">
+        <div class="container form-section">
+            <h2 class="section-title fade-in">Parliamo del tuo brand</h2>
+            <p class="section-subtitle fade-in" style="margin: 0 auto 40px;">Ti offriamo una consulenza gratuita per capire come posizionare la tua attivita nel mercato ragusano.</p>
+            <div class="form-wrapper fade-in">
+                <h3>Richiedi consulenza gratuita</h3>
+                <form action="#" method="POST">
+                    <input type="text" name="nome" class="form-field" placeholder="Il tuo nome" required>
+                    <input type="tel" name="telefono" class="form-field" placeholder="Numero di telefono" required>
+                    <input type="text" name="attivita" class="form-field" placeholder="Tipo di attivita (es. ristorante, studio, negozio...)" required>
+                    <button type="submit" class="cta-btn cta-pulse">Richiedi consulenza gratuita</button>
+                </form>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.85rem; color: var(--text-muted);">
+                Oppure scrivici: <a href="https://wa.me/39XXXXXXXXXX" style="color: var(--rosso); text-decoration: none; font-weight: 600;">WhatsApp</a>
+                &nbsp;|&nbsp;
+                Chiamaci: <a href="tel:+39XXXXXXXXXX" style="color: var(--rosso); text-decoration: none; font-weight: 600;">+39 XXX XXX XXXX</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--beige);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FAQ -->
+    <section class="section-beige">
+        <div class="container">
+            <h2 class="section-title fade-in">Domande frequenti</h2>
+            <div class="faq-list fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">Cosa include un progetto di branding?</div>
+                    <div class="faq-answer">Un progetto di branding completo include: analisi del mercato e dei competitor, progettazione del logo, definizione della palette colori, tipografia, e linee guida per l'utilizzo su tutti i supporti.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto tempo serve per creare un logo professionale?</div>
+                    <div class="faq-answer">Il processo completo richiede circa 2-3 settimane. Include la fase di ricerca, le proposte creative, le revisioni e la consegna dei file definitivi in tutti i formati necessari.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Posso usare il logo su tutti i materiali?</div>
+                    <div class="faq-answer">Si. Ti consegniamo il logo in tutti i formati (vettoriale, PNG, JPG) con le varianti per sfondo chiaro e scuro, insieme alle linee guida complete per l'utilizzo.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Perche il branding e importante per una piccola attivita?</div>
+                    <div class="faq-answer">Il branding crea fiducia. In un mercato locale con tanti competitor, un'identita visiva professionale ti distingue e trasmette credibilita ancora prima che il cliente entri nel tuo negozio.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--blu-scuro);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FINAL CTA -->
+    <section class="section-dark">
+        <div class="container cta-bar">
+            <h2 class="section-title" style="color: var(--white);">Un brand forte non e un lusso. E un investimento.</h2>
+            <p>Inizia oggi a costruire un'identita che i tuoi clienti ricorderanno.</p>
+            <a href="#form" class="cta-btn cta-pulse">Richiedi consulenza gratuita</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-brand">Studio 121</div>
+            <p>Agenzia di comunicazione e marketing digitale</p>
+            <p>Ragusa, Sicilia</p>
+            <div class="footer-links">
+                <a href="tel:+39XXXXXXXXXX">Telefono</a>
+                <a href="https://wa.me/39XXXXXXXXXX">WhatsApp</a>
+                <a href="mailto:info@studio121.it">Email</a>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.75rem;">P.IVA: XXXXXXXXXXX | &copy; 2026 Studio 121. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+            document.querySelectorAll('.faq-question').forEach(function(q) {
+                q.addEventListener('click', function() { this.parentElement.classList.toggle('open'); });
+            });
+        });
+    </script>
+</body>
+</html>

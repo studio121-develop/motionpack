@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siti Web Professionali a Ragusa | Studio 121</title>
+    <meta name="description" content="Studio 121 crea siti web professionali per imprenditori ragusani. 50 ricerche al mese nella tua zona. Prenota un'analisi gratuita.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.studio121.it/siti-web">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Studio 121",
+        "description": "Web agency a Ragusa specializzata in siti web professionali per imprenditori locali.",
+        "url": "https://www.studio121.it",
+        "telephone": "+39XXXXXXXXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ragusa",
+            "addressRegion": "RG",
+            "addressCountry": "IT"
+        },
+        "areaServed": "Ragusa"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quanto tempo serve per realizzare un sito web?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Un sito web professionale richiede mediamente 3-4 settimane dalla fase di analisi alla messa online. Ogni progetto parte da un'analisi del mercato locale e dei competitor."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Il sito sarà visibile su Google per chi cerca a Ragusa?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sì. Ogni sito che realizziamo è ottimizzato per il posizionamento locale. Lavoriamo su keyword specifiche della provincia di Ragusa per portarti clienti dal territorio."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Posso gestire il sito in autonomia dopo la consegna?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Assolutamente sì. Forniamo formazione e un pannello di gestione semplice. Inoltre offriamo assistenza continuativa per chi preferisce delegare."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto costa un sito web professionale?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il costo dipende dalle esigenze specifiche. Dopo un'analisi gratuita della tua attività, ti presentiamo un preventivo chiaro e senza sorprese."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --rosso: #d94625;
+            --rosso-hover: #c23d20;
+            --blu-scuro: #253441;
+            --blu-alt: #2e4252;
+            --beige: #f1ece8;
+            --footer-dark: #1a2630;
+            --text-secondary: #4a5d6c;
+            --text-muted: #566a78;
+            --white: #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--blu-scuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Utility */
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* CTA Button */
+        .cta-btn {
+            display: inline-block;
+            background: var(--rosso);
+            color: var(--white);
+            padding: 22px 40px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        .cta-btn:hover {
+            background: var(--rosso-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(217,70,37,0.3);
+        }
+
+        /* Pulse animation for primary CTA */
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(217,70,37,0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(217,70,37,0); }
+        }
+        .cta-pulse { animation: pulse 2.5s infinite; }
+
+        /* HERO SPLIT SCREEN */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 90vh;
+        }
+        .hero-left {
+            background: var(--blu-scuro);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 48px;
+        }
+        .hero-left h1 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        .hero-left h1 span { color: var(--rosso); }
+        .hero-left p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 32px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .hero-right {
+            background: var(--beige);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 48px;
+            text-align: center;
+        }
+        .hero-number {
+            font-size: clamp(4rem, 8vw, 7rem);
+            font-weight: 800;
+            color: var(--rosso);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .hero-number-label {
+            font-size: 1.15rem;
+            color: var(--blu-scuro);
+            font-weight: 500;
+            max-width: 320px;
+            line-height: 1.5;
+        }
+
+        /* SHAPE DIVIDER */
+        .shape-divider {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .shape-divider svg {
+            display: block;
+            width: 100%;
+            height: 60px;
+        }
+        .shape-divider-white svg { fill: var(--white); }
+        .shape-divider-dark svg { fill: var(--blu-scuro); }
+        .shape-divider-beige svg { fill: var(--beige); }
+
+        /* STORIA SECTION */
+        .section-white { background: var(--white); padding: 80px 0; }
+        .section-dark { background: var(--blu-scuro); color: var(--white); padding: 80px 0; }
+        .section-beige { background: var(--beige); padding: 80px 0; }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--rosso);
+        }
+        .section-dark .section-title { color: var(--rosso); }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 640px;
+            font-weight: 300;
+        }
+        .section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
+
+        /* STORIA */
+        .storia {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .storia p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+        .storia strong { color: var(--blu-scuro); font-weight: 600; }
+        .storia .highlight {
+            background: linear-gradient(transparent 60%, rgba(217,70,37,0.15) 60%);
+            font-weight: 600;
+            color: var(--blu-scuro);
+        }
+
+        /* SERVIZI CARDS */
+        .servizi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .servizio-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 32px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section-white .servizio-card {
+            background: var(--white);
+            border: 1px solid rgba(37,52,65,0.08);
+            box-shadow: 0 2px 12px rgba(37,52,65,0.06);
+        }
+        .servizio-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37,52,65,0.12);
+        }
+        .servizio-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--rosso);
+        }
+        .section-dark .servizio-card p { color: rgba(255,255,255,0.7); }
+        .servizio-card p { font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); }
+
+        /* TESTIMONIAL */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .testimonial-card {
+            border-left: 3px solid var(--rosso);
+            padding: 28px 28px 28px 24px;
+            background: var(--white);
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 12px rgba(37,52,65,0.06);
+        }
+        .testimonial-card p {
+            font-size: 1rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .testimonial-card .author {
+            font-weight: 600;
+            font-style: normal;
+            color: var(--blu-scuro);
+            font-size: 0.9rem;
+        }
+        .testimonial-card .role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: normal;
+        }
+
+        /* FORM */
+        .form-section { text-align: center; }
+        .form-wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(37,52,65,0.1);
+        }
+        .section-dark .form-wrapper {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .form-wrapper h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--blu-scuro);
+        }
+        .section-dark .form-wrapper h3 { color: var(--white); }
+        .form-field {
+            width: 100%;
+            padding: 16px 0;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 2px solid rgba(37,52,65,0.15);
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--blu-scuro);
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+        .section-dark .form-field {
+            color: var(--white);
+            border-bottom-color: rgba(255,255,255,0.2);
+        }
+        .form-field::placeholder { color: var(--text-muted); }
+        .section-dark .form-field::placeholder { color: rgba(255,255,255,0.4); }
+        .form-field:focus { border-bottom-color: var(--rosso); }
+        .form-wrapper .cta-btn { width: 100%; margin-top: 8px; }
+
+        /* FAQ */
+        .faq-list { max-width: 700px; margin: 0 auto; }
+        .faq-item {
+            border-bottom: 1px solid rgba(37,52,65,0.1);
+            padding: 24px 0;
+        }
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--blu-scuro);
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--rosso);
+            transition: transform 0.3s ease;
+        }
+        .faq-item.open .faq-question::after { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding-top: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--footer-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 48px 0 32px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        footer a {
+            color: var(--rosso);
+            text-decoration: none;
+        }
+        footer .footer-brand {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        footer p { margin-bottom: 8px; }
+        footer .footer-links { margin: 16px 0; }
+        footer .footer-links a { margin: 0 12px; color: rgba(255,255,255,0.6); }
+        footer .footer-links a:hover { color: var(--rosso); }
+
+        /* CTA BAR */
+        .cta-bar {
+            text-align: center;
+            padding: 48px 24px;
+        }
+        .cta-bar p {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+        .section-dark .cta-bar p { color: rgba(255,255,255,0.75); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+            .hero-left, .hero-right {
+                padding: 48px 24px;
+            }
+            .hero-right { padding-top: 32px; padding-bottom: 48px; }
+            .hero-number { font-size: 4rem; }
+            .section-white, .section-dark, .section-beige { padding: 56px 0; }
+            .servizi-grid { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .form-wrapper { padding: 28px 20px; }
+            .cta-btn { padding: 18px 32px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SPLIT SCREEN -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Il tuo sito web non ti porta <span>clienti?</span></h1>
+            <p>Ogni mese, decine di persone a Ragusa cercano online attivita come la tua. Se non ti trovano, scelgono qualcun altro.</p>
+            <a href="#form" class="cta-btn cta-pulse">Prenota analisi gratuita</a>
+        </div>
+        <div class="hero-right">
+            <div class="hero-number">50</div>
+            <div class="hero-number-label">imprenditori ragusani cercano un sito web ogni mese</div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider shape-divider-white" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- STORIA -->
+    <section class="section-white">
+        <div class="container">
+            <div class="storia fade-in">
+                <h2 class="section-title">Marco aveva un problema.</h2>
+                <p>Marco gestisce una trattoria nel centro di Ragusa da quindici anni. I tavoli si riempivano con il passaparola, ma da un po' qualcosa era cambiato. <strong>I clienti nuovi non arrivavano piu.</strong></p>
+                <p>Ha provato a pubblicare sui social, ha chiesto a un amico di fargli un sito. Ma quel sito non compariva da nessuna parte. <span class="highlight">Nessuno lo trovava su Google.</span></p>
+                <p>Poi ha scoperto un dato: ogni mese, <strong>5.400 persone cercano "pizzeria ragusa"</strong> e <strong>4.400 cercano "ristorante ragusa"</strong> su Google. Il problema non era la qualita del suo locale. Era che <strong>online, non esisteva.</strong></p>
+                <p>Abbiamo riprogettato il suo sito da zero: veloce, ottimizzato per Google, pensato per convertire visitatori in prenotazioni. In poche settimane, il telefono ha ricominciato a squillare.</p>
+            </div>
+            <div class="cta-bar fade-in">
+                <p style="color: var(--text-secondary);">Vuoi sapere quante persone cercano la tua attivita ogni mese?</p>
+                <a href="#form" class="cta-btn">Scoprilo gratis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider shape-divider-dark" style="background: var(--white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- SERVIZI -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-title fade-in">Cosa include il tuo nuovo sito</h2>
+            <p class="section-subtitle fade-in">Non un sito qualunque. Un sito progettato per farti trovare e per convertire chi ti trova in cliente.</p>
+            <div class="servizi-grid">
+                <div class="servizio-card fade-in">
+                    <h3>Design su misura</h3>
+                    <p>Nessun template. Il tuo sito riflette la tua identita e parla al tuo pubblico locale.</p>
+                </div>
+                <div class="servizio-card fade-in">
+                    <h3>SEO locale integrato</h3>
+                    <p>Ottimizzazione per le keyword della provincia di Ragusa. Per farti trovare da chi ti sta cercando davvero.</p>
+                </div>
+                <div class="servizio-card fade-in">
+                    <h3>Mobile-first</h3>
+                    <p>Oltre il 70% delle ricerche locali avviene da smartphone. Il tuo sito sara perfetto su ogni schermo.</p>
+                </div>
+                <div class="servizio-card fade-in">
+                    <h3>Velocita e performance</h3>
+                    <p>Caricamento rapido, struttura pulita, hosting professionale. Google premia i siti veloci.</p>
+                </div>
+                <div class="servizio-card fade-in">
+                    <h3>Conversione</h3>
+                    <p>Ogni pagina e progettata per guidare il visitatore verso un'azione: chiamare, prenotare, richiedere un preventivo.</p>
+                </div>
+                <div class="servizio-card fade-in">
+                    <h3>Assistenza continua</h3>
+                    <p>Non ti lasciamo solo dopo la consegna. Aggiornamenti, modifiche e supporto tecnico inclusi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider shape-divider-beige" style="background: var(--blu-scuro);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- TESTIMONIAL -->
+    <section class="section-beige">
+        <div class="container">
+            <h2 class="section-title fade-in">Cosa dicono di noi</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <p>"Finalmente un sito che non e solo bello da vedere, ma che funziona. I clienti mi trovano su Google e mi chiamano direttamente."</p>
+                    <div class="author">Giuseppe R.</div>
+                    <div class="role">Titolare ristorante, Ragusa</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"Avevo un sito vecchio che non mi portava niente. Studio 121 lo ha rifatto completamente e in poche settimane ho iniziato a ricevere richieste di preventivo."</p>
+                    <div class="author">Laura M.</div>
+                    <div class="role">Artigiana, provincia di Ragusa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider shape-divider-white" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FORM -->
+    <section class="section-white" id="form">
+        <div class="container form-section">
+            <h2 class="section-title fade-in">Prenota la tua analisi gratuita</h2>
+            <p class="section-subtitle fade-in" style="margin: 0 auto 40px;">Ti mostriamo quante persone cercano la tua attivita online e come intercettarle.</p>
+            <div class="form-wrapper fade-in">
+                <h3>Compila e ti ricontattiamo entro 24h</h3>
+                <form action="#" method="POST">
+                    <input type="text" name="nome" class="form-field" placeholder="Il tuo nome" required>
+                    <input type="tel" name="telefono" class="form-field" placeholder="Numero di telefono" required>
+                    <input type="text" name="attivita" class="form-field" placeholder="Tipo di attivita (es. ristorante, B&amp;B...)" required>
+                    <button type="submit" class="cta-btn cta-pulse">Prenota analisi gratuita</button>
+                </form>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.85rem; color: var(--text-muted);">
+                Oppure scrivici: <a href="https://wa.me/39XXXXXXXXXX" style="color: var(--rosso); text-decoration: none; font-weight: 600;">WhatsApp</a>
+                &nbsp;|&nbsp;
+                Chiamaci: <a href="tel:+39XXXXXXXXXX" style="color: var(--rosso); text-decoration: none; font-weight: 600;">+39 XXX XXX XXXX</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider shape-divider-beige" style="background: var(--white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FAQ -->
+    <section class="section-beige">
+        <div class="container">
+            <h2 class="section-title fade-in">Domande frequenti</h2>
+            <div class="faq-list fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">Quanto tempo serve per realizzare un sito web?</div>
+                    <div class="faq-answer">Un sito web professionale richiede mediamente 3-4 settimane dalla fase di analisi alla messa online. Ogni progetto parte da un'analisi del mercato locale e dei competitor.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Il sito sara visibile su Google per chi cerca a Ragusa?</div>
+                    <div class="faq-answer">Si. Ogni sito che realizziamo e ottimizzato per il posizionamento locale. Lavoriamo su keyword specifiche della provincia di Ragusa per portarti clienti dal territorio.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Posso gestire il sito in autonomia dopo la consegna?</div>
+                    <div class="faq-answer">Assolutamente si. Forniamo formazione e un pannello di gestione semplice. Inoltre offriamo assistenza continuativa per chi preferisce delegare.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto costa un sito web professionale?</div>
+                    <div class="faq-answer">Il costo dipende dalle esigenze specifiche. Dopo un'analisi gratuita della tua attivita, ti presentiamo un preventivo chiaro e senza sorprese.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider shape-divider-dark" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FINAL CTA -->
+    <section class="section-dark">
+        <div class="container cta-bar">
+            <h2 class="section-title" style="color: var(--white);">Il tuo prossimo cliente ti sta cercando adesso.</h2>
+            <p>Non farti trovare impreparato.</p>
+            <a href="#form" class="cta-btn cta-pulse">Prenota analisi gratuita</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-brand">Studio 121</div>
+            <p>Agenzia di comunicazione e marketing digitale</p>
+            <p>Ragusa, Sicilia</p>
+            <div class="footer-links">
+                <a href="tel:+39XXXXXXXXXX">Telefono</a>
+                <a href="https://wa.me/39XXXXXXXXXX">WhatsApp</a>
+                <a href="mailto:info@studio121.it">Email</a>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.75rem;">P.IVA: XXXXXXXXXXX | &copy; 2026 Studio 121. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in on scroll (IntersectionObserver)
+        document.addEventListener('DOMContentLoaded', function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.fade-in').forEach(function(el) {
+                observer.observe(el);
+            });
+
+            // FAQ toggle
+            document.querySelectorAll('.faq-question').forEach(function(q) {
+                q.addEventListener('click', function() {
+                    this.parentElement.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

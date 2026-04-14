@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media e Consulenza Marketing a Ragusa | Studio 121</title>
+    <meta name="description" content="Pubblichi sui social ma non arrivano clienti? Scopri perche i social da soli non bastano. Consulenza gratuita con Studio 121 a Ragusa.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.studio121.it/consulenza-social">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Studio 121",
+        "description": "Consulenza marketing e social media per attivita locali a Ragusa.",
+        "url": "https://www.studio121.it",
+        "telephone": "+39XXXXXXXXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ragusa",
+            "addressRegion": "RG",
+            "addressCountry": "IT"
+        },
+        "areaServed": "Ragusa"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Perche i social da soli non portano clienti?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "I social sono uno strumento di visibilita, non di conversione diretta. Senza un sito ottimizzato e un sistema per intercettare chi cerca attivamente i tuoi servizi su Google, i social lavorano solo sulla notorieta ma non sul portare clienti concreti."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Devo smettere di pubblicare sui social?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Assolutamente no. I social sono importanti per la relazione con i clienti. Ma devono essere parte di una strategia piu ampia che include un sito professionale e visibilita su Google."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Cosa include la consulenza gratuita?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Analizziamo la tua presenza online attuale, le keyword del tuo settore nella zona di Ragusa, e ti mostriamo dove stai perdendo clienti. Nessun impegno, nessun costo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto costa una strategia di marketing completa?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Dipende dalle tue esigenze e dal tuo settore. Dopo la consulenza gratuita, ti presentiamo un piano personalizzato con investimento chiaro e risultati misurabili."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --rosso: #d94625;
+            --rosso-hover: #c23d20;
+            --blu-scuro: #253441;
+            --blu-alt: #2e4252;
+            --beige: #f1ece8;
+            --footer-dark: #1a2630;
+            --text-secondary: #4a5d6c;
+            --text-muted: #566a78;
+            --white: #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--blu-scuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--rosso);
+            color: var(--white);
+            padding: 22px 40px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        .cta-btn:hover {
+            background: var(--rosso-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(217,70,37,0.3);
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(217,70,37,0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(217,70,37,0); }
+        }
+        .cta-pulse { animation: pulse 2.5s infinite; }
+
+        /* HERO */
+        .hero {
+            background: var(--beige);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 24px;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--blu-scuro);
+        }
+        .hero h1 span { color: var(--rosso); }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .hero-visual {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px 32px;
+            box-shadow: 0 8px 40px rgba(37,52,65,0.08);
+            text-align: center;
+        }
+        .hero-visual .emoji-big {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .hero-visual .scenario-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .hero-visual .scenario-text strong {
+            color: var(--rosso);
+            font-weight: 700;
+        }
+
+        /* SECTIONS */
+        .section-white { background: var(--white); padding: 80px 0; }
+        .section-dark { background: var(--blu-scuro); color: var(--white); padding: 80px 0; }
+        .section-beige { background: var(--beige); padding: 80px 0; }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--rosso);
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 640px;
+            font-weight: 300;
+        }
+        .section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
+
+        /* SHAPE DIVIDERS */
+        .shape-divider { width: 100%; overflow: hidden; line-height: 0; }
+        .shape-divider svg { display: block; width: 100%; height: 60px; }
+
+        /* STORIA ANNA */
+        .storia {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .storia p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+        .storia strong { color: var(--blu-scuro); font-weight: 600; }
+        .storia .highlight {
+            background: linear-gradient(transparent 60%, rgba(217,70,37,0.15) 60%);
+            font-weight: 600;
+            color: var(--blu-scuro);
+        }
+
+        /* PERCORSO CLIENTE */
+        .percorso {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin: 40px auto 0;
+            max-width: 900px;
+            position: relative;
+        }
+        .percorso::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 12.5%;
+            width: 75%;
+            height: 3px;
+            background: linear-gradient(to right, var(--rosso), rgba(217,70,37,0.2));
+        }
+        .percorso-step {
+            text-align: center;
+            padding: 0 12px;
+            position: relative;
+        }
+        .percorso-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .percorso-step:nth-child(1) .percorso-icon { background: var(--rosso); color: var(--white); }
+        .percorso-step:nth-child(2) .percorso-icon { background: var(--blu-scuro); color: var(--white); }
+        .percorso-step:nth-child(3) .percorso-icon { background: var(--blu-alt); color: var(--white); }
+        .percorso-step:nth-child(4) .percorso-icon { background: var(--rosso); color: var(--white); }
+        .percorso-step h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+        .percorso-step p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+        }
+
+        /* PROBLEMA / SOLUZIONE */
+        .ps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .ps-card {
+            padding: 36px;
+            border-radius: 12px;
+        }
+        .ps-problema {
+            background: rgba(37,52,65,0.03);
+            border: 1px solid rgba(37,52,65,0.08);
+        }
+        .ps-soluzione {
+            background: var(--white);
+            border: 2px solid var(--rosso);
+            box-shadow: 0 4px 20px rgba(217,70,37,0.08);
+        }
+        .ps-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .ps-problema h3 { color: var(--text-muted); }
+        .ps-soluzione h3 { color: var(--rosso); }
+        .ps-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        /* TESTIMONIAL */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .testimonial-card {
+            border-left: 3px solid var(--rosso);
+            padding: 28px 28px 28px 24px;
+            background: var(--white);
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 12px rgba(37,52,65,0.06);
+        }
+        .testimonial-card p {
+            font-size: 1rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .testimonial-card .author { font-weight: 600; font-style: normal; color: var(--blu-scuro); font-size: 0.9rem; }
+        .testimonial-card .role { font-size: 0.8rem; color: var(--text-muted); font-style: normal; }
+
+        /* FORM */
+        .form-section { text-align: center; }
+        .form-wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 12px;
+        }
+        .form-wrapper h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+        .form-field {
+            width: 100%;
+            padding: 16px 0;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--white);
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+        .form-field::placeholder { color: rgba(255,255,255,0.4); }
+        .form-field:focus { border-bottom-color: var(--rosso); }
+        .form-wrapper .cta-btn { width: 100%; margin-top: 8px; }
+
+        /* FAQ */
+        .faq-list { max-width: 700px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid rgba(37,52,65,0.1); padding: 24px 0; }
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--blu-scuro);
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--rosso);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        .faq-item.open .faq-question::after { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .faq-item.open .faq-answer { max-height: 300px; padding-top: 16px; }
+
+        /* FOOTER */
+        footer {
+            background: var(--footer-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 48px 0 32px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--rosso); text-decoration: none; }
+        footer .footer-brand { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+        footer p { margin-bottom: 8px; }
+        footer .footer-links { margin: 16px 0; }
+        footer .footer-links a { margin: 0 12px; color: rgba(255,255,255,0.6); }
+        footer .footer-links a:hover { color: var(--rosso); }
+
+        .cta-bar { text-align: center; padding: 48px 24px; }
+        .cta-bar p { font-size: 1.1rem; margin-bottom: 24px; font-weight: 300; }
+
+        @media (max-width: 768px) {
+            .hero .container { grid-template-columns: 1fr; }
+            .hero { min-height: auto; padding: 60px 24px; }
+            .percorso { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .percorso::before { display: none; }
+            .ps-grid { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .section-white, .section-dark, .section-beige { padding: 56px 0; }
+            .form-wrapper { padding: 28px 20px; }
+            .cta-btn { padding: 18px 32px; font-size: 0.9rem; }
+        }
+        @media (max-width: 480px) {
+            .percorso { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div>
+                <h1>Pubblichi ogni giorno ma <span>il telefono non squilla?</span></h1>
+                <p>Ti hanno detto che bastano i social per avere clienti. Ma tu lo sai che non e cosi. Scopri cosa manca alla tua strategia.</p>
+                <a href="#form" class="cta-btn cta-pulse">Richiedi consulenza gratuita</a>
+            </div>
+            <div class="hero-visual">
+                <span class="emoji-big" role="img" aria-label="telefono">&#128241;</span>
+                <p class="scenario-text">
+                    Ogni mese <strong>30 persone</strong> cercano "social media manager" a Ragusa.<br>
+                    Ma <strong>90.440 persone</strong> cercano ristoranti, B&amp;B e servizi nella provincia.<br><br>
+                    <strong>I tuoi clienti ti cercano su Google, non su Instagram.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--white);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- STORIA ANNA -->
+    <section class="section-white">
+        <div class="container">
+            <div class="storia fade-in">
+                <h2 class="section-title">La storia di Anna.</h2>
+                <p>Anna ha una pasticceria a Ragusa. Ogni giorno pubblica foto dei dolci su Instagram: le cassatelle, i cannoli, i biscotti appena sfornati. <strong>Riceve like e commenti.</strong> Ma nuovi clienti? Pochi.</p>
+                <p>Un giorno si chiede: <span class="highlight">"Se qualcuno cerca pasticceria a Ragusa su Google, mi trova?"</span> La risposta e no. Il suo profilo social non compare. Non ha un sito. Non ha una scheda Google ottimizzata.</p>
+                <p>Anna stava parlando ai clienti che gia la conoscevano. Ma non stava intercettando quelli nuovi, quelli che in quel momento stavano cercando esattamente cio che lei offriva.</p>
+                <p>Dopo aver lavorato con noi su un sito ottimizzato e una strategia completa, Anna ha iniziato a ricevere chiamate e messaggi da persone che non la conoscevano. <strong>Clienti nuovi. Ogni settimana.</strong></p>
+            </div>
+            <div class="cta-bar fade-in">
+                <p style="color: var(--text-secondary);">Ti riconosci nella storia di Anna?</p>
+                <a href="#form" class="cta-btn">Scopri cosa ti manca</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--blu-scuro);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- PERCORSO CLIENTE -->
+    <section class="section-dark">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title fade-in" style="color: var(--white);">Il percorso del tuo cliente</h2>
+            <p class="section-subtitle fade-in" style="margin: 0 auto 20px;">I clienti nuovi non partono dai social. Partono da una ricerca su Google.</p>
+            <div class="percorso fade-in">
+                <div class="percorso-step">
+                    <div class="percorso-icon">G</div>
+                    <h4>Cerca su Google</h4>
+                    <p>"pizzeria ragusa" 5.400 ricerche/mese</p>
+                </div>
+                <div class="percorso-step">
+                    <div class="percorso-icon">W</div>
+                    <h4>Visita il sito</h4>
+                    <p>Valuta il menu, le foto, le recensioni</p>
+                </div>
+                <div class="percorso-step">
+                    <div class="percorso-icon">S</div>
+                    <h4>Controlla i social</h4>
+                    <p>Verifica che l'attivita sia attiva e reale</p>
+                </div>
+                <div class="percorso-step">
+                    <div class="percorso-icon">C</div>
+                    <h4>Ti contatta</h4>
+                    <p>Chiama, prenota, chiede info</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--blu-scuro);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--beige);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- PROBLEMA / SOLUZIONE -->
+    <section class="section-beige">
+        <div class="container">
+            <h2 class="section-title fade-in" style="text-align: center;">I social da soli non bastano</h2>
+            <p class="section-subtitle fade-in" style="text-align: center; margin: 0 auto 20px;">Ecco la differenza tra pubblicare e avere una strategia.</p>
+            <div class="ps-grid fade-in">
+                <div class="ps-card ps-problema">
+                    <h3>Solo social media</h3>
+                    <p>Parli a chi gia ti segue, non a chi ti cerca.</p>
+                    <p>I like non si trasformano in clienti.</p>
+                    <p>Non compari su Google per le keyword del tuo settore.</p>
+                    <p>Il tuo contenuto scompare dopo 24 ore.</p>
+                </div>
+                <div class="ps-card ps-soluzione">
+                    <h3>Strategia completa</h3>
+                    <p>Un sito ottimizzato intercetta chi ti sta cercando adesso.</p>
+                    <p>Google ti mostra a chi ha bisogno dei tuoi servizi.</p>
+                    <p>I social confermano la tua credibilita.</p>
+                    <p>Ogni canale lavora insieme per portarti clienti reali.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--white);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- TESTIMONIAL -->
+    <section class="section-white">
+        <div class="container">
+            <h2 class="section-title fade-in">Cosa dicono i nostri clienti</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <p>"Pensavo che bastasse postare ogni giorno su Facebook. Studio 121 mi ha fatto capire che stavo parlando sempre alle stesse persone. Ora il sito mi porta gente nuova ogni settimana."</p>
+                    <div class="author">Anna P.</div>
+                    <div class="role">Titolare pasticceria, Ragusa</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"Non sapevo neanche quante persone cercassero il mio tipo di attivita su Google. Quando me lo hanno mostrato, ho capito subito dove stavo sbagliando."</p>
+                    <div class="author">Marco V.</div>
+                    <div class="role">Titolare centro estetico, Modica</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--blu-scuro);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FORM -->
+    <section class="section-dark" id="form">
+        <div class="container form-section">
+            <h2 class="section-title fade-in" style="color: var(--white);">Scopri cosa ti manca</h2>
+            <p class="section-subtitle fade-in" style="margin: 0 auto 40px;">Analizziamo la tua presenza online e ti mostriamo dove stai perdendo clienti. Gratis, senza impegno.</p>
+            <div class="form-wrapper fade-in">
+                <h3>Prenota la tua consulenza gratuita</h3>
+                <form action="#" method="POST">
+                    <input type="text" name="nome" class="form-field" placeholder="Il tuo nome" required>
+                    <input type="tel" name="telefono" class="form-field" placeholder="Numero di telefono" required>
+                    <input type="text" name="attivita" class="form-field" placeholder="Tipo di attivita (es. pasticceria, B&amp;B...)" required>
+                    <button type="submit" class="cta-btn cta-pulse">Prenota consulenza gratuita</button>
+                </form>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+                Oppure scrivici: <a href="https://wa.me/39XXXXXXXXXX" style="color: var(--rosso); text-decoration: none; font-weight: 600;">WhatsApp</a>
+                &nbsp;|&nbsp;
+                Chiamaci: <a href="tel:+39XXXXXXXXXX" style="color: var(--rosso); text-decoration: none; font-weight: 600;">+39 XXX XXX XXXX</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--blu-scuro);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--beige);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FAQ -->
+    <section class="section-beige">
+        <div class="container">
+            <h2 class="section-title fade-in">Domande frequenti</h2>
+            <div class="faq-list fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">Perche i social da soli non portano clienti?</div>
+                    <div class="faq-answer">I social sono uno strumento di visibilita, non di conversione diretta. Senza un sito ottimizzato e un sistema per intercettare chi cerca attivamente i tuoi servizi su Google, i social lavorano solo sulla notorieta ma non sul portare clienti concreti.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Devo smettere di pubblicare sui social?</div>
+                    <div class="faq-answer">Assolutamente no. I social sono importanti per la relazione con i clienti. Ma devono essere parte di una strategia piu ampia che include un sito professionale e visibilita su Google.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Cosa include la consulenza gratuita?</div>
+                    <div class="faq-answer">Analizziamo la tua presenza online attuale, le keyword del tuo settore nella zona di Ragusa, e ti mostriamo dove stai perdendo clienti. Nessun impegno, nessun costo.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto costa una strategia di marketing completa?</div>
+                    <div class="faq-answer">Dipende dalle tue esigenze e dal tuo settore. Dopo la consulenza gratuita, ti presentiamo un piano personalizzato con investimento chiaro e risultati misurabili.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--white);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FINAL CTA -->
+    <section class="section-white">
+        <div class="container cta-bar">
+            <h2 class="section-title">Non servono piu post. Serve una strategia.</h2>
+            <p style="color: var(--text-secondary);">Scopri come trasformare la tua presenza online in clienti reali.</p>
+            <a href="#form" class="cta-btn cta-pulse">Prenota consulenza gratuita</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-brand">Studio 121</div>
+            <p>Agenzia di comunicazione e marketing digitale</p>
+            <p>Ragusa, Sicilia</p>
+            <div class="footer-links">
+                <a href="tel:+39XXXXXXXXXX">Telefono</a>
+                <a href="https://wa.me/39XXXXXXXXXX">WhatsApp</a>
+                <a href="mailto:info@studio121.it">Email</a>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.75rem;">P.IVA: XXXXXXXXXXX | &copy; 2026 Studio 121. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+            document.querySelectorAll('.faq-question').forEach(function(q) {
+                q.addEventListener('click', function() { this.parentElement.classList.toggle('open'); });
+            });
+        });
+    </script>
+</body>
+</html>
