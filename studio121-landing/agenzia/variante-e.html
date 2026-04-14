@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenzia Marketing Ragusa | Studio 121 - Strategia Digitale Misurabile per PMI Siciliane</title>
+    <meta name="description" content="Nella provincia di Ragusa operano 36.000 imprese. Meno del 10% ha una strategia di comunicazione. Studio 121: agenzia digitale a Ragusa specializzata in performance marketing misurabile.">
+    <meta name="keywords" content="agenzia comunicazione ragusa, agenzia marketing ragusa, agenzia comunicazione sicilia, agenzia digitale ragusa, performance marketing ragusa, strategia digitale sicilia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.studio121.it/agenzia-marketing-digitale-ragusa">
+    <meta property="og:title" content="Agenzia Marketing Ragusa | Studio 121 - Performance Marketing per PMI">
+    <meta property="og:description" content="36.000 imprese nella provincia di Ragusa. Meno del 10% ha una strategia di comunicazione. Scopri quanto stai lasciando sul tavolo.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://www.studio121.it",
+        "name": "Studio 121",
+        "description": "Agenzia di marketing digitale e comunicazione a Ragusa, Sicilia. Performance marketing misurabile per PMI.",
+        "url": "https://www.studio121.it",
+        "telephone": "+39XXXXXXXXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Example 121",
+            "addressLocality": "Ragusa",
+            "addressRegion": "RG",
+            "postalCode": "97100",
+            "addressCountry": "IT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "36.9269",
+            "longitude": "14.7255"
+        },
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Ragusa"
+            },
+            {
+                "@type": "State",
+                "name": "Sicilia"
+            }
+        ],
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": [
+            "https://www.facebook.com/studio121",
+            "https://www.instagram.com/studio121",
+            "https://www.linkedin.com/company/studio121"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "47"
+        }
+    }
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #ffffff; line-height: 1.7; overflow-x: hidden; }
+
+        /* Animations */
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-left.visible { opacity: 1; transform: translateX(0); }
+        .fade-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-right.visible { opacity: 1; transform: translateX(0); }
+        .counter-animate { transition: all 0.6s ease; }
+
+        /* Navigation */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 14px 0; transition: background 0.3s ease, box-shadow 0.3s ease; }
+        .navbar.scrolled { background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); box-shadow: 0 1px 16px rgba(0,0,0,0.06); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-size: 24px; font-weight: 800; color: #1a1a2e; text-decoration: none; letter-spacing: -0.5px; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a { color: rgba(26,26,46,0.6); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #e94560; }
+        .nav-cta { background: #e94560; color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s ease; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(233,69,96,0.3); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
+        .hamburger span { width: 24px; height: 2px; background: #1a1a2e; transition: all 0.3s ease; }
+
+        /* Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+        /* Hero */
+        .hero { padding: 130px 24px 90px; background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%); }
+        .hero .container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+        .hero-badge { display: inline-block; background: rgba(233,69,96,0.07); color: #e94560; padding: 8px 20px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
+        .hero h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.2; margin-bottom: 24px; letter-spacing: -1px; color: #1a1a2e; }
+        .hero h1 .accent { color: #e94560; }
+        .hero .subtitle { font-size: 18px; color: #555; margin-bottom: 36px; line-height: 1.7; }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .hero-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .hero-stat { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 28px 20px; text-align: center; transition: all 0.3s ease; }
+        .hero-stat:hover { border-color: rgba(233,69,96,0.3); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+        .hero-stat .number { font-size: 36px; font-weight: 900; color: #e94560; display: block; line-height: 1; margin-bottom: 6px; }
+        .hero-stat .label { font-size: 13px; color: #888; font-weight: 500; }
+
+        /* Buttons */
+        .btn-primary { background: #e94560; color: #fff; padding: 16px 36px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s ease; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(233,69,96,0.3); background: #d63d56; }
+        .btn-secondary { background: transparent; color: #1a1a2e; padding: 16px 36px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 16px; border: 2px solid #ddd; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-secondary:hover { border-color: #e94560; color: #e94560; }
+
+        /* Sections */
+        .section { padding: 90px 24px; }
+        .section-white { background: #ffffff; }
+        .section-light { background: #f8f9fa; }
+        .section-dark { background: #1a1a2e; color: #ffffff; }
+        .section-header { text-align: center; margin-bottom: 56px; }
+        .section-header .badge { display: inline-block; background: rgba(233,69,96,0.07); color: #e94560; padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+        .section-dark .section-header .badge { background: rgba(233,69,96,0.2); }
+        .section-header h2 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 16px; line-height: 1.2; }
+        .section-header p { font-size: 17px; color: #777; max-width: 600px; margin: 0 auto; }
+        .section-dark .section-header p { color: rgba(255,255,255,0.6); }
+
+        /* Hidden Cost Section */
+        .cost-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .cost-card { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 32px; transition: all 0.3s ease; }
+        .cost-card:hover { border-color: rgba(233,69,96,0.3); box-shadow: 0 8px 30px rgba(0,0,0,0.05); transform: translateY(-4px); }
+        .cost-card .cost-icon { width: 48px; height: 48px; background: rgba(233,69,96,0.07); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
+        .cost-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: #1a1a2e; }
+        .cost-card p { font-size: 15px; color: #666; line-height: 1.7; }
+        .cost-card .cost-stat { font-size: 24px; font-weight: 900; color: #e94560; margin-top: 12px; display: block; }
+
+        /* 5 Questions */
+        .questions-list { max-width: 760px; margin: 0 auto; }
+        .question-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 28px 32px; margin-bottom: 16px; transition: all 0.3s ease; }
+        .question-item:hover { border-color: rgba(233,69,96,0.4); }
+        .question-item h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 14px; }
+        .question-item h3 .q-num { color: #e94560; font-size: 14px; font-weight: 800; background: rgba(233,69,96,0.15); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .question-item p { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; padding-left: 46px; }
+
+        /* Pricing Transparency */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .pricing-card { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 32px; text-align: center; transition: all 0.3s ease; position: relative; }
+        .pricing-card:hover { border-color: rgba(233,69,96,0.3); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+        .pricing-card.featured { border-color: #e94560; border-width: 2px; }
+        .pricing-card.featured::before { content: 'Piu richiesto'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #e94560; color: #fff; padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+        .pricing-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
+        .pricing-card .price-range { font-size: 28px; font-weight: 900; color: #e94560; margin-bottom: 4px; }
+        .pricing-card .price-period { font-size: 14px; color: #999; margin-bottom: 20px; }
+        .pricing-card ul { list-style: none; text-align: left; margin-bottom: 24px; }
+        .pricing-card ul li { padding: 8px 0; font-size: 14px; color: #555; display: flex; align-items: flex-start; gap: 10px; }
+        .pricing-card ul li::before { content: '\2713'; color: #e94560; font-weight: 700; flex-shrink: 0; }
+
+        /* Market Gap */
+        .gap-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .gap-text h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; margin-bottom: 20px; line-height: 1.3; }
+        .gap-text p { font-size: 16px; color: #555; margin-bottom: 16px; line-height: 1.7; }
+        .gap-text .highlight { background: rgba(233,69,96,0.06); border-left: 4px solid #e94560; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .gap-text .highlight p { font-weight: 600; color: #1a1a2e; margin-bottom: 0; }
+        .gap-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .gap-stat { background: #f8f9fa; border-radius: 14px; padding: 24px; text-align: center; }
+        .gap-stat .number { font-size: 32px; font-weight: 900; color: #e94560; display: block; margin-bottom: 4px; }
+        .gap-stat .label { font-size: 13px; color: #888; }
+
+        /* Numbers Section */
+        .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+        .number-card { text-align: center; padding: 28px; }
+        .number-card .big-number { font-size: 48px; font-weight: 900; color: #e94560; display: block; line-height: 1; margin-bottom: 8px; }
+        .number-card .number-label { font-size: 15px; color: rgba(255,255,255,0.6); font-weight: 500; }
+
+        /* Testimonials */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .testimonial-card { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 32px; transition: all 0.3s ease; }
+        .testimonial-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.06); border-color: rgba(233,69,96,0.2); }
+        .testimonial-stars { color: #f59e0b; font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+        .testimonial-text { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 20px; font-style: italic; }
+        .testimonial-author { display: flex; align-items: center; gap: 14px; }
+        .testimonial-avatar { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #e94560, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: #fff; }
+        .testimonial-name { font-weight: 700; font-size: 15px; color: #1a1a2e; }
+        .testimonial-role { font-size: 13px; color: #999; }
+
+        /* CTA Block */
+        .cta-block { text-align: center; padding: 48px; background: rgba(233,69,96,0.04); border-radius: 20px; max-width: 760px; margin: 0 auto; }
+        .section-dark .cta-block { background: rgba(255,255,255,0.05); }
+        .cta-block h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+        .section-dark .cta-block h3 { color: #fff; }
+        .cta-block p { font-size: 15px; color: #777; margin-bottom: 24px; }
+        .section-dark .cta-block p { color: rgba(255,255,255,0.5); }
+
+        /* Form */
+        .form-section { background: #1a1a2e; padding: 90px 24px; }
+        .form-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; }
+        .form-info h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 800; color: #fff; margin-bottom: 20px; letter-spacing: -0.5px; line-height: 1.2; }
+        .form-info p { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: 28px; line-height: 1.7; }
+        .form-benefits { list-style: none; }
+        .form-benefits li { display: flex; align-items: center; gap: 12px; padding: 10px 0; font-size: 15px; color: rgba(255,255,255,0.8); }
+        .form-benefits li::before { content: '\2713'; width: 28px; height: 28px; background: rgba(233,69,96,0.15); color: #e94560; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+        .form-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 36px; }
+        .form-card h3 { font-size: 22px; font-weight: 700; text-align: center; color: #fff; margin-bottom: 6px; }
+        .form-card .form-subtitle { font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; margin-bottom: 28px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: rgba(255,255,255,0.8); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; color: #fff; font-family: 'Inter', sans-serif; font-size: 15px; transition: border-color 0.3s ease; outline: none; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #e94560; }
+        .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+        .form-group select option { background: #1a1a2e; color: #fff; }
+        .form-group textarea { resize: vertical; min-height: 90px; }
+        .form-submit { width: 100%; padding: 16px; background: #e94560; color: #fff; border: none; border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .form-submit:hover { background: #d63d56; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(233,69,96,0.3); }
+        .form-disclaimer { font-size: 12px; color: rgba(255,255,255,0.35); text-align: center; margin-top: 14px; }
+
+        /* FAQ */
+        .faq-list { max-width: 760px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #eee; }
+        .faq-question { width: 100%; background: none; border: none; color: #1a1a2e; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; padding: 22px 40px 22px 0; text-align: left; cursor: pointer; position: relative; }
+        .faq-question::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 24px; font-weight: 300; color: #e94560; transition: transform 0.3s ease; }
+        .faq-question.active::after { transform: translateY(-50%) rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+        .faq-answer.open { max-height: 400px; padding-bottom: 20px; }
+        .faq-answer p { font-size: 15px; color: #666; line-height: 1.8; }
+
+        /* Footer */
+        .footer { background: #0d0d1a; color: #fff; padding: 60px 24px 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto 40px; }
+        .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); margin-top: 12px; max-width: 300px; }
+        .footer h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; color: #e94560; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 14px; transition: color 0.3s ease; }
+        .footer ul a:hover { color: #e94560; }
+        .footer-bottom { max-width: 1100px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+        /* WhatsApp Float */
+        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s ease; text-decoration: none; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-actions { justify-content: center; }
+            .hero-stats-grid { max-width: 400px; margin: 0 auto; }
+            .gap-content { grid-template-columns: 1fr; }
+            .form-wrapper { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+        }
+        @media (max-width: 640px) {
+            .hero { padding: 110px 20px 60px; }
+            .section { padding: 60px 20px; }
+            .hero-stats-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .btn-primary, .btn-secondary { justify-content: center; text-align: center; }
+            .testimonials-grid, .cost-grid, .pricing-grid { grid-template-columns: 1fr; }
+            .numbers-grid { grid-template-columns: 1fr 1fr; }
+            .gap-stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#" class="nav-logo">Studio <span>121</span></a>
+        <ul class="nav-links">
+            <li><a href="#costo-nascosto">Il costo nascosto</a></li>
+            <li><a href="#domande">5 domande</a></li>
+            <li><a href="#trasparenza">Costi</a></li>
+            <li><a href="#numeri">I nostri numeri</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#contatti" class="nav-cta">Call strategica gratuita</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="fade-up">
+            <div class="hero-badge">Agenzia di marketing digitale a Ragusa, Sicilia</div>
+            <h1>Nella provincia di Ragusa operano 36.000 imprese. Meno del 10% ha una strategia di comunicazione.<br><span class="accent">Le altre stanno lasciando soldi sul tavolo.</span></h1>
+            <p class="subtitle">Il dato non lo diciamo noi: viene dalla Camera di Commercio e dall'Osservatorio Digitale delle PMI. Mentre i tuoi competitor iniziano a investire in marketing misurabile, ogni mese che passa senza una strategia e un mese di clienti persi.</p>
+            <div class="hero-actions">
+                <a href="#contatti" class="btn-primary">Prenota una call strategica gratuita &#8594;</a>
+                <a href="tel:+39XXXXXXXXXX" class="btn-secondary">&#9742; Chiamaci</a>
+            </div>
+        </div>
+        <div class="fade-up" style="transition-delay: 0.2s;">
+            <div class="hero-stats-grid">
+                <div class="hero-stat">
+                    <span class="number">36.000+</span>
+                    <span class="label">Imprese in provincia</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">&lt;10%</span>
+                    <span class="label">Con strategia digitale</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">15-20</span>
+                    <span class="label">Agenzie competitor</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">0</span>
+                    <span class="label">Fanno performance marketing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Il Costo Nascosto -->
+<section class="section section-white" id="costo-nascosto">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">Analisi di mercato</div>
+            <h2>Il costo nascosto di non avere un'agenzia (o di averne una sbagliata)</h2>
+            <p>Ogni mese senza una strategia di marketing misurabile, la tua azienda a Ragusa sta pagando un prezzo invisibile.</p>
+        </div>
+        <div class="cost-grid">
+            <div class="cost-card fade-up">
+                <div class="cost-icon">&#128269;</div>
+                <h3>Clienti che cercano e non ti trovano</h3>
+                <p>Ogni mese centinaia di persone nella provincia di Ragusa cercano i tuoi servizi su Google. Se non hai una strategia SEO o campagne ads attive, quei clienti vanno dalla concorrenza.</p>
+                <span class="cost-stat">1.200+ ricerche/mese non intercettate</span>
+            </div>
+            <div class="cost-card fade-up">
+                <div class="cost-icon">&#128184;</div>
+                <h3>Soldi spesi senza sapere il ritorno</h3>
+                <p>Paghi l'agenzia ma non sai quanti clienti ti ha portato? Stai investendo alla cieca. L'imprenditore medio a Ragusa spende tra 300 e 1.000 euro al mese senza tracciare un solo lead.</p>
+                <span class="cost-stat">3.600-12.000 euro/anno senza ROI</span>
+            </div>
+            <div class="cost-card fade-up">
+                <div class="cost-icon">&#9203;</div>
+                <h3>Il tempo che perdi a "fare da te"</h3>
+                <p>Gestire social, sito, Google da soli significa 10-15 ore settimanali tolte al tuo business. Ore che potresti dedicare a fare cio che sai fare meglio: il tuo lavoro.</p>
+                <span class="cost-stat">520+ ore/anno di lavoro non fatturato</span>
+            </div>
+            <div class="cost-card fade-up">
+                <div class="cost-icon">&#128200;</div>
+                <h3>Il vantaggio competitivo che lasci ad altri</h3>
+                <p>Il mercato digitale a Ragusa e ancora poco saturo. Chi si muove adesso occupa posizioni che tra 2-3 anni costeranno il triplo. E un'opportunita che ha una finestra temporale limitata.</p>
+                <span class="cost-stat">CPC medio locale: solo 1,37 euro</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Intermedio 1 -->
+<section class="section section-light">
+    <div class="cta-block fade-up">
+        <h3>Vuoi sapere quanto sta lasciando sul tavolo la tua azienda?</h3>
+        <p>Ti facciamo un'analisi gratuita del tuo mercato locale in 30 minuti. Con dati veri, non slide generiche.</p>
+        <a href="#contatti" class="btn-primary">Prenota la call strategica &#8594;</a>
+    </div>
+</section>
+
+<!-- 5 Domande -->
+<section class="section section-dark" id="domande">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">Guida per imprenditori</div>
+            <h2>5 domande che ogni imprenditore dovrebbe fare alla propria agenzia</h2>
+            <p>Se la tua agenzia non sa rispondere a queste domande, il problema non sei tu.</p>
+        </div>
+        <div class="questions-list">
+            <div class="question-item fade-up">
+                <h3><span class="q-num">1</span>Quanti contatti qualificati mi avete portato questo mese?</h3>
+                <p>Non impression, non reach, non engagement. Contatti reali: persone che hanno chiesto un preventivo, chiamato il tuo numero, compilato un form. Se l'agenzia non sa rispondere con un numero preciso, non sta facendo il suo lavoro.</p>
+            </div>
+            <div class="question-item fade-up">
+                <h3><span class="q-num">2</span>Quanto mi costa acquisire un nuovo cliente tramite il vostro lavoro?</h3>
+                <p>Il costo di acquisizione cliente (CAC) e il numero piu importante per qualsiasi business. Se la tua agenzia non lo traccia, sta navigando alla cieca con i tuoi soldi.</p>
+            </div>
+            <div class="question-item fade-up">
+                <h3><span class="q-num">3</span>Dove vanno esattamente i miei soldi di advertising?</h3>
+                <p>Dovresti poter vedere in tempo reale quanto spendi su Google, su Meta, su ogni singola piattaforma. Se la risposta e "fidati di noi", non e una risposta accettabile.</p>
+            </div>
+            <div class="question-item fade-up">
+                <h3><span class="q-num">4</span>Qual e la strategia specifica per il mio settore e il mio territorio?</h3>
+                <p>Una strategia per un dentista a Modica deve essere diversa da quella per un ristorante a Ragusa Ibla. Se il tuo piano di comunicazione sembra generico, probabilmente lo e.</p>
+            </div>
+            <div class="question-item fade-up">
+                <h3><span class="q-num">5</span>Se non sono soddisfatto, posso andarmene senza penali?</h3>
+                <p>I vincoli contrattuali lunghi esistono perche l'agenzia non e sicura di poterti trattenere con i risultati. Un'agenzia che lavora bene non ha bisogno di imprigionarti.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Intermedio 2 -->
+<section class="section section-white">
+    <div class="cta-block fade-up">
+        <h3>Studio 121 risponde a tutte e 5 queste domande. Con i numeri.</h3>
+        <p>Scopri come lavoriamo. Nessun impegno.</p>
+        <a href="#contatti" class="btn-primary">Parliamone in una call gratuita &#8594;</a>
+    </div>
+</section>
+
+<!-- Trasparenza sui costi -->
+<section class="section section-light" id="trasparenza">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">Trasparenza</div>
+            <h2>Quanto dovrebbe costare un'agenzia di marketing a Ragusa?</h2>
+            <p>Nessuno ne parla apertamente. Noi si. Ecco i range reali del mercato.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card fade-up">
+                <h3>Start</h3>
+                <div class="price-range">500 - 1.000&#8364;</div>
+                <div class="price-period">al mese</div>
+                <ul>
+                    <li>Strategia di base</li>
+                    <li>Gestione 1-2 canali social</li>
+                    <li>Report mensile con KPI</li>
+                    <li>Referente dedicato</li>
+                    <li>Adatto a micro-imprese e professionisti</li>
+                </ul>
+                <a href="#contatti" class="btn-primary" style="width: 100%; justify-content: center;">Scopri di piu &#8594;</a>
+            </div>
+            <div class="pricing-card featured fade-up">
+                <h3>Growth</h3>
+                <div class="price-range">1.000 - 2.000&#8364;</div>
+                <div class="price-period">al mese</div>
+                <ul>
+                    <li>Strategia multicanale completa</li>
+                    <li>Social + Advertising (Google/Meta)</li>
+                    <li>SEO e posizionamento locale</li>
+                    <li>Dashboard in tempo reale</li>
+                    <li>Report dettagliato con ROI</li>
+                    <li>Adatto a PMI in crescita</li>
+                </ul>
+                <a href="#contatti" class="btn-primary" style="width: 100%; justify-content: center;">Scopri di piu &#8594;</a>
+            </div>
+            <div class="pricing-card fade-up">
+                <h3>Scale</h3>
+                <div class="price-range">2.000 - 4.000&#8364;</div>
+                <div class="price-period">al mese</div>
+                <ul>
+                    <li>Tutto il piano Growth incluso</li>
+                    <li>Automazione e AI integrata</li>
+                    <li>Content marketing avanzato</li>
+                    <li>Funnel di conversione</li>
+                    <li>Consulenza strategica mensile</li>
+                    <li>Adatto ad aziende strutturate</li>
+                </ul>
+                <a href="#contatti" class="btn-primary" style="width: 100%; justify-content: center;">Scopri di piu &#8594;</a>
+            </div>
+        </div>
+        <p style="text-align: center; font-size: 14px; color: #999; margin-top: 32px;">I prezzi sono indicativi e variano in base alle esigenze specifiche. L'analisi iniziale e sempre gratuita e senza impegno.</p>
+    </div>
+</section>
+
+<!-- Gap di mercato -->
+<section class="section section-white" id="gap">
+    <div class="container">
+        <div class="gap-content fade-up">
+            <div class="gap-text">
+                <div class="badge" style="display: inline-block; background: rgba(233,69,96,0.07); color: #e94560; padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px;">Opportunita di mercato</div>
+                <h2>Nessuno a Ragusa fa performance marketing misurabile. Questo e il tuo vantaggio.</h2>
+                <p>Abbiamo analizzato le 15-20 agenzie di comunicazione che operano nella provincia di Ragusa. Il risultato? Nessuna offre un servizio di performance marketing con tracciamento completo dei lead e reporting basato su ROI.</p>
+                <div class="highlight">
+                    <p>Con un investimento di 300-500 euro al mese in advertising digitale, e possibile dominare tutte le keyword locali rilevanti per il tuo settore a Ragusa e provincia.</p>
+                </div>
+                <p>La finestra e aperta adesso. Man mano che la concorrenza si digitalizza, questi costi saliranno. Chi si muove prima, paga meno e ottiene di piu.</p>
+            </div>
+            <div class="gap-stats">
+                <div class="gap-stat">
+                    <span class="number">1,37&#8364;</span>
+                    <span class="label">CPC medio keyword locali</span>
+                </div>
+                <div class="gap-stat">
+                    <span class="number">300-500&#8364;</span>
+                    <span class="label">Budget per dominare le SERP</span>
+                </div>
+                <div class="gap-stat">
+                    <span class="number">15-20</span>
+                    <span class="label">Agenzie competitor analizzate</span>
+                </div>
+                <div class="gap-stat">
+                    <span class="number">0</span>
+                    <span class="label">Offrono performance marketing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- I Nostri Numeri -->
+<section class="section section-dark" id="numeri">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">I nostri numeri</div>
+            <h2>I nostri numeri parlano. Li lasciamo fare.</h2>
+            <p>Metriche aggregate dei nostri clienti nell'ultimo anno.</p>
+        </div>
+        <div class="numbers-grid fade-up">
+            <div class="number-card">
+                <span class="big-number">150+</span>
+                <span class="number-label">Progetti completati</span>
+            </div>
+            <div class="number-card">
+                <span class="big-number">2.400+</span>
+                <span class="number-label">Lead generati per i clienti</span>
+            </div>
+            <div class="number-card">
+                <span class="big-number">340%</span>
+                <span class="number-label">ROI medio campagne ads</span>
+            </div>
+            <div class="number-card">
+                <span class="big-number">98%</span>
+                <span class="number-label">Tasso di soddisfazione</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Intermedio 3 -->
+<section class="section section-white">
+    <div class="cta-block fade-up">
+        <h3>Vuoi numeri cosi anche per la tua azienda?</h3>
+        <p>Analizziamo la tua situazione e ti mostriamo cosa e realisticamente raggiungibile.</p>
+        <a href="#contatti" class="btn-primary">Prenota la tua analisi gratuita &#8594;</a>
+    </div>
+</section>
+
+<!-- Testimonial -->
+<section class="section section-light" id="testimonianze">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">Risultati verificabili</div>
+            <h2>Cosa dicono gli imprenditori che hanno scelto Studio 121</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-up">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Per la prima volta in 10 anni so esattamente quanto mi costa acquisire un nuovo paziente. Studio 121 mi ha dato i numeri, non le chiacchiere. ROI del 280% in 6 mesi."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">A</div>
+                    <div>
+                        <div class="testimonial-name">Dr. Andrea M.</div>
+                        <div class="testimonial-role">Studio odontoiatrico, Ragusa</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-up">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Con 450 euro al mese di advertising siamo in prima pagina per tutte le ricerche del nostro settore a Ragusa e Modica. L'agenzia precedente spendeva il triplo senza risultati."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">G</div>
+                    <div>
+                        <div class="testimonial-name">Giuseppe L.</div>
+                        <div class="testimonial-role">Impresa edile, Vittoria</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-up">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Mi hanno mostrato la dashboard il primo giorno. So in tempo reale quante persone vedono i miei annunci, quante cliccano, quante prenotano. Questa e trasparenza vera."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">F</div>
+                    <div>
+                        <div class="testimonial-name">Francesca B.</div>
+                        <div class="testimonial-role">Ristorante, Ragusa Ibla</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Form -->
+<section class="form-section" id="contatti">
+    <div class="form-wrapper">
+        <div class="form-info fade-left">
+            <h2>Prenota una call strategica gratuita.<br>30 minuti, zero impegno.</h2>
+            <p>In mezz'ora analizziamo la tua situazione attuale, il tuo mercato e ti mostriamo le opportunita concrete. Nessuna pressione commerciale: se possiamo aiutarti te lo diciamo, se non siamo la soluzione giusta te lo diciamo lo stesso.</p>
+            <ul class="form-benefits">
+                <li>Analisi del tuo mercato locale con dati reali</li>
+                <li>Stima del potenziale di crescita digitale</li>
+                <li>Roadmap strategica personalizzata</li>
+                <li>Nessun vincolo, nessun obbligo</li>
+                <li>Garanzia 90 giorni soddisfatti o smetti di pagare</li>
+            </ul>
+        </div>
+        <div class="form-card fade-right">
+            <h3>Richiedi la tua analisi gratuita</h3>
+            <p class="form-subtitle">Compila il form e ti ricontattiamo entro 24 ore lavorative</p>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome e Cognome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="La tua email aziendale" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Il tuo numero di telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="servizio">Di cosa hai bisogno?</label>
+                    <select id="servizio" name="servizio" required>
+                        <option value="" disabled selected>Seleziona un'area di interesse</option>
+                        <option value="strategia">Strategia di comunicazione</option>
+                        <option value="advertising">Google Ads / Meta Ads</option>
+                        <option value="social">Social media marketing</option>
+                        <option value="seo">SEO e posizionamento</option>
+                        <option value="sito-web">Sito web / E-commerce</option>
+                        <option value="branding">Branding e identita visiva</option>
+                        <option value="analisi">Analisi e audit della situazione attuale</option>
+                        <option value="altro">Altro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="messaggio">Parlaci del tuo business</label>
+                    <textarea id="messaggio" name="messaggio" placeholder="Settore, dimensione aziendale, sfide attuali, obiettivi..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">Prenota la call strategica gratuita &#8594;</button>
+                <p class="form-disclaimer">I tuoi dati sono trattati con riservatezza. Li usiamo esclusivamente per ricontattarti.</p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-white" id="faq">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="badge">Domande frequenti</div>
+            <h2>Risposte chiare a domande concrete</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">I dati di mercato che citate sono reali?</button>
+                <div class="faq-answer">
+                    <p>Si. I dati sulle 36.000+ imprese provengono dalla Camera di Commercio di Ragusa. Il CPC medio di 1,37 euro e ricavato dal Google Keyword Planner per le keyword "agenzia comunicazione ragusa" e correlate. L'analisi dei competitor e stata condotta manualmente sui siti e le offerte delle agenzie attive nel territorio.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Con 300-500 euro al mese si possono davvero ottenere risultati?</button>
+                <div class="faq-answer">
+                    <p>In un mercato locale come quello della provincia di Ragusa, si. Il motivo e semplice: la competizione digitale e ancora bassa. Il costo per click medio e di 1,37 euro, il che significa che con 500 euro al mese puoi ottenere circa 365 click qualificati. Sono persone che stanno attivamente cercando i tuoi servizi.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Come misurate i risultati?</button>
+                <div class="faq-answer">
+                    <p>Tracciamo ogni punto di contatto: compilazioni form, telefonate (con call tracking), messaggi WhatsApp, visite in negozio (quando possibile). Ogni mese ricevi un report con: numero di lead generati, costo per lead, tasso di conversione, e ROI complessivo. Non usiamo metriche di vanita come like o follower come indicatori di successo.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Qual e la differenza tra voi e le altre agenzie di Ragusa?</button>
+                <div class="faq-answer">
+                    <p>La differenza principale e il focus sul performance marketing misurabile. Mentre la maggior parte delle agenzie locali si concentra su gestione social e creativita, noi costruiamo sistemi di acquisizione clienti tracciabili. Sappiamo dirti esattamente quanti clienti ti abbiamo portato e quanto ti e costato ciascuno.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Quanto tempo serve per vedere i primi risultati?</button>
+                <div class="faq-answer">
+                    <p>Dipende dal canale. Con Google Ads e Meta Ads, i primi contatti arrivano entro 2-4 settimane dal lancio delle campagne. Per la SEO organica, i tempi sono piu lunghi: 3-6 mesi per posizionamenti significativi. Ti diamo sempre una timeline realistica prima di iniziare, senza false promesse.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Cosa succede se non sono soddisfatto?</button>
+                <div class="faq-answer">
+                    <p>Nessun vincolo contrattuale lungo. Se dopo 90 giorni non vedi risultati misurabili e concordati all'inizio della collaborazione, smetti di pagare. Nessuna penale, nessun asterisco. Ci prendiamo la responsabilita dei risultati perche siamo sicuri del nostro lavoro.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFaq(this)">Lavorate solo a Ragusa o in tutta la Sicilia?</button>
+                <div class="faq-answer">
+                    <p>La nostra sede e a Ragusa e conosciamo profondamente il mercato locale. Lavoriamo con clienti in tutta la Sicilia e anche fuori regione. Tuttavia, la nostra specializzazione nel mercato ragusano ci permette di offrire un vantaggio competitivo unico alle imprese del territorio.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Finale -->
+<section class="section section-light">
+    <div class="cta-block fade-up">
+        <h3>Il mercato digitale a Ragusa ha una finestra di opportunita. E aperta adesso.</h3>
+        <p>Ogni mese che passa, la concorrenza cresce e i costi salgono. Prenota la tua call strategica gratuita e scopri cosa e possibile per la tua azienda.</p>
+        <a href="#contatti" class="btn-primary">Prenota la call strategica gratuita &#8594;</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <a href="#" class="nav-logo" style="color: #fff; text-decoration: none; font-size: 24px; font-weight: 800;">Studio <span style="color: #e94560;">121</span></a>
+            <p>Agenzia di marketing digitale e comunicazione a Ragusa, Sicilia. Performance marketing misurabile per imprese che vogliono crescere con i numeri.</p>
+        </div>
+        <div>
+            <h4>Servizi</h4>
+            <ul>
+                <li><a href="#">Performance marketing</a></li>
+                <li><a href="#">Google Ads e Meta Ads</a></li>
+                <li><a href="#">SEO locale</a></li>
+                <li><a href="#">Social media marketing</a></li>
+                <li><a href="#">Siti web e e-commerce</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Risorse</h4>
+            <ul>
+                <li><a href="#">Chi siamo</a></li>
+                <li><a href="#">Case study</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contatti</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contatti</h4>
+            <ul>
+                <li><a href="tel:+39XXXXXXXXXX">+39 XXX XXX XXXX</a></li>
+                <li><a href="https://wa.me/39XXXXXXXXXX">WhatsApp</a></li>
+                <li><a href="mailto:info@studio121.it">info@studio121.it</a></li>
+                <li><a href="#">Ragusa (RG), Sicilia</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Studio 121 S.r.l. - P.IVA XXXXXXXXXXX - Tutti i diritti riservati</p>
+        <p><a href="#" style="color: rgba(255,255,255,0.35); text-decoration: none;">Privacy Policy</a> &middot; <a href="#" style="color: rgba(255,255,255,0.35); text-decoration: none;">Cookie Policy</a></p>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/39XXXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Scrivici su WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
+
+<script>
+// Navbar scroll
+var navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Fade-in on scroll
+var animatedElements = document.querySelectorAll('.fade-up, .fade-left, .fade-right');
+var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+animatedElements.forEach(function(el) { observer.observe(el); });
+
+// Hamburger menu
+var hamburger = document.getElementById('hamburger');
+var navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click', function() {
+    if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+    } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.background = 'rgba(255,255,255,0.98)';
+        navLinks.style.padding = '20px 24px';
+        navLinks.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+        navLinks.style.borderRadius = '0 0 12px 12px';
+    }
+});
+
+// Counter animation
+function animateCounters() {
+    document.querySelectorAll('.big-number').forEach(function(counter) {
+        var text = counter.textContent;
+        var match = text.match(/(\d[\d,.]*)/);
+        if (!match) return;
+        var target = parseFloat(match[1].replace(/,/g, ''));
+        if (isNaN(target) || counter.dataset.animated) return;
+        counter.dataset.animated = 'true';
+        var suffix = text.replace(match[1], '').trim();
+        var prefix = text.substring(0, text.indexOf(match[1]));
+        var duration = 1500;
+        var start = performance.now();
+        function update(now) {
+            var progress = Math.min((now - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var current = Math.floor(eased * target);
+            counter.textContent = prefix + current.toLocaleString('it-IT') + suffix;
+            if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+    });
+}
+
+var numbersSection = document.getElementById('numeri');
+if (numbersSection) {
+    var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                animateCounters();
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    counterObserver.observe(numbersSection);
+}
+
+// FAQ toggle
+function toggleFaq(button) {
+    var answer = button.nextElementSibling;
+    var isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.remove('open'); });
+    document.querySelectorAll('.faq-question').forEach(function(q) { q.classList.remove('active'); });
+    if (!isOpen) {
+        answer.classList.add('open');
+        button.classList.add('active');
+    }
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+</script>
+</body>
+</html>
