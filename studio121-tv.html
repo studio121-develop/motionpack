@@ -18,47 +18,42 @@
     @keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,-40px)}}
 
     /* Layout */
-    .screen{position:relative;z-index:1;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:4vh 6vw}
+    .screen{position:relative;z-index:1;height:100vh;padding:4vh 6vw}
 
     /* Logo */
-    .logo{font-family:'Anton',sans-serif;font-size:clamp(2rem,3.5vw,3.5rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:1vh;opacity:0;animation:fadeIn .8s ease forwards .3s}
+    .logo{font-family:'Anton',sans-serif;font-size:clamp(2rem,3.5vw,3.5rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:1vh}
     .logo span{color:#d94625}
 
     /* Main headline */
     .headline{font-family:'Anton',sans-serif;font-size:clamp(3rem,7vw,7.5rem);text-transform:uppercase;line-height:.95;letter-spacing:-.02em;margin-bottom:3vh;max-width:85vw}
-    .headline .line{display:block;opacity:0;animation:slideUp .7s ease forwards}
-    .headline .line:nth-child(1){animation-delay:.5s}
-    .headline .line:nth-child(2){animation-delay:.7s;color:#d94625}
-    .headline .line:nth-child(3){animation-delay:.9s;color:rgba(245,245,245,.3);font-size:.55em}
+    .headline .line{display:block}
+    .headline .line:nth-child(2){color:#d94625}
+    .headline .line:nth-child(3){color:rgba(245,245,245,.3);font-size:.55em}
 
     /* Subline */
-    .subline{font-size:clamp(1rem,1.8vw,1.6rem);color:rgba(245,245,245,.45);font-weight:300;max-width:55vw;line-height:1.6;margin-bottom:4vh;opacity:0;animation:fadeIn .8s ease forwards 1.2s}
+    .subline{font-size:clamp(1rem,1.8vw,1.6rem);color:rgba(245,245,245,.45);font-weight:300;max-width:55vw;line-height:1.6;margin-bottom:4vh}
 
     /* Stats bar */
-    .stats{display:flex;gap:4vw;opacity:0;animation:fadeIn .8s ease forwards 1.5s}
+    .stats{display:flex;gap:4vw}
     .stat .num{font-family:'Anton',sans-serif;font-size:clamp(1.8rem,3.5vw,3.2rem);color:#d94625;line-height:1}
     .stat .lbl{font-size:clamp(.6rem,1vw,.85rem);color:rgba(245,245,245,.3);text-transform:uppercase;letter-spacing:.12em;margin-top:.3rem;font-weight:500}
 
     /* Logo carousel at bottom */
-    .logos-bar{position:fixed;bottom:0;left:0;right:0;z-index:2;padding:2.5vh 0;border-top:1px solid rgba(255,255,255,.06);background:rgba(7,7,9,.8);backdrop-filter:blur(10px);overflow:hidden;opacity:0;animation:fadeIn .8s ease forwards 2s}
+    .logos-bar{position:fixed;bottom:0;left:0;right:0;z-index:2;padding:2.5vh 0;border-top:1px solid rgba(255,255,255,.06);background:rgba(7,7,9,.8);backdrop-filter:blur(10px);overflow:hidden}
     .logos-label{position:absolute;left:6vw;top:50%;transform:translateY(-50%);font-size:.6rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.2);font-weight:600;z-index:3}
     .logos-track{display:flex;gap:3vw;animation:scrollLogos 30s linear infinite;padding-left:14vw;width:max-content}
     .logo-item{flex-shrink:0;font-size:clamp(.7rem,1.1vw,1rem);font-weight:600;color:rgba(255,255,255,.25);white-space:nowrap;padding:.5rem 1.2rem;border:1px solid rgba(255,255,255,.06);border-radius:8px}
     @keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
     /* Right side accent */
-    .accent-line{position:fixed;right:6vw;top:15vh;bottom:25vh;width:3px;background:linear-gradient(180deg,transparent,#d94625 30%,#d94625 70%,transparent);opacity:0;animation:fadeIn 1s ease forwards 1.8s;z-index:1}
+    .accent-line{position:fixed;right:6vw;top:15vh;bottom:25vh;width:3px;background:linear-gradient(180deg,transparent,#d94625 30%,#d94625 70%,transparent);z-index:1}
 
     /* Slide system */
-    .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:4vh 6vw;opacity:0;transition:opacity 1.2s ease;pointer-events:none}
-    .slide.active{opacity:1;pointer-events:auto}
-    .slide .headline{animation:none}
-    .slide .headline .line{animation:none;opacity:1}
-    .slide .subline{animation:none;opacity:1}
-    .slide .stats{animation:none;opacity:1}
+    .slide{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:4vh 6vw;opacity:0;transition:opacity 1.2s ease;pointer-events:none;z-index:1}
+    .slide.active{opacity:1;pointer-events:auto;z-index:2}
 
     /* Slide indicator */
-    .indicators{position:fixed;right:3vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:5;opacity:0;animation:fadeIn .8s ease forwards 2.5s}
+    .indicators{position:fixed;right:3vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:5}
     .ind{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s}
     .ind.active{background:#d94625;height:20px;border-radius:3px}
 
