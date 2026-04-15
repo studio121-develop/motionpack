@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio 121</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%;overflow:hidden}
+    body{font-family:'DM Sans',sans-serif;background:#070709;color:#f5f5f5;-webkit-font-smoothing:antialiased}
+
+    /* Ambient glow */
+    .glow{position:fixed;pointer-events:none;border-radius:50%;filter:blur(120px);opacity:.35;z-index:0}
+    .glow-1{width:600px;height:600px;background:radial-gradient(circle,rgba(217,70,37,.4),transparent 70%);top:-10%;right:-5%;animation:drift1 20s ease-in-out infinite}
+    .glow-2{width:500px;height:500px;background:radial-gradient(circle,rgba(217,70,37,.2),transparent 70%);bottom:-15%;left:10%;animation:drift2 25s ease-in-out infinite}
+    @keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,60px)}}
+    @keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,-40px)}}
+
+    /* Layout */
+    .screen{position:relative;z-index:1;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:4vh 6vw}
+
+    /* Logo */
+    .logo{font-family:'Anton',sans-serif;font-size:clamp(2rem,3.5vw,3.5rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:1vh;opacity:0;animation:fadeIn .8s ease forwards .3s}
+    .logo span{color:#d94625}
+
+    /* Main headline */
+    .headline{font-family:'Anton',sans-serif;font-size:clamp(3rem,7vw,7.5rem);text-transform:uppercase;line-height:.95;letter-spacing:-.02em;margin-bottom:3vh;max-width:85vw}
+    .headline .line{display:block;opacity:0;animation:slideUp .7s ease forwards}
+    .headline .line:nth-child(1){animation-delay:.5s}
+    .headline .line:nth-child(2){animation-delay:.7s;color:#d94625}
+    .headline .line:nth-child(3){animation-delay:.9s;color:rgba(245,245,245,.3);font-size:.55em}
+
+    /* Subline */
+    .subline{font-size:clamp(1rem,1.8vw,1.6rem);color:rgba(245,245,245,.45);font-weight:300;max-width:55vw;line-height:1.6;margin-bottom:4vh;opacity:0;animation:fadeIn .8s ease forwards 1.2s}
+
+    /* Stats bar */
+    .stats{display:flex;gap:4vw;opacity:0;animation:fadeIn .8s ease forwards 1.5s}
+    .stat .num{font-family:'Anton',sans-serif;font-size:clamp(1.8rem,3.5vw,3.2rem);color:#d94625;line-height:1}
+    .stat .lbl{font-size:clamp(.6rem,1vw,.85rem);color:rgba(245,245,245,.3);text-transform:uppercase;letter-spacing:.12em;margin-top:.3rem;font-weight:500}
+
+    /* Logo carousel at bottom */
+    .logos-bar{position:fixed;bottom:0;left:0;right:0;z-index:2;padding:2.5vh 0;border-top:1px solid rgba(255,255,255,.06);background:rgba(7,7,9,.8);backdrop-filter:blur(10px);overflow:hidden;opacity:0;animation:fadeIn .8s ease forwards 2s}
+    .logos-label{position:absolute;left:6vw;top:50%;transform:translateY(-50%);font-size:.6rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.2);font-weight:600;z-index:3}
+    .logos-track{display:flex;gap:3vw;animation:scrollLogos 30s linear infinite;padding-left:14vw;width:max-content}
+    .logo-item{flex-shrink:0;font-size:clamp(.7rem,1.1vw,1rem);font-weight:600;color:rgba(255,255,255,.25);white-space:nowrap;padding:.5rem 1.2rem;border:1px solid rgba(255,255,255,.06);border-radius:8px}
+    @keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* Right side accent */
+    .accent-line{position:fixed;right:6vw;top:15vh;bottom:25vh;width:3px;background:linear-gradient(180deg,transparent,#d94625 30%,#d94625 70%,transparent);opacity:0;animation:fadeIn 1s ease forwards 1.8s;z-index:1}
+
+    /* Slide system */
+    .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:4vh 6vw;opacity:0;transition:opacity 1.2s ease;pointer-events:none}
+    .slide.active{opacity:1;pointer-events:auto}
+    .slide .headline{animation:none}
+    .slide .headline .line{animation:none;opacity:1}
+    .slide .subline{animation:none;opacity:1}
+    .slide .stats{animation:none;opacity:1}
+
+    /* Slide indicator */
+    .indicators{position:fixed;right:3vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:5;opacity:0;animation:fadeIn .8s ease forwards 2.5s}
+    .ind{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s}
+    .ind.active{background:#d94625;height:20px;border-radius:3px}
+
+    @keyframes fadeIn{to{opacity:1}}
+    @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+<div class="accent-line"></div>
+
+<!-- SLIDE 1: Hero -->
+<div class="screen">
+  <div class="slide active" id="s0">
+    <div class="logo">Studio<span>121</span></div>
+    <div class="headline">
+      <span class="line">Il tuo partner</span>
+      <span class="line">per vendere di piu.</span>
+      <span class="line">Ragusa &middot; Sicilia</span>
+    </div>
+    <div class="subline">Strategia, design e risultati misurabili per imprenditori e aziende che vogliono crescere. Non vendiamo creativita. Vendiamo clienti.</div>
+    <div class="stats">
+      <div class="stat"><div class="num">50+</div><div class="lbl">Clienti serviti</div></div>
+      <div class="stat"><div class="num">10+</div><div class="lbl">Anni di esperienza</div></div>
+      <div class="stat"><div class="num">36.000</div><div class="lbl">Imprese in provincia</div></div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: Numeri -->
+  <div class="slide" id="s1">
+    <div class="logo">Studio<span>121</span></div>
+    <div class="headline">
+      <span class="line">I numeri del</span>
+      <span class="line">tuo mercato.</span>
+      <span class="line">Dati reali &middot; Google 2026</span>
+    </div>
+    <div class="subline">Ogni mese, migliaia di persone cercano su Google i servizi delle attivita ragusane. Noi sappiamo esattamente dove sono i tuoi clienti e come raggiungerli.</div>
+    <div class="stats">
+      <div class="stat"><div class="num">596K</div><div class="lbl">Ricerche turismo /mese</div></div>
+      <div class="stat"><div class="num">90K</div><div class="lbl">Ricerche ristorazione</div></div>
+      <div class="stat"><div class="num">49.500</div><div class="lbl">Marina di Ragusa /mese</div></div>
+      <div class="stat"><div class="num">5.400</div><div class="lbl">Pizzeria Ragusa /mese</div></div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: Servizi -->
+  <div class="slide" id="s2">
+    <div class="logo">Studio<span>121</span></div>
+    <div class="headline">
+      <span class="line">Tutto quello che serve</span>
+      <span class="line">per crescere.</span>
+      <span class="line">Un unico partner &middot; Zero dispersione</span>
+    </div>
+    <div class="subline">Siti web che convertono. Brand che restano impressi. Campagne pubblicitarie con ROI misurabile. Social media con strategia. Grafica che parla prima di te.</div>
+    <div class="stats">
+      <div class="stat"><div class="num">Siti Web</div><div class="lbl">Che portano clienti</div></div>
+      <div class="stat"><div class="num">Branding</div><div class="lbl">Che ti fa ricordare</div></div>
+      <div class="stat"><div class="num">Google Ads</div><div class="lbl">ROI misurabile</div></div>
+      <div class="stat"><div class="num">Social</div><div class="lbl">Con strategia vera</div></div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: Posizionamento -->
+  <div class="slide" id="s3">
+    <div class="logo">Studio<span>121</span></div>
+    <div class="headline">
+      <span class="line">Non ti mostriamo</span>
+      <span class="line">i colori. Ti mostriamo i numeri.</span>
+      <span class="line">L'agenzia dei risultati</span>
+    </div>
+    <div class="subline">Quanti clienti in piu hai ottenuto. Quanto hai fatturato in piu. Quanto ti e costato ogni nuovo contatto. Report chiari, dati veri, zero fumo.</div>
+    <div class="stats">
+      <div class="stat"><div class="num">0,21&euro;</div><div class="lbl">CPC medio ristorazione</div></div>
+      <div class="stat"><div class="num">4-15</div><div class="lbl">Lead al mese con Ads</div></div>
+      <div class="stat"><div class="num">5-12x</div><div class="lbl">ROI su 1 cliente</div></div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: CTA -->
+  <div class="slide" id="s4">
+    <div class="logo">Studio<span>121</span></div>
+    <div class="headline">
+      <span class="line">Sediamoci.</span>
+      <span class="line">Parliamo della tua attivita.</span>
+      <span class="line">Nessun impegno &middot; Solo una conversazione</span>
+    </div>
+    <div class="subline">Un caffe, 30 minuti del tuo tempo. Ti mostriamo i dati del tuo mercato, le opportunita concrete e cosa possiamo fare insieme. Se ha senso, iniziamo. Se no, ci siamo fatti un caffe.</div>
+    <div class="stats">
+      <div class="stat"><div class="num">333 771 7599</div><div class="lbl">Chiamaci</div></div>
+      <div class="stat"><div class="num">info@studio121.it</div><div class="lbl">Scrivici</div></div>
+      <div class="stat"><div class="num">Via Settembrini 71</div><div class="lbl">Ragusa</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide indicators -->
+<div class="indicators" id="indicators"></div>
+
+<!-- Logo carousel -->
+<div class="logos-bar">
+  <div class="logos-label">Si sono affidati a noi</div>
+  <div class="logos-track">
+    <div class="logo-item">Amara</div>
+    <div class="logo-item">Ilpav S.p.A.</div>
+    <div class="logo-item">San Giorgio Palace</div>
+    <div class="logo-item">Itria Palace Hotel</div>
+    <div class="logo-item">Gruppo Epas</div>
+    <div class="logo-item">Gruppo TOC</div>
+    <div class="logo-item">Giannone Group</div>
+    <div class="logo-item">Frediani Schinina &amp; Partners</div>
+    <div class="logo-item">Studio Zago &amp; Sammito</div>
+    <div class="logo-item">Giardino sul Duomo</div>
+    <div class="logo-item">Eracle Travels</div>
+    <div class="logo-item">Rossa Sicily</div>
+    <div class="logo-item">Amara</div>
+    <div class="logo-item">Ilpav S.p.A.</div>
+    <div class="logo-item">San Giorgio Palace</div>
+    <div class="logo-item">Itria Palace Hotel</div>
+    <div class="logo-item">Gruppo Epas</div>
+    <div class="logo-item">Gruppo TOC</div>
+    <div class="logo-item">Giannone Group</div>
+    <div class="logo-item">Frediani Schinina &amp; Partners</div>
+    <div class="logo-item">Studio Zago &amp; Sammito</div>
+    <div class="logo-item">Giardino sul Duomo</div>
+    <div class="logo-item">Eracle Travels</div>
+    <div class="logo-item">Rossa Sicily</div>
+  </div>
+</div>
+
+<script>
+var slides = document.querySelectorAll('.slide');
+var total = slides.length;
+var current = 0;
+var interval = 8000; // 8 secondi per slide
+
+// Build indicators
+var indWrap = document.getElementById('indicators');
+for (var i = 0; i < total; i++) {
+  var d = document.createElement('div');
+  d.className = 'ind' + (i === 0 ? ' active' : '');
+  indWrap.appendChild(d);
+}
+var inds = document.querySelectorAll('.ind');
+
+function showSlide(n) {
+  slides.forEach(function(s) { s.classList.remove('active'); });
+  inds.forEach(function(d) { d.classList.remove('active'); });
+  slides[n].classList.add('active');
+  inds[n].classList.add('active');
+}
+
+// Auto-rotate after initial animation
+setTimeout(function() {
+  setInterval(function() {
+    current = (current + 1) % total;
+    showSlide(current);
+  }, interval);
+}, 3000); // Start rotation after 3s (let first slide animate in)
+</script>
+
+</body>
+</html>
