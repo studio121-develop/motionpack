@@ -23,7 +23,7 @@
       z-index:2;
     }
 
-    .logo-img { height:clamp(32px,4vh,70px); margin-bottom:4vh }
+    .logo-img { height:clamp(22px,2.8vh,48px); margin-bottom:3vh }
 
     .badge {
       display:inline-flex; align-self:flex-start;
@@ -39,7 +39,7 @@
 
     h1 {
       font-family:'Anton',sans-serif;
-      font-size:clamp(36px,5.2vw,200px);
+      font-size:clamp(40px,5.8vw,220px);
       text-transform:uppercase;
       line-height:.92;
       letter-spacing:-.02em;
@@ -86,78 +86,84 @@
 
     .orb {
       position:absolute; border-radius:50%;
-      border:1px solid rgba(217,70,37,.15);
     }
     .orb-1 {
       width:100%; height:100%;
       top:0; left:0;
-      border-color:rgba(217,70,37,.08);
-      animation:spin 60s linear infinite;
+      border:2px solid rgba(217,70,37,.2);
+      animation:spin 50s linear infinite;
     }
     .orb-2 {
-      width:75%; height:75%;
-      top:12.5%; left:12.5%;
-      border-color:rgba(217,70,37,.12);
-      animation:spin 45s linear infinite reverse;
+      width:72%; height:72%;
+      top:14%; left:14%;
+      border:2px solid rgba(217,70,37,.35);
+      animation:spin 35s linear infinite reverse;
     }
     .orb-3 {
-      width:50%; height:50%;
-      top:25%; left:25%;
-      border-color:rgba(217,70,37,.18);
-      animation:spin 30s linear infinite;
+      width:44%; height:44%;
+      top:28%; left:28%;
+      border:2px solid rgba(217,70,37,.5);
+      animation:spin 22s linear infinite;
     }
     .orb-core {
       position:absolute;
-      width:28%; height:28%;
-      top:36%; left:36%;
+      width:22%; height:22%;
+      top:39%; left:39%;
       border-radius:50%;
-      background:radial-gradient(circle, rgba(217,70,37,.2) 0%, rgba(217,70,37,.05) 50%, transparent 70%);
-      filter:blur(20px);
+      background:radial-gradient(circle, rgba(217,70,37,.55) 0%, rgba(217,70,37,.15) 50%, transparent 75%);
+      filter:blur(25px);
       animation:pulse 4s ease-in-out infinite;
+    }
+    /* Second glow layer for more intensity */
+    .orb-core::after {
+      content:''; position:absolute; inset:-30%; border-radius:50%;
+      background:radial-gradient(circle, rgba(217,70,37,.3) 0%, transparent 60%);
+      filter:blur(40px);
+      animation:pulse 4s ease-in-out infinite .5s;
     }
 
     /* Orbit dots */
     .dot {
-      position:absolute; width:clamp(6px,.4vw,14px); height:clamp(6px,.4vw,14px);
-      border-radius:50%; background:var(--o);
+      position:absolute; border-radius:50%; background:var(--o);
+      box-shadow:0 0 clamp(8px,1vw,30px) rgba(217,70,37,.6);
     }
-    .dot-1 { top:0; left:50%; transform:translateX(-50%); animation:spin 60s linear infinite; transform-origin:0 16vw; opacity:.6 }
-    .dot-2 { top:12.5%; left:85%; animation:spin 45s linear infinite reverse; transform-origin:-5vw 12vw; opacity:.4 }
-    .dot-3 { top:50%; right:0; animation:spin 30s linear infinite; transform-origin:-16vw 0; opacity:.8 }
-    .dot-4 { bottom:20%; left:10%; animation:spin 50s linear infinite reverse; transform-origin:12vw -6vw; opacity:.3 }
+    .dot-1 { width:clamp(10px,.6vw,20px); height:clamp(10px,.6vw,20px); top:0; left:50%; animation:spin 50s linear infinite; transform-origin:0 16vw; opacity:.9 }
+    .dot-2 { width:clamp(8px,.5vw,16px); height:clamp(8px,.5vw,16px); top:14%; left:82%; animation:spin 35s linear infinite reverse; transform-origin:-4vw 11vw; opacity:.7 }
+    .dot-3 { width:clamp(12px,.7vw,24px); height:clamp(12px,.7vw,24px); top:50%; right:0; animation:spin 22s linear infinite; transform-origin:-16vw 0; opacity:1 }
+    .dot-4 { width:clamp(7px,.45vw,14px); height:clamp(7px,.45vw,14px); bottom:18%; left:8%; animation:spin 40s linear infinite reverse; transform-origin:12vw -5vw; opacity:.5 }
 
-    /* Floating labels on orbits */
+    /* Floating labels */
     .orbit-label {
       position:absolute;
-      font-size:clamp(8px,.55vw,18px);
-      font-weight:600;
-      color:rgba(255,255,255,.12);
+      font-size:clamp(10px,.7vw,24px);
+      font-weight:700;
+      color:rgba(217,70,37,.5);
       text-transform:uppercase;
-      letter-spacing:.1em;
+      letter-spacing:.12em;
       white-space:nowrap;
     }
-    .ol-1 { top:8%; right:15%; animation:fadeLoop 8s ease-in-out infinite }
-    .ol-2 { bottom:30%; left:5%; animation:fadeLoop 8s ease-in-out infinite 2s }
-    .ol-3 { top:40%; right:5%; animation:fadeLoop 8s ease-in-out infinite 4s }
-    .ol-4 { bottom:12%; right:25%; animation:fadeLoop 8s ease-in-out infinite 6s }
+    .ol-1 { top:6%; right:12%; animation:fadeLoop 6s ease-in-out infinite }
+    .ol-2 { bottom:28%; left:3%; animation:fadeLoop 6s ease-in-out infinite 1.5s }
+    .ol-3 { top:38%; right:2%; animation:fadeLoop 6s ease-in-out infinite 3s }
+    .ol-4 { bottom:10%; right:22%; animation:fadeLoop 6s ease-in-out infinite 4.5s }
 
     /* Connection lines */
     .line {
       position:absolute; height:1px;
-      background:linear-gradient(90deg, transparent, rgba(217,70,37,.1), transparent);
+      background:linear-gradient(90deg, transparent, rgba(217,70,37,.25), transparent);
     }
-    .line-1 { width:60%; top:35%; left:20%; transform:rotate(-15deg); animation:fadeLoop 6s ease-in-out infinite 1s }
-    .line-2 { width:45%; top:55%; left:10%; transform:rotate(25deg); animation:fadeLoop 6s ease-in-out infinite 3s }
-    .line-3 { width:50%; top:70%; left:30%; transform:rotate(-8deg); animation:fadeLoop 6s ease-in-out infinite 5s }
+    .line-1 { width:65%; top:33%; left:18%; transform:rotate(-12deg); animation:fadeLoop 5s ease-in-out infinite .5s }
+    .line-2 { width:50%; top:55%; left:8%; transform:rotate(20deg); animation:fadeLoop 5s ease-in-out infinite 2s }
+    .line-3 { width:55%; top:72%; left:25%; transform:rotate(-6deg); animation:fadeLoop 5s ease-in-out infinite 3.5s }
 
     @keyframes spin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
     @keyframes pulse { 0%,100%{opacity:.4;transform:scale(1)} 50%{opacity:.7;transform:scale(1.15)} }
-    @keyframes fadeLoop { 0%,100%{opacity:.05} 50%{opacity:.2} }
+    @keyframes fadeLoop { 0%,100%{opacity:.15} 50%{opacity:.6} }
 
     /* Background gradient wash */
     .right::before {
       content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse at center, rgba(217,70,37,.04) 0%, transparent 65%);
+      background:radial-gradient(ellipse at center, rgba(217,70,37,.08) 0%, transparent 60%);
     }
 
     /* === BOTTOM LOGOS === */
@@ -209,7 +215,7 @@
   <div class="left">
     <img src="https://studio121.it/s121/wp-content/uploads/2020/05/logo-studio121-white.svg" alt="Studio 121" class="logo-img">
 
-    <div class="badge">Agenzia di comunicazione &middot; Ragusa</div>
+    <div class="badge">Strategia &middot; Design &middot; Risultati &middot; Ragusa</div>
 
     <h1>Non ti serve<br>un'agenzia.<br><span class="accent">Ti serve un partner.</span></h1>
 
