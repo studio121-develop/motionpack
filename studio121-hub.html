@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio 121 — Tutte le Landing Pages</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --orange: #d94625; --pink: #e94560; --bg: #0a0a0a; --card: rgba(255,255,255,0.035); --border: rgba(255,255,255,0.08); --text-muted: rgba(255,255,255,0.45); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: #f5f5f5; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+    /* Header */
+    .top { text-align: center; margin-bottom: 3.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .logo { font-family: 'Anton', sans-serif; font-size: 2.2rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .logo span { color: var(--orange); }
+    .top p { color: var(--text-muted); font-size: 1rem; margin-bottom: 1rem; }
+    .top-stats { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .top-stat { text-align: center; }
+    .top-stat .num { font-family: 'Anton', sans-serif; font-size: 1.8rem; color: var(--orange); }
+    .top-stat .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+
+    /* Section labels */
+    .section-title {
+      font-family: 'Anton', sans-serif; font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--text-muted); margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-title .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot-orange { background: var(--orange); }
+    .dot-pink { background: var(--pink); }
+    .dot-green { background: #22c55e; }
+    .dot-blue { background: #3b82f6; }
+
+    /* Grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .grid-wide { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+
+    /* Cards */
+    .card {
+      display: block; padding: 1.5rem;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; text-decoration: none; color: #f5f5f5;
+      transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    .card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.055); transform: translateY(-2px); }
+    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.5; margin-bottom: 0.5rem; }
+    .card .tag { font-size: 0.68rem; font-weight: 600; color: var(--orange); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Variant group */
+    .variant-group { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
+    .variant-group h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .variant-group .desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+    .variant-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .vlink {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 8px; font-size: 0.78rem; font-weight: 600;
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      transition: all 0.2s;
+    }
+    .vlink:hover { background: var(--orange); border-color: var(--orange); color: #fff; }
+    .vlink .badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 6px;
+      font-size: 0.7rem; font-weight: 700;
+    }
+    .ba { background: rgba(59,130,246,0.15); color: #60a5fa; }
+    .bb { background: rgba(251,146,60,0.15); color: #fb923c; }
+    .bc { background: rgba(74,222,128,0.15); color: #4ade80; }
+    .bd { background: rgba(192,132,252,0.15); color: #c084fc; }
+    .be { background: rgba(34,211,238,0.15); color: #22d3ee; }
+
+    /* Footer */
+    .foot { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.75rem; color: var(--text-muted); }
+    .foot a { color: var(--orange); text-decoration: underline; text-underline-offset: 2px; }
+
+    @media (max-width: 640px) {
+      .grid, .grid-wide { grid-template-columns: 1fr; }
+      .top-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- HEADER -->
+    <div class="top">
+      <div class="logo">Studio<span>121</span></div>
+      <p>Hub completo — Tutte le landing pages per Google Ads</p>
+      <div class="top-stats">
+        <div class="top-stat"><div class="num">48</div><div class="lbl">Pagine totali</div></div>
+        <div class="top-stat"><div class="num">8</div><div class="lbl">Categorie</div></div>
+        <div class="top-stat"><div class="num">2</div><div class="lbl">Set di landing</div></div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SET 1: STUDIO121-ADS (Dark mode / Frank Merenda) -->
+    <!-- ============================================ -->
+    <div class="section-title"><span class="dot dot-orange"></span> Studio121 Ads — Landing Originali (Dark Mode)</div>
+
+    <div class="grid">
+      <a href="studio121-ads/siti-web.html" class="card">
+        <h3>Siti Web</h3>
+        <p>Il tuo sito web non ti porta clienti. E tu continui a pagarlo.</p>
+        <span class="tag">siti web ragusa</span>
+      </a>
+      <a href="studio121-ads/branding-logo.html" class="card">
+        <h3>Branding &amp; Logo</h3>
+        <p>Il tuo logo lo hai fatto fare al cugino? Si vede.</p>
+        <span class="tag">logo ragusa</span>
+      </a>
+      <a href="studio121-ads/social-ads.html" class="card">
+        <h3>Social &amp; Ads</h3>
+        <p>Smetti di regalare soldi a Google e Facebook.</p>
+        <span class="tag">google ads ragusa</span>
+      </a>
+      <a href="studio121-ads/ecommerce.html" class="card">
+        <h3>E-commerce</h3>
+        <p>Il tuo prodotto e buono. Ma online non lo compra nessuno.</p>
+        <span class="tag">e-commerce sicilia</span>
+      </a>
+      <a href="studio121-ads/grafica.html" class="card">
+        <h3>Grafica</h3>
+        <p>La grafica mediocre costa piu di quella professionale.</p>
+        <span class="tag">grafica ragusa</span>
+      </a>
+      <a href="studio121-ads/agenzia.html" class="card">
+        <h3>Agenzia</h3>
+        <p>Non ti serve un'agenzia. Ti serve un partner che ti faccia vendere di piu.</p>
+        <span class="tag">agenzia comunicazione ragusa</span>
+      </a>
+      <a href="studio121-ads/ristoranti.html" class="card">
+        <h3>Ristoranti</h3>
+        <p>Il tuo ristorante e pieno il sabato sera. E gli altri 6 giorni?</p>
+        <span class="tag">ristorante ragusa</span>
+      </a>
+      <a href="studio121-ads/hotel-bb.html" class="card">
+        <h3>Hotel &amp; B&amp;B</h3>
+        <p>1.900 persone al mese cercano "B&amp;B Ragusa". Tu dove sei?</p>
+        <span class="tag">b&amp;b ragusa</span>
+      </a>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SET 2: STUDIO121-LANDING (Varianti A-E) -->
+    <!-- ============================================ -->
+    <div class="section-title"><span class="dot dot-pink"></span> Studio121 Landing — Varianti A/B/C/D/E</div>
+
+    <div class="grid grid-wide">
+      <div class="variant-group">
+        <h3>Siti Web</h3>
+        <div class="desc">5 varianti copy per landing realizzazione siti web</div>
+        <div class="variant-links">
+          <a href="studio121-landing/siti-web/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
+          <a href="studio121-landing/siti-web/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
+          <a href="studio121-landing/siti-web/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
+          <a href="studio121-landing/siti-web/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/siti-web/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
+        </div>
+      </div>
+      <div class="variant-group">
+        <h3>Branding &amp; Logo</h3>
+        <div class="desc">5 varianti copy per landing brand identity e loghi</div>
+        <div class="variant-links">
+          <a href="studio121-landing/branding/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
+          <a href="studio121-landing/branding/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
+          <a href="studio121-landing/branding/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
+          <a href="studio121-landing/branding/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/branding/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
+        </div>
+      </div>
+      <div class="variant-group">
+        <h3>Social &amp; Ads</h3>
+        <div class="desc">5 varianti copy per gestione campagne pubblicitarie</div>
+        <div class="variant-links">
+          <a href="studio121-landing/social-ads/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
+          <a href="studio121-landing/social-ads/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
+          <a href="studio121-landing/social-ads/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
+          <a href="studio121-landing/social-ads/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/social-ads/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
+        </div>
+      </div>
+      <div class="variant-group">
+        <h3>Agenzia</h3>
+        <div class="desc">5 varianti copy per pagina agenzia / chi siamo</div>
+        <div class="variant-links">
+          <a href="studio121-landing/agenzia/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
+          <a href="studio121-landing/agenzia/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
+          <a href="studio121-landing/agenzia/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
+          <a href="studio121-landing/agenzia/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/agenzia/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
+        </div>
+      </div>
+      <div class="variant-group">
+        <h3>Performance Marketing</h3>
+        <div class="desc">5 varianti copy per visibilita online e performance</div>
+        <div class="variant-links">
+          <a href="studio121-landing/performance/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
+          <a href="studio121-landing/performance/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
+          <a href="studio121-landing/performance/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
+          <a href="studio121-landing/performance/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/performance/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
+        </div>
+      </div>
+      <div class="variant-group">
+        <h3>Social Trap</h3>
+        <div class="desc">5 varianti copy per gestione social media</div>
+        <div class="variant-links">
+          <a href="studio121-landing/social-trap/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
+          <a href="studio121-landing/social-trap/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
+          <a href="studio121-landing/social-trap/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
+          <a href="studio121-landing/social-trap/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/social-trap/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- PROTOTIPI -->
+    <!-- ============================================ -->
+    <div class="section-title"><span class="dot dot-green"></span> Prototipi Brand</div>
+
+    <div class="grid">
+      <a href="studio121-landing/prototipi/proto-siti-web.html" class="card">
+        <h3>Proto — Siti Web</h3>
+        <p>Prototipo design per landing siti web</p>
+        <span class="tag">prototipo</span>
+      </a>
+      <a href="studio121-landing/prototipi/proto-branding.html" class="card">
+        <h3>Proto — Branding</h3>
+        <p>Prototipo design per landing branding</p>
+        <span class="tag">prototipo</span>
+      </a>
+      <a href="studio121-landing/prototipi/proto-social-ads.html" class="card">
+        <h3>Proto — Social Ads</h3>
+        <p>Prototipo design per landing social ads</p>
+        <span class="tag">prototipo</span>
+      </a>
+      <a href="studio121-landing/prototipi/proto-agenzia.html" class="card">
+        <h3>Proto — Agenzia</h3>
+        <p>Prototipo design per landing agenzia</p>
+        <span class="tag">prototipo</span>
+      </a>
+      <a href="studio121-landing/prototipi/proto-performance.html" class="card">
+        <h3>Proto — Performance</h3>
+        <p>Prototipo design per landing performance</p>
+        <span class="tag">prototipo</span>
+      </a>
+      <a href="studio121-landing/prototipi/proto-social-trap.html" class="card">
+        <h3>Proto — Social Trap</h3>
+        <p>Prototipo design per landing social media</p>
+        <span class="tag">prototipo</span>
+      </a>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- RISORSE -->
+    <!-- ============================================ -->
+    <div class="section-title"><span class="dot dot-blue"></span> Risorse &amp; Strumenti</div>
+
+    <div class="grid">
+      <a href="studio121-landing/design-system.html" class="card">
+        <h3>Design System</h3>
+        <p>Componenti, colori, tipografia e pattern del design system Studio 121</p>
+        <span class="tag">design</span>
+      </a>
+      <a href="studio121-landing/lookbook.html" class="card">
+        <h3>Lookbook</h3>
+        <p>Raccolta visiva degli stili e delle varianti delle landing page</p>
+        <span class="tag">design</span>
+      </a>
+      <a href="studio121-landing/follow-up-templates.html" class="card">
+        <h3>Follow-up Templates</h3>
+        <p>Template per nurturing lead via WhatsApp ed email</p>
+        <span class="tag">sales</span>
+      </a>
+      <a href="studio121-landing/AUDIT_LANDING.md" class="card">
+        <h3>Audit CRO</h3>
+        <p>Analisi dettagliata di tutte le landing con problemi e raccomandazioni</p>
+        <span class="tag">audit</span>
+      </a>
+      <a href="studio121-ads/index.html" class="card">
+        <h3>Hub Ads (originale)</h3>
+        <p>Hub di navigazione delle landing dark mode originali</p>
+        <span class="tag">navigazione</span>
+      </a>
+      <a href="studio121-landing/index.html" class="card">
+        <h3>Hub Varianti (originale)</h3>
+        <p>Dashboard delle varianti A-E dall'altra istanza</p>
+        <span class="tag">navigazione</span>
+      </a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="foot">
+      Studio 121 Srls &mdash; Ragusa &middot; <a href="https://studio121.it">studio121.it</a> &middot; <a href="https://github.com/studio121-develop/motionpack">GitHub</a>
+    </div>
+
+  </div>
+</body>
+</html>
