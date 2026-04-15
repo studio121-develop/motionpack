@@ -3,307 +3,543 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studio 121 — Tutte le Landing Pages</title>
+  <title>Studio 121 — Piano Google Ads &amp; Landing Pages</title>
   <meta name="robots" content="noindex, nofollow">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --orange: #d94625; --pink: #e94560; --bg: #0a0a0a; --card: rgba(255,255,255,0.035); --border: rgba(255,255,255,0.08); --text-muted: rgba(255,255,255,0.45); }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: #f5f5f5; min-height: 100vh; -webkit-font-smoothing: antialiased; }
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    :root{--o:#d94625;--og:rgba(217,70,37,.12);--bg:#070709;--card:rgba(255,255,255,.03);--border:rgba(255,255,255,.07);--t:#f5f5f5;--tm:rgba(245,245,245,.65);--td:rgba(245,245,245,.38);--green:#22c55e;--blue:#3b82f6;--purple:#a78bfa;--yellow:#fbbf24}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);-webkit-font-smoothing:antialiased;line-height:1.65}
+    a{color:inherit;text-decoration:none}
+
+    /* Layout */
+    .wrap{max-width:1140px;margin:0 auto;padding:0 1.5rem}
+    .cols{display:grid;gap:1.5rem}
+    .cols-2{grid-template-columns:1fr 1fr}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-4{grid-template-columns:repeat(4,1fr)}
 
     /* Header */
-    .top { text-align: center; margin-bottom: 3.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-    .logo { font-family: 'Anton', sans-serif; font-size: 2.2rem; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .logo span { color: var(--orange); }
-    .top p { color: var(--text-muted); font-size: 1rem; margin-bottom: 1rem; }
-    .top-stats { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-    .top-stat { text-align: center; }
-    .top-stat .num { font-family: 'Anton', sans-serif; font-size: 1.8rem; color: var(--orange); }
-    .top-stat .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+    .hero-section{padding:4rem 0 3rem;border-bottom:1px solid var(--border)}
+    .logo{font-family:'Anton',sans-serif;font-size:2rem;text-transform:uppercase;margin-bottom:.25rem}
+    .logo span{color:var(--o)}
+    .hero-sub{color:var(--td);font-size:.92rem;margin-bottom:2rem}
+    .hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+    .hs{text-align:center}
+    .hs .n{font-family:'Anton',sans-serif;font-size:2.2rem;color:var(--o);line-height:1}
+    .hs .l{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--td);margin-top:.2rem}
 
-    /* Section labels */
-    .section-title {
-      font-family: 'Anton', sans-serif; font-size: 0.75rem;
-      text-transform: uppercase; letter-spacing: 0.15em;
-      color: var(--text-muted); margin: 2.5rem 0 1rem;
-      padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; gap: 0.75rem;
-    }
-    .section-title .dot { width: 8px; height: 8px; border-radius: 50%; }
-    .dot-orange { background: var(--orange); }
-    .dot-pink { background: var(--pink); }
-    .dot-green { background: #22c55e; }
-    .dot-blue { background: #3b82f6; }
+    /* Nav pills */
+    .nav-pills{position:sticky;top:0;z-index:50;background:rgba(7,7,9,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:.75rem 0}
+    .pills{display:flex;gap:.5rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .pills::-webkit-scrollbar{display:none}
+    .pill{padding:.45rem 1rem;font-size:.78rem;font-weight:600;border-radius:99px;white-space:nowrap;border:1px solid var(--border);color:var(--tm);transition:all .2s}
+    .pill:hover,.pill.active{border-color:var(--o);color:var(--o);background:var(--og)}
 
-    /* Grid */
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-    .grid-wide { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+    /* Section */
+    .sec{padding:3rem 0;border-bottom:1px solid var(--border)}
+    .sec:last-child{border-bottom:none}
+    .sec-label{font-family:'Anton',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--td);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+    .sec-label .dot{width:8px;height:8px;border-radius:50%}
+    .sec-title{font-family:'Anton',sans-serif;font-size:clamp(1.4rem,3vw,2rem);text-transform:uppercase;line-height:1.15;margin-bottom:.5rem}
+    .sec-desc{color:var(--tm);font-size:.92rem;max-width:700px;margin-bottom:2rem;line-height:1.7}
 
     /* Cards */
-    .card {
-      display: block; padding: 1.5rem;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; text-decoration: none; color: #f5f5f5;
-      transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
-    }
-    .card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.055); transform: translateY(-2px); }
-    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.5; margin-bottom: 0.5rem; }
-    .card .tag { font-size: 0.68rem; font-weight: 600; color: var(--orange); text-transform: uppercase; letter-spacing: 0.05em; }
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:all .25s}
+    .card:hover{border-color:rgba(255,255,255,.14);transform:translateY(-2px)}
+    .card h3{font-size:1rem;font-weight:700;margin-bottom:.3rem}
+    .card p{font-size:.82rem;color:var(--tm);line-height:1.55}
+    .card .tag{display:inline-block;font-size:.65rem;font-weight:600;color:var(--o);text-transform:uppercase;letter-spacing:.04em;margin-top:.5rem}
+    .card-link{display:block;text-decoration:none;color:var(--t)}
+
+    /* Stat cards */
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.25rem;text-align:center}
+    .stat-card .num{font-family:'Anton',sans-serif;font-size:1.8rem;line-height:1}
+    .stat-card .lbl{font-size:.7rem;color:var(--td);text-transform:uppercase;letter-spacing:.08em;margin-top:.25rem}
+    .num-orange{color:var(--o)}
+    .num-green{color:var(--green)}
+    .num-blue{color:var(--blue)}
+    .num-yellow{color:var(--yellow)}
+    .num-purple{color:var(--purple)}
+
+    /* Data table */
+    .data-table{width:100%;border-collapse:collapse;font-size:.82rem}
+    .data-table th{text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--td);padding:.6rem .75rem;border-bottom:1px solid var(--border);font-weight:600}
+    .data-table td{padding:.55rem .75rem;border-bottom:1px solid rgba(255,255,255,.04);color:var(--tm)}
+    .data-table tr:hover td{color:var(--t);background:rgba(255,255,255,.02)}
+    .data-table .vol{font-weight:700;color:var(--t);font-variant-numeric:tabular-nums}
+    .data-table .cpc{color:var(--green);font-weight:600}
+    .data-table .highlight td{color:var(--t);background:var(--og);font-weight:600}
 
     /* Variant group */
-    .variant-group { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
-    .variant-group h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .variant-group .desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
-    .variant-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .vlink {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.4rem 0.8rem;
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-      border-radius: 8px; font-size: 0.78rem; font-weight: 600;
-      color: rgba(255,255,255,0.6); text-decoration: none;
-      transition: all 0.2s;
-    }
-    .vlink:hover { background: var(--orange); border-color: var(--orange); color: #fff; }
-    .vlink .badge {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 22px; height: 22px; border-radius: 6px;
-      font-size: 0.7rem; font-weight: 700;
-    }
-    .ba { background: rgba(59,130,246,0.15); color: #60a5fa; }
-    .bb { background: rgba(251,146,60,0.15); color: #fb923c; }
-    .bc { background: rgba(74,222,128,0.15); color: #4ade80; }
-    .bd { background: rgba(192,132,252,0.15); color: #c084fc; }
-    .be { background: rgba(34,211,238,0.15); color: #22d3ee; }
+    .vg{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem}
+    .vg h3{font-size:1rem;font-weight:700;margin-bottom:.2rem}
+    .vg .desc{font-size:.78rem;color:var(--td);margin-bottom:1rem}
+    .vlinks{display:flex;flex-wrap:wrap;gap:.4rem}
+    .vl{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .7rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;font-size:.72rem;font-weight:600;color:var(--tm);transition:all .2s}
+    .vl:hover{background:var(--o);border-color:var(--o);color:#fff}
+    .vl .b{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:5px;font-size:.65rem;font-weight:700}
+    .ba{background:rgba(59,130,246,.15);color:#60a5fa}.bb{background:rgba(251,146,60,.15);color:#fb923c}.bc{background:rgba(74,222,128,.15);color:#4ade80}.bd{background:rgba(192,132,252,.15);color:#c084fc}.be{background:rgba(34,211,238,.15);color:#22d3ee}
+
+    /* Competitor table */
+    .comp-row{display:grid;grid-template-columns:1fr 1fr 2fr 2fr;gap:.75rem;padding:.75rem;border-bottom:1px solid rgba(255,255,255,.04);font-size:.8rem;color:var(--tm);align-items:start}
+    .comp-row:hover{background:rgba(255,255,255,.02)}
+    .comp-row strong{color:var(--t)}
+
+    /* Campaign structure */
+    .campaign{font-family:'DM Sans',monospace;font-size:.82rem;color:var(--tm);line-height:1.8;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;overflow-x:auto;white-space:pre-wrap}
+    .campaign strong{color:var(--t)}
+    .campaign .kw{color:var(--green)}
+    .campaign .land{color:var(--o)}
+
+    /* Phase badges */
+    .phase{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .75rem;border-radius:99px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+    .phase-0{background:rgba(239,68,68,.12);color:#ef4444;border:1px solid rgba(239,68,68,.2)}
+    .phase-1{background:var(--og);color:var(--o);border:1px solid rgba(217,70,37,.2)}
+    .phase-2{background:rgba(59,130,246,.12);color:#60a5fa;border:1px solid rgba(59,130,246,.2)}
+    .phase-3{background:rgba(34,197,94,.12);color:#22c55e;border:1px solid rgba(34,197,94,.2)}
+
+    /* Highlight box */
+    .highlight-box{background:var(--og);border:1px solid rgba(217,70,37,.2);border-radius:14px;padding:1.5rem}
+    .highlight-box h3{color:var(--o);font-size:1.05rem;margin-bottom:.5rem}
+    .highlight-box p{color:var(--tm);font-size:.88rem;line-height:1.6}
+    .highlight-box strong{color:var(--t)}
+
+    /* Timeline */
+    .timeline{position:relative;padding-left:2rem}
+    .timeline::before{content:'';position:absolute;left:.5rem;top:0;bottom:0;width:2px;background:var(--border)}
+    .tl-item{position:relative;padding-bottom:1.5rem}
+    .tl-item::before{content:'';position:absolute;left:-1.65rem;top:.35rem;width:10px;height:10px;border-radius:50%;background:var(--o);border:2px solid var(--bg)}
+    .tl-item h4{font-size:.92rem;font-weight:700;margin-bottom:.25rem}
+    .tl-item p{font-size:.82rem;color:var(--tm)}
 
     /* Footer */
-    .foot { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.75rem; color: var(--text-muted); }
-    .foot a { color: var(--orange); text-decoration: underline; text-underline-offset: 2px; }
+    .foot{padding:2rem 0;border-top:1px solid var(--border);text-align:center;font-size:.72rem;color:var(--td)}
+    .foot a{color:var(--o);text-decoration:underline;text-underline-offset:2px}
 
-    @media (max-width: 640px) {
-      .grid, .grid-wide { grid-template-columns: 1fr; }
-      .top-stats { gap: 1.5rem; }
-    }
+    @media(max-width:968px){.cols-3,.cols-4{grid-template-columns:1fr 1fr}.comp-row{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.cols-2,.cols-3,.cols-4{grid-template-columns:1fr}.hero-stats{gap:1.5rem}.comp-row{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <div class="wrap">
 
-    <!-- HEADER -->
-    <div class="top">
-      <div class="logo">Studio<span>121</span></div>
-      <p>Hub completo — Tutte le landing pages per Google Ads</p>
-      <div class="top-stats">
-        <div class="top-stat"><div class="num">48</div><div class="lbl">Pagine totali</div></div>
-        <div class="top-stat"><div class="num">8</div><div class="lbl">Categorie</div></div>
-        <div class="top-stat"><div class="num">2</div><div class="lbl">Set di landing</div></div>
+<!-- ========== HERO ========== -->
+<section class="hero-section">
+  <div class="wrap">
+    <div class="logo">Studio<span>121</span></div>
+    <div class="hero-sub">Piano strategico Google Ads &amp; Landing Pages &mdash; Ragusa, Sicilia</div>
+    <div class="hero-stats">
+      <div class="hs"><div class="n">36.000+</div><div class="l">Imprese in provincia</div></div>
+      <div class="hs"><div class="n">15-20</div><div class="l">Competitor agenzie</div></div>
+      <div class="hs"><div class="n">~0</div><div class="l">Ads competitor locali</div></div>
+      <div class="hs"><div class="n">48</div><div class="l">Landing create</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NAV ========== -->
+<nav class="nav-pills">
+  <div class="wrap">
+    <div class="pills">
+      <a href="#contesto" class="pill active">Contesto</a>
+      <a href="#mercato" class="pill">Mercato</a>
+      <a href="#concorrenza" class="pill">Concorrenza</a>
+      <a href="#strategia" class="pill">Strategia</a>
+      <a href="#campagne" class="pill">Campagne</a>
+      <a href="#landing-ads" class="pill">Landing Ads</a>
+      <a href="#landing-varianti" class="pill">Varianti A-E</a>
+      <a href="#prototipi" class="pill">Prototipi</a>
+      <a href="#risorse" class="pill">Risorse</a>
+      <a href="#timeline" class="pill">Timeline</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== CONTESTO ========== -->
+<section class="sec" id="contesto">
+  <div class="wrap">
+    <div class="sec-label"><span class="dot" style="background:var(--o)"></span> Il contesto</div>
+    <div class="sec-title">Perche Google Ads. Perche adesso.</div>
+    <div class="sec-desc">Studio 121 opera in un mercato locale frammentato e immaturo: 15-20 competitor tra agenzie e freelance servono un bacino di 36.000+ imprese nella provincia di Ragusa. La concorrenza Google Ads locale e quasi inesistente &mdash; le posizioni a pagamento sono occupate da agenzie nazionali senza sede locale (Brain Computing da Roma, Kreativa da Vicenza). Nessun competitor ragusano investe su Ads per se stesso. Questo crea una finestra di opportunita enorme.</div>
+
+    <div class="highlight-box" style="margin-bottom:1.5rem">
+      <h3>La doppia opportunita</h3>
+      <p><strong>1. Google Ads per acquisire clienti</strong> &mdash; imprenditori che cercano servizi di comunicazione (siti web, loghi, social media, ads)<br>
+      <strong>2. Google Ads come servizio da vendere</strong> &mdash; gestione campagne per attivita locali (ristoranti, hotel, professionisti) dove i CPC sono bassissimi e il ROI altissimo</p>
+    </div>
+
+    <div class="highlight-box">
+      <h3>Il posizionamento: "L'agenzia dei risultati"</h3>
+      <p>Mentre tutti i competitor parlano di "creativita" e "comunicazione", Studio 121 parla di <strong>numeri</strong>: quanti clienti in piu, quanto hai fatturato in piu, quante persone hanno visitato il sito, quanto ti e costato ogni nuovo cliente. Nessuna agenzia a Ragusa comunica risultati misurabili. Questa e la differenziazione.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MERCATO ========== -->
+<section class="sec" id="mercato">
+  <div class="wrap">
+    <div class="sec-label"><span class="dot" style="background:var(--green)"></span> Analisi di mercato</div>
+    <div class="sec-title">I numeri parlano chiaro.</div>
+    <div class="sec-desc">Dati estratti via DataForSEO API il 14-15 Aprile 2026. 5.427 keyword analizzate, volumi e CPC verificati.</div>
+
+    <h3 style="font-size:.85rem;font-weight:700;margin-bottom:1rem">Domanda locale &mdash; Cosa cercano nella provincia di Ragusa</h3>
+    <div class="cols cols-4" style="margin-bottom:2rem">
+      <div class="stat-card"><div class="num num-orange">596K</div><div class="lbl">Turismo /mese</div></div>
+      <div class="stat-card"><div class="num num-green">90K</div><div class="lbl">Ristorazione /mese</div></div>
+      <div class="stat-card"><div class="num num-blue">14K</div><div class="lbl">Salute /mese</div></div>
+      <div class="stat-card"><div class="num num-yellow">10K</div><div class="lbl">Immobiliare /mese</div></div>
+    </div>
+
+    <h3 style="font-size:.85rem;font-weight:700;margin-bottom:1rem">Top keyword locali (verificate DataForSEO)</h3>
+    <table class="data-table">
+      <thead><tr><th>Keyword</th><th>Vol/mese</th><th>CPC</th><th>Settore</th></tr></thead>
+      <tbody>
+        <tr><td>marina di ragusa</td><td class="vol">49.500</td><td class="cpc">0,80&euro;</td><td>Turismo</td></tr>
+        <tr><td>ragusa ibla</td><td class="vol">33.100</td><td class="cpc">1,24&euro;</td><td>Turismo</td></tr>
+        <tr><td>cioccolato di modica</td><td class="vol">8.100</td><td class="cpc">0,30&euro;</td><td>Food</td></tr>
+        <tr><td>ristorante vittoria</td><td class="vol">8.100</td><td class="cpc">0,64&euro;</td><td>Ristorazione</td></tr>
+        <tr><td>pizzeria ragusa</td><td class="vol">5.400</td><td class="cpc">0,21&euro;</td><td>Ristorazione</td></tr>
+        <tr><td>ristorante ragusa</td><td class="vol">4.400</td><td class="cpc">0,18&euro;</td><td>Ristorazione</td></tr>
+        <tr><td>ristorante modica</td><td class="vol">4.400</td><td class="cpc">0,22&euro;</td><td>Ristorazione</td></tr>
+        <tr><td>b&amp;b ragusa</td><td class="vol">1.600</td><td class="cpc">0,40&euro;</td><td>Turismo</td></tr>
+        <tr><td>hotel ragusa</td><td class="vol">1.600</td><td class="cpc">0,75&euro;</td><td>Turismo</td></tr>
+        <tr><td>parrucchiere ragusa</td><td class="vol">1.000</td><td class="cpc">0,50&euro;</td><td>Benessere</td></tr>
+        <tr><td>dentista ragusa</td><td class="vol">590</td><td class="cpc">5,27&euro;</td><td>Salute</td></tr>
+        <tr><td>centro estetico ragusa</td><td class="vol">480</td><td class="cpc">0,43&euro;</td><td>Benessere</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:.85rem;font-weight:700;margin:2rem 0 1rem">Keyword servizi agenzia (il nostro mercato diretto)</h3>
+    <table class="data-table">
+      <thead><tr><th>Keyword</th><th>Vol/mese</th><th>CPC</th><th>Concorrenza</th></tr></thead>
+      <tbody>
+        <tr class="highlight"><td>agenzia comunicazione catania</td><td class="vol">260</td><td class="cpc">1,51&euro;</td><td>Bassa</td></tr>
+        <tr><td>logo ragusa</td><td class="vol">170</td><td class="cpc">2,01&euro;</td><td>Bassa</td></tr>
+        <tr class="highlight"><td>web agency ragusa</td><td class="vol">90</td><td class="cpc">4,42&euro;</td><td>Bassa</td></tr>
+        <tr><td>agenzia comunicazione sicilia</td><td class="vol">70</td><td class="cpc">1,91&euro;</td><td>Bassa</td></tr>
+        <tr><td>web agency sicilia</td><td class="vol">40</td><td class="cpc">2,29&euro;</td><td>Bassa</td></tr>
+        <tr class="highlight"><td>agenzia comunicazione ragusa</td><td class="vol">30</td><td class="cpc">1,37&euro;</td><td>Bassa</td></tr>
+        <tr><td>siti web ragusa</td><td class="vol">20</td><td class="cpc">1,71&euro;</td><td>Bassa</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.78rem;color:var(--td);margin-top:.75rem">CPC locali 1-5&euro; con concorrenza quasi zero. Con 400-600&euro;/mese si possono dominare tutte le keyword locali.</p>
+  </div>
+</section>
+
+<!-- ========== CONCORRENZA ========== -->
+<section class="sec" id="concorrenza">
+  <div class="wrap">
+    <div class="sec-label"><span class="dot" style="background:var(--yellow)"></span> Concorrenza</div>
+    <div class="sec-title">Chi c'e. E cosa non fa nessuno.</div>
+    <div class="sec-desc">15-20 agenzie/freelance tra Ragusa, Modica e provincia. Nessuno investe in Google Ads per se stesso. Le SERP a pagamento sono occupate da agenzie nazionali senza sede locale.</div>
+
+    <div style="overflow-x:auto">
+      <div class="comp-row" style="border-bottom:1px solid var(--border);color:var(--td);font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600">
+        <div>Agenzia</div><div>Sede</div><div>Forza</div><div>Debolezza</div>
+      </div>
+      <div class="comp-row"><div><strong>Globo Marketing</strong></div><div>RG + Roma + MI</div><div>3 sedi, clienti nazionali, 20 anni</div><div>Troppo "grande" per PMI locali</div></div>
+      <div class="comp-row"><div><strong>Ideology</strong></div><div>RG + Milano</div><div>Design premiato Awwwards, premium</div><div>Poca chiarezza servizi</div></div>
+      <div class="comp-row"><div><strong>SPM</strong></div><div>Ragusa</div><div>30+ anni, online + offline</div><div>Sito datato</div></div>
+      <div class="comp-row"><div><strong>Boma Studio</strong></div><div>Modica</div><div>Packaging food&amp;wine eccellente</div><div>Poco digital</div></div>
+      <div class="comp-row"><div><strong>Zero</strong></div><div>Modica</div><div>20+ persone, retail design</div><div>Premium, esclude piccoli</div></div>
+      <div class="comp-row"><div><strong>Nassa Studio</strong></div><div>Modica</div><div>Strategico, e-commerce</div><div>Struttura snella</div></div>
+      <div class="comp-row"><div><strong>Kreativamente</strong></div><div>Ragusa</div><div>30+ anni, casa editrice</div><div>Poco digitale</div></div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:1.5rem">
+      <h3>Gap di mercato &mdash; Cosa nessuno fa</h3>
+      <p>
+        <strong>1.</strong> Performance marketing misurabile (ROI, KPI, numeri concreti)<br>
+        <strong>2.</strong> Marketing automation / CRM<br>
+        <strong>3.</strong> Specializzazione settoriale (nessuno e "l'agenzia del turismo ragusano")<br>
+        <strong>4.</strong> Content marketing / inbound (zero blog, zero contenuti educativi)<br>
+        <strong>5.</strong> AI applicata al marketing<br>
+        <strong>6.</strong> Formazione per imprenditori
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STRATEGIA ========== -->
+<section class="sec" id="strategia">
+  <div class="wrap">
+    <div class="sec-label"><span class="dot" style="background:var(--purple)"></span> Strategia</div>
+    <div class="sec-title">4 fasi. Da zero a clienti.</div>
+
+    <div class="cols cols-2" style="margin-bottom:2rem">
+      <div class="card">
+        <span class="phase phase-0">Fase 0 &mdash; Preparazione</span>
+        <h3 style="margin-top:.75rem">Landing page + sito</h3>
+        <p>Creare landing dedicate per ogni servizio. Aggiungere form, WhatsApp, telefono in header. Configurare conversion tracking. <strong>Prima di spendere un euro in Ads.</strong></p>
+      </div>
+      <div class="card">
+        <span class="phase phase-1">Fase 1 &mdash; Lead Generation</span>
+        <h3 style="margin-top:.75rem">Google Ads 400-600&euro;/mese</h3>
+        <p>5 ad group: Siti Web, Branding, Social&amp;Ads, Agenzia, Intent commerciale. Solo Search, targeting Ragusa +50km. CPC locali 1-5&euro;, stima 4-15 lead/mese.</p>
+      </div>
+      <div class="card">
+        <span class="phase phase-2">Fase 2 &mdash; Differenziazione</span>
+        <h3 style="margin-top:.75rem">Posizionamento + verticalizzazione</h3>
+        <p>"L'agenzia dei risultati". Specializzazione su 3 settori d'oro: turismo (596K ricerche/mese), ristorazione (90K), servizi professionali (CPC alto = budget alto).</p>
+      </div>
+      <div class="card">
+        <span class="phase phase-3">Fase 3 &mdash; Ads come servizio</span>
+        <h3 style="margin-top:.75rem">Vendere Google Ads ai clienti</h3>
+        <p>Pacchetti Starter (200+150&euro;/mese), Growth (300+250&euro;/mese), Performance (500+15% budget). CPC ristorazione 0,21&euro; = ROI pazzesco per i clienti.</p>
       </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- SET 1: STUDIO121-ADS (Dark mode / Frank Merenda) -->
-    <!-- ============================================ -->
-    <div class="section-title"><span class="dot dot-orange"></span> Studio121 Ads — Landing Originali (Dark Mode)</div>
+    <h3 style="font-size:.85rem;font-weight:700;margin-bottom:1rem">Stime di performance (Fase 1)</h3>
+    <div class="cols cols-4">
+      <div class="stat-card"><div class="num num-orange">400-600&euro;</div><div class="lbl">Budget mensile</div></div>
+      <div class="stat-card"><div class="num num-green">4-15</div><div class="lbl">Lead / mese</div></div>
+      <div class="stat-card"><div class="num num-blue">40-100&euro;</div><div class="lbl">Costo per lead</div></div>
+      <div class="stat-card"><div class="num num-yellow">5-12x</div><div class="lbl">ROI (1 cliente chiuso)</div></div>
+    </div>
+    <p style="font-size:.78rem;color:var(--td);margin-top:.5rem">Break-even: 1 solo cliente acquisito (valore medio 2.000-5.000&euro;) copre l'intero investimento di 3 mesi.</p>
+  </div>
+</section>
 
-    <div class="grid">
-      <a href="studio121-ads/siti-web.html" class="card">
+<!-- ========== CAMPAGNE ========== -->
+<section class="sec" id="campagne">
+  <div class="wrap">
+    <div class="sec-label"><span class="dot" style="background:var(--green)"></span> Struttura campagne</div>
+    <div class="sec-title">5 Ad Group. Keyword verificate.</div>
+    <div class="sec-desc">Solo rete Search, targeting Ragusa +50km, budget giornaliero 15-20&euro;, strategia "Massimizza conversioni".</div>
+
+    <div class="campaign"><strong>CAMPAGNA: Studio 121 &mdash; Lead Generation</strong>
+
+<strong>AD GROUP 1: Siti Web</strong> (priorita alta)
+  <span class="kw">[exact]</span> realizzazione siti web ragusa, siti web ragusa, web agency ragusa, web agency sicilia
+  <span class="kw">[phrase]</span> sito web aziendale, sito web per aziende
+  <span class="land">&rarr; Landing: siti-web.html</span>
+
+<strong>AD GROUP 2: Branding &amp; Logo</strong>
+  <span class="kw">[exact]</span> logo ragusa, branding ragusa, agenzia grafica ragusa, studio grafico ragusa
+  <span class="kw">[phrase]</span> brand identity, creazione logo aziendale
+  <span class="land">&rarr; Landing: branding-logo.html</span>
+
+<strong>AD GROUP 3: Social Media &amp; Ads</strong>
+  <span class="kw">[exact]</span> gestione social media ragusa, social media manager ragusa, pubblicita online ragusa
+  <span class="kw">[phrase]</span> gestione google ads, gestione facebook ads
+  <span class="land">&rarr; Landing: social-ads.html</span>
+
+<strong>AD GROUP 4: Agenzia</strong>
+  <span class="kw">[exact]</span> agenzia comunicazione ragusa, agenzia marketing ragusa, agenzia comunicazione sicilia
+  <span class="land">&rarr; Landing: agenzia.html</span>
+
+<strong>AD GROUP 5: Intent commerciale</strong> (test)
+  <span class="kw">[phrase]</span> come trovare clienti online, aumentare vendite, visibilita online, pubblicizzare attivita
+  <span class="land">&rarr; Landing: agenzia.html</span>
+
+<strong>NEGATIVE KEYWORDS:</strong>
+gratis, gratuito, free, corso, tutorial, fai da te, template, wix, canva, lavoro, offerte lavoro, stage, tirocinio, significato, cos'e, wikipedia, download, app gratis</div>
+  </div>
+</section>
+
+<!-- ========== LANDING ADS ========== -->
+<section class="sec" id="landing-ads">
+  <div class="wrap">
+    <div class="sec-label"><span class="dot" style="background:var(--o)"></span> Landing Pages &mdash; Set 1</div>
+    <div class="sec-title">Dark mode. Copy persuasivo. Dati reali.</div>
+    <div class="sec-desc">8 landing page in stile GabrySolution: dark mode, font Anton + DM Sans, copy alla Frank Merenda con struttura PAS (Problem-Agitate-Solve), sezioni "Fa per te / Non fa per te", loghi clienti reali (Amara, Ilpav S.p.A., San Giorgio Palace, ecc.). Tutti i volumi e CPC verificati con DataForSEO.</div>
+
+    <div class="cols cols-3" style="margin-bottom:1.5rem">
+      <a href="studio121-ads/siti-web.html" class="card card-link">
         <h3>Siti Web</h3>
         <p>Il tuo sito web non ti porta clienti. E tu continui a pagarlo.</p>
-        <span class="tag">siti web ragusa</span>
+        <span class="tag">siti web ragusa &middot; 20 vol/m</span>
       </a>
-      <a href="studio121-ads/branding-logo.html" class="card">
+      <a href="studio121-ads/branding-logo.html" class="card card-link">
         <h3>Branding &amp; Logo</h3>
         <p>Il tuo logo lo hai fatto fare al cugino? Si vede.</p>
-        <span class="tag">logo ragusa</span>
+        <span class="tag">logo ragusa &middot; 170 vol/m</span>
       </a>
-      <a href="studio121-ads/social-ads.html" class="card">
+      <a href="studio121-ads/social-ads.html" class="card card-link">
         <h3>Social &amp; Ads</h3>
         <p>Smetti di regalare soldi a Google e Facebook.</p>
         <span class="tag">google ads ragusa</span>
       </a>
-      <a href="studio121-ads/ecommerce.html" class="card">
+      <a href="studio121-ads/ecommerce.html" class="card card-link">
         <h3>E-commerce</h3>
         <p>Il tuo prodotto e buono. Ma online non lo compra nessuno.</p>
-        <span class="tag">e-commerce sicilia</span>
+        <span class="tag">e-commerce &middot; 22.200 vol/m</span>
       </a>
-      <a href="studio121-ads/grafica.html" class="card">
+      <a href="studio121-ads/grafica.html" class="card card-link">
         <h3>Grafica</h3>
         <p>La grafica mediocre costa piu di quella professionale.</p>
-        <span class="tag">grafica ragusa</span>
+        <span class="tag">biglietti da visita &middot; 27.100 vol/m</span>
       </a>
-      <a href="studio121-ads/agenzia.html" class="card">
+      <a href="studio121-ads/agenzia.html" class="card card-link">
         <h3>Agenzia</h3>
         <p>Non ti serve un'agenzia. Ti serve un partner che ti faccia vendere di piu.</p>
-        <span class="tag">agenzia comunicazione ragusa</span>
+        <span class="tag">agenzia comunicazione ragusa &middot; 30 vol/m</span>
       </a>
-      <a href="studio121-ads/ristoranti.html" class="card">
+    </div>
+    <div class="cols cols-2">
+      <a href="studio121-ads/ristoranti.html" class="card card-link">
         <h3>Ristoranti</h3>
-        <p>Il tuo ristorante e pieno il sabato sera. E gli altri 6 giorni?</p>
-        <span class="tag">ristorante ragusa</span>
+        <p>Il tuo ristorante e pieno il sabato sera. E gli altri 6 giorni? 5.400 ricerche/mese "pizzeria ragusa".</p>
+        <span class="tag">verticale ristorazione &middot; CPC 0,21&euro;</span>
       </a>
-      <a href="studio121-ads/hotel-bb.html" class="card">
+      <a href="studio121-ads/hotel-bb.html" class="card card-link">
         <h3>Hotel &amp; B&amp;B</h3>
-        <p>1.600 persone al mese cercano "B&amp;B Ragusa". Tu dove sei?</p>
-        <span class="tag">b&amp;b ragusa</span>
+        <p>1.600 persone al mese cercano "B&amp;B Ragusa". Smetti di regalare il 18% a Booking.</p>
+        <span class="tag">verticale hospitality &middot; 49.500 vol/m marina di ragusa</span>
       </a>
     </div>
-
-    <!-- ============================================ -->
-    <!-- SET 2: STUDIO121-LANDING (Varianti A-E) -->
-    <!-- ============================================ -->
-    <div class="section-title"><span class="dot dot-pink"></span> Studio121 Landing — Varianti A/B/C/D/E</div>
-
-    <div class="grid grid-wide">
-      <div class="variant-group">
-        <h3>Siti Web</h3>
-        <div class="desc">5 varianti copy per landing realizzazione siti web</div>
-        <div class="variant-links">
-          <a href="studio121-landing/siti-web/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
-          <a href="studio121-landing/siti-web/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
-          <a href="studio121-landing/siti-web/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
-          <a href="studio121-landing/siti-web/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
-          <a href="studio121-landing/siti-web/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
-        </div>
-      </div>
-      <div class="variant-group">
-        <h3>Branding &amp; Logo</h3>
-        <div class="desc">5 varianti copy per landing brand identity e loghi</div>
-        <div class="variant-links">
-          <a href="studio121-landing/branding/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
-          <a href="studio121-landing/branding/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
-          <a href="studio121-landing/branding/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
-          <a href="studio121-landing/branding/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
-          <a href="studio121-landing/branding/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
-        </div>
-      </div>
-      <div class="variant-group">
-        <h3>Social &amp; Ads</h3>
-        <div class="desc">5 varianti copy per gestione campagne pubblicitarie</div>
-        <div class="variant-links">
-          <a href="studio121-landing/social-ads/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
-          <a href="studio121-landing/social-ads/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
-          <a href="studio121-landing/social-ads/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
-          <a href="studio121-landing/social-ads/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
-          <a href="studio121-landing/social-ads/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
-        </div>
-      </div>
-      <div class="variant-group">
-        <h3>Agenzia</h3>
-        <div class="desc">5 varianti copy per pagina agenzia / chi siamo</div>
-        <div class="variant-links">
-          <a href="studio121-landing/agenzia/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
-          <a href="studio121-landing/agenzia/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
-          <a href="studio121-landing/agenzia/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
-          <a href="studio121-landing/agenzia/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
-          <a href="studio121-landing/agenzia/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
-        </div>
-      </div>
-      <div class="variant-group">
-        <h3>Performance Marketing</h3>
-        <div class="desc">5 varianti copy per visibilita online e performance</div>
-        <div class="variant-links">
-          <a href="studio121-landing/performance/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
-          <a href="studio121-landing/performance/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
-          <a href="studio121-landing/performance/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
-          <a href="studio121-landing/performance/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
-          <a href="studio121-landing/performance/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
-        </div>
-      </div>
-      <div class="variant-group">
-        <h3>Social Trap</h3>
-        <div class="desc">5 varianti copy per gestione social media</div>
-        <div class="variant-links">
-          <a href="studio121-landing/social-trap/variante-a.html" class="vlink"><span class="badge ba">A</span> Professionale</a>
-          <a href="studio121-landing/social-trap/variante-b.html" class="vlink"><span class="badge bb">B</span> Emozionale</a>
-          <a href="studio121-landing/social-trap/variante-c.html" class="vlink"><span class="badge bc">C</span> Diretto</a>
-          <a href="studio121-landing/social-trap/variante-d.html" class="vlink"><span class="badge bd">D</span> Merenda soft</a>
-          <a href="studio121-landing/social-trap/variante-e.html" class="vlink"><span class="badge be">E</span> Pain elegante</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- PROTOTIPI -->
-    <!-- ============================================ -->
-    <div class="section-title"><span class="dot dot-green"></span> Prototipi Brand</div>
-
-    <div class="grid">
-      <a href="studio121-landing/prototipi/proto-siti-web.html" class="card">
-        <h3>Proto — Siti Web</h3>
-        <p>Prototipo design per landing siti web</p>
-        <span class="tag">prototipo</span>
-      </a>
-      <a href="studio121-landing/prototipi/proto-branding.html" class="card">
-        <h3>Proto — Branding</h3>
-        <p>Prototipo design per landing branding</p>
-        <span class="tag">prototipo</span>
-      </a>
-      <a href="studio121-landing/prototipi/proto-social-ads.html" class="card">
-        <h3>Proto — Social Ads</h3>
-        <p>Prototipo design per landing social ads</p>
-        <span class="tag">prototipo</span>
-      </a>
-      <a href="studio121-landing/prototipi/proto-agenzia.html" class="card">
-        <h3>Proto — Agenzia</h3>
-        <p>Prototipo design per landing agenzia</p>
-        <span class="tag">prototipo</span>
-      </a>
-      <a href="studio121-landing/prototipi/proto-performance.html" class="card">
-        <h3>Proto — Performance</h3>
-        <p>Prototipo design per landing performance</p>
-        <span class="tag">prototipo</span>
-      </a>
-      <a href="studio121-landing/prototipi/proto-social-trap.html" class="card">
-        <h3>Proto — Social Trap</h3>
-        <p>Prototipo design per landing social media</p>
-        <span class="tag">prototipo</span>
-      </a>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- RISORSE -->
-    <!-- ============================================ -->
-    <div class="section-title"><span class="dot dot-blue"></span> Risorse &amp; Strumenti</div>
-
-    <div class="grid">
-      <a href="studio121-landing/design-system.html" class="card">
-        <h3>Design System</h3>
-        <p>Componenti, colori, tipografia e pattern del design system Studio 121</p>
-        <span class="tag">design</span>
-      </a>
-      <a href="studio121-landing/lookbook.html" class="card">
-        <h3>Lookbook</h3>
-        <p>Raccolta visiva degli stili e delle varianti delle landing page</p>
-        <span class="tag">design</span>
-      </a>
-      <a href="studio121-landing/follow-up-templates.html" class="card">
-        <h3>Follow-up Templates</h3>
-        <p>Template per nurturing lead via WhatsApp ed email</p>
-        <span class="tag">sales</span>
-      </a>
-      <a href="studio121-landing/AUDIT_LANDING.md" class="card">
-        <h3>Audit CRO</h3>
-        <p>Analisi dettagliata di tutte le landing con problemi e raccomandazioni</p>
-        <span class="tag">audit</span>
-      </a>
-      <a href="studio121-ads/index.html" class="card">
-        <h3>Hub Ads (originale)</h3>
-        <p>Hub di navigazione delle landing dark mode originali</p>
-        <span class="tag">navigazione</span>
-      </a>
-      <a href="studio121-landing/index.html" class="card">
-        <h3>Hub Varianti (originale)</h3>
-        <p>Dashboard delle varianti A-E dall'altra istanza</p>
-        <span class="tag">navigazione</span>
-      </a>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="foot">
-      Studio 121 Srls &mdash; Ragusa &middot; <a href="https://studio121.it">studio121.it</a> &middot; <a href="https://github.com/studio121-develop/motionpack">GitHub</a>
-    </div>
-
   </div>
+</section>
+
+<!-- ========== VARIANTI ========== -->
+<section class="sec" id="landing-varianti">
+  <div class="wrap">
+    <div class="sec-label"><span class="dot" style="background:#e94560"></span> Landing Pages &mdash; Set 2</div>
+    <div class="sec-title">30 varianti. 6 categorie. 5 stili copy.</div>
+    <div class="sec-desc">Ogni categoria ha 5 varianti con tono diverso: A (professionale), B (emozionale), C (diretto), D (Frank Merenda morbido), E (pain point elegante). Utili per A/B testing su Google Ads.</div>
+
+    <div class="cols cols-2">
+      <div class="vg">
+        <h3>Siti Web</h3>
+        <div class="desc">Realizzazione siti web a Ragusa</div>
+        <div class="vlinks">
+          <a href="studio121-landing/siti-web/variante-a.html" class="vl"><span class="b ba">A</span> Professionale</a>
+          <a href="studio121-landing/siti-web/variante-b.html" class="vl"><span class="b bb">B</span> Emozionale</a>
+          <a href="studio121-landing/siti-web/variante-c.html" class="vl"><span class="b bc">C</span> Diretto</a>
+          <a href="studio121-landing/siti-web/variante-d.html" class="vl"><span class="b bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/siti-web/variante-e.html" class="vl"><span class="b be">E</span> Pain elegante</a>
+        </div>
+      </div>
+      <div class="vg">
+        <h3>Branding &amp; Logo</h3>
+        <div class="desc">Brand identity e loghi</div>
+        <div class="vlinks">
+          <a href="studio121-landing/branding/variante-a.html" class="vl"><span class="b ba">A</span> Professionale</a>
+          <a href="studio121-landing/branding/variante-b.html" class="vl"><span class="b bb">B</span> Emozionale</a>
+          <a href="studio121-landing/branding/variante-c.html" class="vl"><span class="b bc">C</span> Diretto</a>
+          <a href="studio121-landing/branding/variante-d.html" class="vl"><span class="b bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/branding/variante-e.html" class="vl"><span class="b be">E</span> Pain elegante</a>
+        </div>
+      </div>
+      <div class="vg">
+        <h3>Social &amp; Ads</h3>
+        <div class="desc">Gestione campagne pubblicitarie</div>
+        <div class="vlinks">
+          <a href="studio121-landing/social-ads/variante-a.html" class="vl"><span class="b ba">A</span> Professionale</a>
+          <a href="studio121-landing/social-ads/variante-b.html" class="vl"><span class="b bb">B</span> Emozionale</a>
+          <a href="studio121-landing/social-ads/variante-c.html" class="vl"><span class="b bc">C</span> Diretto</a>
+          <a href="studio121-landing/social-ads/variante-d.html" class="vl"><span class="b bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/social-ads/variante-e.html" class="vl"><span class="b be">E</span> Pain elegante</a>
+        </div>
+      </div>
+      <div class="vg">
+        <h3>Agenzia</h3>
+        <div class="desc">Pagina agenzia / chi siamo</div>
+        <div class="vlinks">
+          <a href="studio121-landing/agenzia/variante-a.html" class="vl"><span class="b ba">A</span> Professionale</a>
+          <a href="studio121-landing/agenzia/variante-b.html" class="vl"><span class="b bb">B</span> Emozionale</a>
+          <a href="studio121-landing/agenzia/variante-c.html" class="vl"><span class="b bc">C</span> Diretto</a>
+          <a href="studio121-landing/agenzia/variante-d.html" class="vl"><span class="b bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/agenzia/variante-e.html" class="vl"><span class="b be">E</span> Pain elegante</a>
+        </div>
+      </div>
+      <div class="vg">
+        <h3>Performance Marketing</h3>
+        <div class="desc">Visibilita online e performance</div>
+        <div class="vlinks">
+          <a href="studio121-landing/performance/variante-a.html" class="vl"><span class="b ba">A</span> Professionale</a>
+          <a href="studio121-landing/performance/variante-b.html" class="vl"><span class="b bb">B</span> Emozionale</a>
+          <a href="studio121-landing/performance/variante-c.html" class="vl"><span class="b bc">C</span> Diretto</a>
+          <a href="studio121-landing/performance/variante-d.html" class="vl"><span class="b bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/performance/variante-e.html" class="vl"><span class="b be">E</span> Pain elegante</a>
+        </div>
+      </div>
+      <div class="vg">
+        <h3>Social Trap</h3>
+        <div class="desc">Gestione social media</div>
+        <div class="vlinks">
+          <a href="studio121-landing/social-trap/variante-a.html" class="vl"><span class="b ba">A</span> Professionale</a>
+          <a href="studio121-landing/social-trap/variante-b.html" class="vl"><span class="b bb">B</span> Emozionale</a>
+          <a href="studio121-landing/social-trap/variante-c.html" class="vl"><span class="b bc">C</span> Diretto</a>
+          <a href="studio121-landing/social-trap/variante-d.html" class="vl"><span class="b bd">D</span> Merenda soft</a>
+          <a href="studio121-landing/social-trap/variante-e.html" class="vl"><span class="b be">E</span> Pain elegante</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROTOTIPI ========== -->
+<section class="sec" id="prototipi">
+  <div class="wrap">
+    <div class="sec-label"><span class="dot" style="background:var(--green)"></span> Prototipi</div>
+    <div class="sec-title">6 prototipi di design.</div>
+    <div class="sec-desc">Esplorazioni visive per definire il look&amp;feel delle landing finali.</div>
+    <div class="cols cols-3">
+      <a href="studio121-landing/prototipi/proto-siti-web.html" class="card card-link"><h3>Proto Siti Web</h3><span class="tag">prototipo</span></a>
+      <a href="studio121-landing/prototipi/proto-branding.html" class="card card-link"><h3>Proto Branding</h3><span class="tag">prototipo</span></a>
+      <a href="studio121-landing/prototipi/proto-social-ads.html" class="card card-link"><h3>Proto Social Ads</h3><span class="tag">prototipo</span></a>
+      <a href="studio121-landing/prototipi/proto-agenzia.html" class="card card-link"><h3>Proto Agenzia</h3><span class="tag">prototipo</span></a>
+      <a href="studio121-landing/prototipi/proto-performance.html" class="card card-link"><h3>Proto Performance</h3><span class="tag">prototipo</span></a>
+      <a href="studio121-landing/prototipi/proto-social-trap.html" class="card card-link"><h3>Proto Social Trap</h3><span class="tag">prototipo</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RISORSE ========== -->
+<section class="sec" id="risorse">
+  <div class="wrap">
+    <div class="sec-label"><span class="dot" style="background:var(--blue)"></span> Risorse</div>
+    <div class="sec-title">Strumenti e documentazione.</div>
+    <div class="cols cols-3">
+      <a href="studio121-landing/design-system.html" class="card card-link"><h3>Design System</h3><p>Componenti, colori, tipografia e pattern</p><span class="tag">design</span></a>
+      <a href="studio121-landing/lookbook.html" class="card card-link"><h3>Lookbook</h3><p>Raccolta visiva stili e varianti</p><span class="tag">design</span></a>
+      <a href="studio121-landing/follow-up-templates.html" class="card card-link"><h3>Follow-up Templates</h3><p>Template nurturing lead WhatsApp + email</p><span class="tag">sales</span></a>
+      <a href="studio121-landing/AUDIT_LANDING.md" class="card card-link"><h3>Audit CRO</h3><p>Analisi dettagliata con raccomandazioni</p><span class="tag">audit</span></a>
+      <a href="studio121-ads/index.html" class="card card-link"><h3>Hub Landing Ads</h3><p>Indice set 1 (dark mode)</p><span class="tag">navigazione</span></a>
+      <a href="studio121-landing/index.html" class="card card-link"><h3>Hub Varianti</h3><p>Dashboard varianti A-E</p><span class="tag">navigazione</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TIMELINE ========== -->
+<section class="sec" id="timeline">
+  <div class="wrap">
+    <div class="sec-label"><span class="dot" style="background:var(--o)"></span> Prossimi passi</div>
+    <div class="sec-title">Da qui a 3 mesi.</div>
+    <div class="timeline" style="margin-top:1.5rem">
+      <div class="tl-item">
+        <h4>Settimana 1-2: Preparazione</h4>
+        <p>Scegliere le landing finali tra le varianti. Collegare form a backend (Formspree/n8n). Verificare conversion tracking Google Ads (tag AW-17637594563 gia presente). Aggiungere telefono e WhatsApp in header del sito.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Settimana 3: Lancio campagna test</h4>
+        <p>Attivare Google Ads con budget 300&euro;/mese. 5 ad group, solo Search, targeting Ragusa +50km. Monitoraggio giornaliero.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Settimana 4: Ottimizzazione</h4>
+        <p>Analizzare keyword con impression ma pochi click (aggiornare annunci). Aggiungere negative keywords. A/B test tra varianti landing.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Mese 2: Scala</h4>
+        <p>Budget a 500&euro;/mese. Aggiungere contenuti blog per SEO organica. Iniziare a proporre Google Ads come servizio ai clienti.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Mese 3: Consolidamento</h4>
+        <p>Ottimizzare CPA. Raccogliere primi case study con dati reali. Lanciare pacchetti Google Ads per ristoranti e hotel. Target: 3-5 lead qualificati/mese, 1-2 clienti chiusi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<div class="foot">
+  <div class="wrap">
+    Studio 121 Srls &mdash; Via Luigi Settembrini 71, Ragusa &middot; P.IVA 01815340888<br>
+    <a href="https://studio121.it">studio121.it</a> &middot; <a href="https://github.com/studio121-develop/motionpack">GitHub</a> &middot; Dati verificati DataForSEO 15/04/2026
+  </div>
+</div>
+
 </body>
 </html>
