@@ -186,18 +186,18 @@
       animation:scrollL 35s linear infinite;
       padding-left:15vw; width:max-content;
     }
-    .li {
+    .li-box {
       flex-shrink:0;
-      height:clamp(20px,2.8vh,46px);
-      opacity:.45;
-      filter:brightness(0) invert(1);
-      object-fit:contain;
+      width:clamp(80px,7vw,260px);
+      height:clamp(28px,4vh,70px);
+      display:flex; align-items:center; justify-content:center;
     }
-    /* Per-logo size tuning */
-    .li-sm { height:clamp(16px,2.2vh,36px) }
-    .li-md { height:clamp(20px,2.8vh,46px) }
-    .li-lg { height:clamp(26px,3.4vh,56px) }
-    .li-xl { height:clamp(30px,4vh,64px) }
+    .li-box img {
+      max-width:100%; max-height:100%;
+      object-fit:contain;
+      opacity:.5;
+      filter:brightness(0) invert(1);
+    }
     @keyframes scrollL { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
     /* Separator line between left and right */
@@ -254,27 +254,26 @@
   <div class="logos-bar">
     <div class="logos-label">Si sono affidati a noi</div>
     <div class="logos-track">
-      <img class="li li-sm" src="studio121-ads/logos/amara-white.svg" alt="Amaro Amara">
-      <img class="li li-md" src="studio121-ads/logos/liquori-etna.svg" alt="Liquori dell'Etna">
-      <img class="li li-md" src="studio121-ads/logos/la-primavera.png" alt="La Primavera">
-      <img class="li li-lg" src="studio121-ads/logos/le-magasin.png" alt="Le Magasin">
-      <img class="li li-md" src="studio121-ads/logos/san-giorgio-white.svg" alt="San Giorgio Palace">
-      <img class="li li-md" src="studio121-ads/logos/ilpav-white.svg" alt="Ilpav S.p.A.">
-      <img class="li li-md" src="studio121-ads/logos/plasticontenitor.png" alt="Plasticontenitor">
-      <img class="li li-md" src="studio121-ads/logos/medicare-white.svg" alt="Medi Care">
-      <img class="li li-md" src="studio121-ads/logos/ottica-spoto.png" alt="Ottica Spoto">
-      <img class="li li-md" src="studio121-ads/logos/schinina.svg" alt="Frediani Schinina & Partners">
-      <!-- Duplicate for infinite scroll -->
-      <img class="li li-sm" src="studio121-ads/logos/amara-white.svg" alt="Amaro Amara">
-      <img class="li li-md" src="studio121-ads/logos/liquori-etna.svg" alt="Liquori dell'Etna">
-      <img class="li li-md" src="studio121-ads/logos/la-primavera.png" alt="La Primavera">
-      <img class="li li-lg" src="studio121-ads/logos/le-magasin.png" alt="Le Magasin">
-      <img class="li li-md" src="studio121-ads/logos/san-giorgio-white.svg" alt="San Giorgio Palace">
-      <img class="li li-md" src="studio121-ads/logos/ilpav-white.svg" alt="Ilpav S.p.A.">
-      <img class="li li-md" src="studio121-ads/logos/plasticontenitor.png" alt="Plasticontenitor">
-      <img class="li li-md" src="studio121-ads/logos/medicare-white.svg" alt="Medi Care">
-      <img class="li li-md" src="studio121-ads/logos/ottica-spoto.png" alt="Ottica Spoto">
-      <img class="li li-md" src="studio121-ads/logos/schinina.svg" alt="Frediani Schinina & Partners">
+      <div class="li-box"><img src="studio121-ads/logos/amara-white.svg" alt="Amaro Amara"></div>
+      <div class="li-box"><img src="studio121-ads/logos/liquori-etna.svg" alt="Liquori dell'Etna"></div>
+      <div class="li-box"><img src="studio121-ads/logos/la-primavera.png" alt="La Primavera"></div>
+      <div class="li-box"><img src="studio121-ads/logos/le-magasin.png" alt="Le Magasin"></div>
+      <div class="li-box"><img src="studio121-ads/logos/san-giorgio-white.svg" alt="San Giorgio Palace"></div>
+      <div class="li-box"><img src="studio121-ads/logos/ilpav-white.svg" alt="Ilpav S.p.A."></div>
+      <div class="li-box"><img src="studio121-ads/logos/plasticontenitor.png" alt="Plasticontenitor"></div>
+      <div class="li-box"><img src="studio121-ads/logos/medicare-white.svg" alt="Medi Care"></div>
+      <div class="li-box"><img src="studio121-ads/logos/ottica-spoto.png" alt="Ottica Spoto"></div>
+      <div class="li-box"><img src="studio121-ads/logos/schinina.svg" alt="Frediani Schinina & Partners"></div>
+      <div class="li-box"><img src="studio121-ads/logos/amara-white.svg" alt="Amaro Amara"></div>
+      <div class="li-box"><img src="studio121-ads/logos/liquori-etna.svg" alt="Liquori dell'Etna"></div>
+      <div class="li-box"><img src="studio121-ads/logos/la-primavera.png" alt="La Primavera"></div>
+      <div class="li-box"><img src="studio121-ads/logos/le-magasin.png" alt="Le Magasin"></div>
+      <div class="li-box"><img src="studio121-ads/logos/san-giorgio-white.svg" alt="San Giorgio Palace"></div>
+      <div class="li-box"><img src="studio121-ads/logos/ilpav-white.svg" alt="Ilpav S.p.A."></div>
+      <div class="li-box"><img src="studio121-ads/logos/plasticontenitor.png" alt="Plasticontenitor"></div>
+      <div class="li-box"><img src="studio121-ads/logos/medicare-white.svg" alt="Medi Care"></div>
+      <div class="li-box"><img src="studio121-ads/logos/ottica-spoto.png" alt="Ottica Spoto"></div>
+      <div class="li-box"><img src="studio121-ads/logos/schinina.svg" alt="Frediani Schinina & Partners"></div>
     </div>
   </div>
 </div>
