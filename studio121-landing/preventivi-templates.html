@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Preventivi — Studio 121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       RESET & VARIABLES
+       ============================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red:            #d94625;
+      --red-hover:      #c23d20;
+      --red-light:      #fdf0ed;
+      --blue-dark:      #253441;
+      --blue-dark-alt:  #2e4252;
+      --white:          #ffffff;
+      --beige:          #f1ece8;
+      --footer-bottom:  #1a2630;
+      --text-secondary: #4a5d6c;
+      --text-muted:     #566a78;
+      --gray-100:       #f8f6f4;
+      --gray-200:       #e8e3df;
+      --gray-300:       #d4cec9;
+      --green:          #2d8a56;
+      --green-light:    #edf7f1;
+      --amber:          #d4930d;
+      --amber-light:    #fef9ec;
+      --purple:         #6b4c9a;
+      --purple-light:   #f4f0fa;
+
+      --sp-xs:  4px;
+      --sp-sm:  8px;
+      --sp-md:  16px;
+      --sp-lg:  24px;
+      --sp-xl:  32px;
+      --sp-2xl: 48px;
+      --sp-3xl: 64px;
+
+      --r-sm:   8px;
+      --r-md:   12px;
+      --r-lg:   16px;
+      --r-pill: 100px;
+
+      --shadow-sm:   0 1px 3px rgba(37,52,65,0.08);
+      --shadow-md:   0 4px 12px rgba(37,52,65,0.10);
+      --shadow-lg:   0 8px 30px rgba(37,52,65,0.14);
+      --shadow-xl:   0 20px 60px rgba(37,52,65,0.15);
+
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--blue-dark);
+      background: var(--beige);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--blue-dark);
+      padding: 0 var(--sp-lg);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-xs);
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 56px;
+    }
+    .nav__brand {
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--white);
+      margin-right: var(--sp-lg);
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .nav__brand span { color: var(--red); }
+    .nav a {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--r-pill);
+      white-space: nowrap;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .nav a:hover, .nav a.active {
+      color: var(--white);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      background: var(--blue-dark);
+      color: var(--white);
+      padding: 80px var(--sp-lg) 60px;
+      text-align: center;
+    }
+    .hero__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    .hero__title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .hero__subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--gray-300);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       CONTAINER
+       ============================================================ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--sp-lg);
+    }
+
+    /* ============================================================
+       CHECKLIST PRE-INVIO
+       ============================================================ */
+    .checklist-bar {
+      background: var(--white);
+      border: 2px solid var(--red);
+      border-radius: var(--r-lg);
+      padding: var(--sp-lg) var(--sp-xl);
+      margin: -30px auto var(--sp-3xl);
+      max-width: 1200px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 10;
+    }
+    .checklist-bar__title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: var(--sp-md);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+    }
+    .checklist-bar__items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--sp-sm) var(--sp-xl);
+    }
+    .checklist-bar__item {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .checklist-bar__item input[type="checkbox"] {
+      accent-color: var(--red);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       TEMPLATE CARD
+       ============================================================ */
+    .template-section {
+      padding: var(--sp-2xl) 0;
+    }
+    .template-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      margin-bottom: var(--sp-3xl);
+      transition: box-shadow var(--transition);
+    }
+    .template-card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Card Header */
+    .tpl-header {
+      padding: var(--sp-xl) var(--sp-xl) var(--sp-lg);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-md);
+    }
+    .tpl-header__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--r-md);
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .tpl-header__text { flex: 1; }
+    .tpl-header__number {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+    }
+    .tpl-header__title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .tpl-header__price {
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.2);
+      padding: 4px 14px;
+      border-radius: var(--r-pill);
+      white-space: nowrap;
+    }
+
+    .tpl-header--sito { background: var(--blue-dark); }
+    .tpl-header--brand { background: var(--purple); }
+    .tpl-header--performance { background: var(--red); }
+    .tpl-header--completo { background: linear-gradient(135deg, var(--blue-dark), var(--red)); }
+    .tpl-header--consulenza { background: var(--green); }
+    .tpl-header--social { background: var(--amber); }
+
+    /* Note Operative */
+    .tpl-notes {
+      background: var(--gray-100);
+      padding: var(--sp-md) var(--sp-xl);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-lg) var(--sp-2xl);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .tpl-note {
+      font-size: 0.78rem;
+    }
+    .tpl-note__label {
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.65rem;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .tpl-note__value {
+      color: var(--blue-dark);
+      font-weight: 500;
+    }
+
+    /* Fields Box */
+    .tpl-fields {
+      background: var(--amber-light);
+      border-left: 3px solid var(--amber);
+      padding: var(--sp-md) var(--sp-xl);
+      margin: 0;
+    }
+    .tpl-fields__title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--amber);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .tpl-fields__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tpl-fields__tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--white);
+      color: var(--amber);
+      padding: 2px 10px;
+      border-radius: var(--r-pill);
+      border: 1px solid rgba(212,147,13,0.3);
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Preview */
+    .tpl-preview {
+      padding: var(--sp-xl);
+    }
+    .tpl-preview__label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: var(--sp-md);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+    }
+    .tpl-preview__label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+    /* Email Preview Content */
+    .email-preview {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--r-md);
+      padding: 0;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      overflow: hidden;
+    }
+    .email-preview .ep-header {
+      background: var(--blue-dark);
+      color: var(--white);
+      padding: var(--sp-lg) var(--sp-xl);
+      text-align: center;
+    }
+    .email-preview .ep-logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .email-preview .ep-logo span { color: var(--red); }
+    .email-preview .ep-meta {
+      font-size: 0.72rem;
+      opacity: 0.6;
+    }
+    .email-preview .ep-body {
+      padding: var(--sp-xl);
+    }
+    .email-preview h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin: var(--sp-lg) 0 var(--sp-sm);
+    }
+    .email-preview h3:first-child {
+      margin-top: 0;
+    }
+    .email-preview p {
+      margin-bottom: var(--sp-md);
+      color: var(--text-secondary);
+    }
+    .email-preview .ep-greeting {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: var(--sp-md);
+    }
+    .email-preview .ep-section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--red);
+      margin: var(--sp-xl) 0 var(--sp-sm);
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--red-light);
+    }
+    .email-preview ul {
+      margin: 0 0 var(--sp-md) var(--sp-lg);
+      color: var(--text-secondary);
+    }
+    .email-preview ul li {
+      margin-bottom: 4px;
+    }
+    .email-preview .ep-highlight-box {
+      background: var(--beige);
+      border-radius: var(--r-md);
+      padding: var(--sp-lg);
+      margin: var(--sp-lg) 0;
+    }
+    .email-preview .ep-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--blue-dark);
+      text-align: center;
+      margin: var(--sp-sm) 0;
+    }
+    .email-preview .ep-price-note {
+      font-size: 0.78rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .email-preview .ep-timeline {
+      display: flex;
+      gap: var(--sp-md);
+      margin: var(--sp-lg) 0;
+      flex-wrap: wrap;
+    }
+    .email-preview .ep-timeline-step {
+      flex: 1;
+      min-width: 120px;
+      background: var(--gray-100);
+      border-radius: var(--r-sm);
+      padding: var(--sp-md);
+      text-align: center;
+      position: relative;
+    }
+    .email-preview .ep-timeline-step::after {
+      content: '\2192';
+      position: absolute;
+      right: -16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-300);
+      font-size: 1.2rem;
+    }
+    .email-preview .ep-timeline-step:last-child::after { display: none; }
+    .email-preview .ep-timeline-week {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--red);
+      letter-spacing: 0.5px;
+    }
+    .email-preview .ep-timeline-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+      margin-top: 2px;
+    }
+    .email-preview .ep-cta-box {
+      background: var(--red);
+      color: var(--white);
+      text-align: center;
+      padding: var(--sp-lg);
+      border-radius: var(--r-md);
+      margin: var(--sp-xl) 0 var(--sp-lg);
+    }
+    .email-preview .ep-cta-box p {
+      color: rgba(255,255,255,0.85);
+      margin-bottom: var(--sp-sm);
+      font-size: 0.88rem;
+    }
+    .email-preview .ep-cta-box strong {
+      font-size: 1.1rem;
+      color: var(--white);
+      display: block;
+    }
+    .email-preview .ep-validity {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      padding: var(--sp-sm) 0;
+      border-top: 1px solid var(--gray-200);
+      margin-top: var(--sp-md);
+    }
+    .email-preview .ep-ps {
+      background: var(--red-light);
+      border-left: 3px solid var(--red);
+      padding: var(--sp-md) var(--sp-lg);
+      margin-top: var(--sp-lg);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    }
+    .email-preview .ep-ps strong {
+      color: var(--red);
+    }
+    .email-preview .ep-ps p {
+      color: var(--blue-dark);
+      font-weight: 500;
+      margin: 0;
+      font-size: 0.85rem;
+    }
+    .email-preview .ep-footer {
+      background: var(--gray-100);
+      padding: var(--sp-lg) var(--sp-xl);
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .email-preview .tag {
+      background: var(--amber-light);
+      color: var(--amber);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 0.82em;
+    }
+
+    /* Actions */
+    .tpl-actions {
+      display: flex;
+      gap: var(--sp-sm);
+      padding: var(--sp-lg) var(--sp-xl);
+      background: var(--gray-100);
+      border-top: 1px solid var(--gray-200);
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: var(--r-sm);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn--primary {
+      background: var(--red);
+      color: var(--white);
+    }
+    .btn--primary:hover {
+      background: var(--red-hover);
+    }
+    .btn--secondary {
+      background: var(--blue-dark);
+      color: var(--white);
+    }
+    .btn--secondary:hover {
+      background: var(--blue-dark-alt);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--gray-300);
+    }
+    .btn--outline:hover {
+      background: var(--gray-100);
+      border-color: var(--text-muted);
+    }
+    .btn__icon {
+      font-size: 1rem;
+    }
+    .btn--copied {
+      background: var(--green) !important;
+      color: var(--white) !important;
+      border-color: var(--green) !important;
+    }
+
+    /* ============================================================
+       FOLLOW-UP SECTION
+       ============================================================ */
+    .followup-section {
+      padding: var(--sp-3xl) 0;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: var(--sp-xl);
+    }
+
+    .followup-timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+    .followup-timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--gray-300);
+    }
+    .fu-item {
+      position: relative;
+      margin-bottom: var(--sp-xl);
+    }
+    .fu-item__dot {
+      position: absolute;
+      left: -40px;
+      top: 4px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--white);
+      font-weight: 700;
+      z-index: 1;
+    }
+    .fu-item__dot--wa { background: #25d366; }
+    .fu-item__dot--email { background: #1a73e8; }
+
+    .fu-item__card {
+      background: var(--white);
+      border-radius: var(--r-md);
+      padding: var(--sp-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    .fu-item__when {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--red);
+      margin-bottom: 4px;
+    }
+    .fu-item__channel {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 2px 10px;
+      border-radius: var(--r-pill);
+      display: inline-block;
+      margin-bottom: var(--sp-sm);
+    }
+    .fu-item__channel--wa {
+      background: #dcf8c6;
+      color: #128c7e;
+    }
+    .fu-item__channel--email {
+      background: #e8f0fe;
+      color: #1a73e8;
+    }
+    .fu-item__subject {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+      margin-bottom: 6px;
+    }
+    .fu-item__text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--sp-md);
+    }
+    .fu-item__text .tag {
+      background: var(--amber-light);
+      color: var(--amber);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 0.82em;
+    }
+    .fu-item__actions {
+      display: flex;
+      gap: var(--sp-sm);
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      background: var(--blue-dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: var(--sp-xl) var(--sp-lg);
+      font-size: 0.75rem;
+    }
+    .footer strong {
+      color: var(--white);
+    }
+
+    /* ============================================================
+       TOAST
+       ============================================================ */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--blue-dark);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: var(--r-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .toast--success { background: var(--green); }
+    .toast--error { background: var(--red); }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 768px) {
+      .nav__inner { gap: 2px; }
+      .nav a { font-size: 0.65rem; padding: 5px 8px; }
+      .nav__brand { font-size: 0.7rem; margin-right: var(--sp-sm); }
+
+      .checklist-bar { margin: -20px var(--sp-md) var(--sp-2xl); padding: var(--sp-md); }
+      .checklist-bar__items { grid-template-columns: 1fr; }
+
+      .tpl-header { flex-wrap: wrap; padding: var(--sp-lg); }
+      .tpl-header__price { margin-top: var(--sp-sm); }
+      .tpl-notes { flex-direction: column; gap: var(--sp-sm); padding: var(--sp-md); }
+      .tpl-fields { padding: var(--sp-md); }
+      .tpl-preview { padding: var(--sp-md); }
+      .tpl-actions { padding: var(--sp-md); }
+      .email-preview .ep-body { padding: var(--sp-md); }
+      .email-preview .ep-timeline { flex-direction: column; }
+      .email-preview .ep-timeline-step::after { display: none; }
+      .btn { padding: 8px 14px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="nav__brand">Studio <span>121</span></div>
+      <a href="#sito-web">Sito Web</a>
+      <a href="#branding">Branding</a>
+      <a href="#performance">Performance</a>
+      <a href="#completo">Completo</a>
+      <a href="#consulenza">Consulenza</a>
+      <a href="#social">Social</a>
+      <a href="#followup">Follow-Up</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero__label">Template Preventivi</div>
+    <h1 class="hero__title">Preventivo in 24h, non in 10 giorni</h1>
+    <p class="hero__subtitle">
+      Scegli il template, personalizza i campi, copia e manda. Ogni ora in meno = una possibilita in piu di chiudere.
+    </p>
+  </section>
+
+  <!-- ============================================================
+       CHECKLIST PRE-INVIO
+       ============================================================ -->
+  <div class="container">
+    <div class="checklist-bar">
+      <div class="checklist-bar__title">
+        &#9745; Checklist prima di mandare il preventivo
+      </div>
+      <div class="checklist-bar__items">
+        <label class="checklist-bar__item">
+          <input type="checkbox"> Verifica nome e attivita del cliente
+        </label>
+        <label class="checklist-bar__item">
+          <input type="checkbox"> Inserisci i prezzi discussi in call
+        </label>
+        <label class="checklist-bar__item">
+          <input type="checkbox"> Verifica i dati del settore (volume, CPC)
+        </label>
+        <label class="checklist-bar__item">
+          <input type="checkbox"> Personalizza le stime clienti/risultati
+        </label>
+        <label class="checklist-bar__item">
+          <input type="checkbox"> Allega portfolio / case study pertinenti
+        </label>
+        <label class="checklist-bar__item">
+          <input type="checkbox"> Controlla data e numero preventivo
+        </label>
+        <label class="checklist-bar__item">
+          <input type="checkbox"> Rileggi una volta prima di inviare
+        </label>
+        <label class="checklist-bar__item">
+          <input type="checkbox"> Imposta promemoria follow-up a 48h
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       TEMPLATE 1: SITO WEB PROFESSIONALE
+       ============================================================ -->
+  <div class="container template-section">
+
+    <div class="template-card" id="sito-web">
+      <div class="tpl-header tpl-header--sito">
+        <div class="tpl-header__icon">&#127760;</div>
+        <div class="tpl-header__text">
+          <div class="tpl-header__number">Template 01</div>
+          <div class="tpl-header__title">Sito Web Professionale</div>
+        </div>
+        <div class="tpl-header__price">2.500 - 4.500 &euro;</div>
+      </div>
+
+      <div class="tpl-notes">
+        <div class="tpl-note">
+          <span class="tpl-note__label">Quando usarlo</span>
+          <span class="tpl-note__value">Il cliente non ha un sito oppure il sito attuale non genera contatti</span>
+        </div>
+        <div class="tpl-note">
+          <span class="tpl-note__label">A chi mandarlo</span>
+          <span class="tpl-note__value">Professionisti, artigiani, PMI locali che vivono di passaparola</span>
+        </div>
+      </div>
+
+      <div class="tpl-fields">
+        <div class="tpl-fields__title">Campi da personalizzare</div>
+        <div class="tpl-fields__list">
+          <span class="tpl-fields__tag">{{nome}}</span>
+          <span class="tpl-fields__tag">{{attivita}}</span>
+          <span class="tpl-fields__tag">{{settore}}</span>
+          <span class="tpl-fields__tag">{{citta}}</span>
+          <span class="tpl-fields__tag">{{volume_ricerche}}</span>
+          <span class="tpl-fields__tag">{{data}}</span>
+          <span class="tpl-fields__tag">{{num_preventivo}}</span>
+        </div>
+      </div>
+
+      <div class="tpl-preview">
+        <div class="tpl-preview__label">Anteprima preventivo</div>
+        <div class="email-preview" id="email-sito-web">
+          <div class="ep-header">
+            <div class="ep-logo">Studio <span>121</span></div>
+            <div class="ep-meta">Proposta n. <span class="tag">{{num_preventivo}}</span> &mdash; <span class="tag">{{data}}</span></div>
+          </div>
+          <div class="ep-body">
+            <div class="ep-greeting">Ciao <span class="tag">{{nome}}</span>,</div>
+            <p>grazie per il tempo che mi hai dedicato durante la nostra chiamata. Mi ha fatto piacere capire meglio come funziona <span class="tag">{{attivita}}</span> e quali sono i tuoi obiettivi per i prossimi mesi.</p>
+
+            <div class="ep-section-title">Il problema</div>
+            <p>Come abbiamo visto insieme, il tuo sito attuale non sta facendo il suo lavoro: non porta contatti, non compare su Google per le ricerche importanti nel tuo settore e non comunica la qualita del servizio che offri. In pratica, e come avere una vetrina chiusa in una via trafficata.</p>
+
+            <div class="ep-section-title">La soluzione</div>
+            <p>Ti propongo un sito web professionale progettato per convertire i visitatori in contatti reali. Non un sito "bello e basta", ma uno strumento di lavoro. Ecco cosa faremo:</p>
+            <ul>
+              <li><strong>Design personalizzato</strong> &mdash; pensato per il tuo settore, per comunicare fiducia e professionalita</li>
+              <li><strong>Fino a 8 pagine</strong> &mdash; home, servizi, chi siamo, contatti, portfolio e le pagine che servono a te</li>
+              <li><strong>Form di contatto intelligente</strong> &mdash; per ricevere richieste qualificate, non spam</li>
+              <li><strong>SEO locale</strong> &mdash; ottimizzazione per farti trovare su Google da chi cerca a <span class="tag">{{citta}}</span></li>
+              <li><strong>Mobile first</strong> &mdash; perfetto da smartphone (dove cerca il 75% delle persone)</li>
+              <li><strong>Google Analytics</strong> &mdash; per sapere quante persone visitano il sito e da dove arrivano</li>
+              <li><strong>3 mesi di assistenza</strong> &mdash; modifiche, aggiornamenti, supporto incluso</li>
+            </ul>
+
+            <div class="ep-section-title">I numeri del tuo settore</div>
+            <div class="ep-highlight-box">
+              <p style="text-align:center; margin:0;"><strong><span class="tag">{{volume_ricerche}}</span> persone al mese</strong> cercano servizi come i tuoi a <span class="tag">{{citta}}</span> su Google.</p>
+              <p style="text-align:center; margin:8px 0 0; font-size:0.82rem;">Oggi il tuo sito non intercetta queste ricerche. Con un sito ottimizzato, puoi iniziare a comparire in quei risultati.</p>
+            </div>
+
+            <div class="ep-section-title">Investimento</div>
+            <div class="ep-highlight-box">
+              <div class="ep-price">2.500 &ndash; 4.500 &euro;</div>
+              <div class="ep-price-note">Il prezzo esatto dipende dal numero di pagine e dalla complessita del design. Lo definiamo insieme prima di partire.</div>
+              <p style="text-align:center; margin:12px 0 0; font-size:0.82rem;">Include: design, sviluppo, SEO base, form contatto, Analytics, 3 mesi di assistenza.<br>Possibilita di pagamento in 2 rate.</p>
+            </div>
+
+            <div class="ep-section-title">Timeline</div>
+            <div class="ep-timeline">
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Settimana 1-2</div>
+                <div class="ep-timeline-label">Design</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Settimana 3-4</div>
+                <div class="ep-timeline-label">Sviluppo</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Giorno 30</div>
+                <div class="ep-timeline-label">Online!</div>
+              </div>
+            </div>
+
+            <div class="ep-section-title">Prossimi passi</div>
+            <div class="ep-cta-box">
+              <p>Se vuoi procedere, non serve nient'altro.</p>
+              <strong>Rispondi a questa email con "OK, partiamo" e ci organizziamo.</strong>
+            </div>
+
+            <div class="ep-validity">Questa proposta e valida per 15 giorni dalla data di invio.</div>
+
+            <div class="ep-ps">
+              <p><strong>P.S.</strong> Mentre leggi questa proposta, <span class="tag">{{volume_ricerche}}</span> persone stanno cercando attivita come la tua a <span class="tag">{{citta}}</span>. Il tuo sito attuale non le intercetta.</p>
+            </div>
+          </div>
+          <div class="ep-footer">
+            Studio 121 &mdash; Agenzia di Comunicazione &bull; Ragusa<br>
+            studio121.it &bull; info@studio121.it
+          </div>
+        </div>
+      </div>
+
+      <div class="tpl-actions">
+        <button class="btn btn--primary" data-copy-html="email-sito-web">
+          <span class="btn__icon">&#128203;</span> Copia HTML
+        </button>
+        <button class="btn btn--secondary" data-copy-text="email-sito-web">
+          <span class="btn__icon">&#128196;</span> Copia Testo
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         TEMPLATE 2: BRANDING / IDENTITA VISIVA
+         ============================================================ -->
+    <div class="template-card" id="branding">
+      <div class="tpl-header tpl-header--brand">
+        <div class="tpl-header__icon">&#127912;</div>
+        <div class="tpl-header__text">
+          <div class="tpl-header__number">Template 02</div>
+          <div class="tpl-header__title">Branding / Identita Visiva</div>
+        </div>
+        <div class="tpl-header__price">1.500 - 3.000 &euro;</div>
+      </div>
+
+      <div class="tpl-notes">
+        <div class="tpl-note">
+          <span class="tpl-note__label">Quando usarlo</span>
+          <span class="tpl-note__value">Il brand non comunica la qualita del lavoro, logo datato o inesistente</span>
+        </div>
+        <div class="tpl-note">
+          <span class="tpl-note__label">A chi mandarlo</span>
+          <span class="tpl-note__value">Nuove attivita, rebranding, professionisti che vogliono posizionarsi meglio</span>
+        </div>
+      </div>
+
+      <div class="tpl-fields">
+        <div class="tpl-fields__title">Campi da personalizzare</div>
+        <div class="tpl-fields__list">
+          <span class="tpl-fields__tag">{{nome}}</span>
+          <span class="tpl-fields__tag">{{attivita}}</span>
+          <span class="tpl-fields__tag">{{settore}}</span>
+          <span class="tpl-fields__tag">{{citta}}</span>
+          <span class="tpl-fields__tag">{{data}}</span>
+          <span class="tpl-fields__tag">{{num_preventivo}}</span>
+        </div>
+      </div>
+
+      <div class="tpl-preview">
+        <div class="tpl-preview__label">Anteprima preventivo</div>
+        <div class="email-preview" id="email-branding">
+          <div class="ep-header">
+            <div class="ep-logo">Studio <span>121</span></div>
+            <div class="ep-meta">Proposta n. <span class="tag">{{num_preventivo}}</span> &mdash; <span class="tag">{{data}}</span></div>
+          </div>
+          <div class="ep-body">
+            <div class="ep-greeting">Ciao <span class="tag">{{nome}}</span>,</div>
+            <p>e stato un piacere parlare con te e capire la visione che hai per <span class="tag">{{attivita}}</span>. Ho le idee chiare su quello che possiamo fare insieme.</p>
+
+            <div class="ep-section-title">Il problema</div>
+            <p>Il tuo brand oggi non comunica la qualita del tuo lavoro. Quando un potenziale cliente vede il tuo logo, il biglietto da visita o il profilo social, l'impressione che riceve non riflette il livello di servizio che offri. In un mercato dove la prima impressione conta tutto, questo ti sta costando opportunita.</p>
+
+            <div class="ep-section-title">La soluzione</div>
+            <p>Ti propongo un percorso di identita visiva completo &mdash; non solo un logo, ma un sistema visivo coerente che comunica chi sei in ogni punto di contatto:</p>
+            <ul>
+              <li><strong>Analisi del brand</strong> &mdash; studiamo il tuo posizionamento, i competitor e il messaggio che vuoi comunicare</li>
+              <li><strong>3 proposte di logo</strong> &mdash; diverse direzioni creative tra cui scegliere</li>
+              <li><strong>Palette colori e font</strong> &mdash; una combinazione unica che ti rende riconoscibile</li>
+              <li><strong>Manuale d'uso del brand</strong> &mdash; le regole per usare il logo e i colori correttamente, sempre</li>
+              <li><strong>Biglietto da visita</strong> &mdash; design professionale, pronto per la stampa</li>
+              <li><strong>Carta intestata</strong> &mdash; per preventivi, fatture, comunicazioni ufficiali</li>
+              <li><strong>Template social</strong> &mdash; grafiche base per Instagram e Facebook coerenti con il brand</li>
+            </ul>
+
+            <div class="ep-section-title">I numeri</div>
+            <div class="ep-highlight-box">
+              <p style="text-align:center; margin:0;"><strong>Il 94% delle prime impressioni</strong> su un'azienda e legato al design.</p>
+              <p style="text-align:center; margin:8px 0 0; font-size:0.82rem;">Un brand professionale non e un costo &mdash; e l'investimento che rende ogni altro investimento di marketing piu efficace.</p>
+            </div>
+
+            <div class="ep-section-title">Investimento</div>
+            <div class="ep-highlight-box">
+              <div class="ep-price">1.500 &ndash; 3.000 &euro;</div>
+              <div class="ep-price-note">Il prezzo dipende dalla complessita del progetto e dal numero di applicazioni. Lo definiamo insieme.</div>
+              <p style="text-align:center; margin:12px 0 0; font-size:0.82rem;">Include: analisi, 3 proposte logo, revisioni, palette, font, manuale brand, biglietto da visita, carta intestata, template social.</p>
+            </div>
+
+            <div class="ep-section-title">Timeline</div>
+            <div class="ep-timeline">
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Settimana 1</div>
+                <div class="ep-timeline-label">Analisi</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Settimana 2</div>
+                <div class="ep-timeline-label">Proposte</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Settimana 3</div>
+                <div class="ep-timeline-label">Revisioni + Consegna</div>
+              </div>
+            </div>
+
+            <div class="ep-section-title">Prossimi passi</div>
+            <div class="ep-cta-box">
+              <p>Vuoi un brand che lavora per te anche quando non ci sei?</p>
+              <strong>Rispondi "OK, partiamo" e fissiamo il primo step.</strong>
+            </div>
+
+            <div class="ep-validity">Questa proposta e valida per 15 giorni dalla data di invio.</div>
+
+            <div class="ep-ps">
+              <p><strong>P.S.</strong> 90 persone al mese cercano "logo ragusa" su Google. Il tuo brand e il primo contatto con questi potenziali clienti. Fai in modo che parli di te nel modo giusto.</p>
+            </div>
+          </div>
+          <div class="ep-footer">
+            Studio 121 &mdash; Agenzia di Comunicazione &bull; Ragusa<br>
+            studio121.it &bull; info@studio121.it
+          </div>
+        </div>
+      </div>
+
+      <div class="tpl-actions">
+        <button class="btn btn--primary" data-copy-html="email-branding">
+          <span class="btn__icon">&#128203;</span> Copia HTML
+        </button>
+        <button class="btn btn--secondary" data-copy-text="email-branding">
+          <span class="btn__icon">&#128196;</span> Copia Testo
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         TEMPLATE 3: PACCHETTO PERFORMANCE
+         ============================================================ -->
+    <div class="template-card" id="performance">
+      <div class="tpl-header tpl-header--performance">
+        <div class="tpl-header__icon">&#128640;</div>
+        <div class="tpl-header__text">
+          <div class="tpl-header__number">Template 03</div>
+          <div class="tpl-header__title">Pacchetto Performance</div>
+        </div>
+        <div class="tpl-header__price">Setup 500-800 &euro; + 300-500 &euro;/mese</div>
+      </div>
+
+      <div class="tpl-notes">
+        <div class="tpl-note">
+          <span class="tpl-note__label">Quando usarlo</span>
+          <span class="tpl-note__value">Il cliente ha gia un sito/brand ma non ha un sistema per generare contatti</span>
+        </div>
+        <div class="tpl-note">
+          <span class="tpl-note__label">A chi mandarlo</span>
+          <span class="tpl-note__value">Attivita locali, e-commerce, professionisti che vogliono risultati misurabili</span>
+        </div>
+      </div>
+
+      <div class="tpl-fields">
+        <div class="tpl-fields__title">Campi da personalizzare</div>
+        <div class="tpl-fields__list">
+          <span class="tpl-fields__tag">{{nome}}</span>
+          <span class="tpl-fields__tag">{{attivita}}</span>
+          <span class="tpl-fields__tag">{{citta}}</span>
+          <span class="tpl-fields__tag">{{volume_ricerche}}</span>
+          <span class="tpl-fields__tag">{{cpc}}</span>
+          <span class="tpl-fields__tag">{{budget_ads}}</span>
+          <span class="tpl-fields__tag">{{clienti_stimati}}</span>
+          <span class="tpl-fields__tag">{{data}}</span>
+          <span class="tpl-fields__tag">{{num_preventivo}}</span>
+        </div>
+      </div>
+
+      <div class="tpl-preview">
+        <div class="tpl-preview__label">Anteprima preventivo</div>
+        <div class="email-preview" id="email-performance">
+          <div class="ep-header">
+            <div class="ep-logo">Studio <span>121</span></div>
+            <div class="ep-meta">Proposta n. <span class="tag">{{num_preventivo}}</span> &mdash; <span class="tag">{{data}}</span></div>
+          </div>
+          <div class="ep-body">
+            <div class="ep-greeting">Ciao <span class="tag">{{nome}}</span>,</div>
+            <p>dopo la nostra chiamata ho gia fatto un po' di analisi sui numeri del tuo settore a <span class="tag">{{citta}}</span>. I dati sono interessanti e confermano che c'e spazio per farti arrivare contatti in modo prevedibile.</p>
+
+            <div class="ep-section-title">Il problema</div>
+            <p>Oggi non hai un sistema che ti porta clienti in modo misurabile. Lavori di passaparola &mdash; che funziona, ma non puoi controllarlo, non puoi scalarlo e non puoi prevedere quanti clienti avrai il mese prossimo. Quando il passaparola rallenta, rallenta tutto.</p>
+
+            <div class="ep-section-title">La soluzione</div>
+            <p>Ti propongo un sistema di acquisizione clienti online completo &mdash; Google Ads + Meta Ads + Landing Page dedicata. Tutto misurabile, tutto ottimizzabile mese dopo mese:</p>
+            <ul>
+              <li><strong>Landing page dedicata</strong> &mdash; una pagina progettata per convertire, non un generico sito web</li>
+              <li><strong>Campagna Google Ads</strong> &mdash; per intercettare chi cerca attivamente <span class="tag">{{attivita}}</span> a <span class="tag">{{citta}}</span></li>
+              <li><strong>Campagna Meta Ads</strong> &mdash; per raggiungere il tuo pubblico ideale su Facebook e Instagram</li>
+              <li><strong>Configurazione tracking completo</strong> &mdash; saprai esattamente quanto ti costa ogni contatto</li>
+              <li><strong>Report mensile con KPI</strong> &mdash; costo per contatto, contatti generati, ROI chiaro</li>
+            </ul>
+
+            <div class="ep-section-title">I numeri del tuo settore</div>
+            <div class="ep-highlight-box">
+              <p style="text-align:center; margin:0;"><strong><span class="tag">{{volume_ricerche}}</span> ricerche/mese</strong> per servizi come i tuoi a <span class="tag">{{citta}}</span></p>
+              <p style="text-align:center; margin:8px 0 0;"><strong>CPC medio nel settore:</strong> <span class="tag">{{cpc}}</span> &euro;</p>
+              <p style="text-align:center; margin:8px 0 0; font-size:0.82rem;">Con un budget di <span class="tag">{{budget_ads}}</span> &euro;/mese puoi raggiungere circa <span class="tag">{{clienti_stimati}}</span> persone interessate.</p>
+            </div>
+
+            <div class="ep-section-title">Investimento</div>
+            <div class="ep-highlight-box">
+              <div class="ep-price" style="font-size:1.1rem;">Setup una tantum: 500 &ndash; 800 &euro;</div>
+              <div class="ep-price" style="font-size:1.1rem; margin-top:4px;">Gestione mensile: 300 &ndash; 500 &euro;/mese</div>
+              <div class="ep-price-note" style="margin-top:12px;">+ Budget pubblicitario a parte (consigliato: <span class="tag">{{budget_ads}}</span> &euro;/mese)</div>
+              <p style="text-align:center; margin:12px 0 0; font-size:0.82rem;">Il setup include: landing page, configurazione campagne, tracking, pixel.<br>La gestione include: ottimizzazione, A/B test, report mensile, call di allineamento.</p>
+            </div>
+
+            <div class="ep-section-title">Timeline</div>
+            <div class="ep-timeline">
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Settimana 1-2</div>
+                <div class="ep-timeline-label">Setup completo</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Settimana 3</div>
+                <div class="ep-timeline-label">Primi contatti</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Mese 2-3</div>
+                <div class="ep-timeline-label">Ottimizzazione e scala</div>
+              </div>
+            </div>
+
+            <div class="ep-section-title">Prossimi passi</div>
+            <div class="ep-cta-box">
+              <p>Il sistema e pronto per partire. Serve solo il tuo OK.</p>
+              <strong>Rispondi "OK, partiamo" e in 2 settimane sei online.</strong>
+            </div>
+
+            <div class="ep-validity">Questa proposta e valida per 15 giorni dalla data di invio.</div>
+
+            <div class="ep-ps">
+              <p><strong>P.S.</strong> Con un investimento di <span class="tag">{{budget_ads}}</span> &euro;/mese nel tuo settore, puoi raggiungere <span class="tag">{{clienti_stimati}}</span> persone che cercano attivamente <span class="tag">{{attivita}}</span> a <span class="tag">{{citta}}</span>.</p>
+            </div>
+          </div>
+          <div class="ep-footer">
+            Studio 121 &mdash; Agenzia di Comunicazione &bull; Ragusa<br>
+            studio121.it &bull; info@studio121.it
+          </div>
+        </div>
+      </div>
+
+      <div class="tpl-actions">
+        <button class="btn btn--primary" data-copy-html="email-performance">
+          <span class="btn__icon">&#128203;</span> Copia HTML
+        </button>
+        <button class="btn btn--secondary" data-copy-text="email-performance">
+          <span class="btn__icon">&#128196;</span> Copia Testo
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         TEMPLATE 4: PACCHETTO COMPLETO
+         ============================================================ -->
+    <div class="template-card" id="completo">
+      <div class="tpl-header tpl-header--completo">
+        <div class="tpl-header__icon">&#9889;</div>
+        <div class="tpl-header__text">
+          <div class="tpl-header__number">Template 04</div>
+          <div class="tpl-header__title">Pacchetto Completo</div>
+        </div>
+        <div class="tpl-header__price">5.000 - 8.000 &euro; + gestione</div>
+      </div>
+
+      <div class="tpl-notes">
+        <div class="tpl-note">
+          <span class="tpl-note__label">Quando usarlo</span>
+          <span class="tpl-note__value">Il cliente parte da zero o deve rifare tutto: brand, sito, acquisizione clienti</span>
+        </div>
+        <div class="tpl-note">
+          <span class="tpl-note__label">A chi mandarlo</span>
+          <span class="tpl-note__value">Nuove attivita, imprenditori ambiziosi, chi vuole un sistema chiavi in mano</span>
+        </div>
+      </div>
+
+      <div class="tpl-fields">
+        <div class="tpl-fields__title">Campi da personalizzare</div>
+        <div class="tpl-fields__list">
+          <span class="tpl-fields__tag">{{nome}}</span>
+          <span class="tpl-fields__tag">{{attivita}}</span>
+          <span class="tpl-fields__tag">{{settore}}</span>
+          <span class="tpl-fields__tag">{{citta}}</span>
+          <span class="tpl-fields__tag">{{volume_ricerche}}</span>
+          <span class="tpl-fields__tag">{{budget_ads}}</span>
+          <span class="tpl-fields__tag">{{clienti_stimati}}</span>
+          <span class="tpl-fields__tag">{{valore_cliente}}</span>
+          <span class="tpl-fields__tag">{{data}}</span>
+          <span class="tpl-fields__tag">{{num_preventivo}}</span>
+        </div>
+      </div>
+
+      <div class="tpl-preview">
+        <div class="tpl-preview__label">Anteprima preventivo</div>
+        <div class="email-preview" id="email-completo">
+          <div class="ep-header">
+            <div class="ep-logo">Studio <span>121</span></div>
+            <div class="ep-meta">Proposta n. <span class="tag">{{num_preventivo}}</span> &mdash; <span class="tag">{{data}}</span></div>
+          </div>
+          <div class="ep-body">
+            <div class="ep-greeting">Ciao <span class="tag">{{nome}}</span>,</div>
+            <p>la nostra chiamata mi ha confermato una cosa: hai le idee chiare su dove vuoi portare <span class="tag">{{attivita}}</span>. Quello che ti manca e il sistema per arrivarci. Ecco la mia proposta per costruirlo insieme da zero.</p>
+
+            <div class="ep-section-title">Il problema</div>
+            <p>Oggi parti senza gli strumenti fondamentali: un brand che comunica la tua identita, un sito che genera contatti e un sistema pubblicitario che ti porta clienti nuovi ogni mese. Senza questi tre pilastri, ogni sforzo di marketing e frammentato e poco efficace.</p>
+
+            <div class="ep-section-title">La soluzione</div>
+            <p>Un pacchetto chiavi in mano che costruisce il tuo ecosistema digitale completo &mdash; brand, sito e sistema di acquisizione clienti. Tutto integrato, tutto coerente:</p>
+
+            <h3>&#127912; Fase 1: Brand &amp; Identita</h3>
+            <ul>
+              <li>Analisi posizionamento e competitor</li>
+              <li>3 proposte logo + selezione colori e font</li>
+              <li>Manuale brand, biglietto visita, carta intestata, template social</li>
+            </ul>
+
+            <h3>&#127760; Fase 2: Sito Web</h3>
+            <ul>
+              <li>Design personalizzato coerente con il nuovo brand</li>
+              <li>Fino a 8 pagine ottimizzate per la conversione</li>
+              <li>SEO locale, form contatto, Google Analytics, mobile first</li>
+            </ul>
+
+            <h3>&#128640; Fase 3: Sistema Performance</h3>
+            <ul>
+              <li>Landing page dedicata per le campagne</li>
+              <li>Campagne Google Ads + Meta Ads</li>
+              <li>Tracking completo + report mensile con KPI</li>
+            </ul>
+
+            <div class="ep-section-title">I numeri</div>
+            <div class="ep-highlight-box">
+              <p style="text-align:center; margin:0;"><strong><span class="tag">{{volume_ricerche}}</span> ricerche/mese</strong> nel tuo settore a <span class="tag">{{citta}}</span></p>
+              <p style="text-align:center; margin:8px 0 0; font-size:0.82rem;">Con il pacchetto completo, intercetti queste ricerche con un brand forte, un sito che converte e campagne che portano traffico qualificato.</p>
+            </div>
+
+            <div class="ep-section-title">Investimento</div>
+            <div class="ep-highlight-box">
+              <div class="ep-price">5.000 &ndash; 8.000 &euro;</div>
+              <div class="ep-price-note">Setup completo (Brand + Sito + Configurazione Campagne)</div>
+              <div class="ep-price" style="font-size:1.1rem; margin-top:12px;">+ Gestione mensile: 300 &ndash; 500 &euro;/mese</div>
+              <div class="ep-price-note">+ Budget pubblicitario a parte (consigliato: <span class="tag">{{budget_ads}}</span> &euro;/mese)</div>
+              <p style="text-align:center; margin:16px 0 0; font-size:0.82rem; font-weight:600; color: var(--green);">&#10003; Sconto bundle incluso rispetto ai singoli pacchetti<br>&#10003; Possibilita di pagamento in 3 rate</p>
+            </div>
+
+            <div class="ep-section-title">Timeline</div>
+            <div class="ep-timeline">
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Mese 1</div>
+                <div class="ep-timeline-label">Brand + Sito</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Mese 2</div>
+                <div class="ep-timeline-label">Lancio campagne</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Mese 3</div>
+                <div class="ep-timeline-label">Primi risultati misurabili</div>
+              </div>
+            </div>
+
+            <div class="ep-section-title">Prossimi passi</div>
+            <div class="ep-cta-box">
+              <p>Tutto il sistema, un unico interlocutore, un obiettivo: farti crescere.</p>
+              <strong>Rispondi "OK, partiamo" e costruiamo il tuo ecosistema digitale.</strong>
+            </div>
+
+            <div class="ep-validity">Questa proposta e valida per 15 giorni dalla data di invio.</div>
+
+            <div class="ep-ps">
+              <p><strong>P.S.</strong> Un solo cliente nuovo che vale <span class="tag">{{valore_cliente}}</span> &euro; ripaga una parte significativa dell'investimento. Con questo sistema, non stiamo parlando di un cliente &mdash; ma di un flusso costante.</p>
+            </div>
+          </div>
+          <div class="ep-footer">
+            Studio 121 &mdash; Agenzia di Comunicazione &bull; Ragusa<br>
+            studio121.it &bull; info@studio121.it
+          </div>
+        </div>
+      </div>
+
+      <div class="tpl-actions">
+        <button class="btn btn--primary" data-copy-html="email-completo">
+          <span class="btn__icon">&#128203;</span> Copia HTML
+        </button>
+        <button class="btn btn--secondary" data-copy-text="email-completo">
+          <span class="btn__icon">&#128196;</span> Copia Testo
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         TEMPLATE 5: CONSULENZA STRATEGICA CONTINUATIVA
+         ============================================================ -->
+    <div class="template-card" id="consulenza">
+      <div class="tpl-header tpl-header--consulenza">
+        <div class="tpl-header__icon">&#128161;</div>
+        <div class="tpl-header__text">
+          <div class="tpl-header__number">Template 05</div>
+          <div class="tpl-header__title">Consulenza Strategica Continuativa</div>
+        </div>
+        <div class="tpl-header__price">400 - 800 &euro;/mese</div>
+      </div>
+
+      <div class="tpl-notes">
+        <div class="tpl-note">
+          <span class="tpl-note__label">Quando usarlo</span>
+          <span class="tpl-note__value">Il cliente ha gia sito e brand ma vuole una guida strategica mensile</span>
+        </div>
+        <div class="tpl-note">
+          <span class="tpl-note__label">A chi mandarlo</span>
+          <span class="tpl-note__value">PMI strutturate, chi ha team interni da guidare, chi vuole crescere con metodo</span>
+        </div>
+      </div>
+
+      <div class="tpl-fields">
+        <div class="tpl-fields__title">Campi da personalizzare</div>
+        <div class="tpl-fields__list">
+          <span class="tpl-fields__tag">{{nome}}</span>
+          <span class="tpl-fields__tag">{{attivita}}</span>
+          <span class="tpl-fields__tag">{{citta}}</span>
+          <span class="tpl-fields__tag">{{data}}</span>
+          <span class="tpl-fields__tag">{{num_preventivo}}</span>
+        </div>
+      </div>
+
+      <div class="tpl-preview">
+        <div class="tpl-preview__label">Anteprima preventivo</div>
+        <div class="email-preview" id="email-consulenza">
+          <div class="ep-header">
+            <div class="ep-logo">Studio <span>121</span></div>
+            <div class="ep-meta">Proposta n. <span class="tag">{{num_preventivo}}</span> &mdash; <span class="tag">{{data}}</span></div>
+          </div>
+          <div class="ep-body">
+            <div class="ep-greeting">Ciao <span class="tag">{{nome}}</span>,</div>
+            <p>dalla nostra chiamata e emerso che hai gia gli strumenti base &mdash; sito, brand, magari anche qualche campagna attiva. Quello che ti manca e qualcuno che guardi il quadro completo e ti dica cosa fare, quando farlo e come misurare se sta funzionando.</p>
+
+            <div class="ep-section-title">Il problema</div>
+            <p>Fare marketing senza una guida strategica e come guidare senza navigatore: puoi arrivare a destinazione, ma ci metti il doppio del tempo e sprechi benzina. Hai bisogno di qualcuno che conosca il percorso e ti dica dove girare.</p>
+
+            <div class="ep-section-title">La soluzione</div>
+            <p>Una consulenza strategica continuativa &mdash; il tuo direttore marketing esterno, senza i costi di un dipendente full-time:</p>
+            <ul>
+              <li><strong>2 call strategiche al mese</strong> &mdash; analizziamo i risultati, pianifichiamo le azioni, correggiamo la rotta</li>
+              <li><strong>Report KPI mensile</strong> &mdash; numeri chiari su cosa funziona e cosa no</li>
+              <li><strong>Ottimizzazione campagne</strong> &mdash; miglioriamo continuamente le performance</li>
+              <li><strong>Consulenza su richiesta</strong> &mdash; per decisioni urgenti o opportunita da cogliere al volo</li>
+              <li><strong>Piano d'azione mensile</strong> &mdash; priorita chiare, niente confusione</li>
+            </ul>
+
+            <div class="ep-section-title">I numeri</div>
+            <div class="ep-highlight-box">
+              <p style="text-align:center; margin:0;">Le aziende che investono in <strong>strategia continuativa</strong> ottengono in media il <strong>30% in piu di ROI</strong> rispetto a chi fa interventi spot.</p>
+              <p style="text-align:center; margin:8px 0 0; font-size:0.82rem;">Perche ogni mese migliori, ogni mese impari, ogni mese cresci.</p>
+            </div>
+
+            <div class="ep-section-title">Investimento</div>
+            <div class="ep-highlight-box">
+              <div class="ep-price">400 &ndash; 800 &euro;/mese</div>
+              <div class="ep-price-note">Impegno minimo: 3 mesi (poi rinnovo mensile)</div>
+              <p style="text-align:center; margin:12px 0 0; font-size:0.82rem;">Include: 2 call/mese, report KPI, ottimizzazione campagne, consulenza su richiesta, piano d'azione.<br>Meno di quello che ti costerebbe un errore strategico evitabile.</p>
+            </div>
+
+            <div class="ep-section-title">Timeline</div>
+            <div class="ep-timeline">
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Mese 1</div>
+                <div class="ep-timeline-label">Audit + Piano strategico</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Mese 2-3</div>
+                <div class="ep-timeline-label">Esecuzione + Ottimizzazione</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Dal mese 4</div>
+                <div class="ep-timeline-label">Crescita continua</div>
+              </div>
+            </div>
+
+            <div class="ep-section-title">Prossimi passi</div>
+            <div class="ep-cta-box">
+              <p>Il marketing migliore e quello che migliora ogni mese.</p>
+              <strong>Rispondi "OK, partiamo" e fissiamo la prima call strategica.</strong>
+            </div>
+
+            <div class="ep-validity">Questa proposta e valida per 15 giorni dalla data di invio.</div>
+
+            <div class="ep-ps">
+              <p><strong>P.S.</strong> Il marketing non e un progetto con una fine. E un sistema che migliora ogni mese. La domanda non e "quanto costa iniziare", ma "quanto ti costa aspettare".</p>
+            </div>
+          </div>
+          <div class="ep-footer">
+            Studio 121 &mdash; Agenzia di Comunicazione &bull; Ragusa<br>
+            studio121.it &bull; info@studio121.it
+          </div>
+        </div>
+      </div>
+
+      <div class="tpl-actions">
+        <button class="btn btn--primary" data-copy-html="email-consulenza">
+          <span class="btn__icon">&#128203;</span> Copia HTML
+        </button>
+        <button class="btn btn--secondary" data-copy-text="email-consulenza">
+          <span class="btn__icon">&#128196;</span> Copia Testo
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         TEMPLATE 6: SOCIAL MEDIA STRATEGY
+         ============================================================ -->
+    <div class="template-card" id="social">
+      <div class="tpl-header tpl-header--social">
+        <div class="tpl-header__icon">&#128241;</div>
+        <div class="tpl-header__text">
+          <div class="tpl-header__number">Template 06</div>
+          <div class="tpl-header__title">Social Media Strategy</div>
+        </div>
+        <div class="tpl-header__price">1.200 - 2.000 &euro; una tantum</div>
+      </div>
+
+      <div class="tpl-notes">
+        <div class="tpl-note">
+          <span class="tpl-note__label">Quando usarlo</span>
+          <span class="tpl-note__value">Il cliente posta sui social ma non ottiene risultati &mdash; arriva dalla "social trap"</span>
+        </div>
+        <div class="tpl-note">
+          <span class="tpl-note__label">A chi mandarlo</span>
+          <span class="tpl-note__value">Chi pubblica tanto ma vende poco, chi vuole integrare social con sito e ads</span>
+        </div>
+      </div>
+
+      <div class="tpl-fields">
+        <div class="tpl-fields__title">Campi da personalizzare</div>
+        <div class="tpl-fields__list">
+          <span class="tpl-fields__tag">{{nome}}</span>
+          <span class="tpl-fields__tag">{{attivita}}</span>
+          <span class="tpl-fields__tag">{{settore}}</span>
+          <span class="tpl-fields__tag">{{citta}}</span>
+          <span class="tpl-fields__tag">{{data}}</span>
+          <span class="tpl-fields__tag">{{num_preventivo}}</span>
+        </div>
+      </div>
+
+      <div class="tpl-preview">
+        <div class="tpl-preview__label">Anteprima preventivo</div>
+        <div class="email-preview" id="email-social">
+          <div class="ep-header">
+            <div class="ep-logo">Studio <span>121</span></div>
+            <div class="ep-meta">Proposta n. <span class="tag">{{num_preventivo}}</span> &mdash; <span class="tag">{{data}}</span></div>
+          </div>
+          <div class="ep-body">
+            <div class="ep-greeting">Ciao <span class="tag">{{nome}}</span>,</div>
+            <p>ho capito bene la frustrazione che mi hai descritto in call: investi tempo e energia sui social, ma i risultati in termini di clienti veri sono quasi zero. Non e colpa tua &mdash; e un problema di strategia, non di impegno.</p>
+
+            <div class="ep-section-title">Il problema</div>
+            <p>I social non ti portano clienti perche manca una strategia integrata. Pubblichi contenuti, ma senza un obiettivo chiaro, senza un percorso che porti il follower a diventare cliente e senza collegamento con gli altri canali (sito, ads, email). E la "trappola dei social": tanto lavoro, pochi risultati.</p>
+
+            <div class="ep-section-title">La soluzione</div>
+            <p>Non ti propongo di gestire i tuoi social &mdash; ti propongo di costruire una strategia che li renda efficaci. Un piano che collega i social al resto del tuo marketing:</p>
+            <ul>
+              <li><strong>Audit social attuale</strong> &mdash; analizziamo cosa funziona, cosa no e perche</li>
+              <li><strong>Piano editoriale trimestrale</strong> &mdash; cosa postare, quando, con quale obiettivo</li>
+              <li><strong>Template grafici personalizzati</strong> &mdash; coerenti con il tuo brand, pronti all'uso</li>
+              <li><strong>Strategia integrata</strong> &mdash; come collegare social + sito + ads per generare contatti reali</li>
+              <li><strong>Formazione al team interno</strong> &mdash; perche il tuo team sappia eseguire in autonomia</li>
+            </ul>
+
+            <div class="ep-section-title">I numeri</div>
+            <div class="ep-highlight-box">
+              <p style="text-align:center; margin:0;">Solo il <strong>2-5% dei follower</strong> vede i tuoi post organici.</p>
+              <p style="text-align:center; margin:8px 0 0; font-size:0.82rem;">Per questo i social da soli non bastano. Ma quando diventano parte di un sistema integrato &mdash; con sito, ads e un percorso chiaro &mdash; diventano potentissimi.</p>
+            </div>
+
+            <div class="ep-section-title">Investimento</div>
+            <div class="ep-highlight-box">
+              <div class="ep-price">1.200 &ndash; 2.000 &euro;</div>
+              <div class="ep-price-note">Progetto una tantum per la strategia completa</div>
+              <p style="text-align:center; margin:12px 0 0; font-size:0.82rem;">Include: audit, piano editoriale 3 mesi, template grafici, strategia integrata, formazione team.<br>Opzionale: gestione social continuativa a partire da 400 &euro;/mese.</p>
+            </div>
+
+            <div class="ep-section-title">Timeline</div>
+            <div class="ep-timeline">
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Settimana 1</div>
+                <div class="ep-timeline-label">Audit + Analisi</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Settimana 2-3</div>
+                <div class="ep-timeline-label">Strategia + Piano</div>
+              </div>
+              <div class="ep-timeline-step">
+                <div class="ep-timeline-week">Settimana 4</div>
+                <div class="ep-timeline-label">Template + Formazione</div>
+              </div>
+            </div>
+
+            <div class="ep-section-title">Prossimi passi</div>
+            <div class="ep-cta-box">
+              <p>Basta postare a caso. E ora di avere una strategia.</p>
+              <strong>Rispondi "OK, partiamo" e iniziamo dall'audit.</strong>
+            </div>
+
+            <div class="ep-validity">Questa proposta e valida per 15 giorni dalla data di invio.</div>
+
+            <div class="ep-ps">
+              <p><strong>P.S.</strong> I social funzionano quando sono l'ultimo pezzo di un sistema, non il primo. Con questa strategia, i tuoi social smetteranno di essere un hobby e inizieranno a essere uno strumento di business.</p>
+            </div>
+          </div>
+          <div class="ep-footer">
+            Studio 121 &mdash; Agenzia di Comunicazione &bull; Ragusa<br>
+            studio121.it &bull; info@studio121.it
+          </div>
+        </div>
+      </div>
+
+      <div class="tpl-actions">
+        <button class="btn btn--primary" data-copy-html="email-social">
+          <span class="btn__icon">&#128203;</span> Copia HTML
+        </button>
+        <button class="btn btn--secondary" data-copy-text="email-social">
+          <span class="btn__icon">&#128196;</span> Copia Testo
+        </button>
+      </div>
+    </div>
+
+  </div><!-- /.container .template-section -->
+
+  <!-- ============================================================
+       FOLLOW-UP POST-PREVENTIVO
+       ============================================================ -->
+  <div class="container followup-section" id="followup">
+    <h2 class="section-title">Follow-Up Post-Preventivo</h2>
+    <p class="section-subtitle">3 messaggi per non perdere il contatto. Copiabili con un click.</p>
+
+    <div class="followup-timeline">
+
+      <!-- 48h WhatsApp -->
+      <div class="fu-item">
+        <div class="fu-item__dot fu-item__dot--wa">&#9993;</div>
+        <div class="fu-item__card">
+          <div class="fu-item__when">48 ore dopo l'invio del preventivo</div>
+          <span class="fu-item__channel fu-item__channel--wa">WhatsApp</span>
+          <div class="fu-item__text" id="fu-48h">Ciao <span class="tag">{{nome}}</span>! Ti ho mandato la proposta ieri. Hai avuto modo di guardarla? Se hai domande sono qui &#128522;</div>
+          <div class="fu-item__actions">
+            <button class="btn btn--primary" data-copy-text="fu-48h">
+              <span class="btn__icon">&#128203;</span> Copia
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 giorni WhatsApp -->
+      <div class="fu-item">
+        <div class="fu-item__dot fu-item__dot--wa">&#9993;</div>
+        <div class="fu-item__card">
+          <div class="fu-item__when">5 giorni (se non risponde)</div>
+          <span class="fu-item__channel fu-item__channel--wa">WhatsApp</span>
+          <div class="fu-item__text" id="fu-5d"><span class="tag">{{nome}}</span>, ci ho pensato su e ho un'idea in piu per <span class="tag">{{attivita}}</span> che non ti avevo detto in call. Quando hai 5 minuti ti spiego &mdash; e una cosa che potrebbe fare la differenza nel tuo caso specifico.</div>
+          <div class="fu-item__actions">
+            <button class="btn btn--primary" data-copy-text="fu-5d">
+              <span class="btn__icon">&#128203;</span> Copia
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 giorni Email -->
+      <div class="fu-item">
+        <div class="fu-item__dot fu-item__dot--email">&#9993;</div>
+        <div class="fu-item__card">
+          <div class="fu-item__when">10 giorni (ultimo tentativo)</div>
+          <span class="fu-item__channel fu-item__channel--email">Email</span>
+          <div class="fu-item__subject">Oggetto: "Nessun problema se non e il momento giusto"</div>
+          <div class="fu-item__text" id="fu-10d">Ciao <span class="tag">{{nome}}</span>,<br><br>capisco che le decisioni importanti richiedono tempo. Volevo solo farti sapere che la proposta resta valida fino a [data scadenza].<br><br>Se in futuro vorrai riparlarne, sai dove trovarmi.<br><br>In bocca al lupo per <span class="tag">{{attivita}}</span>!<br><br>Un saluto,<br>Studio 121</div>
+          <div class="fu-item__actions">
+            <button class="btn btn--primary" data-copy-text="fu-10d">
+              <span class="btn__icon">&#128203;</span> Copia
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <p><strong>Studio 121</strong> &mdash; Template Preventivi &bull; Solo uso interno<br>
+    Preventivo in 24h, non in 10 giorni.</p>
+  </footer>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    /* ---- Toast ---- */
+    function showToast(message, type) {
+      var toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = 'toast show' + (type ? ' toast--' + type : '');
+      setTimeout(function() {
+        toast.className = 'toast';
+      }, 2500);
+    }
+
+    /* ---- Button feedback (uses textContent, safe) ---- */
+    function flashButton(btn, label) {
+      var originalText = btn.textContent;
+      var originalClass = btn.className;
+      btn.classList.add('btn--copied');
+      btn.textContent = '\u2713 ' + label;
+      setTimeout(function() {
+        btn.className = originalClass;
+        btn.textContent = originalText;
+      }, 2000);
+    }
+
+    /* ---- Copy HTML (formattato, per incollare in client email) ---- */
+    function copyHTML(elementId, btn) {
+      var el = document.getElementById(elementId);
+      if (!el) {
+        showToast('Elemento non trovato', 'error');
+        return;
+      }
+
+      /* Use Selection API to copy rich text - no innerHTML assignment */
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+
+      try {
+        /* Use Clipboard API with Blob from the existing DOM content */
+        if (navigator.clipboard && navigator.clipboard.write) {
+          /* Read the serialized HTML from the DOM safely via XMLSerializer */
+          var serializer = new XMLSerializer();
+          var htmlContent = serializer.serializeToString(el);
+          var textContent = el.textContent;
+
+          var htmlBlob = new Blob([htmlContent], { type: 'text/html' });
+          var textBlob = new Blob([textContent], { type: 'text/plain' });
+          navigator.clipboard.write([
+            new ClipboardItem({
+              'text/html': htmlBlob,
+              'text/plain': textBlob
+            })
+          ]).then(function() {
+            flashButton(btn, 'Copiato!');
+            showToast('HTML copiato! Incolla nel client email.', 'success');
+          }).catch(function() {
+            /* Fallback: document.execCommand */
+            document.execCommand('copy');
+            flashButton(btn, 'Copiato!');
+            showToast('Contenuto copiato!', 'success');
+          });
+        } else {
+          document.execCommand('copy');
+          flashButton(btn, 'Copiato!');
+          showToast('Contenuto copiato!', 'success');
+        }
+      } catch (err) {
+        showToast('Errore nella copia. Seleziona manualmente.', 'error');
+      }
+
+      selection.removeAllRanges();
+    }
+
+    /* ---- Copy plain text ---- */
+    function copyText(elementId, btn) {
+      var el = document.getElementById(elementId);
+      if (!el) {
+        showToast('Elemento non trovato', 'error');
+        return;
+      }
+
+      var text = el.textContent;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+          flashButton(btn, 'Copiato!');
+          showToast('Testo copiato nella clipboard!', 'success');
+        }).catch(function() {
+          fallbackCopyText(text);
+          flashButton(btn, 'Copiato!');
+          showToast('Testo copiato!', 'success');
+        });
+      } else {
+        fallbackCopyText(text);
+        flashButton(btn, 'Copiato!');
+        showToast('Testo copiato!', 'success');
+      }
+    }
+
+    function fallbackCopyText(text) {
+      var textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+
+    /* ---- Bind copy buttons via data attributes (no inline handlers) ---- */
+    document.addEventListener('DOMContentLoaded', function() {
+      /* Bind "Copia HTML" buttons */
+      var htmlButtons = document.querySelectorAll('[data-copy-html]');
+      htmlButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          copyHTML(btn.getAttribute('data-copy-html'), btn);
+        });
+      });
+
+      /* Bind "Copia Testo" buttons */
+      var textButtons = document.querySelectorAll('[data-copy-text]');
+      textButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          copyText(btn.getAttribute('data-copy-text'), btn);
+        });
+      });
+    });
+
+    /* ---- Active nav link on scroll ---- */
+    (function() {
+      var navLinks = document.querySelectorAll('.nav a[href^="#"]');
+      var sections = [];
+
+      navLinks.forEach(function(link) {
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) sections.push({ link: link, el: target });
+      });
+
+      function updateActiveLink() {
+        var scrollPos = window.scrollY + 100;
+
+        sections.forEach(function(s) {
+          var top = s.el.offsetTop;
+          var bottom = top + s.el.offsetHeight;
+          if (scrollPos >= top && scrollPos < bottom) {
+            navLinks.forEach(function(l) { l.classList.remove('active'); });
+            s.link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveLink, { passive: true });
+      updateActiveLink();
+    })();
+  </script>
+
+</body>
+</html>
