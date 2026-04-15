@@ -3,192 +3,264 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studio 121 — TV Display</title>
+  <title>Studio 121</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root { --o:#d94625; --bg:#0a0a0a }
     * { margin:0; padding:0; box-sizing:border-box }
-    html, body {
-      width: 100%; height: 100vh;
-      overflow: hidden;
-      background: #070709;
-      font-family: 'DM Sans', sans-serif;
-      color: #f5f5f5;
-      -webkit-font-smoothing: antialiased;
+    html, body { width:100%; height:100%; overflow:hidden; background:var(--bg); font-family:'DM Sans',sans-serif; color:#f5f5f5; -webkit-font-smoothing:antialiased }
+
+    .screen { position:relative; width:100vw; height:100vh; overflow:hidden }
+
+    /* === LEFT CONTENT === */
+    .left {
+      position:absolute; top:0; left:0; bottom:0;
+      width:55vw;
+      display:flex; flex-direction:column; justify-content:center;
+      padding:0 5.5vw;
+      z-index:2;
     }
 
-    .screen {
-      position: relative;
-      width: 100vw; height: 100vh;
-      overflow: hidden;
+    .logo-img { height:clamp(32px,4vh,70px); margin-bottom:4vh }
+
+    .badge {
+      display:inline-flex; align-self:flex-start;
+      padding:.5vh 1.2vw;
+      background:rgba(217,70,37,.08);
+      border:1px solid rgba(217,70,37,.15);
+      border-radius:99px;
+      font-size:clamp(9px,.65vw,22px); font-weight:600;
+      color:var(--o);
+      text-transform:uppercase; letter-spacing:.12em;
+      margin-bottom:3vh;
     }
 
-    /* Ambient glows */
-    .glow {
-      position: absolute; pointer-events: none;
-      border-radius: 50%; filter: blur(clamp(80px,12vw,200px)); opacity: .3;
-    }
-    .glow-1 {
-      width: 35vw; height: 35vw;
-      background: radial-gradient(circle, rgba(217,70,37,.4), transparent 70%);
-      top: -8vw; right: -3vw;
-      animation: drift1 20s ease-in-out infinite;
-    }
-    .glow-2 {
-      width: 22vw; height: 22vw;
-      background: radial-gradient(circle, rgba(217,70,37,.15), transparent 70%);
-      bottom: -5vw; left: 8vw;
-      animation: drift2 25s ease-in-out infinite;
-    }
-    @keyframes drift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-3vw,2vw)} }
-    @keyframes drift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(2vw,-1.5vw)} }
-
-    /* Accent line */
-    .accent-line {
-      position: absolute; right: 4.2vw; top: 10vh; bottom: 10vh;
-      width: max(2px, .1vw);
-      background: linear-gradient(180deg, transparent, #d94625 15%, #d94625 85%, transparent);
-      z-index: 1;
-    }
-
-    /* Content */
-    .content {
-      position: relative; z-index: 2;
-      height: 100vh;
-      display: flex; flex-direction: column;
-      justify-content: center;
-      padding: 0 6.2vw;
-    }
-
-    /* Logo */
-    .logo-img {
-      height: clamp(28px, 3.3vh, 64px);
-      margin-bottom: 3.5vh;
-    }
-
-    /* Headline */
     h1 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(32px, 5.5vw, 220px);
-      text-transform: uppercase;
-      line-height: .92;
-      letter-spacing: -.01em;
-      margin-bottom: 3.5vh;
+      font-family:'Anton',sans-serif;
+      font-size:clamp(36px,5.2vw,200px);
+      text-transform:uppercase;
+      line-height:.92;
+      letter-spacing:-.02em;
+      margin-bottom:3vh;
     }
-    h1 .accent { color: #d94625; }
+    h1 .accent { color:var(--o) }
 
-    /* Sub */
     .sub {
-      font-size: clamp(14px, 1.25vw, 52px);
-      color: rgba(245,245,245,.5);
-      font-weight: 300;
-      max-width: 58vw;
-      line-height: 1.65;
-      margin-bottom: 5vh;
+      font-size:clamp(14px,1.15vw,44px);
+      color:rgba(255,255,255,.45);
+      font-weight:300;
+      line-height:1.7;
+      margin-bottom:5vh;
+      max-width:42vw;
     }
 
-    /* Trust row */
-    .trust-row {
-      display: flex;
-      gap: clamp(16px, 2.6vw, 100px);
-    }
+    .trust-row { display:flex; gap:clamp(16px,2vw,80px) }
     .trust-item {
-      font-size: clamp(9px, .73vw, 30px);
-      color: rgba(245,245,245,.3);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      padding-top: clamp(8px, 1.2vh, 24px);
-      border-top: 2px solid rgba(255,255,255,.08);
+      padding-top:clamp(8px,1vh,20px);
+      border-top:2px solid rgba(255,255,255,.08);
+    }
+    .trust-num {
+      font-family:'Anton',sans-serif;
+      font-size:clamp(20px,2vw,76px);
+      color:var(--o); line-height:1;
+    }
+    .trust-lbl {
+      font-size:clamp(8px,.55vw,20px);
+      color:rgba(255,255,255,.25);
+      text-transform:uppercase; letter-spacing:.12em;
+      font-weight:600; margin-top:.3vh;
     }
 
-    /* Logo carousel at bottom */
+    /* === RIGHT VISUAL === */
+    .right {
+      position:absolute; top:0; right:0; bottom:0;
+      width:45vw;
+      display:flex; align-items:center; justify-content:center;
+      z-index:1; overflow:hidden;
+    }
+
+    /* Animated orb composition */
+    .orb-wrap { position:relative; width:32vw; height:32vw }
+
+    .orb {
+      position:absolute; border-radius:50%;
+      border:1px solid rgba(217,70,37,.15);
+    }
+    .orb-1 {
+      width:100%; height:100%;
+      top:0; left:0;
+      border-color:rgba(217,70,37,.08);
+      animation:spin 60s linear infinite;
+    }
+    .orb-2 {
+      width:75%; height:75%;
+      top:12.5%; left:12.5%;
+      border-color:rgba(217,70,37,.12);
+      animation:spin 45s linear infinite reverse;
+    }
+    .orb-3 {
+      width:50%; height:50%;
+      top:25%; left:25%;
+      border-color:rgba(217,70,37,.18);
+      animation:spin 30s linear infinite;
+    }
+    .orb-core {
+      position:absolute;
+      width:28%; height:28%;
+      top:36%; left:36%;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(217,70,37,.2) 0%, rgba(217,70,37,.05) 50%, transparent 70%);
+      filter:blur(20px);
+      animation:pulse 4s ease-in-out infinite;
+    }
+
+    /* Orbit dots */
+    .dot {
+      position:absolute; width:clamp(6px,.4vw,14px); height:clamp(6px,.4vw,14px);
+      border-radius:50%; background:var(--o);
+    }
+    .dot-1 { top:0; left:50%; transform:translateX(-50%); animation:spin 60s linear infinite; transform-origin:0 16vw; opacity:.6 }
+    .dot-2 { top:12.5%; left:85%; animation:spin 45s linear infinite reverse; transform-origin:-5vw 12vw; opacity:.4 }
+    .dot-3 { top:50%; right:0; animation:spin 30s linear infinite; transform-origin:-16vw 0; opacity:.8 }
+    .dot-4 { bottom:20%; left:10%; animation:spin 50s linear infinite reverse; transform-origin:12vw -6vw; opacity:.3 }
+
+    /* Floating labels on orbits */
+    .orbit-label {
+      position:absolute;
+      font-size:clamp(8px,.55vw,18px);
+      font-weight:600;
+      color:rgba(255,255,255,.12);
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      white-space:nowrap;
+    }
+    .ol-1 { top:8%; right:15%; animation:fadeLoop 8s ease-in-out infinite }
+    .ol-2 { bottom:30%; left:5%; animation:fadeLoop 8s ease-in-out infinite 2s }
+    .ol-3 { top:40%; right:5%; animation:fadeLoop 8s ease-in-out infinite 4s }
+    .ol-4 { bottom:12%; right:25%; animation:fadeLoop 8s ease-in-out infinite 6s }
+
+    /* Connection lines */
+    .line {
+      position:absolute; height:1px;
+      background:linear-gradient(90deg, transparent, rgba(217,70,37,.1), transparent);
+    }
+    .line-1 { width:60%; top:35%; left:20%; transform:rotate(-15deg); animation:fadeLoop 6s ease-in-out infinite 1s }
+    .line-2 { width:45%; top:55%; left:10%; transform:rotate(25deg); animation:fadeLoop 6s ease-in-out infinite 3s }
+    .line-3 { width:50%; top:70%; left:30%; transform:rotate(-8deg); animation:fadeLoop 6s ease-in-out infinite 5s }
+
+    @keyframes spin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+    @keyframes pulse { 0%,100%{opacity:.4;transform:scale(1)} 50%{opacity:.7;transform:scale(1.15)} }
+    @keyframes fadeLoop { 0%,100%{opacity:.05} 50%{opacity:.2} }
+
+    /* Background gradient wash */
+    .right::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at center, rgba(217,70,37,.04) 0%, transparent 65%);
+    }
+
+    /* === BOTTOM LOGOS === */
     .logos-bar {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: clamp(16px, 2.5vh, 52px) 0;
-      border-top: 1px solid rgba(255,255,255,.06);
-      background: rgba(7,7,9,.75);
-      backdrop-filter: blur(10px);
-      overflow: hidden;
-      z-index: 3;
+      position:absolute; bottom:0; left:0; right:0; z-index:3;
+      border-top:1px solid rgba(255,255,255,.06);
+      background:rgba(10,10,10,.85);
+      backdrop-filter:blur(12px);
+      padding:clamp(14px,2.2vh,44px) 0;
+      overflow:hidden;
     }
     .logos-label {
-      position: absolute; left: 6.2vw; top: 50%;
-      transform: translateY(-50%);
-      font-size: clamp(8px, .48vw, 20px); font-weight: 600;
-      text-transform: uppercase; letter-spacing: .15em;
-      color: rgba(255,255,255,.18);
-      z-index: 1;
+      position:absolute; left:5.5vw; top:50%; transform:translateY(-50%);
+      font-size:clamp(8px,.5vw,18px); font-weight:600;
+      text-transform:uppercase; letter-spacing:.15em;
+      color:rgba(255,255,255,.15); z-index:1;
     }
     .logos-track {
-      display: flex; gap: clamp(16px, 1.6vw, 64px);
-      animation: scrollLogos 35s linear infinite;
-      padding-left: 16vw;
-      width: max-content;
+      display:flex; gap:clamp(14px,1.2vw,48px);
+      animation:scrollL 28s linear infinite;
+      padding-left:15vw; width:max-content;
     }
-    .logo-item {
-      flex-shrink: 0;
-      padding: clamp(6px, .45vw, 18px) clamp(12px, 1vw, 42px);
-      font-size: clamp(9px, .68vw, 28px); font-weight: 600;
-      color: rgba(255,255,255,.22);
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: clamp(6px, .3vw, 14px);
-      white-space: nowrap;
+    .li {
+      flex-shrink:0;
+      padding:clamp(8px,.55vw,20px) clamp(14px,1.1vw,44px);
+      font-size:clamp(11px,.75vw,28px); font-weight:600;
+      color:rgba(255,255,255,.28);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:clamp(6px,.3vw,12px);
+      white-space:nowrap;
     }
-    @keyframes scrollLogos { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    @keyframes scrollL { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    /* Separator line between left and right */
+    .sep {
+      position:absolute; left:55vw; top:10vh; bottom:10vh;
+      width:1px;
+      background:linear-gradient(180deg, transparent, rgba(255,255,255,.06) 30%, rgba(255,255,255,.06) 70%, transparent);
+      z-index:2;
+    }
   </style>
 </head>
 <body>
 
 <div class="screen">
-  <div class="glow glow-1"></div>
-  <div class="glow glow-2"></div>
-  <div class="accent-line"></div>
+  <div class="sep"></div>
 
-  <div class="content">
+  <!-- LEFT: Content -->
+  <div class="left">
     <img src="https://studio121.it/s121/wp-content/uploads/2020/05/logo-studio121-white.svg" alt="Studio 121" class="logo-img">
 
-    <h1>Il tuo partner<br><span class="accent">per vendere di piu.</span></h1>
+    <div class="badge">Agenzia di comunicazione &middot; Ragusa</div>
 
-    <p class="sub">Strategia, design e risultati misurabili per imprenditori<br>e aziende a Ragusa che vogliono crescere.<br>Non vendiamo creativita. Vendiamo clienti.</p>
+    <h1>Non ti serve<br>un'agenzia.<br><span class="accent">Ti serve un partner.</span></h1>
+
+    <p class="sub">Strategia, design e risultati misurabili per imprenditori e aziende che vogliono crescere. Non vendiamo creativita fine a se stessa. Vendiamo clienti.</p>
 
     <div class="trust-row">
-      <div class="trust-item">50+ Clienti</div>
-      <div class="trust-item">10+ Anni</div>
-      <div class="trust-item">Ragusa, Sicilia</div>
-      <div class="trust-item">Risultati misurabili</div>
+      <div class="trust-item">
+        <div class="trust-num">50+</div>
+        <div class="trust-lbl">Clienti</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">10+</div>
+        <div class="trust-lbl">Anni</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">36K</div>
+        <div class="trust-lbl">Imprese in provincia</div>
+      </div>
     </div>
   </div>
 
+  <!-- RIGHT: Abstract visual -->
+  <div class="right">
+    <div class="orb-wrap">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb-core"></div>
+
+      <div class="dot dot-1"></div>
+      <div class="dot dot-2"></div>
+      <div class="dot dot-3"></div>
+      <div class="dot dot-4"></div>
+
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+
+      <div class="orbit-label ol-1">Strategia</div>
+      <div class="orbit-label ol-2">Design</div>
+      <div class="orbit-label ol-3">Dati</div>
+      <div class="orbit-label ol-4">Risultati</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM: Logo carousel -->
   <div class="logos-bar">
     <div class="logos-label">Si sono affidati a noi</div>
     <div class="logos-track">
-      <div class="logo-item">Amara</div>
-      <div class="logo-item">Ilpav S.p.A.</div>
-      <div class="logo-item">San Giorgio Palace</div>
-      <div class="logo-item">Itria Palace Hotel</div>
-      <div class="logo-item">Gruppo Epas</div>
-      <div class="logo-item">Gruppo TOC</div>
-      <div class="logo-item">Giannone Group</div>
-      <div class="logo-item">Frediani Schinina &amp; Partners</div>
-      <div class="logo-item">Studio Zago &amp; Sammito</div>
-      <div class="logo-item">Giardino sul Duomo</div>
-      <div class="logo-item">Eracle Travels</div>
-      <div class="logo-item">Rossa Sicily</div>
-      <div class="logo-item">Amara</div>
-      <div class="logo-item">Ilpav S.p.A.</div>
-      <div class="logo-item">San Giorgio Palace</div>
-      <div class="logo-item">Itria Palace Hotel</div>
-      <div class="logo-item">Gruppo Epas</div>
-      <div class="logo-item">Gruppo TOC</div>
-      <div class="logo-item">Giannone Group</div>
-      <div class="logo-item">Frediani Schinina &amp; Partners</div>
-      <div class="logo-item">Studio Zago &amp; Sammito</div>
-      <div class="logo-item">Giardino sul Duomo</div>
-      <div class="logo-item">Eracle Travels</div>
-      <div class="logo-item">Rossa Sicily</div>
+      <div class="li">Amara</div><div class="li">Ilpav S.p.A.</div><div class="li">San Giorgio Palace</div><div class="li">Itria Palace Hotel</div><div class="li">Gruppo Epas</div><div class="li">Gruppo TOC</div><div class="li">Giannone Group</div><div class="li">Frediani Schinina &amp; Partners</div><div class="li">Studio Zago &amp; Sammito</div><div class="li">Giardino sul Duomo</div><div class="li">Eracle Travels</div><div class="li">Rossa Sicily</div>
+      <div class="li">Amara</div><div class="li">Ilpav S.p.A.</div><div class="li">San Giorgio Palace</div><div class="li">Itria Palace Hotel</div><div class="li">Gruppo Epas</div><div class="li">Gruppo TOC</div><div class="li">Giannone Group</div><div class="li">Frediani Schinina &amp; Partners</div><div class="li">Studio Zago &amp; Sammito</div><div class="li">Giardino sul Duomo</div><div class="li">Eracle Travels</div><div class="li">Rossa Sicily</div>
     </div>
   </div>
 </div>
