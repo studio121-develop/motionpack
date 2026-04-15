@@ -182,18 +182,16 @@
       color:rgba(255,255,255,.15); z-index:1;
     }
     .logos-track {
-      display:flex; gap:clamp(14px,1.2vw,48px);
-      animation:scrollL 28s linear infinite;
+      display:flex; align-items:center; gap:clamp(20px,2.5vw,80px);
+      animation:scrollL 35s linear infinite;
       padding-left:15vw; width:max-content;
     }
     .li {
       flex-shrink:0;
-      padding:clamp(8px,.55vw,20px) clamp(14px,1.1vw,44px);
-      font-size:clamp(11px,.75vw,28px); font-weight:600;
-      color:rgba(255,255,255,.28);
-      border:1px solid rgba(255,255,255,.07);
-      border-radius:clamp(6px,.3vw,12px);
-      white-space:nowrap;
+      height:clamp(24px,3vh,52px);
+      opacity:.5;
+      filter:brightness(0) invert(1);
+      object-fit:contain;
     }
     @keyframes scrollL { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
@@ -251,8 +249,27 @@
   <div class="logos-bar">
     <div class="logos-label">Si sono affidati a noi</div>
     <div class="logos-track">
-      <div class="li">Amara</div><div class="li">Ilpav S.p.A.</div><div class="li">San Giorgio Palace</div><div class="li">Itria Palace Hotel</div><div class="li">Gruppo Epas</div><div class="li">Gruppo TOC</div><div class="li">Giannone Group</div><div class="li">Frediani Schinina &amp; Partners</div><div class="li">Studio Zago &amp; Sammito</div><div class="li">Giardino sul Duomo</div><div class="li">Eracle Travels</div><div class="li">Rossa Sicily</div>
-      <div class="li">Amara</div><div class="li">Ilpav S.p.A.</div><div class="li">San Giorgio Palace</div><div class="li">Itria Palace Hotel</div><div class="li">Gruppo Epas</div><div class="li">Gruppo TOC</div><div class="li">Giannone Group</div><div class="li">Frediani Schinina &amp; Partners</div><div class="li">Studio Zago &amp; Sammito</div><div class="li">Giardino sul Duomo</div><div class="li">Eracle Travels</div><div class="li">Rossa Sicily</div>
+      <img class="li" src="https://www.amaroamara.com/site/wp-content/uploads/2020/01/amara-svg-white.svg" alt="Amaro Amara">
+      <img class="li" src="https://www.liquoridelletna.it/site/wp-content/uploads/2021/04/logo-liquori.svg" alt="Liquori dell'Etna">
+      <img class="li" src="https://laprimaverasrl.com/site/wp-content/uploads/2024/11/LaPrimavera_logo_no-payoff.png" alt="La Primavera">
+      <img class="li" src="https://www.sangiorgiopalacehotel.it/site/wp-content/uploads/2020/10/logo-sangiorgio-white.svg" alt="San Giorgio Palace">
+      <img class="li" src="https://ilpav.it/site/wp-content/uploads/2021/09/logo-ilpav-white.svg" alt="Ilpav S.p.A.">
+      <img class="li" src="https://www.plasticontenitor.it/images/logo-plasticontenitor.png" alt="Plasticontenitor">
+      <img class="li" src="https://www.medicareonline.it/site/wp-content/uploads/2025/12/logo40-h.svg" alt="Medi Care">
+      <img class="li" src="https://otticaspoto.it/wp-content/uploads/2021/03/logo.png" alt="Ottica Spoto">
+      <img class="li" src="https://www.schinina.com/assets/img/menu/logo.svg?v=1759500854" alt="Frediani Schinina & Partners">
+      <img class="li" src="https://www.lemagasinragusa.it/s/misc/logo.png?t=1775019571" alt="Le Magasin">
+      <!-- Duplicate for infinite scroll -->
+      <img class="li" src="https://www.amaroamara.com/site/wp-content/uploads/2020/01/amara-svg-white.svg" alt="Amaro Amara">
+      <img class="li" src="https://www.liquoridelletna.it/site/wp-content/uploads/2021/04/logo-liquori.svg" alt="Liquori dell'Etna">
+      <img class="li" src="https://laprimaverasrl.com/site/wp-content/uploads/2024/11/LaPrimavera_logo_no-payoff.png" alt="La Primavera">
+      <img class="li" src="https://www.sangiorgiopalacehotel.it/site/wp-content/uploads/2020/10/logo-sangiorgio-white.svg" alt="San Giorgio Palace">
+      <img class="li" src="https://ilpav.it/site/wp-content/uploads/2021/09/logo-ilpav-white.svg" alt="Ilpav S.p.A.">
+      <img class="li" src="https://www.plasticontenitor.it/images/logo-plasticontenitor.png" alt="Plasticontenitor">
+      <img class="li" src="https://www.medicareonline.it/site/wp-content/uploads/2025/12/logo40-h.svg" alt="Medi Care">
+      <img class="li" src="https://otticaspoto.it/wp-content/uploads/2021/03/logo.png" alt="Ottica Spoto">
+      <img class="li" src="https://www.schinina.com/assets/img/menu/logo.svg?v=1759500854" alt="Frediani Schinina & Partners">
+      <img class="li" src="https://www.lemagasinragusa.it/s/misc/logo.png?t=1775019571" alt="Le Magasin">
     </div>
   </div>
 </div>
