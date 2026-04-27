@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategy Brief — Studio 121</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f1ece8;
+  color: #253441;
+  line-height: 1.5;
+  padding: 32px 16px;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(37,52,65,0.08);
+  overflow: hidden;
+}
+.header {
+  background: #253441;
+  color: #fff;
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.header .brand {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 4px;
+}
+.header .meta {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.85);
+  text-align: right;
+}
+.body {
+  padding: 32px 40px 24px;
+}
+.section {
+  border-bottom: 1px solid rgba(37,52,65,0.08);
+  padding: 20px 0 24px;
+}
+.section:last-child { border-bottom: none; }
+.section h2 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: #d94625;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section h2 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #d94625;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px 20px; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #6a7a86;
+  font-weight: 600;
+}
+.field input, .field textarea, .field select {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  padding: 6px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #253441;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  border-bottom-color: #d94625;
+}
+.field textarea {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  resize: vertical;
+  min-height: 60px;
+  font-size: 0.9rem;
+}
+.field-full { grid-column: 1 / -1; }
+.lead {
+  font-size: 0.9rem;
+  color: #4a5d6c;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.helpline {
+  font-size: 0.75rem;
+  color: #6a7a86;
+  margin-top: 4px;
+  font-style: italic;
+}
+.calc-box {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 12px;
+}
+.calc-box .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.9rem;
+}
+.calc-box .row.total {
+  border-top: 2px solid #d94625;
+  margin-top: 8px;
+  padding-top: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #d94625;
+}
+.calc-box .row .formula {
+  color: #6a7a86;
+  font-size: 0.8rem;
+}
+.decision {
+  background: #253441;
+  color: #fff;
+  padding: 24px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.decision-btn {
+  background: rgba(255,255,255,0.06);
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 14px 8px;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.decision-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.4); }
+.decision-btn.active.go { background: #4caf50; border-color: #4caf50; }
+.decision-btn.active.review { background: #ff9800; border-color: #ff9800; }
+.decision-btn.active.no { background: #d94625; border-color: #d94625; }
+.toolbar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  z-index: 100;
+}
+.toolbar button {
+  background: #d94625;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(217,70,37,0.3);
+  transition: all 0.2s;
+}
+.toolbar button:hover { background: #c23d20; transform: translateY(-2px); }
+.toolbar button.secondary {
+  background: #253441;
+}
+.toolbar button.secondary:hover { background: #1a2630; }
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  align-items: end;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(37,52,65,0.1);
+}
+.kpi-row:last-child { border-bottom: none; }
+.checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+}
+.check-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 0.88rem;
+}
+.check-item input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+  accent-color: #d94625;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .grid-2, .grid-3, .decision { grid-template-columns: 1fr; }
+  .body { padding: 24px 24px; }
+  .header { padding: 24px; }
+  .checklist { grid-template-columns: 1fr; }
+}
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .container { box-shadow: none; border-radius: 0; }
+  .toolbar { display: none; }
+  .field input, .field textarea { border-color: #aaa; }
+  .section { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <div>
+      <div class="brand">Studio 121 — Strategy Brief</div>
+      <h1>Brief Strategico Cliente</h1>
+    </div>
+    <div class="meta">
+      <div>Data: <input type="date" id="briefDate" style="background:transparent;border:none;color:#fff;font-family:Poppins;font-size:0.85rem"></div>
+      <div>Brief #: <input type="text" placeholder="000" style="background:transparent;border:none;color:#fff;font-family:Poppins;font-size:0.85rem;width:60px;border-bottom:1px solid rgba(255,255,255,0.3)"></div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- 1. CLIENTE -->
+    <div class="section">
+      <h2><span class="num">1</span>Cliente</h2>
+      <div class="grid-2">
+        <div class="field"><label>Nome attività</label><input type="text" placeholder="Es. Ristorante Da Carmelo"></div>
+        <div class="field"><label>Settore</label><input type="text" placeholder="Es. Ristorazione / B&B / Studio dentistico"></div>
+        <div class="field"><label>Città</label><input type="text" placeholder="Ragusa, Modica, Vittoria..."></div>
+        <div class="field"><label>Referente</label><input type="text" placeholder="Nome titolare"></div>
+        <div class="field"><label>Telefono</label><input type="tel" placeholder="+39..."></div>
+        <div class="field"><label>Email</label><input type="email"></div>
+      </div>
+    </div>
+
+    <!-- 2. DIAGNOSI BUSINESS -->
+    <div class="section">
+      <h2><span class="num">2</span>Diagnosi Business (cosa fa il cliente)</h2>
+      <p class="lead">La strategia parte dal capire il business, non dalle keyword.</p>
+      <div class="grid-2">
+        <div class="field field-full"><label>Chi è il cliente tipo? (target reale, non generico)</label><textarea placeholder="Es. Coppia 35-55 anni, turisti dal nord Italia, alto-spendenti, cercano esperienza autentica siciliana"></textarea></div>
+        <div class="field field-full"><label>Come l'hanno trovato gli ultimi 10 clienti?</label><textarea placeholder="Es. 5 da Booking, 2 passaparola, 2 Instagram, 1 Google"></textarea></div>
+        <div class="field field-full"><label>Cosa chiedono al telefono / cosa vogliono sapere prima di prenotare?</label><textarea placeholder="Es. Se hanno camere con vista, parcheggio, opzioni vegane..."></textarea></div>
+        <div class="field field-full"><label>Concorrenti diretti che il cliente menziona</label><textarea placeholder="Es. Hotel X a Marina, B&B Y a Ibla..."></textarea></div>
+      </div>
+    </div>
+
+    <!-- 3. INTENT MATCHING -->
+    <div class="section">
+      <h2><span class="num">3</span>Intent Matching (cosa cerca il target)</h2>
+      <p class="lead">Le 3-5 keyword cluster principali con relativo intent.</p>
+      <div class="kpi-row" style="font-weight:600;color:#6a7a86;font-size:0.7rem;text-transform:uppercase">
+        <div>Keyword cluster</div><div>Intent</div><div>Priorità</div>
+      </div>
+      <div class="kpi-row">
+        <div class="field"><input type="text" placeholder="Es. ristorante ragusa"></div>
+        <div class="field"><select><option>Commercial</option><option>Transactional</option><option>Informational</option><option>Navigational</option></select></div>
+        <div class="field"><select><option>Alta</option><option>Media</option><option>Bassa</option></select></div>
+      </div>
+      <div class="kpi-row">
+        <div class="field"><input type="text" placeholder="Es. dove mangiare ragusa ibla"></div>
+        <div class="field"><select><option>Commercial</option><option>Transactional</option><option>Informational</option><option>Navigational</option></select></div>
+        <div class="field"><select><option>Alta</option><option>Media</option><option>Bassa</option></select></div>
+      </div>
+      <div class="kpi-row">
+        <div class="field"><input type="text" placeholder="Es. ristorante pesce ragusa"></div>
+        <div class="field"><select><option>Commercial</option><option>Transactional</option><option>Informational</option><option>Navigational</option></select></div>
+        <div class="field"><select><option>Alta</option><option>Media</option><option>Bassa</option></select></div>
+      </div>
+      <div class="kpi-row">
+        <div class="field"><input type="text" placeholder="Aggiungi cluster..."></div>
+        <div class="field"><select><option>Commercial</option><option>Transactional</option><option>Informational</option><option>Navigational</option></select></div>
+        <div class="field"><select><option>Alta</option><option>Media</option><option>Bassa</option></select></div>
+      </div>
+    </div>
+
+    <!-- 4. UNIT ECONOMICS -->
+    <div class="section">
+      <h2><span class="num">4</span>Unit Economics (i numeri che decidono)</h2>
+      <p class="lead">Se il ROI stimato è &gt; 3x, il progetto vale. Sotto, no.</p>
+      <div class="grid-3">
+        <div class="field"><label>CPC stimato (€)</label><input type="number" id="cpc" placeholder="0.20" step="0.01" oninput="calc()"></div>
+        <div class="field"><label>Conversion Rate landing (%)</label><input type="number" id="cr" placeholder="5" step="0.5" oninput="calc()"></div>
+        <div class="field"><label>Valore cliente medio (€)</label><input type="number" id="ltv" placeholder="75" oninput="calc()"></div>
+      </div>
+      <div class="calc-box">
+        <div class="row"><span>Costo per Cliente Acquisito (CAC)</span><span><span class="formula">CPC / CR</span> &nbsp; <strong id="cac">—</strong> €</span></div>
+        <div class="row"><span>ROI per cliente</span><span><span class="formula">LTV / CAC</span> &nbsp; <strong id="roi">—</strong> x</span></div>
+        <div class="row total"><span>Verdetto</span><span id="verdict">Compila i campi sopra</span></div>
+      </div>
+    </div>
+
+    <!-- 5. STRATEGIA PROPOSTA -->
+    <div class="section">
+      <h2><span class="num">5</span>Strategia Proposta</h2>
+      <p class="lead">Quali canali. Niente di più, niente di meno.</p>
+      <div class="grid-2">
+        <div class="field field-full"><label>Canale primario (quello che porta più clienti)</label><textarea placeholder="Es. Google Business Profile + recensioni + sistema review automation"></textarea></div>
+        <div class="field field-full"><label>Canale secondario (supporto + scaling)</label><textarea placeholder="Es. Google Ads geo-Ragusa + landing dedicata"></textarea></div>
+        <div class="field field-full"><label>Cosa NON facciamo (e perché)</label><textarea placeholder="Es. Niente social media management — i social non portano prenotazioni in questo settore"></textarea></div>
+      </div>
+    </div>
+
+    <!-- 6. TEST PLAN -->
+    <div class="section">
+      <h2><span class="num">6</span>Test Plan (validation by launch)</h2>
+      <p class="lead">Prima di scalare, validiamo con un test piccolo.</p>
+      <div class="grid-3">
+        <div class="field"><label>Budget test (€)</label><input type="number" placeholder="30"></div>
+        <div class="field"><label>Durata (giorni)</label><input type="number" placeholder="7"></div>
+        <div class="field"><label>Match type</label><select><option>Exact</option><option>Phrase</option><option>Broad</option></select></div>
+        <div class="field field-full"><label>Keyword da testare (3-5 max)</label><textarea placeholder="[ristorante ragusa], [ristorante ragusa ibla], [ristorante pesce ragusa]"></textarea></div>
+      </div>
+    </div>
+
+    <!-- 7. SUCCESS METRICS -->
+    <div class="section">
+      <h2><span class="num">7</span>Success Metrics</h2>
+      <p class="lead">I numeri che ci dicono SE STA FUNZIONANDO.</p>
+      <div class="grid-3">
+        <div class="field"><label>Lead/mese target</label><input type="text" placeholder="10"></div>
+        <div class="field"><label>Costo per Lead max</label><input type="text" placeholder="15€"></div>
+        <div class="field"><label>Tempo per primi risultati</label><input type="text" placeholder="2-3 settimane"></div>
+      </div>
+    </div>
+
+    <!-- 8. INVESTIMENTO -->
+    <div class="section">
+      <h2><span class="num">8</span>Investimento</h2>
+      <div class="grid-3">
+        <div class="field"><label>Setup una tantum (€)</label><input type="number" placeholder="800"></div>
+        <div class="field"><label>Retainer mensile (€)</label><input type="number" placeholder="500"></div>
+        <div class="field"><label>Budget Ads/mese (€)</label><input type="number" placeholder="300"></div>
+      </div>
+    </div>
+
+    <!-- 9. CHECKLIST PRE-LANCIO -->
+    <div class="section">
+      <h2><span class="num">9</span>Checklist Pre-Lancio</h2>
+      <div class="checklist">
+        <div class="check-item"><input type="checkbox"> <span>Google Business Profile verificato e ottimizzato</span></div>
+        <div class="check-item"><input type="checkbox"> <span>Conversion tracking attivo (GA4 + Tag Manager)</span></div>
+        <div class="check-item"><input type="checkbox"> <span>Landing page brand-coherent live</span></div>
+        <div class="check-item"><input type="checkbox"> <span>Form collegato a CRM (Brevo)</span></div>
+        <div class="check-item"><input type="checkbox"> <span>WhatsApp Business attivo + risponditore</span></div>
+        <div class="check-item"><input type="checkbox"> <span>Telefono cliccabile, P.IVA, indirizzo reali</span></div>
+        <div class="check-item"><input type="checkbox"> <span>Sequenza follow-up email + WhatsApp pronta</span></div>
+        <div class="check-item"><input type="checkbox"> <span>Template preventivo settore pre-compilato</span></div>
+      </div>
+    </div>
+
+    <!-- 10. NOTE STRATEGICHE -->
+    <div class="section">
+      <h2><span class="num">10</span>Note Strategiche</h2>
+      <div class="field field-full"><textarea rows="4" placeholder="Note libere: stagionalità, opportunità specifiche, rischi, follow-up..."></textarea></div>
+    </div>
+
+  </div>
+
+  <!-- DECISIONE -->
+  <div class="decision">
+    <button class="decision-btn go" onclick="setDecision(this, 'go')">✓ GO — Procediamo</button>
+    <button class="decision-btn review" onclick="setDecision(this, 'review')">⟳ Da Rivedere</button>
+    <button class="decision-btn no" onclick="setDecision(this, 'no')">✗ NO-GO — Non vale</button>
+  </div>
+
+</div>
+
+<div class="toolbar">
+  <button class="secondary" onclick="window.print()">🖨 Stampa</button>
+  <button onclick="saveLocal()">💾 Salva</button>
+</div>
+
+<script>
+function calc() {
+  const cpc = parseFloat(document.getElementById('cpc').value) || 0;
+  const cr = parseFloat(document.getElementById('cr').value) || 0;
+  const ltv = parseFloat(document.getElementById('ltv').value) || 0;
+  if (cpc > 0 && cr > 0 && ltv > 0) {
+    const cac = cpc / (cr / 100);
+    const roi = ltv / cac;
+    document.getElementById('cac').textContent = cac.toFixed(2);
+    document.getElementById('roi').textContent = roi.toFixed(1);
+    let verdict = '';
+    if (roi >= 5) verdict = '✓ ECCELLENTE — Procediamo subito';
+    else if (roi >= 3) verdict = '✓ BUONO — Vale la pena';
+    else if (roi >= 1.5) verdict = '⚠ MARGINALE — Da ottimizzare';
+    else verdict = '✗ NON VALE — Cerchiamo altri canali';
+    document.getElementById('verdict').textContent = verdict;
+  }
+}
+function setDecision(btn, type) {
+  document.querySelectorAll('.decision-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active', type);
+}
+function saveLocal() {
+  const data = {};
+  document.querySelectorAll('input, textarea, select').forEach(el => {
+    if (el.id) data[el.id] = el.value;
+    else data[el.placeholder || el.name || Math.random()] = el.value;
+  });
+  localStorage.setItem('strategy_brief_' + Date.now(), JSON.stringify(data));
+  alert('Brief salvato in locale ✓');
+}
+document.getElementById('briefDate').valueAsDate = new Date();
+</script>
+
+</body>
+</html>
