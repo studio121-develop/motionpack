@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piu Clienti per la Tua Attivita a Ragusa | Studio 121</title>
+    <meta name="description" content="Studio 121 — Agenzia di Ragusa. Ti portiamo clienti misurabili: solo numeri concreti, niente promesse vaghe. Consulenza strategica gratuita.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.studio121.it/piu-clienti">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Studio 121",
+        "description": "Agenzia di marketing digitale a Ragusa. Portiamo clienti misurabili alle attivita locali.",
+        "url": "https://www.studio121.it",
+        "telephone": "+39XXXXXXXXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ragusa",
+            "addressRegion": "RG",
+            "addressCountry": "IT"
+        },
+        "areaServed": "Ragusa"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Come fate a portare piu clienti alla mia attivita?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Intercettiamo le persone che stanno gia cercando i tuoi servizi su Google. Con un sito ottimizzato e campagne mirate, portiamo il traffico giusto alla tua attivita e lo convertiamo in contatti reali."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "In quanto tempo vedo i primi risultati?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Con le campagne a pagamento, i primi contatti arrivano entro le prime settimane. Il posizionamento organico richiede 2-4 mesi per i primi risultati significativi."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come posso misurare i risultati?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ti forniamo report mensili con dati chiari: quante persone hanno visitato il sito, quante ti hanno contattato, da dove arrivano. Numeri, non sensazioni."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Funziona anche per la mia zona?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si. Lavoriamo su tutta la provincia di Ragusa e conosciamo le dinamiche del mercato locale. I dati di ricerca che utilizziamo sono specifici per il territorio ragusano."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --rosso: #d94625;
+            --rosso-hover: #c23d20;
+            --blu-scuro: #253441;
+            --blu-alt: #2e4252;
+            --beige: #f1ece8;
+            --footer-dark: #1a2630;
+            --text-secondary: #4a5d6c;
+            --text-muted: #566a78;
+            --white: #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--blu-scuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--rosso);
+            color: var(--white);
+            padding: 22px 40px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        .cta-btn:hover {
+            background: var(--rosso-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(217,70,37,0.3);
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(217,70,37,0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(217,70,37,0); }
+        }
+        .cta-pulse { animation: pulse 2.5s infinite; }
+
+        /* HERO MASSIVO */
+        .hero {
+            background: var(--blu-scuro);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(217,70,37,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content { position: relative; max-width: 900px; }
+        .hero-mega-number {
+            font-size: clamp(5rem, 14vw, 12rem);
+            font-weight: 800;
+            color: var(--rosso);
+            line-height: 1;
+            margin-bottom: 8px;
+            letter-spacing: -3px;
+        }
+        .hero h1 {
+            font-size: clamp(1.3rem, 2.5vw, 2rem);
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 32px;
+            color: rgba(255,255,255,0.85);
+        }
+        .hero h1 strong {
+            color: var(--white);
+            font-weight: 700;
+        }
+        .hero .hero-sub {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        /* SECTIONS */
+        .section-white { background: var(--white); padding: 80px 0; }
+        .section-dark { background: var(--blu-scuro); color: var(--white); padding: 80px 0; }
+        .section-beige { background: var(--beige); padding: 80px 0; }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--rosso);
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 640px;
+            font-weight: 300;
+        }
+        .section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
+
+        .shape-divider { width: 100%; overflow: hidden; line-height: 0; }
+        .shape-divider svg { display: block; width: 100%; height: 60px; }
+
+        /* SCENARI SETTORE */
+        .scenari-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .scenario-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 36px;
+            border: 1px solid rgba(37,52,65,0.06);
+            box-shadow: 0 2px 12px rgba(37,52,65,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .scenario-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37,52,65,0.1);
+        }
+        .scenario-card .scenario-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .scenario-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--blu-scuro);
+            margin-bottom: 12px;
+        }
+        .scenario-card .scenario-stat {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--rosso);
+            margin-bottom: 4px;
+        }
+        .scenario-card .scenario-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .scenario-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .scenario-card .scenario-cpc {
+            display: inline-block;
+            margin-top: 12px;
+            background: var(--beige);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--blu-scuro);
+        }
+
+        /* EMPATIA */
+        .empatia-text {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .empatia-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .section-dark .empatia-text p { color: rgba(255,255,255,0.75); }
+        .empatia-text .big-quote {
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.4;
+            margin: 32px 0;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* COME FUNZIONA */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .step-card {
+            text-align: center;
+            padding: 32px 24px;
+        }
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background: var(--rosso);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .step-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--blu-scuro);
+        }
+        .step-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* TESTIMONIAL */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .testimonial-card {
+            border-left: 3px solid var(--rosso);
+            padding: 28px 28px 28px 24px;
+            background: var(--white);
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 12px rgba(37,52,65,0.06);
+        }
+        .testimonial-card p {
+            font-size: 1rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .testimonial-card .author { font-weight: 600; font-style: normal; color: var(--blu-scuro); font-size: 0.9rem; }
+        .testimonial-card .role { font-size: 0.8rem; color: var(--text-muted); font-style: normal; }
+
+        /* FORM */
+        .form-section { text-align: center; }
+        .form-wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(37,52,65,0.1);
+        }
+        .form-wrapper h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--blu-scuro);
+        }
+        .form-field {
+            width: 100%;
+            padding: 16px 0;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 2px solid rgba(37,52,65,0.15);
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--blu-scuro);
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+        .form-field::placeholder { color: var(--text-muted); }
+        .form-field:focus { border-bottom-color: var(--rosso); }
+        .form-wrapper .cta-btn { width: 100%; margin-top: 8px; }
+
+        /* FAQ */
+        .faq-list { max-width: 700px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0; }
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--white);
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--rosso);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        .faq-item.open .faq-question::after { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.7;
+        }
+        .faq-item.open .faq-answer { max-height: 300px; padding-top: 16px; }
+
+        /* FOOTER */
+        footer {
+            background: var(--footer-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 48px 0 32px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--rosso); text-decoration: none; }
+        footer .footer-brand { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+        footer p { margin-bottom: 8px; }
+        footer .footer-links { margin: 16px 0; }
+        footer .footer-links a { margin: 0 12px; color: rgba(255,255,255,0.6); }
+        footer .footer-links a:hover { color: var(--rosso); }
+
+        .cta-bar { text-align: center; padding: 48px 24px; }
+        .cta-bar p { font-size: 1.1rem; margin-bottom: 24px; font-weight: 300; }
+        .section-dark .cta-bar p { color: rgba(255,255,255,0.75); }
+
+        @media (max-width: 768px) {
+            .hero { min-height: auto; padding: 60px 24px; }
+            .hero-mega-number { font-size: 5rem; letter-spacing: -1px; }
+            .scenari-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .section-white, .section-dark, .section-beige { padding: 56px 0; }
+            .form-wrapper { padding: 28px 20px; }
+            .cta-btn { padding: 18px 32px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO MASSIVO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-mega-number">36.000+</div>
+            <h1>imprese nella provincia di Ragusa.<br><strong>Quante stanno crescendo davvero?</strong></h1>
+            <p class="hero-sub">Ogni giorno, migliaia di persone cercano online prodotti e servizi locali. Ti aiutiamo a intercettarle e trasformarle in clienti reali. Con i numeri, non con le promesse.</p>
+            <a href="#form" class="cta-btn cta-pulse">Prenota consulenza gratuita</a>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--blu-scuro);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--beige);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- SCENARI SETTORE -->
+    <section class="section-beige">
+        <div class="container">
+            <h2 class="section-title fade-in" style="text-align: center;">Cosa significa "performance" per noi</h2>
+            <p class="section-subtitle fade-in" style="text-align: center; margin: 0 auto 20px;">Niente jargon tecnico, niente promesse vaghe. Solo un sistema che ti porta richieste qualificate ogni mese. E te lo dimostriamo con i numeri.</p>
+            <div class="scenari-grid">
+                <div class="scenario-card fade-in">
+                    <span class="scenario-icon" role="img" aria-label="target">&#127919;</span>
+                    <h3>Intercettiamo chi ti cerca</h3>
+                    <p>I tuoi clienti potenziali stanno gia cercando online cio che offri. Il problema non e generare interesse, e farsi trovare. Costruiamo i canali giusti per arrivare davanti a loro nel momento esatto della scelta.</p>
+                </div>
+                <div class="scenario-card fade-in">
+                    <span class="scenario-icon" role="img" aria-label="grafico">&#128202;</span>
+                    <h3>Misuriamo tutto</h3>
+                    <p>Ogni telefonata, ogni messaggio, ogni richiesta dal sito viene tracciata. Sai sempre quanto stai investendo, quanti contatti arrivano e quanto ti costa ognuno. Niente "secondo me funziona", solo dati.</p>
+                </div>
+                <div class="scenario-card fade-in">
+                    <span class="scenario-icon" role="img" aria-label="conversione">&#128640;</span>
+                    <h3>Trasformiamo visite in clienti</h3>
+                    <p>Generare traffico e facile. La differenza la fa convertire quel traffico in richieste reali. Ottimizziamo ogni passaggio del percorso: dall'annuncio al primo contatto, dalla telefonata alla chiusura.</p>
+                </div>
+                <div class="scenario-card fade-in">
+                    <span class="scenario-icon" role="img" aria-label="report">&#128203;</span>
+                    <h3>Report mensile chiaro</h3>
+                    <p>Ogni mese ricevi un documento che dice: hai investito X, sono arrivati Y contatti, costano Z ognuno. Decidi tu se continuare, scalare, o fermarti. Trasparenza totale, nessun vincolo a lungo termine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--blu-scuro);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- EMPATIA -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="empatia-text fade-in">
+                <p>Lo sappiamo. Hai gia provato a investire in marketing. Un volantino qui, un post la. Magari anche un sito web che pero non ti porta nulla.</p>
+                <p>Il problema non e la tua attivita. Il problema e che i tuoi clienti ti cercano su Google e non ti trovano. Oppure trovano i tuoi competitor.</p>
+                <div class="big-quote">Ti portiamo clienti. Misurabili. Ogni mese.</div>
+                <p>Niente promesse vaghe. Numeri concreti, tracciabili, verificabili. Sai esattamente quanti contatti arrivano e da dove vengono.</p>
+            </div>
+            <div class="cta-bar fade-in">
+                <a href="#form" class="cta-btn">Voglio clienti misurabili</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--blu-scuro);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--white);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- COME FUNZIONA -->
+    <section class="section-white">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title fade-in">Come lavoriamo</h2>
+            <p class="section-subtitle fade-in" style="margin: 0 auto 20px;">Un processo chiaro in tre fasi. Dall'analisi ai risultati.</p>
+            <div class="steps-grid">
+                <div class="step-card fade-in">
+                    <div class="step-num">1</div>
+                    <h3>Analizziamo</h3>
+                    <p>Studiamo il tuo settore, le keyword locali, i competitor e le opportunita. Ti mostriamo i dati reali.</p>
+                </div>
+                <div class="step-card fade-in">
+                    <div class="step-num">2</div>
+                    <h3>Costruiamo</h3>
+                    <p>Realizziamo il sito, le campagne, la strategia. Tutto ottimizzato per portare contatti dal territorio.</p>
+                </div>
+                <div class="step-card fade-in">
+                    <div class="step-num">3</div>
+                    <h3>Misuriamo</h3>
+                    <p>Report mensili chiari. Sai esattamente quanti contatti hai ricevuto, quanto hai investito, qual e il ritorno.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--beige);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- TESTIMONIAL -->
+    <section class="section-beige">
+        <div class="container">
+            <h2 class="section-title fade-in">Cosa dicono di noi</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <p>"Per la prima volta so esattamente quanti clienti mi arrivano dal sito e dalle campagne. Non e piu una scommessa, sono numeri reali che posso verificare ogni mese."</p>
+                    <div class="author">Roberto C.</div>
+                    <div class="role">Titolare B&amp;B, Ragusa Ibla</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"Ero scettico perche avevo gia provato con altri. Studio 121 mi ha mostrato prima i dati, poi ha costruito la strategia. I risultati si vedono."</p>
+                    <div class="author">Daniela F.</div>
+                    <div class="role">Titolare ristorante, Scicli</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--beige);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--white);">
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FORM -->
+    <section class="section-white" id="form">
+        <div class="container form-section">
+            <h2 class="section-title fade-in">Prenota la consulenza gratuita</h2>
+            <p class="section-subtitle fade-in" style="margin: 0 auto 40px;">30 minuti per capire dove sei, dove vuoi arrivare, e se possiamo aiutarti. Senza impegno.</p>
+            <div class="form-wrapper fade-in">
+                <h3>Lasciaci i tuoi contatti</h3>
+                <!-- TODO: sostituire action con endpoint Formspree (https://formspree.io/f/XXXXXXXX) o Brevo -->
+                <form id="leadForm" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST">
+                    <input type="text" name="nome" class="form-field" placeholder="Il tuo nome" required>
+                    <input type="tel" name="telefono" class="form-field" placeholder="Numero di telefono" required>
+                    <input type="email" name="email" class="form-field" placeholder="Email" required>
+                    <input type="text" name="attivita" class="form-field" placeholder="Tipo di attivita (es. ristorante, B&amp;B, dentista...)" required>
+                    <input type="hidden" name="_subject" value="Nuovo lead Performance Studio 121">
+                    <input type="hidden" name="_redirect" value="https://motionpack.vercel.app/studio121-landing/grazie.html">
+                    <button type="submit" class="cta-btn cta-pulse">Prenota consulenza gratuita</button>
+                </form>
+                <p style="margin-top: 16px; font-size: 0.8rem; color: var(--text-muted); text-align: center;">Ti rispondiamo entro 24h. I tuoi dati sono trattati secondo la nostra privacy policy.</p>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.85rem; color: var(--text-muted);">
+                Oppure scrivici subito: <a href="https://wa.me/39XXXXXXXXXX?text=Ciao%2C%20vorrei%20info%20sulla%20consulenza%20Studio%20121" style="color: var(--rosso); text-decoration: none; font-weight: 600;">WhatsApp</a>
+                &nbsp;|&nbsp;
+                Chiamaci: <a href="tel:+39XXXXXXXXXX" style="color: var(--rosso); text-decoration: none; font-weight: 600;">+39 XXX XXX XXXX</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- SHAPE DIVIDER -->
+    <div class="shape-divider" style="background: var(--white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="fill: var(--blu-scuro);">
+            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z"></path>
+        </svg>
+    </div>
+
+    <!-- FAQ -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-title fade-in" style="color: var(--white);">Domande frequenti</h2>
+            <div class="faq-list fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">Come fate a portare piu clienti alla mia attivita?</div>
+                    <div class="faq-answer">Intercettiamo le persone che stanno gia cercando i tuoi servizi su Google. Con un sito ottimizzato e campagne mirate, portiamo il traffico giusto alla tua attivita e lo convertiamo in contatti reali.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">In quanto tempo vedo i primi risultati?</div>
+                    <div class="faq-answer">Con le campagne a pagamento, i primi contatti arrivano entro le prime settimane. Il posizionamento organico richiede 2-4 mesi per i primi risultati significativi.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Come posso misurare i risultati?</div>
+                    <div class="faq-answer">Ti forniamo report mensili con dati chiari: quante persone hanno visitato il sito, quante ti hanno contattato, da dove arrivano. Numeri, non sensazioni.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Funziona anche per la mia zona?</div>
+                    <div class="faq-answer">Si. Lavoriamo su tutta la provincia di Ragusa e conosciamo le dinamiche del mercato locale. I dati di ricerca che utilizziamo sono specifici per il territorio ragusano.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section-beige">
+        <div class="container cta-bar">
+            <h2 class="section-title">Ti porto clienti misurabili. Iniziamo?</h2>
+            <p style="color: var(--text-secondary);">30 minuti di consulenza gratuita per capire dove sei, dove vuoi arrivare, e se possiamo aiutarti.</p>
+            <a href="#form" class="cta-btn cta-pulse">Prenota la consulenza gratuita</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-brand">Studio 121</div>
+            <p>Agenzia di comunicazione e marketing digitale</p>
+            <p>Ragusa, Sicilia</p>
+            <div class="footer-links">
+                <a href="tel:+39XXXXXXXXXX">Telefono</a>
+                <a href="https://wa.me/39XXXXXXXXXX">WhatsApp</a>
+                <a href="mailto:info@studio121.it">Email</a>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.75rem;">P.IVA: XXXXXXXXXXX | &copy; 2026 Studio 121. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+            document.querySelectorAll('.faq-question').forEach(function(q) {
+                q.addEventListener('click', function() { this.parentElement.classList.toggle('open'); });
+            });
+        });
+    </script>
+</body>
+</html>

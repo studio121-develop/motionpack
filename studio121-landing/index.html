@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio 121 — Hub interno</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;background:#253441;color:#fff;min-height:100vh;padding:48px 24px}
+.container{max-width:880px;margin:0 auto}
+h1{font-size:2rem;font-weight:800;margin-bottom:8px}
+h1 span{color:#d94625}
+.subtitle{color:rgba(255,255,255,0.6);margin-bottom:40px;font-size:0.95rem}
+.section-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.8px;color:#d94625;font-weight:700;margin:32px 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:24px;text-decoration:none;color:#fff;transition:all 0.2s}
+.card:hover{background:rgba(217,70,37,0.1);border-color:#d94625;transform:translateY(-2px)}
+.card .label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.2px;color:#d94625;font-weight:600;margin-bottom:8px}
+.card h2{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.card p{font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.5}
+.card .arrow{margin-top:12px;color:#d94625;font-weight:600;font-size:0.85rem}
+.checklist{background:rgba(255,255,255,0.04);border-radius:12px;padding:24px;margin-top:32px}
+.checklist h3{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.2px;color:#d94625;margin-bottom:16px}
+.check-item{display:flex;gap:12px;padding:8px 0;font-size:0.9rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+.check-item:last-child{border-bottom:none}
+.check-item.done{opacity:0.5;text-decoration:line-through}
+.check-item .dot{width:10px;height:10px;border-radius:50%;background:#d94625;flex-shrink:0;margin-top:6px}
+.check-item.done .dot{background:#4caf50}
+footer{margin-top:48px;text-align:center;color:rgba(255,255,255,0.4);font-size:0.78rem}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Studio <span>121</span> &mdash; Hub Interno</h1>
+    <p class="subtitle">Materiali di lavoro &mdash; non per il pubblico</p>
+
+    <div class="section-label">Landing Live</div>
+    <div class="grid">
+        <a href="performance.html" class="card">
+            <div class="label">Pacchetto Performance</div>
+            <h2>Ti porto clienti misurabili</h2>
+            <p>Landing principale per il lancio del prodotto Performance. Vende risultati, non strumenti tecnici.</p>
+            <div class="arrow">Apri &rarr;</div>
+        </a>
+        <a href="grazie.html" class="card">
+            <div class="label">Thank You Page</div>
+            <h2>Pagina post-form</h2>
+            <p>Conferma ricezione richiesta + step successivi + WhatsApp diretto.</p>
+            <div class="arrow">Apri &rarr;</div>
+        </a>
+    </div>
+
+    <div class="section-label">Strumenti Operativi</div>
+    <div class="grid">
+        <a href="strategy-brief.html" class="card">
+            <div class="label">Per ogni cliente nuovo</div>
+            <h2>Strategy Brief</h2>
+            <p>Template 1-pagina compilabile con calcolatore ROI integrato.</p>
+            <div class="arrow">Apri &rarr;</div>
+        </a>
+        <a href="../older/studio121-landing/follow-up-templates.html" class="card">
+            <div class="label">Template salvati</div>
+            <h2>Follow-up Templates</h2>
+            <p>WhatsApp + email per la sequenza post-lead. In <code>older/</code>.</p>
+            <div class="arrow">Apri &rarr;</div>
+        </a>
+        <a href="../older/studio121-landing/preventivi-templates.html" class="card">
+            <div class="label">Template salvati</div>
+            <h2>Preventivi Templates</h2>
+            <p>6 template preventivo per chiudere in 24h. In <code>older/</code>.</p>
+            <div class="arrow">Apri &rarr;</div>
+        </a>
+        <a href="../older/studio121-landing/" class="card">
+            <div class="label">Archivio</div>
+            <h2>30 Landing v1</h2>
+            <p>Prima generazione varianti A-E per le 6 categorie. Riferimento storico.</p>
+            <div class="arrow">Apri &rarr;</div>
+        </a>
+    </div>
+
+    <div class="checklist">
+        <h3>Checklist Pre-Lancio Performance</h3>
+        <div class="check-item"><div class="dot"></div><span>Sostituire <code>+39XXXXXXXXXX</code> con telefono reale (4 occorrenze in performance.html)</span></div>
+        <div class="check-item"><div class="dot"></div><span>Sostituire <code>wa.me/39XXXXXXXXXX</code> con WhatsApp reale (3 occorrenze)</span></div>
+        <div class="check-item"><div class="dot"></div><span>Sostituire <code>P.IVA: XXXXXXXXXXX</code> nel footer con P.IVA reale</span></div>
+        <div class="check-item"><div class="dot"></div><span>Creare account Formspree (gratis) e sostituire <code>REPLACE_WITH_FORMSPREE_ID</code></span></div>
+        <div class="check-item"><div class="dot"></div><span>Configurare Google Ads conversion tracking (ID + label)</span></div>
+        <div class="check-item"><div class="dot"></div><span>Aggiungere GA4 measurement ID</span></div>
+        <div class="check-item"><div class="dot"></div><span>Test del form: invia, verifica arrivo email, verifica redirect a grazie.html</span></div>
+        <div class="check-item"><div class="dot"></div><span>Lanciare Google Ads test: budget 30-50&euro;, geo Ragusa+50km, 1 settimana</span></div>
+    </div>
+
+    <footer>Studio 121 &mdash; Hub interno &mdash; Aggiornato Aprile 2026</footer>
+</div>
+</body>
+</html>
