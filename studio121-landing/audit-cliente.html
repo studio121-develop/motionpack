@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Gratuito Cliente — Studio 121</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--rosso:#d94625;--rosso-hover:#c23d20;--blu-scuro:#253441;--blu-alt:#2e4252;--beige:#f1ece8;--text-secondary:#4a5d6c;--text-muted:#6a7a86}
+body{font-family:'Poppins',sans-serif;background:var(--beige);color:var(--blu-scuro);line-height:1.5;-webkit-font-smoothing:antialiased;padding:24px 16px}
+.container{max-width:1100px;margin:0 auto}
+
+/* Header */
+.header{background:var(--blu-scuro);color:#fff;padding:32px 40px;border-radius:12px 12px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.header-brand{font-size:1.4rem;font-weight:800}
+.header-brand span{color:var(--rosso)}
+.header-tag{background:rgba(217,70,37,0.2);color:#ffaaaa;padding:6px 14px;border-radius:100px;font-size:0.7rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+
+.controls{background:#fff;padding:24px 40px;border-bottom:1px solid rgba(37,52,65,0.08);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.controls label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-muted);font-weight:600;margin-right:8px}
+.controls select,.controls input{padding:10px 14px;border:1px solid #ddd;border-radius:8px;font-family:'Poppins',sans-serif;font-size:0.95rem;background:#fff}
+.controls select:focus,.controls input:focus{outline:none;border-color:var(--rosso)}
+
+.body{background:#fff;padding:40px;border-radius:0 0 12px 12px;box-shadow:0 8px 32px rgba(37,52,65,0.06)}
+
+.cliente-info{background:var(--beige);border-radius:12px;padding:24px;margin-bottom:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.cliente-info .field{display:flex;flex-direction:column;gap:4px}
+.cliente-info label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--rosso);font-weight:700}
+.cliente-info input{padding:8px 12px;border:none;border-bottom:2px solid #ccc;background:transparent;font-family:'Poppins',sans-serif;font-size:1rem}
+.cliente-info input:focus{outline:none;border-bottom-color:var(--rosso)}
+
+.settore-section{display:none}
+.settore-section.active{display:block}
+
+.settore-header{background:var(--blu-scuro);color:#fff;padding:24px 32px;border-radius:12px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.settore-header h2{font-size:1.4rem;font-weight:700}
+.settore-header h2 span{color:var(--rosso)}
+.settore-header .meta{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+.stat-card{background:#fff;border:2px solid var(--beige);border-radius:12px;padding:24px;text-align:center;transition:all 0.2s}
+.stat-card:hover{border-color:var(--rosso);transform:translateY(-2px)}
+.stat-card .label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-muted);font-weight:600;margin-bottom:8px}
+.stat-card .value{font-size:2rem;font-weight:800;color:var(--rosso);line-height:1}
+.stat-card .desc{font-size:0.78rem;color:var(--text-secondary);margin-top:8px}
+
+.profilo-card{background:#fff;border-radius:12px;padding:24px 32px;margin-bottom:16px;box-shadow:0 2px 12px rgba(37,52,65,0.06);border-left:4px solid var(--rosso)}
+.profilo-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+.profilo-header h3{font-size:1.15rem;font-weight:700;color:var(--blu-scuro)}
+.profilo-header .valore{font-size:1.2rem;font-weight:800;color:var(--rosso);background:rgba(217,70,37,0.08);padding:6px 16px;border-radius:100px;white-space:nowrap}
+
+.kw-table{width:100%;margin-top:12px;border-collapse:collapse;font-size:0.88rem}
+.kw-table th{background:var(--blu-scuro);color:#fff;padding:10px 12px;text-align:left;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.8px;font-weight:600}
+.kw-table td{padding:10px 12px;border-bottom:1px solid rgba(37,52,65,0.06)}
+.kw-table tr:last-child td{border-bottom:none}
+.kw-table tr:hover td{background:rgba(217,70,37,0.04)}
+.kw-table .score{font-weight:700;color:var(--rosso)}
+.kw-table .num{font-variant-numeric:tabular-nums;font-weight:600}
+
+.calc-section{background:linear-gradient(135deg,var(--blu-scuro) 0%,var(--blu-alt) 100%);color:#fff;padding:32px 40px;border-radius:12px;margin-bottom:32px}
+.calc-section h2{font-size:1.4rem;font-weight:700;margin-bottom:20px}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:20px}
+.calc-grid .field{display:flex;flex-direction:column;gap:6px}
+.calc-grid label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.2px;color:rgba(255,255,255,0.7);font-weight:600}
+.calc-grid input{padding:10px 14px;border:none;border-radius:8px;background:rgba(255,255,255,0.1);color:#fff;font-family:'Poppins',sans-serif;font-size:1rem}
+.calc-grid input:focus{outline:2px solid var(--rosso);background:rgba(255,255,255,0.15)}
+.calc-result{background:rgba(0,0,0,0.2);border-radius:10px;padding:20px;margin-top:16px}
+.calc-result .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.1)}
+.calc-result .row:last-child{border-bottom:none;padding-top:14px;margin-top:8px;border-top:2px solid var(--rosso)}
+.calc-result .row .label-text{font-size:0.85rem;color:rgba(255,255,255,0.8)}
+.calc-result .row .value-text{font-weight:700;color:#fff}
+.calc-result .row.highlight .value-text{color:var(--rosso);font-size:1.3rem}
+
+.cta-section{background:var(--rosso);color:#fff;padding:32px 40px;border-radius:12px;text-align:center;margin-top:32px}
+.cta-section h2{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+.cta-section p{margin-bottom:20px;opacity:0.95}
+.cta-section .pitch{background:rgba(0,0,0,0.15);border-radius:10px;padding:20px;margin:20px 0;font-style:italic;font-size:1.05rem;line-height:1.6;text-align:left;white-space:pre-wrap}
+
+.placeholder-msg{text-align:center;padding:60px 20px;color:var(--text-muted)}
+.placeholder-msg h2{font-size:1.2rem;color:var(--blu-scuro);margin-bottom:8px}
+.placeholder-msg .icon{font-size:3rem;margin-bottom:16px}
+
+.toolbar{position:fixed;bottom:20px;right:20px;display:flex;gap:8px;z-index:100}
+.toolbar button{background:var(--rosso);color:#fff;border:none;padding:12px 20px;border-radius:100px;font-family:'Poppins',sans-serif;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;box-shadow:0 4px 16px rgba(217,70,37,0.3);transition:all 0.2s}
+.toolbar button:hover{background:var(--rosso-hover);transform:translateY(-2px)}
+.toolbar button.secondary{background:var(--blu-scuro)}
+
+@media (max-width:680px){.header,.controls,.body{padding:24px 20px}.stats-grid,.calc-grid{grid-template-columns:1fr}.kw-table{font-size:0.78rem}.kw-table th,.kw-table td{padding:8px 6px}}
+@media print{body{background:#fff;padding:0}.toolbar,.controls{display:none}.header,.body{box-shadow:none;border-radius:0}.profilo-card,.stat-card{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <div>
+      <div class="header-brand">Studio <span>121</span> &mdash; Audit Cliente</div>
+      <div style="font-size:0.85rem;color:rgba(255,255,255,0.7);margin-top:4px">Analisi gratuita basata su dati Google Keyword Planner</div>
+    </div>
+    <div class="header-tag">Documento di Consulenza</div>
+  </div>
+
+  <div class="controls">
+    <label>Settore:</label>
+    <select id="settoreSel">
+      <option value="">&mdash; Seleziona &mdash;</option>
+      <option value="ristorazione">Ristorazione (ristoranti, pizzerie, trattorie)</option>
+      <option value="dentisti">Dentisti / Studi Dentistici</option>
+      <option value="edilizia">Edilizia / Ristrutturazioni / Infissi</option>
+      <option value="wellness">Wellness / Estetica / Parrucchieri</option>
+      <option value="auto">Auto / Motori &mdash; Vendita</option>
+      <option value="eventi">Eventi / Matrimoni / Wedding</option>
+      <option value="nutrizionisti">Nutrizionisti / Dietologia</option>
+      <option value="avvocati">Avvocati / Studi Legali</option>
+      <option value="commercialisti">Commercialisti / Fiscale</option>
+      <option value="arredamento">Arredamento / Cucine / Mobili</option>
+      <option value="b2bit">B2B IT / Software / Cybersecurity</option>
+      <option value="veterinari">Veterinari / Pet</option>
+      <option value="palestre">Palestre / Pilates / Yoga</option>
+    </select>
+  </div>
+
+  <div class="body">
+
+    <div class="cliente-info">
+      <div class="field"><label for="nomeCli">Nome cliente</label><input type="text" id="nomeCli" placeholder="Marco Rossi"></div>
+      <div class="field"><label for="attivCli">Attivita</label><input type="text" id="attivCli" placeholder="Ristorante Da Carmelo"></div>
+      <div class="field"><label for="emailCli">Email</label><input type="email" id="emailCli" placeholder="cliente@email.it"></div>
+      <div class="field"><label for="telCli">Telefono</label><input type="tel" id="telCli" placeholder="+39..."></div>
+      <div class="field"><label for="dataCli">Data audit</label><input type="date" id="dataCli"></div>
+    </div>
+
+    <div id="placeholder" class="placeholder-msg">
+      <div class="icon">📊</div>
+      <h2>Seleziona un settore per iniziare</h2>
+      <p>Scegli il settore del tuo cliente dal menu sopra.<br>Vedrai keyword vendibili, volumi reali, valore stimato per cliente.</p>
+    </div>
+
+    <!-- ================ RISTORAZIONE ================ -->
+    <div class="settore-section" id="sec-ristorazione">
+      <div class="settore-header">
+        <h2><span>Ristorazione</span> &mdash; Profili appetibili</h2>
+        <div class="meta">4 profili cliente | Fonte: DataForSEO Google Keyword Planner</div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">26.300</div><div class="desc">ricerche/mese sui profili appetibili</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">270</div><div class="desc">ricerche locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€0,30</div><div class="desc">tra i piu' bassi del mercato</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€1.065</div><div class="desc">media tra profili (incluso ricorrenze)</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Coppia per occasione speciale (anniversario, romantico)</h3><span class="valore">€100/coperto</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>ristorante stellato</strong></td><td class="num">14.800</td><td class="num">50</td><td class="num">€0,51</td><td class="score">50</td></tr>
+          <tr><td><strong>ristorante romantico</strong></td><td class="num">9.900</td><td class="num">50</td><td class="num">€1,04</td><td class="score">50</td></tr>
+          <tr><td><strong>ristorante per anniversario</strong></td><td class="num">170</td><td class="num">0</td><td class="num">€0,61</td><td class="score">25</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Famiglia per pranzo domenicale</h3><span class="valore">€40/coperto</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>trattoria tipica</strong></td><td class="num">1.900</td><td class="num">30</td><td class="num">€0,20</td><td class="score">20</td></tr>
+          <tr><td><strong>ristorante familiare</strong></td><td class="num">880</td><td class="num">10</td><td class="num">€0,18</td><td class="score">15</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Ricorrenza familiare 30-80 ospiti (cresima, comunione, laurea)</h3><span class="valore">€4.000/evento</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>sala ricevimenti</strong></td><td class="num">8.100</td><td class="num">90</td><td class="num">€1,41</td><td class="score">55</td></tr>
+          <tr><td><strong>ristorante matrimonio</strong></td><td class="num">1.600</td><td class="num">50</td><td class="num">€1,61</td><td class="score">50</td></tr>
+          <tr><td><strong>ristorante battesimo</strong></td><td class="num">880</td><td class="num">0</td><td class="num">€0,43</td><td class="score">30</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Turista alto-spendente</h3><span class="valore">€120/coperto</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>miglior ristorante</strong></td><td class="num">1.300</td><td class="num">140</td><td class="num">€1,04</td><td class="score">55</td></tr>
+          <tr><td><strong>fine dining</strong></td><td class="num">170</td><td class="num">50</td><td class="num">€0,40</td><td class="score">25</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ DENTISTI ================ -->
+    <div class="settore-section" id="sec-dentisti">
+      <div class="settore-header"><h2><span>Dentisti</span> &mdash; Profili appetibili</h2><div class="meta">4 profili | Settore alto valore</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">68.000</div><div class="desc">ricerche/mese sui profili appetibili</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">680</div><div class="desc">ricerche locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€2,50</div><div class="desc">CPC alto = clienti pagano bene</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€2.800</div><div class="desc">tra impianti, ortodonzia, estetica</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Paziente per impianti dentali (full arch, all-on-4)</h3><span class="valore">€5.000/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>impianti dentali</strong></td><td class="num">9.900</td><td class="num">90</td><td class="num">€2,86</td><td class="score">75</td></tr>
+          <tr><td><strong>all on 4</strong></td><td class="num">2.400</td><td class="num">10</td><td class="num">€1,84</td><td class="score">55</td></tr>
+          <tr><td><strong>implantologia</strong></td><td class="num">1.900</td><td class="num">20</td><td class="num">€1,75</td><td class="score">50</td></tr>
+          <tr><td><strong>impianto dentale carico immediato</strong></td><td class="num">170</td><td class="num">0</td><td class="num">€5,22</td><td class="score">50</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Adulto per ortodonzia invisibile (Invisalign)</h3><span class="valore">€4.500/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>Invisalign</strong></td><td class="num">18.100</td><td class="num">140</td><td class="num">€5,20</td><td class="score">90</td></tr>
+          <tr><td><strong>apparecchio invisibile</strong></td><td class="num">2.400</td><td class="num">30</td><td class="num">€2,92</td><td class="score">55</td></tr>
+          <tr><td><strong>allineatori trasparenti</strong></td><td class="num">880</td><td class="num">10</td><td class="num">€3,18</td><td class="score">55</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Paziente per estetica dentale (faccette, sbiancamento)</h3><span class="valore">€1.500/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>faccette dentali</strong></td><td class="num">6.600</td><td class="num">30</td><td class="num">€2,41</td><td class="score">65</td></tr>
+          <tr><td><strong>sbiancamento dentale</strong></td><td class="num">1.600</td><td class="num">10</td><td class="num">€1,41</td><td class="score">45</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ EDILIZIA ================ -->
+    <div class="settore-section" id="sec-edilizia">
+      <div class="settore-header"><h2><span>Edilizia / Ristrutturazioni</span> &mdash; Profili appetibili</h2><div class="meta">3 profili | Valori transazione tra i piu' alti</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">37.700</div><div class="desc">ricerche/mese sui profili appetibili</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">170</div><div class="desc">ricerche locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€5,00</div><div class="desc">CPC alto = mercato premium</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€39.000</div><div class="desc">tra ristrutturazione, fotovoltaico, infissi</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Proprietario per ristrutturazione casa (chiavi in mano)</h3><span class="valore">€80.000/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>ristrutturazione casa</strong></td><td class="num">14.800</td><td class="num">50</td><td class="num">€2,84</td><td class="score">75</td></tr>
+          <tr><td><strong>impresa edile</strong></td><td class="num">8.100</td><td class="num">50</td><td class="num">€2,02</td><td class="score">68</td></tr>
+          <tr><td><strong>ristrutturazione chiavi in mano</strong></td><td class="num">1.900</td><td class="num">0</td><td class="num">€4,69</td><td class="score">61</td></tr>
+          <tr><td><strong>preventivo ristrutturazione</strong></td><td class="num">480</td><td class="num">10</td><td class="num">€9,37</td><td class="score">65</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Cliente per fotovoltaico / cappotto termico</h3><span class="valore">€25.000/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>fotovoltaico prezzi</strong></td><td class="num">1.900</td><td class="num">10</td><td class="num">€2,41</td><td class="score">76</td></tr>
+          <tr><td><strong>fotovoltaico chiavi in mano</strong></td><td class="num">1.300</td><td class="num">0</td><td class="num">€5,13</td><td class="score">60</td></tr>
+          <tr><td><strong>preventivo fotovoltaico</strong></td><td class="num">880</td><td class="num">0</td><td class="num">€10,21</td><td class="score">83</td></tr>
+          <tr><td><strong>preventivo cappotto termico</strong></td><td class="num">170</td><td class="num">0</td><td class="num">€8,58</td><td class="score">70</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Sostituzione infissi</h3><span class="valore">€12.000/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>infissi pvc</strong></td><td class="num">8.100</td><td class="num">50</td><td class="num">€2,36</td><td class="score">68</td></tr>
+          <tr><td><strong>preventivo infissi</strong></td><td class="num">880</td><td class="num">10</td><td class="num">€6,85</td><td class="score">77</td></tr>
+          <tr><td><strong>sostituzione infissi</strong></td><td class="num">880</td><td class="num">0</td><td class="num">€4,04</td><td class="score">55</td></tr>
+          <tr><td><strong>preventivo finestre</strong></td><td class="num">170</td><td class="num">0</td><td class="num">€5,85</td><td class="score">72</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ WELLNESS ================ -->
+    <div class="settore-section" id="sec-wellness">
+      <div class="settore-header"><h2><span>Wellness / Estetica</span> &mdash; Profili appetibili</h2><div class="meta">4 profili | Ricorrenza alta</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">48.700</div><div class="desc">ricerche/mese sui profili appetibili</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">390</div><div class="desc">ricerche locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€1,50</div><div class="desc">CPC moderato</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€1.140</div><div class="desc">media tra profili appetibili</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Cliente per depilazione laser definitiva</h3><span class="valore">€800/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>depilazione laser</strong></td><td class="num">14.800</td><td class="num">140</td><td class="num">€1,34</td><td class="score">65</td></tr>
+          <tr><td><strong>depilazione laser prezzi</strong></td><td class="num">880</td><td class="num">10</td><td class="num">€1,66</td><td class="score">50</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Cliente premium ricorrente (anti-aging)</h3><span class="valore">€2.400/cliente/anno</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>filler labbra</strong></td><td class="num">9.900</td><td class="num">30</td><td class="num">€3,97</td><td class="score">60</td></tr>
+          <tr><td><strong>medicina estetica viso</strong></td><td class="num">6.600</td><td class="num">30</td><td class="num">€3,80</td><td class="score">65</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Spa giorno regalo / wellness</h3><span class="valore">€150/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>spa giorno</strong></td><td class="num">14.800</td><td class="num">170</td><td class="num">€1,65</td><td class="score">65</td></tr>
+          <tr><td><strong>buono regalo spa</strong></td><td class="num">880</td><td class="num">0</td><td class="num">€1,94</td><td class="score">40</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ AUTO ================ -->
+    <div class="settore-section" id="sec-auto">
+      <div class="settore-header"><h2><span>Auto / Vendita</span> &mdash; Profili appetibili</h2><div class="meta">3 profili | Singola transazione enorme</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">38.000</div><div class="desc">ricerche/mese sui profili appetibili</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">90</div><div class="desc">ricerche locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€2,00</div><div class="desc">moderato</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€24.700</div><div class="desc">tra usato premium, nuovo, noleggio</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Acquirente auto premium usata (BMW, Mercedes, Audi)</h3><span class="valore">€25.000/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>BMW usate</strong></td><td class="num">9.900</td><td class="num">30</td><td class="num">€0,45</td><td class="score">50</td></tr>
+          <tr><td><strong>Mercedes usate</strong></td><td class="num">6.600</td><td class="num">20</td><td class="num">€0,65</td><td class="score">50</td></tr>
+          <tr><td><strong>auto usate premium</strong></td><td class="num">1.300</td><td class="num">0</td><td class="num">€1,80</td><td class="score">61</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Famiglia per auto nuova (SUV 7 posti)</h3><span class="valore">€27.000/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>SUV 7 posti</strong></td><td class="num">14.800</td><td class="num">30</td><td class="num">€0,93</td><td class="score">57</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Imprenditore per noleggio LT B2B</h3><span class="valore">€22.000/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>noleggio lungo termine partita iva</strong></td><td class="num">1.900</td><td class="num">0</td><td class="num">€6,80</td><td class="score">65</td></tr>
+          <tr><td><strong>noleggio operativo</strong></td><td class="num">1.300</td><td class="num">0</td><td class="num">€7,13</td><td class="score">65</td></tr>
+          <tr><td><strong>leasing auto aziendale</strong></td><td class="num">1.300</td><td class="num">10</td><td class="num">€1,62</td><td class="score">56</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ EVENTI ================ -->
+    <div class="settore-section" id="sec-eventi">
+      <div class="settore-header"><h2><span>Eventi / Matrimoni</span> &mdash; Profili appetibili</h2><div class="meta">3 profili | Singolo evento enorme</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">26.300</div><div class="desc">ricerche/mese</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">110</div><div class="desc">locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€3,00</div><div class="desc">medio-alto</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€18.300</div><div class="desc">media wedding planner / fotografi / location</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Coppia matrimonio premium</h3><span class="valore">€15.000/evento</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>wedding planner</strong></td><td class="num">14.800</td><td class="num">50</td><td class="num">€2,94</td><td class="score">70</td></tr>
+          <tr><td><strong>fotografo matrimonio</strong></td><td class="num">9.900</td><td class="num">30</td><td class="num">€3,40</td><td class="score">58</td></tr>
+          <tr><td><strong>location matrimonio</strong></td><td class="num">1.300</td><td class="num">30</td><td class="num">€2,14</td><td class="score">55</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ NUTRIZIONISTI ================ -->
+    <div class="settore-section" id="sec-nutrizionisti">
+      <div class="settore-header"><h2><span>Nutrizionisti</span> &mdash; Profili appetibili</h2><div class="meta">2 profili | Percorso lungo, alto LTV</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">39.000</div><div class="desc">ricerche/mese</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">200</div><div class="desc">locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€4,50</div><div class="desc">CPC alto = clienti pagano</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€700</div><div class="desc">percorso 6-12 mesi</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Cliente per dimagrimento serio</h3><span class="valore">€800/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>nutrizionista</strong></td><td class="num">33.100</td><td class="num">170</td><td class="num">€5,18</td><td class="score">70</td></tr>
+          <tr><td><strong>nutrizionista online</strong></td><td class="num">1.900</td><td class="num">0</td><td class="num">€4,82</td><td class="score">58</td></tr>
+          <tr><td><strong>dietologo</strong></td><td class="num">1.900</td><td class="num">30</td><td class="num">€5,31</td><td class="score">55</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ AVVOCATI ================ -->
+    <div class="settore-section" id="sec-avvocati">
+      <div class="settore-header"><h2><span>Avvocati</span> &mdash; Profili appetibili</h2><div class="meta">3 profili | Pratiche premium</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">7.700</div><div class="desc">ricerche/mese</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">30</div><div class="desc">locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€5,00</div><div class="desc">CPC alto</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€5.000</div><div class="desc">pratica complessa</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Cliente per separazione/divorzio</h3><span class="valore">€5.000/pratica</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>avvocato divorzista</strong></td><td class="num">2.400</td><td class="num">20</td><td class="num">€4,56</td><td class="score">56</td></tr>
+          <tr><td><strong>avvocato separazioni</strong></td><td class="num">880</td><td class="num">10</td><td class="num">€5,76</td><td class="score">55</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ COMMERCIALISTI ================ -->
+    <div class="settore-section" id="sec-commercialisti">
+      <div class="settore-header"><h2><span>Commercialisti</span> &mdash; Profili appetibili</h2><div class="meta">2 profili | Retainer ricorrente</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">53.700</div><div class="desc">ricerche/mese</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">230</div><div class="desc">locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€4,50</div><div class="desc">CPC alto</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€2.150</div><div class="desc">setup + 1 anno retainer</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Aspirante imprenditore &mdash; apertura P.IVA</h3><span class="valore">€800/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>regime forfettario</strong></td><td class="num">33.100</td><td class="num">170</td><td class="num">€0,62</td><td class="score">55</td></tr>
+          <tr><td><strong>aprire partita iva</strong></td><td class="num">14.800</td><td class="num">30</td><td class="num">€1,84</td><td class="score">65</td></tr>
+          <tr><td><strong>commercialista online</strong></td><td class="num">3.600</td><td class="num">30</td><td class="num">€5,97</td><td class="score">70</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ ARREDAMENTO ================ -->
+    <div class="settore-section" id="sec-arredamento">
+      <div class="settore-header"><h2><span>Arredamento / Cucine</span> &mdash; Profili appetibili</h2><div class="meta">2 profili | Singola transazione alta</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">26.700</div><div class="desc">ricerche/mese</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">140</div><div class="desc">locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€2,00</div><div class="desc">moderato</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€21.000</div><div class="desc">cucina + arredamento</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Coppia per cucina su misura</h3><span class="valore">€12.000/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>cucine su misura</strong></td><td class="num">6.600</td><td class="num">50</td><td class="num">€1,81</td><td class="score">65</td></tr>
+          <tr><td><strong>cucine moderne prezzi</strong></td><td class="num">1.300</td><td class="num">0</td><td class="num">€0,75</td><td class="score">64</td></tr>
+          <tr><td><strong>preventivo cucina</strong></td><td class="num">480</td><td class="num">0</td><td class="num">€4,45</td><td class="score">68</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Cliente per arredamento completo (interior design)</h3><span class="valore">€30.000/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>interior design</strong></td><td class="num">18.100</td><td class="num">90</td><td class="num">€2,64</td><td class="score">73</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ B2B IT ================ -->
+    <div class="settore-section" id="sec-b2bit">
+      <div class="settore-header"><h2><span>B2B IT / Software</span> &mdash; Profili appetibili</h2><div class="meta">3 profili | CPC altissimo = budget alti</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">880</div><div class="desc">ricerche/mese (volume B2B basso ma alto valore)</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">20</div><div class="desc">locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€8,00</div><div class="desc">CPC altissimo</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€15.000</div><div class="desc">progetto + retainer</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>PMI per gestionale custom / ERP</h3><span class="valore">€25.000/cliente</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>software gestionale aziendale</strong></td><td class="num">480</td><td class="num">0</td><td class="num">€17,76</td><td class="score">60</td></tr>
+          <tr><td><strong>sviluppo software aziendale</strong></td><td class="num">170</td><td class="num">0</td><td class="num">€38,83</td><td class="score">55</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Azienda per cybersecurity</h3><span class="valore">€12.000/anno</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>sicurezza informatica aziende</strong></td><td class="num">480</td><td class="num">0</td><td class="num">€6,26</td><td class="score">50</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ VETERINARI ================ -->
+    <div class="settore-section" id="sec-veterinari">
+      <div class="settore-header"><h2><span>Veterinari</span> &mdash; Profili appetibili</h2><div class="meta">2 profili | Cliente ricorrente</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">68.600</div><div class="desc">ricerche/mese</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">370</div><div class="desc">locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€1,20</div><div class="desc">basso</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€1.000</div><div class="desc">cliente ricorrente annuale</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Cliente premium ricorrente</h3><span class="valore">€600/anno</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>veterinario</strong></td><td class="num">60.500</td><td class="num">320</td><td class="num">€0,88</td><td class="score">60</td></tr>
+          <tr><td><strong>clinica veterinaria</strong></td><td class="num">8.100</td><td class="num">50</td><td class="num">€1,42</td><td class="score">50</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ PALESTRE ================ -->
+    <div class="settore-section" id="sec-palestre">
+      <div class="settore-header"><h2><span>Palestre / Pilates / Yoga</span> &mdash; Profili appetibili</h2><div class="meta">2 profili | Abbonamenti ricorrenti</div></div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Domanda Italia</div><div class="value">76.400</div><div class="desc">ricerche/mese</div></div>
+        <div class="stat-card"><div class="label">Domanda Provincia Ragusa</div><div class="value">330</div><div class="desc">locali/mese</div></div>
+        <div class="stat-card"><div class="label">CPC medio</div><div class="value">€1,00</div><div class="desc">basso</div></div>
+        <div class="stat-card"><div class="label">Valore medio cliente</div><div class="value">€1.900</div><div class="desc">abbonamento + servizi</div></div>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Cliente per personal trainer premium</h3><span class="valore">€3.000/cliente/anno</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>personal trainer</strong></td><td class="num">9.900</td><td class="num">50</td><td class="num">€1,40</td><td class="score">55</td></tr>
+          <tr><td><strong>personal trainer online</strong></td><td class="num">1.300</td><td class="num">0</td><td class="num">€2,46</td><td class="score">58</td></tr>
+        </tbody></table>
+      </div>
+      <div class="profilo-card">
+        <div class="profilo-header"><h3>Donna 35-50 per pilates / yoga (abbonamento)</h3><span class="valore">€800/cliente/anno</span></div>
+        <table class="kw-table"><thead><tr><th>Keyword</th><th>Vol IT</th><th>Vol RG</th><th>CPC</th><th>Score</th></tr></thead><tbody>
+          <tr><td><strong>pilates</strong></td><td class="num">33.100</td><td class="num">140</td><td class="num">€0,67</td><td class="score">55</td></tr>
+          <tr><td><strong>yoga</strong></td><td class="num">33.100</td><td class="num">140</td><td class="num">€0,45</td><td class="score">50</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ================ CALCOLATORE ================ -->
+    <div class="calc-section" id="calcSection" style="display:none">
+      <h2>📈 Calcolatore Opportunità</h2>
+      <p style="font-size:0.9rem;color:rgba(255,255,255,0.8);margin-bottom:16px">Inserisci i parametri del tuo cliente per calcolare il potenziale ROI.</p>
+      <div class="calc-grid">
+        <div class="field"><label for="calcBudget">Budget mensile €</label><input type="number" id="calcBudget" placeholder="500" value="500"></div>
+        <div class="field"><label for="calcCpc">CPC medio settore</label><input type="number" step="0.01" id="calcCpc" placeholder="2.00"></div>
+        <div class="field"><label for="calcCr">Tasso conversione %</label><input type="number" step="0.5" id="calcCr" placeholder="3" value="3"></div>
+        <div class="field"><label for="calcVal">Valore €/cliente</label><input type="number" id="calcVal" placeholder="1000"></div>
+      </div>
+      <div class="calc-result">
+        <div class="row"><span class="label-text">Click stimati/mese</span><span class="value-text" id="resClick">&mdash;</span></div>
+        <div class="row"><span class="label-text">Lead stimati</span><span class="value-text" id="resLead">&mdash;</span></div>
+        <div class="row"><span class="label-text">Costo per Lead (CPL)</span><span class="value-text" id="resCpl">&mdash;</span></div>
+        <div class="row"><span class="label-text">Revenue stimata/mese</span><span class="value-text" id="resRevenue">&mdash;</span></div>
+        <div class="row highlight"><span class="label-text">ROI</span><span class="value-text" id="resRoi">&mdash;</span></div>
+      </div>
+    </div>
+
+    <div class="cta-section" id="pitchSection" style="display:none">
+      <h2>Il pitch per il tuo cliente</h2>
+      <p>Da leggere durante la consulenza.</p>
+      <div class="pitch" id="pitchText">Compila il calcolatore per generare il pitch.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="toolbar">
+  <button class="secondary" onclick="window.print()">🖨 Stampa</button>
+  <button onclick="exportData()">💾 Esporta dati</button>
+</div>
+
+<script>
+const CPC_DEFAULTS = {
+  ristorazione: 0.30, dentisti: 2.50, edilizia: 5.00, wellness: 1.50,
+  auto: 2.00, eventi: 3.00, nutrizionisti: 4.50, avvocati: 5.00,
+  commercialisti: 4.50, arredamento: 2.00, b2bit: 8.00, veterinari: 1.20, palestre: 1.00,
+};
+const VAL_DEFAULTS = {
+  ristorazione: 1065, dentisti: 2800, edilizia: 39000, wellness: 1140,
+  auto: 24700, eventi: 18300, nutrizionisti: 700, avvocati: 5000,
+  commercialisti: 2150, arredamento: 21000, b2bit: 15000, veterinari: 1000, palestre: 1900,
+};
+const SETTORE_NAMES = {
+  ristorazione:"Ristorazione", dentisti:"Studio Dentistico", edilizia:"Edilizia/Ristrutturazioni",
+  wellness:"Wellness/Estetica", auto:"Vendita Auto", eventi:"Eventi/Matrimoni",
+  nutrizionisti:"Nutrizione", avvocati:"Studio Legale", commercialisti:"Commercialista",
+  arredamento:"Arredamento", b2bit:"B2B IT", veterinari:"Studio Veterinario", palestre:"Palestra/Wellness sportivo",
+};
+
+function showSettore(key) {
+  document.querySelectorAll('.settore-section').forEach(s => s.classList.remove('active'));
+  const ph = document.getElementById('placeholder');
+  if (!key) {
+    ph.style.display = 'block';
+    document.getElementById('calcSection').style.display = 'none';
+    document.getElementById('pitchSection').style.display = 'none';
+    return;
+  }
+  ph.style.display = 'none';
+  const sec = document.getElementById('sec-' + key);
+  if (sec) sec.classList.add('active');
+  document.getElementById('calcSection').style.display = 'block';
+  document.getElementById('pitchSection').style.display = 'block';
+  if (CPC_DEFAULTS[key]) document.getElementById('calcCpc').value = CPC_DEFAULTS[key].toFixed(2);
+  if (VAL_DEFAULTS[key]) document.getElementById('calcVal').value = VAL_DEFAULTS[key];
+  calcRoi();
+}
+
+function calcRoi() {
+  const budget = parseFloat(document.getElementById('calcBudget').value) || 0;
+  const cpc = parseFloat(document.getElementById('calcCpc').value) || 0;
+  const cr = parseFloat(document.getElementById('calcCr').value) || 0;
+  const val = parseFloat(document.getElementById('calcVal').value) || 0;
+  if (!(budget && cpc && cr && val)) return;
+  const click = Math.round(budget / cpc);
+  const lead = Math.round(click * (cr / 100));
+  const cpl = lead > 0 ? (budget / lead) : 0;
+  const revenue = lead * val;
+  const roi = budget > 0 ? (revenue / budget) : 0;
+  document.getElementById('resClick').textContent = click.toLocaleString('it-IT') + ' click';
+  document.getElementById('resLead').textContent = lead + ' lead';
+  document.getElementById('resCpl').textContent = '€' + cpl.toFixed(2);
+  document.getElementById('resRevenue').textContent = '€' + revenue.toLocaleString('it-IT');
+  document.getElementById('resRoi').textContent = roi.toFixed(1) + 'x';
+
+  // Pitch — TUTTO via textContent (no XSS)
+  const cliente = document.getElementById('nomeCli').value || '[Nome]';
+  const settKey = document.getElementById('settoreSel').value;
+  const settName = SETTORE_NAMES[settKey] || '[settore]';
+  const pitch = `"${cliente}, guarda questi numeri. Nel tuo settore (${settName}), Google Keyword Planner mostra migliaia di ricerche al mese di persone che cercano servizi come i tuoi. Con un investimento di ${budget}€/mese in pubblicità mirata, le mie stime indicano ${click} click qualificati, ${lead} lead potenziali. Con un valore medio cliente di ${val.toLocaleString('it-IT')}€, la revenue stimata è di ${revenue.toLocaleString('it-IT')}€/mese. ROI: ${roi.toFixed(1)}x. Vuoi che lo facciamo?"`;
+  document.getElementById('pitchText').textContent = pitch;
+}
+
+function exportData() {
+  const lines = [
+    'AUDIT CLIENTE — Studio 121',
+    '----------------------------------------',
+    'Data: ' + (document.getElementById('dataCli').value || ''),
+    'Cliente: ' + (document.getElementById('nomeCli').value || ''),
+    'Attivita: ' + (document.getElementById('attivCli').value || ''),
+    'Email: ' + (document.getElementById('emailCli').value || ''),
+    'Telefono: ' + (document.getElementById('telCli').value || ''),
+    '',
+    'Settore: ' + (SETTORE_NAMES[document.getElementById('settoreSel').value] || ''),
+    'Budget mensile: €' + (document.getElementById('calcBudget').value || ''),
+    'CPC: €' + (document.getElementById('calcCpc').value || ''),
+    'Conv rate: ' + (document.getElementById('calcCr').value || '') + '%',
+    'Valore cliente: €' + (document.getElementById('calcVal').value || ''),
+    '',
+    'RISULTATI:',
+    'Click stimati: ' + document.getElementById('resClick').textContent,
+    'Lead stimati: ' + document.getElementById('resLead').textContent,
+    'CPL: ' + document.getElementById('resCpl').textContent,
+    'Revenue: ' + document.getElementById('resRevenue').textContent,
+    'ROI: ' + document.getElementById('resRoi').textContent,
+    '',
+    'PITCH:',
+    document.getElementById('pitchText').textContent,
+  ];
+  navigator.clipboard.writeText(lines.join('\n')).then(() => alert('Audit copiato negli appunti!'));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('dataCli').valueAsDate = new Date();
+  document.getElementById('settoreSel').addEventListener('change', e => showSettore(e.target.value));
+  ['calcBudget', 'calcCpc', 'calcCr', 'calcVal', 'nomeCli'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calcRoi);
+  });
+});
+</script>
+
+</body>
+</html>
