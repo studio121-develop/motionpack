@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piano di Lancio Validato — Studio 121</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --rosso:#d94625;
+  --rosso-hover:#c23d20;
+  --blu-scuro:#253441;
+  --blu-alt:#2e4252;
+  --beige:#f1ece8;
+  --footer-dark:#1a2630;
+  --text-secondary:#4a5d6c;
+  --text-muted:#6a7a86;
+  --green:#4caf50;
+  --orange:#ff9800;
+  --red-soft:#fde8e3;
+  --green-soft:#e8f5e9;
+  --orange-soft:#fff3e0;
+}
+body{font-family:'Poppins',sans-serif;background:var(--beige);color:var(--blu-scuro);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* HERO */
+.hero{background:var(--blu-scuro);color:#fff;padding:80px 24px 60px;text-align:center}
+.hero-tag{display:inline-block;background:rgba(217,70,37,0.15);color:var(--rosso);padding:6px 16px;border-radius:100px;font-size:0.7rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:20px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.5px;line-height:1.15;margin-bottom:16px}
+.hero h1 span{color:var(--rosso)}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,0.8);max-width:680px;margin:0 auto 32px}
+.hero-meta{font-size:0.8rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.2px}
+
+/* NAV STICKY */
+.subnav{background:#fff;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(37,52,65,0.08);box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+.subnav-inner{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.subnav-inner::-webkit-scrollbar{display:none}
+.subnav a{flex-shrink:0;padding:8px 14px;color:var(--text-secondary);text-decoration:none;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;border-radius:6px;transition:all 0.2s;white-space:nowrap}
+.subnav a:hover{background:rgba(217,70,37,0.08);color:var(--rosso)}
+.subnav a.active{background:var(--rosso);color:#fff}
+
+/* CONTAINER */
+.container{max-width:1000px;margin:0 auto;padding:48px 24px}
+section{margin-bottom:64px;scroll-margin-top:80px}
+.section-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:var(--rosso);color:#fff;border-radius:50%;font-weight:700;font-size:0.85rem;margin-right:12px;vertical-align:middle}
+h2{font-size:1.6rem;font-weight:700;color:var(--blu-scuro);margin-bottom:8px;letter-spacing:-0.3px}
+.section-sub{color:var(--text-secondary);font-size:0.95rem;margin-bottom:28px;border-bottom:2px solid var(--rosso);padding-bottom:16px;width:fit-content}
+h3{font-size:1.15rem;font-weight:700;color:var(--blu-scuro);margin:24px 0 14px;display:flex;align-items:center;gap:10px}
+h4{font-size:1rem;font-weight:600;color:var(--blu-scuro);margin:18px 0 10px}
+
+p{margin-bottom:14px;color:var(--text-secondary);font-size:0.95rem}
+strong{color:var(--blu-scuro);font-weight:600}
+
+/* CARDS COLORATE */
+.card{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:14px;box-shadow:0 2px 12px rgba(37,52,65,0.05);border-left:4px solid #ddd}
+.card.solid{border-left-color:var(--green);background:linear-gradient(to right,var(--green-soft) 0%,#fff 30%)}
+.card.fix{border-left-color:var(--orange);background:linear-gradient(to right,var(--orange-soft) 0%,#fff 30%)}
+.card.risk{border-left-color:var(--rosso);background:linear-gradient(to right,var(--red-soft) 0%,#fff 30%)}
+.card-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;margin-bottom:6px}
+.card.solid .card-label{color:var(--green)}
+.card.fix .card-label{color:var(--orange)}
+.card.risk .card-label{color:var(--rosso)}
+.card h4{margin-top:0}
+
+/* BADGE */
+.badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.badge.green{background:var(--green-soft);color:#2e7d32}
+.badge.orange{background:var(--orange-soft);color:#e65100}
+.badge.red{background:var(--red-soft);color:var(--rosso)}
+.badge.blue{background:#e3f2fd;color:#1565c0}
+.badge.dark{background:rgba(37,52,65,0.1);color:var(--blu-scuro)}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;margin:16px 0;border-radius:10px;box-shadow:0 2px 12px rgba(37,52,65,0.06)}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:0.9rem}
+th{background:var(--blu-scuro);color:#fff;padding:14px 16px;text-align:left;font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.8px}
+td{padding:14px 16px;border-bottom:1px solid rgba(37,52,65,0.06);color:var(--text-secondary)}
+td strong{color:var(--blu-scuro)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(217,70,37,0.02)}
+.table-num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--blu-scuro)}
+
+/* TIMELINE */
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}
+.tl-card{background:#fff;border-radius:12px;padding:20px;border-top:4px solid var(--rosso);position:relative}
+.tl-card .week{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--rosso);font-weight:700;margin-bottom:8px}
+.tl-card h4{font-size:0.95rem;margin-bottom:8px;color:var(--blu-scuro)}
+.tl-card ul{list-style:none;padding:0;margin:0}
+.tl-card li{padding:6px 0;font-size:0.85rem;color:var(--text-secondary);border-bottom:1px dashed rgba(37,52,65,0.08)}
+.tl-card li:last-child{border-bottom:none}
+.tl-card li::before{content:"→ ";color:var(--rosso);font-weight:700}
+
+/* BUDGET BOX */
+.budget-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}
+.budget-card{background:#fff;border-radius:12px;padding:24px;text-align:center;box-shadow:0 4px 16px rgba(37,52,65,0.06)}
+.budget-card .month{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-muted);margin-bottom:8px}
+.budget-card .amount{font-size:2.2rem;font-weight:800;color:var(--rosso);margin-bottom:8px;line-height:1}
+.budget-card .breakdown{font-size:0.78rem;color:var(--text-muted);line-height:1.5}
+
+/* CHECKLIST */
+.checklist{background:#fff;border-radius:12px;padding:24px;border:2px solid var(--rosso);margin:20px 0}
+.checklist h3{margin-top:0;color:var(--rosso)}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:0.93rem;border-bottom:1px solid rgba(37,52,65,0.06);cursor:pointer;transition:opacity 0.2s}
+.check-item:last-child{border-bottom:none}
+.check-item input[type=checkbox]{width:20px;height:20px;accent-color:var(--rosso);margin-top:2px;flex-shrink:0;cursor:pointer}
+.check-item.done{opacity:0.5;text-decoration:line-through}
+.check-item .when{display:inline-block;font-size:0.7rem;color:var(--text-muted);margin-left:6px;font-weight:500}
+
+/* VERDICT BOX */
+.verdict{background:linear-gradient(135deg,var(--blu-scuro) 0%,var(--blu-alt) 100%);color:#fff;border-radius:16px;padding:40px 32px;margin:32px 0;text-align:center}
+.verdict-tag{display:inline-block;background:var(--rosso);color:#fff;padding:8px 18px;border-radius:100px;font-size:0.75rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:20px}
+.verdict h2{color:#fff;font-size:1.6rem;margin-bottom:12px}
+.verdict p{color:rgba(255,255,255,0.85);max-width:600px;margin:0 auto 20px;font-size:1rem}
+.verdict ul{list-style:none;padding:0;text-align:left;max-width:600px;margin:0 auto}
+.verdict ul li{padding:10px 0;color:rgba(255,255,255,0.9);border-bottom:1px solid rgba(255,255,255,0.1);font-size:0.93rem}
+.verdict ul li::before{content:"✓ ";color:var(--rosso);font-weight:700;margin-right:8px}
+
+/* SUMMARY HERO BOX */
+.summary-box{background:#fff;border-radius:12px;padding:32px;margin:0 0 48px;box-shadow:0 8px 32px rgba(37,52,65,0.08);border-top:4px solid var(--rosso)}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:20px}
+.summary-stat{text-align:center}
+.summary-stat .num{font-size:1.8rem;font-weight:800;color:var(--rosso);line-height:1}
+.summary-stat .lbl{font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-top:6px;font-weight:600}
+
+/* FOOTER */
+footer{background:var(--blu-scuro);color:rgba(255,255,255,0.6);text-align:center;padding:32px 24px;font-size:0.82rem}
+footer a{color:var(--rosso);text-decoration:none;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:680px){
+  .container{padding:32px 16px}
+  .hero{padding:48px 20px 40px}
+  h2{font-size:1.3rem}
+  .timeline,.budget-grid{grid-template-columns:1fr}
+  .verdict{padding:28px 20px}
+  .summary-stat .num{font-size:1.4rem}
+}
+@media print{
+  body{background:#fff}
+  .subnav{display:none}
+  .hero{background:#fff;color:#000;padding:24px 0}
+  .hero h1{color:#000}
+  .hero h1 span{color:var(--rosso)}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Documento Strategico — Studio 121</div>
+  <h1>Piano di Lancio<br><span>Validato</span> + Roadmap 12 Settimane</h1>
+  <p>Validazione critica della strategia di lancio per Performance, Siti Web, Social Trap e Branding. Con timeline operativa, budget mensile e definizione di successo.</p>
+  <div class="hero-meta">28 Aprile 2026 · Versione 1.0</div>
+</div>
+
+<!-- SUB NAV -->
+<nav class="subnav">
+  <div class="subnav-inner">
+    <a href="#sintesi">Sintesi</a>
+    <a href="#strategia">A. Strategia</a>
+    <a href="#validazione">B. Validazione</a>
+    <a href="#roadmap">C. Roadmap</a>
+    <a href="#architettura">D. Architettura</a>
+    <a href="#budget">E. Budget</a>
+    <a href="#rischi">F. Rischi</a>
+    <a href="#decisioni">G. Decisioni</a>
+    <a href="#successo">H. Successo</a>
+    <a href="#verdetto">Verdetto</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- SINTESI -->
+<section id="sintesi">
+  <div class="summary-box">
+    <h3 style="margin-top:0">📊 Sintesi in 30 secondi</h3>
+    <p style="margin-bottom:0">Lanciamo 4 prodotti in sequenza: <strong>Performance → Siti Web → Social Trap → Branding</strong>. Sito istituzionale Studio 121 in parallelo. Google Ads + Meta Ads (landing + form nativo) per ogni prodotto. A/B test sulle landing.</p>
+    <div class="summary-grid">
+      <div class="summary-stat"><div class="num">12</div><div class="lbl">Settimane</div></div>
+      <div class="summary-stat"><div class="num">4</div><div class="lbl">Prodotti</div></div>
+      <div class="summary-stat"><div class="num">~1.780€</div><div class="lbl">Budget 3 mesi</div></div>
+      <div class="summary-stat"><div class="num">6+</div><div class="lbl">Clienti target</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- A. STRATEGIA -->
+<section id="strategia">
+  <h2><span class="section-num">A</span>Riformulazione strategia</h2>
+  <p class="section-sub">Quello che hai in mente, riassunto per essere sicuri di esserci capiti</p>
+
+  <h3>Sequenza di lancio prodotti</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Prodotto</th><th>Quando</th><th>Stato</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td><strong>Performance "Sistema Clienti"</strong></td><td>Mese 1</td><td><span class="badge orange">In lavorazione</span></td></tr>
+        <tr><td><strong>2</strong></td><td><strong>Siti Web</strong></td><td>Mese 2</td><td><span class="badge dark">Pianificato</span></td></tr>
+        <tr><td><strong>3</strong></td><td><strong>Social Trap</strong> (consulenza)</td><td>Mese 3</td><td><span class="badge dark">Pianificato</span></td></tr>
+        <tr><td><strong>4</strong></td><td><strong>Branding/Logo</strong></td><td>Mese 4 (post-ferie)</td><td><span class="badge red">Bloccato: asset designer</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Parallelo: sito istituzionale studio121.it</h3>
+  <p>Già intrapreso in <code style="background:rgba(37,52,65,0.06);padding:2px 6px;border-radius:4px">/2Nerd/developement/Local Site/</code>. Va messo online come <strong>versione provvisoria nuova</strong> in parallelo alle landing.</p>
+
+  <h3>Setup pubblicitario</h3>
+  <ul style="list-style:none;padding:0">
+    <li style="padding:8px 0;color:var(--text-secondary)"><strong style="color:var(--rosso)">Google Ads:</strong> A/B test sulla landing performance, poi su siti web e social trap</li>
+    <li style="padding:8px 0;color:var(--text-secondary)"><strong style="color:var(--rosso)">Meta Ads:</strong> 2 campagne parallele per ogni prodotto</li>
+    <li style="padding:8px 0;color:var(--text-secondary);padding-left:24px">→ Campagna A: traffico verso landing A/B</li>
+    <li style="padding:8px 0;color:var(--text-secondary);padding-left:24px">→ Campagna B: form nativo Meta (lead form)</li>
+  </ul>
+</section>
+
+<!-- B. VALIDAZIONE -->
+<section id="validazione">
+  <h2><span class="section-num">B</span>Validazione critica</h2>
+  <p class="section-sub">Cosa è solido, cosa va sistemato, cosa rischia</p>
+
+  <h3 style="color:var(--green)">✓ SOLIDO — non toccare</h3>
+  <div class="card solid">
+    <div class="card-label">1. Sequenza prodotti corretta</div>
+    <p>Performance prima, branding ultimo è la giusta priorità. Performance vende risultati senza richiedere portfolio visivo. Branding richiede asset, va dopo. Logico.</p>
+  </div>
+  <div class="card solid">
+    <div class="card-label">2. A/B test sulle landing</div>
+    <p>Approccio scientifico. Permette di scegliere la variante vincente con dati reali, non con sensazioni.</p>
+  </div>
+  <div class="card solid">
+    <div class="card-label">3. Sito istituzionale parallelo</div>
+    <p>Le landing portano traffico ma se l'utente cerca "Studio 121" su Google deve trovare un sito che dia fiducia. Necessario per il trust complessivo del brand.</p>
+  </div>
+  <div class="card solid">
+    <div class="card-label">4. Meta Ads doppia strategia (landing + form nativo)</div>
+    <p>Il form nativo Meta ha tasso di compilazione 3-5x più alto della landing (un click in meno) ma qualità lead inferiore. Testare in parallelo è la mossa giusta.</p>
+  </div>
+
+  <h3 style="color:var(--orange);margin-top:32px">⚠️ DA SISTEMARE — prima di partire</h3>
+  <div class="card fix">
+    <div class="card-label">1. Stile della landing performance attuale</div>
+    <p>Hai detto che non ti convince. Va rifatto prima di lanciare le campagne. Senza una landing che ti rappresenta, le campagne sprecano budget (CTR alto + bounce alto).</p>
+    <p><strong>Decisione richiesta:</strong> 2-3 riferimenti di landing che ti piacciono (esempi: Linear.app, Stripe, Brand Appart).</p>
+  </div>
+  <div class="card fix">
+    <div class="card-label">2. A/B test e volumi piccoli</div>
+    <p>Con i volumi reali di Ragusa (50-200 ricerche/mese sulle keyword target), un A/B test richiede <strong>4-8 settimane</strong> per essere statisticamente significativo. Non puoi cambiare le varianti ogni 7 giorni.</p>
+  </div>
+  <div class="card fix">
+    <div class="card-label">3. Tracking unificato Meta form nativo + landing</div>
+    <p>Devi tracciare con UTM diversi le 2 fonti di lead per capire quale converte meglio in <strong>clienti finali</strong>, non solo in lead. Il form nativo ha più lead ma meno qualificati.</p>
+  </div>
+  <div class="card fix">
+    <div class="card-label">4. "Logo ragusa" stai lasciando soldi sul tavolo</div>
+    <p>Branding posticipato, ma "logo ragusa" ha 90 ricerche/mese geo-Ragusa con CPC 2,01€ — bassissima concorrenza. Suggerimento: landing branding minima con CTA "consulenza" (non preventivo immediato) per catturare quei lead.</p>
+  </div>
+
+  <h3 style="color:var(--rosso);margin-top:32px">✗ RISCHI SERI</h3>
+  <div class="card risk">
+    <div class="card-label">1. Lanciare 4 prodotti in 12 settimane è ambizioso</div>
+    <p>Ogni prodotto richiede: landing + copy + campagne Google + Meta + tracking + follow-up + template preventivo + capacità di consegnare. Se ne lanci 4 in fila, rischi di averli tutti mediocri.</p>
+    <p><strong>Meglio 2 fatti bene che 4 fatti male.</strong></p>
+  </div>
+  <div class="card risk">
+    <div class="card-label">2. Sito istituzionale in parallelo = doppia priorità</div>
+    <p>Sviluppare il sito + lanciare landing + gestire campagne = tempo frammentato. Suggerimento: prima sito MVP (homepage + 3 pagine), poi torni alle landing.</p>
+  </div>
+  <div class="card risk">
+    <div class="card-label">3. Capacità operativa post-lead</div>
+    <p>Se cominciano ad arrivare 20-30 lead/mese, devi rispondere entro 24h, gestire le call, fare i preventivi entro 24h. Senza un processo + automazioni Brevo, i lead si perdono.</p>
+  </div>
+</section>
+
+<!-- C. ROADMAP -->
+<section id="roadmap">
+  <h2><span class="section-num">C</span>Roadmap 12 settimane</h2>
+  <p class="section-sub">Timeline operativa concreta, settimana per settimana</p>
+
+  <h3 style="margin-top:24px">Mese 1 (Maggio) — Foundation + Lancio Performance</h3>
+  <div class="timeline">
+    <div class="tl-card">
+      <div class="week">Settimana 1 · 29 apr - 5 mag</div>
+      <h4>Setup Tecnico</h4>
+      <ul>
+        <li>Stile landing definito</li>
+        <li>Placeholder sostituiti</li>
+        <li>Formspree collegato</li>
+        <li>Tracking Google Ads + GA4</li>
+        <li>Brevo: lista + automazioni</li>
+        <li>Test funnel end-to-end</li>
+      </ul>
+    </div>
+    <div class="tl-card">
+      <div class="week">Settimana 2 · 6 - 12 mag</div>
+      <h4>Lancio Performance Live</h4>
+      <ul>
+        <li>Google Ads attivo (50€/sett)</li>
+        <li>Meta Ads camp. 1 (landing)</li>
+        <li>Meta Ads camp. 2 (form nativo)</li>
+        <li>Monitoraggio quotidiano</li>
+      </ul>
+    </div>
+    <div class="tl-card">
+      <div class="week">Settimana 3-4 · 13 - 26 mag</div>
+      <h4>Ottimizzazione + Sito Istituzionale</h4>
+      <ul>
+        <li>Aggiusto keyword Google Ads</li>
+        <li>Variante B landing performance</li>
+        <li>Sito Studio 121 (homepage+3)</li>
+        <li>Outbound: 5 audit/sett</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px">Mese 2 (Giugno) — Siti Web + Sito Istituzionale Live</h3>
+  <div class="timeline">
+    <div class="tl-card">
+      <div class="week">Settimana 5 · 27 mag - 2 giu</div>
+      <h4>Sito Studio 121 Live</h4>
+      <ul>
+        <li>Sito istituzionale provvisorio deployato</li>
+        <li>Inizio adattamento landing siti-web</li>
+      </ul>
+    </div>
+    <div class="tl-card">
+      <div class="week">Settimana 6 · 3 - 9 giu</div>
+      <h4>Lancio Siti Web</h4>
+      <ul>
+        <li>Landing siti-web live + variante B</li>
+        <li>Google Ads dedicata siti-web</li>
+        <li>Performance continua</li>
+      </ul>
+    </div>
+    <div class="tl-card">
+      <div class="week">Settimana 7 · 10 - 16 giu</div>
+      <h4>Meta Ads Siti Web</h4>
+      <ul>
+        <li>Meta Ads anche per siti-web</li>
+        <li>Bilancio Performance: scalo o no?</li>
+      </ul>
+    </div>
+    <div class="tl-card">
+      <div class="week">Settimana 8 · 17 - 23 giu</div>
+      <h4>Iterazione</h4>
+      <ul>
+        <li>Scalo budget canali che funzionano</li>
+        <li>Taglio canali che non funzionano</li>
+        <li>Adeguamento copy/creative</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px">Mese 3 (Luglio) — Social Trap + Consolidamento</h3>
+  <div class="timeline">
+    <div class="tl-card">
+      <div class="week">Settimana 9 · 24 - 30 giu</div>
+      <h4>Lancio Social Trap</h4>
+      <ul>
+        <li>Adatto landing social-trap (variante D)</li>
+        <li>Google Ads social-trap (30€/sett)</li>
+      </ul>
+    </div>
+    <div class="tl-card">
+      <div class="week">Settimana 10 · 1 - 7 lug</div>
+      <h4>Meta Ads + Retargeting</h4>
+      <ul>
+        <li>Meta Ads social-trap</li>
+        <li>Retargeting su visitatori non convertiti</li>
+      </ul>
+    </div>
+    <div class="tl-card">
+      <div class="week">Settimana 11-12 · 8 - 21 lug</div>
+      <h4>Bilancio + Pianificazione</h4>
+      <ul>
+        <li>Bilancio completo 3 mesi</li>
+        <li>Branding rimandato a settembre (ferie)</li>
+        <li>Asset designer per ottobre</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- D. ARCHITETTURA -->
+<section id="architettura">
+  <h2><span class="section-num">D</span>Architettura tecnica</h2>
+  <p class="section-sub">Come si parlano landing, sito istituzionale e tracking</p>
+
+  <h3>Struttura URL proposta</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>URL</th><th>Cosa è</th><th>Quando</th></tr></thead>
+      <tbody>
+        <tr><td><strong>studio121.it</strong></td><td>Sito istituzionale provvisorio (homepage + 3 pagine MVP)</td><td>Settimana 5</td></tr>
+        <tr><td><strong>motionpack.vercel.app/studio121-landing/performance.html</strong></td><td>Landing campagne Performance</td><td>Live</td></tr>
+        <tr><td><strong>motionpack.vercel.app/studio121-landing/siti-web.html</strong></td><td>Landing campagne Siti Web</td><td>Settimana 6</td></tr>
+        <tr><td><strong>motionpack.vercel.app/studio121-landing/social-trap.html</strong></td><td>Landing campagne Social Trap</td><td>Settimana 9</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Tracking unificato (UTM)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Canale</th><th>UTM source</th><th>UTM medium</th><th>UTM campaign</th></tr></thead>
+      <tbody>
+        <tr><td>Google Ads Performance</td><td>google</td><td>cpc</td><td><span class="badge dark">performance-search</span></td></tr>
+        <tr><td>Meta Ads Landing Performance</td><td>meta</td><td>cpc</td><td><span class="badge dark">performance-traffic</span></td></tr>
+        <tr><td>Meta Form Nativo Performance</td><td>meta</td><td>cpc</td><td><span class="badge dark">performance-leadform</span></td></tr>
+        <tr><td>Google Ads Siti Web</td><td>google</td><td>cpc</td><td><span class="badge dark">sitiweb-search</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Da Brevo + GA4 ricavi: quale canale porta lead, quale porta <strong>clienti veri</strong> (lead → cliente firmato).</p>
+</section>
+
+<!-- E. BUDGET -->
+<section id="budget">
+  <h2><span class="section-num">E</span>Budget mensile</h2>
+  <p class="section-sub">Spesa esterna progressiva, scaling per prodotti attivi</p>
+
+  <div class="budget-grid">
+    <div class="budget-card">
+      <div class="month">Mese 1 — Maggio</div>
+      <div class="amount">400€</div>
+      <div class="breakdown">Performance solo<br>Google 200 + Meta 200</div>
+    </div>
+    <div class="budget-card">
+      <div class="month">Mese 2 — Giugno</div>
+      <div class="amount">650€</div>
+      <div class="breakdown">+ Siti Web<br>Google 350 + Meta 300</div>
+    </div>
+    <div class="budget-card">
+      <div class="month">Mese 3 — Luglio</div>
+      <div class="amount">730€</div>
+      <div class="breakdown">+ Social Trap<br>Google 430 + Meta 300</div>
+    </div>
+    <div class="budget-card" style="border-top-color:var(--green);background:linear-gradient(to bottom,#fff 0%,var(--green-soft) 100%)">
+      <div class="month">Totale 3 Mesi</div>
+      <div class="amount" style="color:var(--green)">~1.780€</div>
+      <div class="breakdown">Spesa esterna totale<br>Brevo, Vercel, Formspree free</div>
+    </div>
+  </div>
+
+  <h3>Risultati attesi (conservativi)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th></th><th>Mese 1</th><th>Mese 2</th><th>Mese 3</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Lead totali</strong></td><td class="table-num">8-15</td><td class="table-num">15-25</td><td class="table-num">25-40</td></tr>
+        <tr><td><strong>Clienti chiusi</strong></td><td class="table-num">1-2</td><td class="table-num">2-4</td><td class="table-num">4-7</td></tr>
+        <tr><td><strong>Revenue nuovi clienti</strong></td><td class="table-num">2-8K€</td><td class="table-num">5-15K€</td><td class="table-num">10-25K€</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="background:#fff;padding:16px 20px;border-radius:10px;border-left:4px solid var(--green);margin-top:16px"><strong>Un solo cliente Performance</strong> (800€ setup + 500€/mese × 6 mesi = 3.800€) ripaga tutto il budget pubblicitario di 3 mesi.</p>
+</section>
+
+<!-- F. RISCHI -->
+<section id="rischi">
+  <h2><span class="section-num">F</span>Rischi e mitigazioni</h2>
+  <p class="section-sub">Mappatura dei rischi con probabilità, impatto e contromisure</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Rischio</th><th>Prob.</th><th>Impatto</th><th>Mitigazione</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Capacità operativa insufficiente</strong> (troppi lead, pochi pranziti)</td>
+          <td><span class="badge red">Alta</span></td>
+          <td><span class="badge red">Alto</span></td>
+          <td>Limita inizialmente i canali. Mese 1 = solo Performance. Aggiungi solo dopo aver consolidato.</td>
+        </tr>
+        <tr>
+          <td><strong>A/B test non significativi</strong></td>
+          <td><span class="badge red">Alta</span></td>
+          <td><span class="badge orange">Medio</span></td>
+          <td>Lascia girare ogni variante minimo 4 settimane prima di dichiarare un vincitore.</td>
+        </tr>
+        <tr>
+          <td><strong>Sito istituzionale in ritardo</strong></td>
+          <td><span class="badge orange">Media</span></td>
+          <td><span class="badge orange">Medio</span></td>
+          <td>Inizia con MVP (homepage + 3 pagine). Evolvi nel tempo.</td>
+        </tr>
+        <tr>
+          <td><strong>Stile landing non convince</strong></td>
+          <td><span class="badge red">Alta</span></td>
+          <td><span class="badge orange">Medio</span></td>
+          <td>Decidiamo 2-3 riferimenti di stile PRIMA di lavorare sulle altre. Standardizziamo il look.</td>
+        </tr>
+        <tr>
+          <td><strong>Form nativo Meta = lead bassa qualità</strong></td>
+          <td><span class="badge red">Alta</span></td>
+          <td><span class="badge orange">Medio</span></td>
+          <td>Aggiungi 2-3 domande qualificanti nel form. Filtra in CRM.</td>
+        </tr>
+        <tr>
+          <td><strong>CPC più alto del previsto</strong></td>
+          <td><span class="badge green">Bassa</span></td>
+          <td><span class="badge orange">Medio</span></td>
+          <td>Hai i CPC reali geo-Ragusa: 0,17-0,67€. Sei al sicuro.</td>
+        </tr>
+        <tr>
+          <td><strong>Stagionalità ferie luglio-agosto</strong></td>
+          <td><span class="badge red">Certo</span></td>
+          <td><span class="badge red">Alto</span></td>
+          <td>Branding rimandato a settembre, focus mese 3 su acquisizione lead da chiudere a settembre.</td>
+        </tr>
+        <tr>
+          <td><strong>Cliente non risponde post-lead</strong></td>
+          <td><span class="badge red">Alta</span></td>
+          <td><span class="badge red">Alto</span></td>
+          <td>Sequenza follow-up automatica via Brevo + WhatsApp diretto entro 1h.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- G. DECISIONI -->
+<section id="decisioni">
+  <h2><span class="section-num">G</span>Decisioni da prendere questa settimana</h2>
+  <p class="section-sub">8 punti operativi prima di lanciare</p>
+
+  <div class="checklist">
+    <h3>Checklist pre-lancio</h3>
+    <label class="check-item"><input type="checkbox"><span><strong>1. Stile landing</strong>: 2-3 riferimenti che ti piacciono <span class="when">entro 30 aprile</span></span></label>
+    <label class="check-item"><input type="checkbox"><span><strong>2. Numero telefono + WhatsApp + P.IVA</strong> reali <span class="when">entro 30 aprile</span></span></label>
+    <label class="check-item"><input type="checkbox"><span><strong>3. Account Formspree</strong> creato + ID <span class="when">entro 1 maggio · gratis, 5 min</span></span></label>
+    <label class="check-item"><input type="checkbox"><span><strong>4. Account Google Ads</strong> attivo con metodo pagamento <span class="when">entro 1 maggio</span></span></label>
+    <label class="check-item"><input type="checkbox"><span><strong>5. Account Meta Business Manager</strong> attivo <span class="when">entro 2 maggio</span></span></label>
+    <label class="check-item"><input type="checkbox"><span><strong>6. Brevo</strong>: lista "Lead Performance" creata <span class="when">entro 2 maggio</span></span></label>
+    <label class="check-item"><input type="checkbox"><span><strong>7. Sito istituzionale</strong>: stato attuale + cosa manca <span class="when">entro 3 maggio</span></span></label>
+    <label class="check-item"><input type="checkbox"><span><strong>8. Budget mensile confermato</strong> (400€ mese 1) <span class="when">entro 3 maggio</span></span></label>
+  </div>
+</section>
+
+<!-- H. SUCCESSO -->
+<section id="successo">
+  <h2><span class="section-num">H</span>Definizione di successo</h2>
+  <p class="section-sub">I numeri concreti che ci dicono se il piano sta funzionando</p>
+
+  <div class="timeline">
+    <div class="tl-card">
+      <div class="week">Mese 1 · Performance live</div>
+      <h4>Foundation</h4>
+      <ul>
+        <li>3+ lead qualificati</li>
+        <li>1+ cliente firmato</li>
+        <li>CPL &lt; 50€</li>
+      </ul>
+    </div>
+    <div class="tl-card">
+      <div class="week">Mese 2 · Performance + Siti Web</div>
+      <h4>Crescita</h4>
+      <ul>
+        <li>8+ lead qualificati</li>
+        <li>3+ clienti firmati</li>
+        <li>1+ retainer Performance attivo</li>
+      </ul>
+    </div>
+    <div class="tl-card">
+      <div class="week">Mese 3 · 3 prodotti attivi</div>
+      <h4>Consolidamento</h4>
+      <ul>
+        <li>15+ lead qualificati</li>
+        <li>6+ clienti cumulativi</li>
+        <li>3+ retainer attivi (1.500€/mese ricorrenti)</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="background:#fff;padding:16px 20px;border-radius:10px;border-left:4px solid var(--green);margin-top:24px;font-size:1rem"><strong>Se a fine mese 3 hai 3 retainer Performance attivi, il modello scala. Punto.</strong></p>
+</section>
+
+<!-- VERDETTO -->
+<section id="verdetto">
+  <div class="verdict">
+    <div class="verdict-tag">Verdetto Finale</div>
+    <h2>La strategia è valida. La sequenza è corretta. La timeline è ambiziosa ma realizzabile SE:</h2>
+    <ul>
+      <li>Riduci la velocità di lancio (1 prodotto alla volta, non 3 in parallelo)</li>
+      <li>Sistemi lo stile delle landing PRIMA di lanciare campagne</li>
+      <li>Strutturi il post-lead (Brevo automation + processo preventivi 24h)</li>
+      <li>Concentri il sito istituzionale in 3-5 pagine MVP, non un sito enorme</li>
+      <li>Hai disciplina nel non spostarti su nuove cose finché le precedenti non funzionano</li>
+    </ul>
+    <p style="margin-top:24px;font-weight:600;color:#fff">Se rispetti questi 5 punti, il piano funziona. Se cerchi di fare tutto subito, il rischio è alto.</p>
+  </div>
+</section>
+
+<p style="text-align:center;color:var(--text-muted);font-size:0.85rem;font-style:italic;margin-top:48px">Documento da rivedere ogni settimana per aggiornare lo status.</p>
+
+</div>
+
+<footer>
+  Studio 121 — Piano di Lancio Validato — 28 Aprile 2026<br>
+  <a href="index.html">← Torna all'hub interno</a>
+</footer>
+
+<script>
+// Scroll spy nav
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.subnav a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    if (pageYOffset >= top) current = section.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+});
+
+// Checklist persistence
+document.querySelectorAll('.check-item input[type=checkbox]').forEach((cb, i) => {
+  const key = 'plan_check_' + i;
+  cb.checked = localStorage.getItem(key) === 'true';
+  if (cb.checked) cb.closest('.check-item').classList.add('done');
+  cb.addEventListener('change', () => {
+    localStorage.setItem(key, cb.checked);
+    cb.closest('.check-item').classList.toggle('done', cb.checked);
+  });
+});
+
+// Smooth scroll
+document.querySelectorAll('.subnav a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
+  });
+});
+</script>
+</body>
+</html>
